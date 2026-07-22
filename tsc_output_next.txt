@@ -1,0 +1,12 @@
+﻿app/blog/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+app/careers/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+app/case-studies/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+app/industries/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+app/insights/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+app/solutions/page.tsx(11,18): error TS18047: 'searchParams' is possibly 'null'.
+components/CursorContext.tsx(25,26): error TS2554: Expected 1 arguments, but got 0.
+components/InteractiveGlobe.tsx(165,7): error TS2322: Type '{ args: (HTMLCanvasElement | undefined)[]; enableZoom: false; enablePan: false; autoRotate: true; autoRotateSpeed: number; dampingFactor: number; enableDamping: true; rotateSpeed: number; minPolarAngle: number; maxPolarAngle: number; }' is not assignable to type 'IntrinsicAttributes & OrbitControlsProps & RefAttributes<OrbitControls>'.
+  Property 'args' does not exist on type 'IntrinsicAttributes & OrbitControlsProps & RefAttributes<OrbitControls>'.
+pages/Blog.tsx(7,43): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+pages/BlogPost.tsx(8,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.
+pages/Home.tsx(9,27): error TS5097: An import path can only end with a '.ts' extension when 'allowImportingTsExtensions' is enabled.

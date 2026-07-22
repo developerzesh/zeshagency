@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Lato:wght@300;400;700;900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-syne: "Syne", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-lato: "Lato", sans-serif;
+
+  --color-ink: #0A0A0A;
+  --color-paper: #F6F5F0;
+  --color-signal: #F4A536;
+
+  --color-surface: #EDECE7;
+  --color-border: #DDDCD6;
+  --color-text-primary: #0A0A0A;
+  --color-text-secondary: #3A3A36;
+  --color-text-muted: #5A5A55;
+
+  /* Glassmorphism – light mode uses white so panel lifts above cream page bg */
+  --glass-bg: 255, 255, 255;
+  --glass-border: rgba(0, 0, 0, 0.08);
+}
+
+.dark {
+  --color-ink: #EDECE7;
+  --color-paper: #0A0A0A;
+
+  --color-surface: #1A1A1A;
+  --color-border: #2A2A2A;
+  --color-text-primary: #EDECE7;
+  --color-text-secondary: #B5B5B0;
+  --color-text-muted: #8A8A85;
+
+  /* Glassmorphism – dark mode */
+  --glass-bg: 18, 18, 18;
+  --glass-border: rgba(255, 255, 255, 0.10);
+}
+
+* {
+  cursor: none !important;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::selection {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink);
+  border-radius: 1px;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+}
+
+.three-canvas canvas {
+  outline: none !important;
+}
+
+.sig-hover {
+  position: relative;
+}
+
+.sig-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #F4A536;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sig-hover:hover::after {
+  width: 100%;
+}
+
+a,
+button,
+span,
+p,
+h1,
+h2,
+h3,
+h4,
+div {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── No-JS Fallback ────────────────────────────────────────────────────────
+   When JavaScript is disabled, Framer Motion inline styles (opacity:0, blur,
+   transform) keep the page blank. The @media scripting:none rule (supported
+   by modern browsers) forces all elements immediately visible.
+   The <noscript> block in layout.tsx covers older browsers as a second layer.
+────────────────────────────────────────────────────────────────────────────── */
+@media (scripting: none) {
+  * {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
