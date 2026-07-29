@@ -62,7 +62,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
       {/* Hero */}
       <section
         ref={heroRef}
-        className="relative bg-paper text-ink pt-44 pb-28 px-6 md:px-16 overflow-hidden min-h-[85vh] flex items-center"
+        className="relative min-h-[80vh] flex items-end overflow-hidden pb-36"
       >
         <ParticleField />
 
@@ -76,7 +76,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 max-w-[1400px] mx-auto w-full"
+          className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full"
         >
           {/* Flag / Country Indicator */}
           {/* <div className="inline-flex items-center gap-2.5 bg-signal/10 border border-signal/25 rounded-full px-4.5 py-1.5 mb-8">

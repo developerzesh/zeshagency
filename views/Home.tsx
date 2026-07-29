@@ -187,7 +187,7 @@ function TrustBar() {
           >
             {logos.map((logo, i) => (
               <div key={`${logo.alt}-${i}`} className="flex items-center flex-shrink-0">
-                <img src={logo.src} alt={logo.alt} className="h-8 md:h-12 w-auto object-contain opacity-50 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500" />
+                <img src={logo.src} alt={logo.alt} className="h-8 md:h-12 w-auto object-contain opacity-50 grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0 transition-all duration-500" />
               </div>
             ))}
           </motion.div>
