@@ -17,7 +17,7 @@ export default function Footer() {
             <MagneticButton strength={0.1}>
               <a href="/" onClick={handleNav} className="block">
                 <img
-                  src={isDark ? "/images/zesh_logo.png" : "/images/zesh_logo_light.png"}
+                  src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"}
                   alt="ZESH."
                   className="h-7 md:h-8 w-auto"
                 />

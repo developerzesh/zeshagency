@@ -89,7 +89,7 @@ export default function Navigation() {
             {/* Logo */}
             <MagneticButton strength={0.2}>
               <a href="/" onClick={handleNavClick} className="block">
-                <img src={isDark ? "/images/zesh_logo.png" : "/images/zesh_logo_light.png"} alt="ZESH." className="h-6 md:h-7 w-auto" />
+                <img src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"} alt="ZESH." className="h-6 md:h-7 w-auto" />
               </a>
             </MagneticButton>
 

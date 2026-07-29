@@ -141,14 +141,14 @@ function HeroSection() {
             </MagneticButton>
           </motion.div>
         </div>
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, filter: 'blur(12px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ delay: 2.5, duration: 1.8, ease: slowEase }}
           className="font-lato text-[10px] text-text-muted mt-16 max-w-sm leading-relaxed"
         >
           {heroContent.microcopy}
-        </motion.p>
+        </motion.p> */}
       </motion.div>
     </section>
   );
