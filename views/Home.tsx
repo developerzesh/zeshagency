@@ -468,24 +468,24 @@ const comparisonRows = [
 
 type CellType = 'yes' | 'no' | 'neutral' | 'highlight';
 
-function ComparisonCell({ text, type }: { text: string; type: CellType }) {
+function ComparisonCell({ text, type, zeshCol = false }: { text: string; type: CellType; zeshCol?: boolean }) {
   if (type === 'yes') {
     return (
-      <div className="flex items-center justify-center gap-1.5 font-lato text-sm text-text-secondary">
-        {text} <span className="text-green-500 font-bold">✓</span>
+      <div className={`flex items-center justify-center gap-1.5 font-lato text-sm font-semibold ${zeshCol ? 'text-white' : 'text-text-secondary'}`}>
+        {text} <span className="text-green-400 font-bold">✓</span>
       </div>
     );
   }
   if (type === 'no') {
     return (
-      <div className="flex items-center justify-center gap-1.5 font-lato text-sm text-text-secondary">
-        {text} <span className="text-red-500 font-bold">✗</span>
+      <div className={`flex items-center justify-center gap-1.5 font-lato text-sm ${zeshCol ? 'text-white/80' : 'text-text-secondary'}`}>
+        {text} <span className="text-red-400 font-bold">✗</span>
       </div>
     );
   }
   if (type === 'highlight') {
     return (
-      <div className="font-lato text-sm text-white text-center font-medium leading-snug">
+      <div className="font-lato text-sm text-white text-center font-semibold leading-snug">
         {text}
       </div>
     );
@@ -570,8 +570,8 @@ function ComparisonTable() {
                     </td>
 
                     {/* Zesh Column — always highlighted */}
-                    <td className={`px-4 py-5 border-b border-signal/20 border-l border-signal/20 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-signal/80' : 'bg-signal/70'} group-hover:bg-signal/90 ${i === comparisonRows.length - 1 ? 'rounded-br-2xl' : ''}`}>
-                      <ComparisonCell text={row.zesh.text} type={row.zesh.type as CellType} />
+                    <td className={`px-4 py-5 border-b border-signal/20 border-l border-signal/20 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-signal/85' : 'bg-signal/75'} group-hover:bg-signal ${i === comparisonRows.length - 1 ? 'rounded-br-2xl' : ''}`}>
+                      <ComparisonCell text={row.zesh.text} type={row.zesh.type as CellType} zeshCol />
                     </td>
                   </motion.tr>
                 ))}
