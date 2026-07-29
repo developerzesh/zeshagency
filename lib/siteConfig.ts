@@ -168,7 +168,7 @@ export const solutions: Solution[] = [
     ],
   },
   {
-    slug: 'web-dev', title: 'Growth Engineering & Website Development', shortTitle: 'Web Dev',
+    slug: 'web-dev', title: 'Website Development', shortTitle: 'Web Dev',
     tagline: 'Zero-bloat static engines built for speed and conversions.',
     description: 'Most websites are weighed down by heavy WordPress plugins and unoptimized code structures. We build on modern static stacks using lightweight vanilla HTML, CSS, and clean Javascript — designed for crawler indexing and user experience.',
     features: ['Headless Static Development', 'Frictionless Intake Funnels', 'Core Web Vitals Engineering', 'Conversion Pipeline Engineering', 'API CRM Integration', 'PageSpeed Optimization'],

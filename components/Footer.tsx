@@ -36,7 +36,7 @@ export default function Footer() {
                 { label: 'Search Engine Optimization', path: '/solutions?slug=seo' },
                 { label: 'Answer Engine Optimization', path: '/solutions?slug=aeo' },
                 { label: 'Generative Engine Optimization', path: '/solutions?slug=geo' },
-                { label: 'Growth Engineering & Web Development', path: '/solutions?slug=web-dev' },
+                { label: 'Website Development', path: '/solutions?slug=web-dev' },
                 { label: 'Local SEO Dominance', path: '/solutions?slug=local-seo' },
                 { label: 'Scalable Lead Generation', path: '/solutions?slug=lead-gen' },
                 { label: 'Social Media Management', path: '/solutions?slug=social-media' },

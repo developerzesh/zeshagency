@@ -523,14 +523,14 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               {solution.title}<span className="text-signal">.</span>
             </h1>
           </RevealText>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-16">
+          <div className="flex flex-col items-start gap-8 md:gap-10 max-w-2xl">
             <RevealText delay={0.2} duration={1.6}>
-              <p className="font-lato text-base md:text-lg text-text-secondary max-w-lg leading-[1.85]">
+              <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-xl">
                 {solution.tagline}
               </p>
             </RevealText>
             <RevealText delay={0.4} duration={1.4}>
-              <div className="flex flex-col items-start gap-4">
+              <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <MagneticButton strength={0.4}>
                   <a href="/contact" className="group flex items-center gap-4">
                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
@@ -540,7 +540,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   </a>
                 </MagneticButton>
                 <MagneticButton strength={0.3}>
-                  <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
+                  <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
                 </MagneticButton>
               </div>
             </RevealText>
