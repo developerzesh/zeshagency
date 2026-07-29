@@ -4,17 +4,28 @@ export const siteConfig = {
   tagline: 'Strategic Growth Consultancy',
   headline: 'Growth, marketed.',
   description: 'We scale brands through high-converting web engineering, search engine optimization (SEO), and generative search presence (AEO & GEO).',
-  email: 'hello@zesh.agency',
-  careersEmail: 'careers@zesh.agency',
+  email: 'Shahana@zeshagency.com',
+  careersEmail: 'Shahana@zeshagency.com',
   year: 2026,
   social: ['Twitter', 'LinkedIn', 'Dribbble'],
 } as const;
 
 // ── Offices ───────────────────────────────────────────────
 export const offices = [
-  { city: 'New York', type: 'HQ', email: 'ny@zesh.agency' },
-  { city: 'London', type: 'Studio', email: 'ldn@zesh.agency' },
-  { city: 'Tokyo', type: 'Studio', email: 'tky@zesh.agency' },
+  { city: 'New York', type: 'HQ', email: 'Shahana@zeshagency.com' },
+  { city: 'London', type: 'Studio', email: 'Shahana@zeshagency.com' },
+  { city: 'Tokyo', type: 'Studio', email: 'Shahana@zeshagency.com' },
+] as const;
+
+export const citiesNav = [
+  { label: 'Dubai', path: '/city-dubai' },
+  { label: 'Abu Dhabi', path: '/city-abudhabi' },
+  { label: 'New York', path: '/city-newyork' },
+  { label: 'London', path: '/city-london' },
+  { label: 'Sydney', path: '/city-sydney' },
+  { label: 'Mumbai', path: '/city-mumbai' },
+  { label: 'Riyadh', path: '/city-riyadh' },
+  { label: 'Johannesburg', path: '/city-johannesburg' },
 ] as const;
 
 // ── Navigation ────────────────────────────────────────────

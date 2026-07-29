@@ -1,6 +1,7 @@
 import MagneticButton from './MagneticButton';
 import { useCursor } from './CursorContext';
 import { useTheme } from './ThemeContext';
+import { citiesNav } from '../lib/data';
 
 export default function Footer() {
   const { startLoading } = useCursor();
@@ -78,14 +79,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Countries We Operate In block (col-span-2) */}
+          {/* Cities We Serve block (col-span-2) */}
           <div className="col-span-1 md:col-span-2">
-            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Countries We Operate In</p>
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Cities We Serve</p>
             <ul className="space-y-3">
-              {['USA', 'UAE', 'Australia', 'KSA', 'Maldives', 'South Africa', 'Malawi', 'UK'].map((country) => (
-                <li key={country} className="flex items-center gap-2">
+              {citiesNav.map((city) => (
+                <li key={city.label} className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-signal" />
-                  <span className="font-lato text-sm text-text-secondary">{country}</span>
+                  <a
+                    href={city.path}
+                    onClick={handleNav}
+                    className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
+                  >
+                    {city.label}
+                  </a>
                 </li>
               ))}
             </ul>

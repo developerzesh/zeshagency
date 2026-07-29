@@ -13,12 +13,17 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [isDark, setIsDark] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('zesh-theme') === 'dark';
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const theme = localStorage.getItem('zesh-theme');
+    if (theme) {
+      setIsDark(theme === 'dark');
+    } else {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDark(prefersDark);
     }
-    return false;
-  });
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;

@@ -44,7 +44,7 @@ export default function CareerDetail({ career }: { career: Career }) {
 
           <RevealText delay={0.4} duration={1.4}>
             <div className="pt-8 border-t border-border">
-              <MagneticButton strength={0.4}><a href="mailto:careers@zesh.agency" className="font-lato text-sm font-medium text-signal sig-hover">Apply Now →</a></MagneticButton>
+              <MagneticButton strength={0.4}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Apply Now →</a></MagneticButton>
             </div>
           </RevealText>
         </div>

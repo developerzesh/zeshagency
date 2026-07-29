@@ -7,9 +7,9 @@ import PageTransition from '../components/PageTransition';
 import Testimonials from '../components/Testimonials';
 
 const offices = [
-  { city: 'New York', type: 'HQ', email: 'ny@zesh.agency' },
-  { city: 'London', type: 'Studio', email: 'ldn@zesh.agency' },
-  { city: 'Tokyo', type: 'Studio', email: 'tky@zesh.agency' },
+  { city: 'New York', type: 'HQ', email: 'Shahana@zeshagency.com' },
+  { city: 'London', type: 'Studio', email: 'Shahana@zeshagency.com' },
+  { city: 'Tokyo', type: 'Studio', email: 'Shahana@zeshagency.com' },
 ];
 
 export default function Contact() {
@@ -82,7 +82,7 @@ export default function Contact() {
               <RevealText delay={0.45} duration={1.2}>
                 <div className="mt-10">
                   <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-4">General</p>
-                  <a href="mailto:hello@zesh.agency" className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700">hello@zesh.agency</a>
+                  <a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700">Shahana@zeshagency.com</a>
                 </div>
               </RevealText>
               <RevealText delay={0.5} duration={1.2}>

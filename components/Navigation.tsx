@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
-import { solutions, industries, caseStudies } from '../lib/data';
+import { solutions, industries, caseStudies, citiesNav } from '../lib/data';
 import { useCursor } from './CursorContext';
 import { useTheme } from './ThemeContext';
 
@@ -17,6 +17,7 @@ const primaryNav: NavItem[] = [
   { label: 'Solutions', path: '/solutions', submenu: solutions.map(s => ({ label: s.title, path: `/solutions?slug=${s.slug}` })) },
   { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries?slug=${i.slug}` })) },
   { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies?slug=${cs.slug}` })) },
+  // { label: 'Locations', path: '/city-dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
 ];
 
 // ── Secondary nav ────────────────────────────────────────
@@ -294,7 +295,7 @@ export default function Navigation() {
                     Zesh Agency · Strategic Growth Consultancy
                   </p>
                   <span className="font-lato text-[10px] tracking-[0.12em] uppercase text-signal">
-                    hello@zesh.agency
+                    Shahana@zeshagency.com
                   </span>
                 </div>
               </div>

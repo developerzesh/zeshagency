@@ -921,7 +921,7 @@ function FAQSection() {
                       className="group w-full flex items-center justify-between gap-6 py-6 text-left cursor-pointer"
                     >
                       <span
-                        className={`font-syne text-base md:text-lg font-bold transition-colors duration-500 ${isActive ? 'text-signal' : 'text-ink dark:text-[#EDECE7] group-hover:text-signal'
+                        className={`font-lato text-base md:text-lg font-bold transition-colors duration-500 ${isActive ? 'text-signal' : 'text-ink dark:text-[#EDECE7] group-hover:text-signal'
                           }`}
                       >
                         {faq.question}

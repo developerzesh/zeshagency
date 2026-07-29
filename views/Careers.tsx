@@ -55,7 +55,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
               </div>
               <div className="flex gap-4">
                 <MagneticButton strength={0.2}>
-                  <a href={`mailto:careers@zesh.agency?subject=Application for ${encodeURIComponent(position.title)}`} className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block">
+                  <a href={`mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`} className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block">
                     Submit Application →
                   </a>
                 </MagneticButton>
@@ -340,11 +340,11 @@ export default function Careers() {
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
                   <MagneticButton strength={0.4}>
-                    <a href="mailto:careers@zesh.agency" className="group flex items-center gap-4">
+                    <a href="mailto:Shahana@zeshagency.com" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>
-                      <span className="font-lato text-sm font-medium text-ink">careers@zesh.agency</span>
+                      <span className="font-lato text-sm font-medium text-ink">Shahana@zeshagency.com</span>
                     </a>
                   </MagneticButton>
                   <MagneticButton strength={0.3}>
