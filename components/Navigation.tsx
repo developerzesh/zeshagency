@@ -292,7 +292,7 @@ export default function Navigation() {
                   }}
                 >
                   <p className="font-lato text-[10px] tracking-[0.18em] uppercase text-ink/60">
-                    Zesh Agency · Strategic Growth Consultancy
+                    Zesh Agency
                   </p>
                   <span className="font-lato text-[10px] tracking-[0.12em] uppercase text-signal">
                     Shahana@zeshagency.com

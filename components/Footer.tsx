@@ -12,14 +12,14 @@ export default function Footer() {
     <footer className="border-t border-border py-18 md:py-36">
       <div className="max-w-[1400px] mx-auto px-6 md:px-16">
         <div className="grid grid-cols-2 md:grid-cols-12 gap-10 md:gap-8 mb-28">
-          {/* Brand block (col-span-3) */}
-          <div className="col-span-2 md:col-span-3">
+          {/* Brand block (col-span-2) */}
+          <div className="col-span-2 md:col-span-2">
             <MagneticButton strength={0.1}>
               <a href="/" onClick={handleNav} className="block">
                 <img
                   src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"}
                   alt="ZESH."
-                  className="h-7 md:h-8 w-auto"
+                  className="h-5 md:h-6 w-auto"
                 />
               </a>
             </MagneticButton>
@@ -28,8 +28,8 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Solutions block (col-span-3) */}
-          <div className="col-span-1 md:col-span-3">
+          {/* Solutions block (col-span-2) */}
+          <div className="col-span-1 md:col-span-2">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Solutions</p>
             <ul className="space-y-3">
               {[
@@ -55,31 +55,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Consultancy block (col-span-2) */}
-          <div className="col-span-1 md:col-span-2">
-            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Consultancy</p>
-            <ul className="space-y-3">
+          {/* Regional Solutions block (col-span-2 md:col-span-3) */}
+          <div className="col-span-2 md:col-span-3">
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Regional Solutions</p>
+            <div className="grid grid-cols-1 gap-4">
               {[
-                { label: 'Why Partner With Us', path: '/about' },
-                { label: 'Featured Cases', path: '/case-studies' },
-                { label: 'Insights & Advisory', path: '/insights' },
-                { label: 'Blog & Articles', path: '/blog' },
-                { label: 'Careers', path: '/careers' },
-              ].map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.path}
-                    onClick={handleNav}
-                    className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
-                  >
-                    {l.label}
-                  </a>
-                </li>
+                { name: 'Dubai', key: 'dubai' },
+                { name: 'Abu Dhabi', key: 'abudhabi' },
+                { name: 'San Jose', key: 'sanjose' },
+                { name: 'Texas', key: 'texas' },
+                { name: 'Fremont', key: 'fremont' },
+                { name: 'Pleasanton', key: 'pleasanton' },
+              ].map((city) => (
+                <div key={city.key} className="flex flex-col">
+                  <span className="font-syne font-bold text-xs text-text-secondary mb-1">{city.name}</span>
+                  <div className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] text-text-muted leading-none">
+                    <a href={`/seo-aeo-geo_in_${city.key}`} onClick={handleNav} className="hover:text-signal transition-colors duration-300">SEO/AEO/GEO</a>
+                    <span className="opacity-40">|</span>
+                    <a href={`/lead-gen_in_${city.key}`} onClick={handleNav} className="hover:text-signal transition-colors duration-300">Lead Gen</a>
+                    <span className="opacity-40">|</span>
+                    <a href={`/social-media_in_${city.key}`} onClick={handleNav} className="hover:text-signal transition-colors duration-300">Social Media</a>
+                    <span className="opacity-40">|</span>
+                    <a href={`/web-dev_in_${city.key}`} onClick={handleNav} className="hover:text-signal transition-colors duration-300">Web Dev</a>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          {/* Cities We Serve block (col-span-2) */}
+          {/* Cities We Serve block (col-span-1 md:col-span-2) */}
           <div className="col-span-1 md:col-span-2">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Cities We Serve</p>
             <ul className="space-y-3">
@@ -98,19 +102,28 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Legal / Privacy Policy block (col-span-2) */}
-          <div className="col-span-1 md:col-span-2">
-            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Legal</p>
+          {/* Consultancy block (col-span-1 md:col-span-3) */}
+          <div className="col-span-1 md:col-span-3">
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Consultancy</p>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="/"
-                  onClick={handleNav}
-                  className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
-                >
-                  Privacy Policy
-                </a>
-              </li>
+              {[
+                { label: 'Why Partner With Us', path: '/about' },
+                { label: 'Featured Cases', path: '/case-studies' },
+                { label: 'Insights & Advisory', path: '/insights' },
+                { label: 'Blog & Articles', path: '/blog' },
+                { label: 'Careers', path: '/careers' },
+                { label: 'Privacy Policy', path: '/' },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.path}
+                    onClick={handleNav}
+                    className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -123,9 +136,9 @@ export default function Footer() {
           <div className="flex items-center gap-8">
             {[
               { name: 'Twitter', href: '#' },
-              { name: 'LinkedIn', href: '#' },
-              { name: 'Dribbble', href: '#' },
-              { name: 'Instagram', href: '#' }
+              { name: 'LinkedIn', href: 'https://www.linkedin.com/company/zesh-agency/' },
+              { name: 'Facebook', href: 'https://www.facebook.com/share/18GapT9Dzk/' },
+              { name: 'Instagram', href: 'https://www.instagram.com/zeshagency' }
             ].map((s) => (
               <a
                 key={s.name}
