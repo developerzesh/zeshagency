@@ -64,10 +64,10 @@ export const trustLogos = [
 
 // ── Stats ─────────────────────────────────────────────────
 export const stats = [
-  { value: '+92%', label: 'Brand Recall Growth' },
-  { value: '+245%', label: 'Search Visibility Growth' },
-  { value: '3.8x', label: 'Inbound Lead Growth' },
-  { value: '$45M+', label: 'Client Revenue Impact' },
+  { value: '+92%', label: 'Brand Recall Growth', icon: 'Megaphone' },
+  { value: '+245%', label: 'Search Visibility Growth', icon: 'Search' },
+  { value: '3.8x', label: 'Inbound Lead Growth', icon: 'Magnet' },
+  { value: '$45M+', label: 'Client Revenue Impact', icon: 'DollarSign' },
 ] as const;
 
 // ── Values ────────────────────────────────────────────────
