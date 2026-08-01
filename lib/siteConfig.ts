@@ -67,6 +67,7 @@ export const trustLogos = [
   { src: '/client-logos/bajaj.png', alt: 'Bajaj' },
   { src: '/client-logos/nyx.png', alt: 'NYX' },
   { src: '/client-logos/saarthee.png', alt: 'Saarthee' },
+  { src: '/client-logos/uleadspace.png', alt: 'UleadSpace' },
   { src: '/client-logos/sdb.png', alt: 'SDB' },
   { src: '/client-logos/shri_ram_school.png', alt: 'Shri Ram School' },
   { src: '/client-logos/tata.png', alt: 'Tata' },

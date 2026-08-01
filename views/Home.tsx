@@ -10,6 +10,7 @@ import PageTransition from '../components/PageTransition';
 import { solutions, industries, caseStudies, stats, heroContent, trustLabel, trustLogos, reasons, values } from '../lib/data';
 import { blogPosts } from '../lib/blogData';
 import Testimonials from '../components/Testimonials';
+import { useTheme } from '../components/ThemeContext';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -155,6 +156,7 @@ function HeroSection() {
 }
 
 function TrustBar() {
+  const { isDark } = useTheme();
   const logos = [...trustLogos, ...trustLogos];
   return (
     <section className="relative py-10 md:py-14 border-y border-border/80 overflow-hidden">
@@ -181,15 +183,35 @@ function TrustBar() {
           />
 
           <motion.div
-            className="flex gap-16 md:gap-24 items-center"
+            className="flex gap-16 md:gap-24 items-center w-max"
             animate={{ x: ['0%', '-50%'] }}
             transition={{ duration: 35, ease: 'linear', repeat: Infinity }}
           >
-            {logos.map((logo, i) => (
-              <div key={`${logo.alt}-${i}`} className="flex items-center flex-shrink-0">
-                <img src={logo.src} alt={logo.alt} className="h-8 md:h-12 w-auto object-contain opacity-50 grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0 transition-all duration-500" />
-              </div>
-            ))}
+            {logos.map((logo, i) => {
+              const isMeetstream = logo.alt === 'Meetstream';
+              const isWhiteLogo = logo.alt === 'Saarthee' || logo.alt === 'Goldmine';
+              const isLargeLogo = logo.alt === 'Xarwin' || logo.alt === 'Tata';
+              
+              const logoSrc = isMeetstream
+                ? (isDark ? '/client-logos/Meetstreamblack.png' : '/client-logos/Meetstream.png')
+                : logo.src;
+
+              return (
+                <div key={`${logo.alt}-${i}`} className="flex items-center flex-shrink-0">
+                  <img
+                    src={logoSrc}
+                    alt={logo.alt}
+                    className={`${isLargeLogo ? 'h-16 md:h-24' : 'h-8 md:h-12'
+                      } w-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
+                        ? 'grayscale hover:opacity-100 hover:grayscale-0'
+                        : isWhiteLogo
+                          ? 'invert dark:invert-0 hover:opacity-100 hover:invert-0'
+                          : 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0'
+                      }`}
+                  />
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
