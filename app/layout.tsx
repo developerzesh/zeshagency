@@ -5,12 +5,6 @@ import PageLayout from "@/components/PageLayout";
 export const metadata: Metadata = {
   title: "ZESH — Digital Marketing Agency",
   description: "Zesh Agency · Strategic Growth Consultancy",
-  icons: {
-    icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/favicon.ico", type: "image/x-icon" },
-    ],
-  },
 };
 
 export default function RootLayout({
