@@ -123,7 +123,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -269,7 +269,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -415,7 +415,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -561,7 +561,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -707,7 +707,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -853,7 +853,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -999,7 +999,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
@@ -1145,7 +1145,7 @@ export const CITY_DATA = {
       {
         "name": "Hafsa Sayed",
         "role": "FOUNDER",
-        "company": "HAFSA Couture",
+        "company": "HAFSA The Couture",
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],

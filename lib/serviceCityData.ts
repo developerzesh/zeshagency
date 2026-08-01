@@ -245,7 +245,7 @@ export const getServiceCityData = (serviceKey: ServiceKey, cityKey: CityKey) => 
     {
       name: "Hafsa Sayed",
       role: "FOUNDER",
-      company: "HAFSA Couture",
+      company: "HAFSA The Couture",
       quote: "Extremely professional and goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
     }
   ];
