@@ -133,7 +133,7 @@ export default function Industries() {
                   </div>
 
                   <a
-                    href={`/industries?slug=${ind.slug}`}
+                    href={`/industries/${ind.slug}`}
                     className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300 flex-shrink-0"
                   >
                     View Framework
@@ -212,3 +212,4 @@ export default function Industries() {
     </PageTransition>
   );
 }
+

@@ -273,7 +273,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                                 {related.map((rel, i) => (
                                     <RevealText key={rel.slug} delay={i * 0.08}>
-                                        <a href={`/blog?slug=${rel.slug}`} className="group block">
+                                        <a href={`/blog/${rel.slug}`} className="group block">
                                             <motion.div
                                                 whileHover={{ y: -5 }}
                                                 transition={{ duration: 0.7, ease: slowEase }}
@@ -310,3 +310,4 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
         </PageTransition>
     );
 }
+

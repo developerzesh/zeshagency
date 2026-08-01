@@ -37,14 +37,14 @@ export default function Footer() {
 
     <ul className="space-y-3">
       {[
-        { label: "Search Engine Optimization", path: "/solutions?slug=seo" },
-        { label: "Answer Engine Optimization", path: "/solutions?slug=aeo" },
-        { label: "Generative Engine Optimization", path: "/solutions?slug=geo" },
-        { label: "Website Development", path: "/solutions?slug=web-dev" },
-        { label: "Local SEO Dominance", path: "/solutions?slug=local-seo" },
-        { label: "Scalable Lead Generation", path: "/solutions?slug=lead-gen" },
-        { label: "Social Media Management", path: "/solutions?slug=social-media" },
-        { label: "High-Trust Consultation", path: "/solutions?slug=consultation" },
+        { label: "Search Engine Optimization", path: "/solutions/seo" },
+        { label: "Answer Engine Optimization", path: "/solutions/aeo" },
+        { label: "Generative Engine Optimization", path: "/solutions/geo" },
+        { label: "Website Development", path: "/solutions/web-dev" },
+        { label: "Local SEO Dominance", path: "/solutions/local-seo" },
+        { label: "Scalable Lead Generation", path: "/solutions/lead-gen" },
+        { label: "Social Media Management", path: "/solutions/social-media" },
+        { label: "High-Trust Consultation", path: "/solutions/consultation" },
       ].map((l) => (
         <li key={l.label}>
           <a

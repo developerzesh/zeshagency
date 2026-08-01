@@ -93,7 +93,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {(data.services as [string, string, string][]).map(([title, desc, pathKey], i) => (
               <RevealText key={title} delay={i * 0.08} duration={1.4}>
-                <Link href={`/solutions?slug=${pathKey}`} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
+                <Link href={`/solutions/${pathKey}`} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
                   <div className="w-6 h-0.5 bg-signal mb-6 transition-transform duration-500 group-hover:scale-x-150 group-hover:origin-left" />
                   <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight mb-4 group-hover:text-signal transition-colors duration-500">{title}</h3>
                   <p className="font-lato text-sm text-text-secondary leading-[1.8] mb-8 group-hover:text-text-muted transition-colors duration-500">{desc}</p>
@@ -451,3 +451,4 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
     </PageTransition>
   );
 }
+

@@ -249,7 +249,7 @@ function SolutionsGrid() {
           {topSolutions.map((s, i) => (
             <RevealText key={s.slug} delay={i * 0.1} duration={1.4}>
               <motion.a
-                href={`/solutions?slug=${s.slug}`}
+                href={`/solutions/${s.slug}`}
                 whileHover={{ x: 6 }}
                 transition={{ duration: 0.8, ease: slowEase }}
                 className="group block py-8 md:py-10"
@@ -656,7 +656,7 @@ function FeaturedCaseStudy() {
           {cards.map((card, i) => (
             <RevealText key={card.slug} delay={i * 0.12} duration={1.6}>
               <motion.a
-                href={`/case-studies?slug=${card.slug}`}
+                href={`/case-studies/${card.slug}`}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.5, ease: slowEase }}
                 className="group flex flex-col justify-between h-full bg-[#0E0F10] border border-[#1C1D1F] rounded-3xl p-8 md:p-10 transition-all duration-[600ms] cursor-pointer"
@@ -736,7 +736,7 @@ function IndustriesGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
           {topIndustries.map((ind, i) => (
             <RevealText key={ind.slug} delay={i * 0.08} duration={1.4}>
-              <a href={`/industries?slug=${ind.slug}`} className="group block py-6 border-b border-border h-full flex flex-col justify-between">
+              <a href={`/industries/${ind.slug}`} className="group block py-6 border-b border-border h-full flex flex-col justify-between">
                 <div>
                   <div className="flex items-baseline justify-between gap-2 mb-3">
                     <h3 className="font-syne text-lg md:text-xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1200ms]">{ind.title}</h3>
@@ -822,7 +822,7 @@ function BlogSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {latestPosts.map((post, i) => (
             <RevealText key={post.slug} delay={i * 0.08} duration={1.4}>
-              <a href={`/blog?slug=${post.slug}`} className="group block h-full">
+              <a href={`/blog/${post.slug}`} className="group block h-full">
                 <motion.div
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.7, ease: slowEase }}
@@ -981,3 +981,7 @@ export default function Home() {
     </PageTransition>
   );
 }
+
+
+
+

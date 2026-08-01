@@ -16,7 +16,7 @@ export default function IndustriesPreview() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-6">
           {industries.map((ind, i) => (
             <RevealText key={ind.slug} delay={i * 0.08} duration={1.4}>
-              <a href={`/industries?slug=${ind.slug}`} className="group block py-6 border-b border-border">
+              <a href={`/industries/${ind.slug}`} className="group block py-6 border-b border-border">
                 <div className="flex items-baseline justify-between gap-2 mb-1">
                   <h3 className="font-syne text-lg md:text-xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1200ms]">{ind.title}</h3>
                   <span className="text-signal group-hover:text-signal transition-colors duration-[1200ms] text-xs">→</span>
@@ -30,3 +30,4 @@ export default function IndustriesPreview() {
     </section>
   );
 }
+

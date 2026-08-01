@@ -196,7 +196,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.7, delay: index * 0.06, ease: slowEase }}
     >
-      <a href={`/case-studies?slug=${cs.slug}`} className="group block border-b border-border/60 last:border-b-0">
+      <a href={`/case-studies/${cs.slug}`} className="group block border-b border-border/60 last:border-b-0">
         <motion.div
           whileHover={{ x: 5 }}
           transition={{ duration: 0.8, ease: slowEase }}
@@ -380,3 +380,4 @@ export default function CaseStudies() {
     </PageTransition>
   );
 }
+

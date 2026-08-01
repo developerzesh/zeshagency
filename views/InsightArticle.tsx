@@ -147,7 +147,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {relatedArticles.map((rel, i) => (
                   <RevealText key={rel.slug} delay={i * 0.1}>
-                    <a href={`/insights?slug=${rel.slug}`} className="group block">
+                    <a href={`/insights/${rel.slug}`} className="group block">
                       <motion.div
                         whileHover={{ y: -4 }}
                         transition={{ duration: 0.8, ease: slowEase }}
@@ -186,3 +186,4 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
     </PageTransition>
   );
 }
+

@@ -132,17 +132,17 @@ export const CITY_DATA = {
       {
         "title": "Dubai SEO Guide 2025",
         "desc": "Complete guide to ranking on Google.ae — Arabic SEO, bilingual strategy, and UAE-specific ranking factors.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "UAE Digital Marketing Report",
         "desc": "Key statistics, platform trends, and budget benchmarks for marketing in the United Arab Emirates.",
-        "href": "/solutions?slug=aeo"
+        "href": "/solutions/aeo"
       },
       {
         "title": "Local SEO for Dubai Businesses",
         "desc": "How to dominate Google Maps and near-me searches across Dubai and the wider Emirates.",
-        "href": "/solutions?slug=local-seo"
+        "href": "/solutions/local-seo"
       }
     ],
     "process": [
@@ -278,17 +278,17 @@ export const CITY_DATA = {
       {
         "title": "Abu Dhabi B2B SEO Guide",
         "desc": "How to reach institutional and government buyers through search in the UAE's capital.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "Enterprise Digital Marketing UAE",
         "desc": "Strategy frameworks for enterprise brands targeting Abu Dhabi's high-value sectors.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       },
       {
         "title": "Arabic SEO Best Practices",
         "desc": "Technical and content guide for Arabic-first SEO in the GCC market.",
-        "href": "/solutions?slug=aeo"
+        "href": "/solutions/aeo"
       }
     ],
     "process": [
@@ -424,17 +424,17 @@ export const CITY_DATA = {
       {
         "title": "New York SEO Competitive Analysis",
         "desc": "How to outrank established competitors in Manhattan's most contested search categories.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "B2B Lead Generation NYC",
         "desc": "Pipeline frameworks for generating qualified enterprise leads in the New York market.",
-        "href": "/solutions?slug=lead-gen"
+        "href": "/solutions/lead-gen"
       },
       {
         "title": "US Content Strategy Guide",
         "desc": "Building topical authority that earns rankings in America's most sophisticated search market.",
-        "href": "/solutions?slug=aeo"
+        "href": "/solutions/aeo"
       }
     ],
     "process": [
@@ -570,17 +570,17 @@ export const CITY_DATA = {
       {
         "title": "London SEO Strategy Guide",
         "desc": "How to build Google.co.uk authority and outrank competitors in London's most contested markets.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "GDPR-Compliant Digital Marketing",
         "desc": "UK-specific compliance framework for content, tracking, and paid media campaigns.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       },
       {
         "title": "B2B Lead Generation UK",
         "desc": "Enterprise pipeline frameworks for London's financial and professional services sectors.",
-        "href": "/solutions?slug=lead-gen"
+        "href": "/solutions/lead-gen"
       }
     ],
     "process": [
@@ -716,17 +716,17 @@ export const CITY_DATA = {
       {
         "title": "Sydney SEO Guide 2025",
         "desc": "Suburb-level local SEO, Google.com.au ranking factors, and the Australian content strategy playbook.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "Local SEO for Sydney Businesses",
         "desc": "How to dominate near-me searches and Google Maps across Greater Sydney suburbs.",
-        "href": "/solutions?slug=local-seo"
+        "href": "/solutions/local-seo"
       },
       {
         "title": "Australian Digital Marketing Benchmarks",
         "desc": "Key statistics, platform preferences, and budget benchmarks for the Australian market.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       }
     ],
     "process": [
@@ -862,17 +862,17 @@ export const CITY_DATA = {
       {
         "title": "Mumbai SEO Guide 2025",
         "desc": "Bilingual SEO strategy, Hindi content frameworks, and India-specific ranking factors for Mumbai brands.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "India Digital Marketing Benchmarks",
         "desc": "Platform statistics, CPL benchmarks, and content strategy insights for the Indian market.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       },
       {
         "title": "Mobile-First SEO for India",
         "desc": "Technical SEO framework for India's mobile internet users — speed, Core Web Vitals, and UX.",
-        "href": "/solutions?slug=aeo"
+        "href": "/solutions/aeo"
       }
     ],
     "process": [
@@ -1008,17 +1008,17 @@ export const CITY_DATA = {
       {
         "title": "Saudi Arabia SEO Guide 2025",
         "desc": "Arabic-first SEO strategy, Google.com.sa ranking factors, and Vision 2030 digital opportunity analysis.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "Saudi Social Media Playbook",
         "desc": "Snapchat, Instagram, and Twitter strategy for reaching Saudi Arabia's young digital audience.",
-        "href": "/solutions?slug=social-media"
+        "href": "/solutions/social-media"
       },
       {
         "title": "Vision 2030 Digital Marketing",
         "desc": "How brands win in Saudi Arabia's newly opened sectors through digital authority building.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       }
     ],
     "process": [
@@ -1154,17 +1154,17 @@ export const CITY_DATA = {
       {
         "title": "South Africa SEO Guide 2025",
         "desc": "Google.co.za ranking factors, multi-language strategy, and South African content authority framework.",
-        "href": "/solutions?slug=seo"
+        "href": "/solutions/seo"
       },
       {
         "title": "POPIA Compliance for Digital Marketing",
         "desc": "How to run POPIA-compliant content, tracking, and lead generation campaigns in South Africa.",
-        "href": "/solutions?slug=consultation"
+        "href": "/solutions/consultation"
       },
       {
         "title": "Africa Market Entry Digital Strategy",
         "desc": "How international brands use SEO and digital marketing to enter Sub-Saharan African markets.",
-        "href": "/solutions?slug=aeo"
+        "href": "/solutions/aeo"
       }
     ],
     "process": [
@@ -1191,3 +1191,4 @@ export const CITY_DATA = {
     ]
   }
 } as const;
+

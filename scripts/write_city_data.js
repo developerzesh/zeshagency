@@ -32,9 +32,9 @@ const cities = {
     ],
     about: `Dubai's digital marketing landscape is unlike any other city in the world. With one of the highest smartphone penetration rates globally and a population that spans over 200 nationalities, succeeding in Dubai search requires a nuanced, multilingual approach that most agencies cannot deliver.\n\nSEO in Dubai operates across two primary languages — English and Arabic — with Google.ae serving as the dominant search engine at over 97% market share. This means technical SEO must account for right-to-left content structures, Arabic keyword research, and hreflang implementation that many international agencies overlook.\n\nOur Dubai SEO practice is built on deep local knowledge: understanding which keywords convert in the UAE market, which content formats resonate with MENA audiences, and how to build the backlink authority that ranks in one of the world's most competitive digital environments.`,
     resources: [
-      { title: 'Dubai SEO Guide 2025', desc: 'Complete guide to ranking on Google.ae — Arabic SEO, bilingual strategy, and UAE-specific ranking factors.', href: '/solutions?slug=seo' },
-      { title: 'UAE Digital Marketing Report', desc: 'Key statistics, platform trends, and budget benchmarks for marketing in the United Arab Emirates.', href: '/solutions?slug=aeo' },
-      { title: 'Local SEO for Dubai Businesses', desc: 'How to dominate Google Maps and near-me searches across Dubai and the wider Emirates.', href: '/solutions?slug=local-seo' },
+      { title: 'Dubai SEO Guide 2025', desc: 'Complete guide to ranking on Google.ae — Arabic SEO, bilingual strategy, and UAE-specific ranking factors.', href: '/solutions/seo' },
+      { title: 'UAE Digital Marketing Report', desc: 'Key statistics, platform trends, and budget benchmarks for marketing in the United Arab Emirates.', href: '/solutions/aeo' },
+      { title: 'Local SEO for Dubai Businesses', desc: 'How to dominate Google Maps and near-me searches across Dubai and the wider Emirates.', href: '/solutions/local-seo' },
     ],
   },
   abudhabi: {
@@ -60,9 +60,9 @@ const cities = {
     ],
     about: `Abu Dhabi's digital marketing environment is shaped by its role as the UAE's political and economic capital. Government institutions, sovereign wealth funds, and enterprise organisations dominate the buyer landscape — creating an SEO environment where authority signals, institutional backlinks, and long-form policy-aligned content carry exceptional weight.\n\nRanking on Google in Abu Dhabi requires a deep understanding of the procurement cycles unique to the capital's economy. Unlike Dubai's consumer-driven market, Abu Dhabi buyers are research-intensive decision-makers who validate vendors through authority content, case studies, and third-party citations before engaging.\n\nOur Abu Dhabi SEO practice focuses on building institutional authority — through Arabic and English content strategy, ADGM-sector expertise, and the technical foundations that position your brand as the category leader in the UAE's capital market.`,
     resources: [
-      { title: 'Abu Dhabi B2B SEO Guide', desc: 'How to reach institutional and government buyers through search in the UAE\'s capital.', href: '/solutions?slug=seo' },
-      { title: 'Enterprise Digital Marketing UAE', desc: 'Strategy frameworks for enterprise brands targeting Abu Dhabi\'s high-value sectors.', href: '/solutions?slug=consultation' },
-      { title: 'Arabic SEO Best Practices', desc: 'Technical and content guide for Arabic-first SEO in the GCC market.', href: '/solutions?slug=aeo' },
+      { title: 'Abu Dhabi B2B SEO Guide', desc: 'How to reach institutional and government buyers through search in the UAE\'s capital.', href: '/solutions/seo' },
+      { title: 'Enterprise Digital Marketing UAE', desc: 'Strategy frameworks for enterprise brands targeting Abu Dhabi\'s high-value sectors.', href: '/solutions/consultation' },
+      { title: 'Arabic SEO Best Practices', desc: 'Technical and content guide for Arabic-first SEO in the GCC market.', href: '/solutions/aeo' },
     ],
   },
   newyork: {
@@ -88,9 +88,9 @@ const cities = {
     ],
     about: `New York City is the world's most competitive SEO market. With the highest density of Fortune 500 companies, an unparalleled concentration of digital agencies, and buyers who research extensively before making decisions, ranking on Google in NYC demands more than standard SEO — it demands an elite approach.\n\nSucceeding in New York search requires a deep understanding of American buyer psychology, FTC-compliant content strategy, and competitive intelligence that tracks how Manhattan's most sophisticated brands are building their search authority. The keyword competition in categories like finance, real estate, and SaaS is among the highest in the world.\n\nOur New York SEO practice is built on institutional-grade keyword research, technical site architecture that meets Google's Core Web Vitals thresholds, and a content velocity strategy that compounds authority faster than competitors can respond.`,
     resources: [
-      { title: 'New York SEO Competitive Analysis', desc: 'How to outrank established competitors in Manhattan\'s most contested search categories.', href: '/solutions?slug=seo' },
-      { title: 'B2B Lead Generation NYC', desc: 'Pipeline frameworks for generating qualified enterprise leads in the New York market.', href: '/solutions?slug=lead-gen' },
-      { title: 'US Content Strategy Guide', desc: 'Building topical authority that earns rankings in America\'s most sophisticated search market.', href: '/solutions?slug=aeo' },
+      { title: 'New York SEO Competitive Analysis', desc: 'How to outrank established competitors in Manhattan\'s most contested search categories.', href: '/solutions/seo' },
+      { title: 'B2B Lead Generation NYC', desc: 'Pipeline frameworks for generating qualified enterprise leads in the New York market.', href: '/solutions/lead-gen' },
+      { title: 'US Content Strategy Guide', desc: 'Building topical authority that earns rankings in America\'s most sophisticated search market.', href: '/solutions/aeo' },
     ],
   },
   london: {
@@ -116,9 +116,9 @@ const cities = {
     ],
     about: `London is Europe's most competitive digital market and home to some of the world's most sophisticated online buyers. British consumers are research-intensive — they read extensively, compare thoroughly, and trust brands that demonstrate topical expertise before they commit to a purchase or a business relationship.\n\nRanking on Google.co.uk requires a specific understanding of British search intent, UK-specific authority signals, and GDPR-compliant content and tracking frameworks. Many international agencies apply generic US-centric strategies to the UK market, which consistently underperforms against locally calibrated approaches.\n\nOur London SEO practice is built on a foundation of Google.co.uk ranking expertise, British content strategy, and a deep understanding of the trust signals that convert London's discerning digital buyers — from City finance professionals to West End retail consumers.`,
     resources: [
-      { title: 'London SEO Strategy Guide', desc: 'How to build Google.co.uk authority and outrank competitors in London\'s most contested markets.', href: '/solutions?slug=seo' },
-      { title: 'GDPR-Compliant Digital Marketing', desc: 'UK-specific compliance framework for content, tracking, and paid media campaigns.', href: '/solutions?slug=consultation' },
-      { title: 'B2B Lead Generation UK', desc: 'Enterprise pipeline frameworks for London\'s financial and professional services sectors.', href: '/solutions?slug=lead-gen' },
+      { title: 'London SEO Strategy Guide', desc: 'How to build Google.co.uk authority and outrank competitors in London\'s most contested markets.', href: '/solutions/seo' },
+      { title: 'GDPR-Compliant Digital Marketing', desc: 'UK-specific compliance framework for content, tracking, and paid media campaigns.', href: '/solutions/consultation' },
+      { title: 'B2B Lead Generation UK', desc: 'Enterprise pipeline frameworks for London\'s financial and professional services sectors.', href: '/solutions/lead-gen' },
     ],
   },
   sydney: {
@@ -144,9 +144,9 @@ const cities = {
     ],
     about: `Sydney is Australia's digital marketing epicentre and home to the country's most competitive SEO market. With a population of over 5 million digitally active consumers and an economy spanning real estate, healthcare, financial services, and technology, Sydney presents extraordinary opportunities for businesses that build strong search authority.\n\nRanking on Google.com.au requires a specific understanding of Australian consumer behaviour, ACCC compliance requirements, and the local search signals that influence rankings in a market where mobile usage is exceptionally high. Suburb-level local SEO is particularly important in Sydney, where searchers consistently include suburb and neighbourhood qualifiers in their search queries.\n\nOur Sydney SEO practice combines suburb-level local optimisation, Google.com.au technical expertise, and Australian content strategy to build brands that dominate their categories across Greater Sydney and the wider Australian market.`,
     resources: [
-      { title: 'Sydney SEO Guide 2025', desc: 'Suburb-level local SEO, Google.com.au ranking factors, and the Australian content strategy playbook.', href: '/solutions?slug=seo' },
-      { title: 'Local SEO for Sydney Businesses', desc: 'How to dominate near-me searches and Google Maps across Greater Sydney suburbs.', href: '/solutions?slug=local-seo' },
-      { title: 'Australian Digital Marketing Benchmarks', desc: 'Key statistics, platform preferences, and budget benchmarks for the Australian market.', href: '/solutions?slug=consultation' },
+      { title: 'Sydney SEO Guide 2025', desc: 'Suburb-level local SEO, Google.com.au ranking factors, and the Australian content strategy playbook.', href: '/solutions/seo' },
+      { title: 'Local SEO for Sydney Businesses', desc: 'How to dominate near-me searches and Google Maps across Greater Sydney suburbs.', href: '/solutions/local-seo' },
+      { title: 'Australian Digital Marketing Benchmarks', desc: 'Key statistics, platform preferences, and budget benchmarks for the Australian market.', href: '/solutions/consultation' },
     ],
   },
   mumbai: {
@@ -172,9 +172,9 @@ const cities = {
     ],
     about: `Mumbai's digital marketing landscape is defined by scale, complexity, and opportunity. As India's financial capital and home to the country's largest concentration of enterprise businesses, Mumbai's search market is growing faster than almost any other major city globally — with Google searches increasing over 20% year on year across key commercial categories.\n\nSEO in Mumbai operates across multiple languages — English, Hindi, and regional languages — and requires a deep understanding of India's mobile-first internet users, who consume content primarily on smartphones and are increasingly conducting transactional searches directly on Google.\n\nOur Mumbai SEO practice combines bilingual content strategy, mobile-first technical optimisation, and India-specific backlink acquisition to build brands that rank across the full spectrum of Mumbai's commercial search landscape.`,
     resources: [
-      { title: 'Mumbai SEO Guide 2025', desc: 'Bilingual SEO strategy, Hindi content frameworks, and India-specific ranking factors for Mumbai brands.', href: '/solutions?slug=seo' },
-      { title: 'India Digital Marketing Benchmarks', desc: 'Platform statistics, CPL benchmarks, and content strategy insights for the Indian market.', href: '/solutions?slug=consultation' },
-      { title: 'Mobile-First SEO for India', desc: 'Technical SEO framework for India\'s mobile internet users — speed, Core Web Vitals, and UX.', href: '/solutions?slug=aeo' },
+      { title: 'Mumbai SEO Guide 2025', desc: 'Bilingual SEO strategy, Hindi content frameworks, and India-specific ranking factors for Mumbai brands.', href: '/solutions/seo' },
+      { title: 'India Digital Marketing Benchmarks', desc: 'Platform statistics, CPL benchmarks, and content strategy insights for the Indian market.', href: '/solutions/consultation' },
+      { title: 'Mobile-First SEO for India', desc: 'Technical SEO framework for India\'s mobile internet users — speed, Core Web Vitals, and UX.', href: '/solutions/aeo' },
     ],
   },
   riyadh: {
@@ -200,9 +200,9 @@ const cities = {
     ],
     about: `Riyadh's digital marketing landscape is being transformed by Vision 2030 — Saudi Arabia's national transformation programme that is opening new sectors, attracting international investment, and creating an extraordinary opportunity for brands that establish digital authority early in this economic transition.\n\nSEO in Saudi Arabia is fundamentally Arabic-first. With 99% internet penetration and a population of which 70% is under 35, Saudi buyers are highly digitally active but expect content that speaks to them in Arabic, respects Islamic values, and reflects local cultural norms.\n\nOur Riyadh SEO practice is built on Arabic content strategy, Google.com.sa technical expertise, and a deep understanding of the Vision 2030 sectors that are creating the greatest commercial opportunities in the Kingdom's capital market.`,
     resources: [
-      { title: 'Saudi Arabia SEO Guide 2025', desc: 'Arabic-first SEO strategy, Google.com.sa ranking factors, and Vision 2030 digital opportunity analysis.', href: '/solutions?slug=seo' },
-      { title: 'Saudi Social Media Playbook', desc: "Snapchat, Instagram, and Twitter strategy for reaching Saudi Arabia's young digital audience.", href: '/solutions?slug=social-media' },
-      { title: 'Vision 2030 Digital Marketing', desc: 'How brands win in Saudi Arabia\'s newly opened sectors through digital authority building.', href: '/solutions?slug=consultation' },
+      { title: 'Saudi Arabia SEO Guide 2025', desc: 'Arabic-first SEO strategy, Google.com.sa ranking factors, and Vision 2030 digital opportunity analysis.', href: '/solutions/seo' },
+      { title: 'Saudi Social Media Playbook', desc: "Snapchat, Instagram, and Twitter strategy for reaching Saudi Arabia's young digital audience.", href: '/solutions/social-media' },
+      { title: 'Vision 2030 Digital Marketing', desc: 'How brands win in Saudi Arabia\'s newly opened sectors through digital authority building.', href: '/solutions/consultation' },
     ],
   },
   johannesburg: {
@@ -228,9 +228,9 @@ const cities = {
     ],
     about: `Johannesburg is Sub-Saharan Africa's most sophisticated digital market and the economic gateway to the continent. With a large, English-speaking business community, high mobile internet adoption, and rapidly growing digital marketing investment across all sectors, Joburg presents an extraordinary opportunity for brands that establish search authority before the market reaches full maturity.\n\nSEO in South Africa operates primarily in English but increasingly requires multi-language considerations — with Zulu, Xhosa, and Afrikaans audiences representing significant commercial segments in specific sectors. POPIA compliance is essential for any brand collecting South African consumer data.\n\nOur Johannesburg SEO practice is built on Google.co.za ranking expertise, South African consumer psychology, and POPIA-compliant digital strategy — giving your brand the competitive advantage to own your category in Africa's most dynamic economy.`,
     resources: [
-      { title: 'South Africa SEO Guide 2025', desc: 'Google.co.za ranking factors, multi-language strategy, and South African content authority framework.', href: '/solutions?slug=seo' },
-      { title: 'POPIA Compliance for Digital Marketing', desc: 'How to run POPIA-compliant content, tracking, and lead generation campaigns in South Africa.', href: '/solutions?slug=consultation' },
-      { title: 'Africa Market Entry Digital Strategy', desc: 'How international brands use SEO and digital marketing to enter Sub-Saharan African markets.', href: '/solutions?slug=aeo' },
+      { title: 'South Africa SEO Guide 2025', desc: 'Google.co.za ranking factors, multi-language strategy, and South African content authority framework.', href: '/solutions/seo' },
+      { title: 'POPIA Compliance for Digital Marketing', desc: 'How to run POPIA-compliant content, tracking, and lead generation campaigns in South Africa.', href: '/solutions/consultation' },
+      { title: 'Africa Market Entry Digital Strategy', desc: 'How international brands use SEO and digital marketing to enter Sub-Saharan African markets.', href: '/solutions/aeo' },
     ],
   },
 };
@@ -267,3 +267,4 @@ const footer = `\nexport const CITY_DATA = ${JSON.stringify(cities, null, 2)} as
 
 fs.writeFileSync(path.join(__dirname, '..', 'lib', 'cityData.ts'), header + footer, 'utf8');
 console.log('cityData.ts written successfully');
+

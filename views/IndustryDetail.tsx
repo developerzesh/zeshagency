@@ -373,7 +373,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
 
               <div className="mt-8">
                 <a
-                  href={`/case-studies?slug=${matched.slug}`}
+                  href={`/case-studies/${matched.slug}`}
                   className="font-lato text-sm text-signal sig-hover hover:text-ink transition-colors duration-700"
                 >
                   Read Full Case Study →
@@ -452,3 +452,4 @@ export default function IndustryDetail({ industry }: { industry: Industry }) {
     </PageTransition>
   );
 }
+

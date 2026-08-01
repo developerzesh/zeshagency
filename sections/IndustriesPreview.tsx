@@ -15,7 +15,7 @@ export default function IndustriesPreview() {
         <div className="flex gap-0 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-6 md:mx-0 md:overflow-visible md:snap-none md:flex-wrap md:justify-center">
           {industries.slice(0, 8).map((industry, i) => (
             <RevealText key={industry.slug} delay={i * 0.05}>
-              <a href={`/industries?slug=${industry.slug}`} className="block snap-center flex-shrink-0 md:flex-shrink">
+              <a href={`/industries/${industry.slug}`} className="block snap-center flex-shrink-0 md:flex-shrink">
                 <motion.div
                   whileHover={{ y: -3 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
@@ -37,3 +37,4 @@ export default function IndustriesPreview() {
     </section>
   );
 }
+

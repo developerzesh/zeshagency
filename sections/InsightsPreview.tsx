@@ -13,7 +13,7 @@ export default function InsightsPreview() {
         <div className="space-y-0">
           {articles.slice(0, 3).map((article, i) => (
             <RevealText key={article.slug} delay={i * 0.08}>
-              <a href={`/insights?slug=${article.slug}`}>
+              <a href={`/insights/${article.slug}`}>
                 <motion.div
                   whileHover={{ x: 8 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
@@ -39,3 +39,4 @@ export default function InsightsPreview() {
     </section>
   );
 }
+

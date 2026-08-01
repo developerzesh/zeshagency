@@ -124,7 +124,7 @@ export default function Insights() {
           ) : (
             filtered.map((article, i) => (
               <RevealText key={article.slug} delay={i * 0.07} duration={1.4}>
-                <a href={`/insights?slug=${article.slug}`} className="group block border-b border-border/60 last:border-b-0">
+                <a href={`/insights/${article.slug}`} className="group block border-b border-border/60 last:border-b-0">
                   <motion.article
                     whileHover={{ x: 6 }}
                     transition={{ duration: 0.8, ease: slowEase }}
@@ -212,3 +212,4 @@ export default function Insights() {
     </PageTransition>
   );
 }
+

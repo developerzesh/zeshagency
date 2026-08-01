@@ -16,7 +16,7 @@ export default function SolutionsPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {solutions.map((s, i) => (
             <RevealText key={s.slug} delay={i * 0.08} duration={1.4}>
-              <a href={`/solutions?slug=${s.slug}`} className="group block py-10 md:py-48 px-0 border-b border-border md:even:pl-16 md:odd:pr-16">
+              <a href={`/solutions/${s.slug}`} className="group block py-10 md:py-48 px-0 border-b border-border md:even:pl-16 md:odd:pr-16">
                 <div className="flex items-start justify-between gap-4 mb-3">
                   <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1200ms]">{s.title}</h3>
                   <span className="font-syne text-sm font-800 text-signal group-hover:text-signal transition-colors duration-[1200ms] flex-shrink-0">{s.shortTitle}</span>

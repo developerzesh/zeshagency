@@ -2102,7 +2102,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
 
             {/* CTA to full case study */}
             <a
-              href={`/case-studies?slug=${relatedCaseStudy.slug}`}
+              href={`/case-studies/${relatedCaseStudy.slug}`}
               className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 hover:text-ink transition-colors duration-300"
             >
               Read the Full Case Study
@@ -2235,3 +2235,4 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
     </PageTransition >
   );
 }
+

@@ -16,7 +16,7 @@ export default function CaseStudiesPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
           {caseStudies.slice(0, 3).map((cs, i) => (
             <RevealText key={cs.slug} delay={i * 0.1}>
-              <a href={`/case-studies?slug=${cs.slug}`}>
+              <a href={`/case-studies/${cs.slug}`}>
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -112,3 +112,4 @@ export default function CaseStudiesPreview() {
     </section>
   );
 }
+

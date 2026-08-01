@@ -13,7 +13,7 @@ const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const toPath = (p: string) => {
   const slug = SOL_MAP[p] || p;
-  return `/solutions?slug=${slug}`;
+  return `/solutions/${slug}`;
 };
 
 interface CityPageProps {
@@ -491,3 +491,4 @@ export default function CityPage({ cityKey }: CityPageProps) {
     </PageTransition>
   );
 }
+

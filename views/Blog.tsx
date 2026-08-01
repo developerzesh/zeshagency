@@ -134,7 +134,7 @@ export default function Blog() {
                             {featured && (
                                 <RevealText duration={1.6}>
                                     <a
-                                        href={`/blog?slug=${featured.slug}`}
+                                        href={`/blog/${featured.slug}`}
                                         className="group block mb-24 md:mb-32 border-b border-border/50 pb-24 md:pb-32"
                                     >
                                         <motion.div
@@ -190,7 +190,7 @@ export default function Blog() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                                     {rest.map((post, i) => (
                                         <RevealText key={post.slug} delay={i * 0.07} duration={1.4}>
-                                            <a href={`/blog?slug=${post.slug}`} className="group block h-full">
+                                            <a href={`/blog/${post.slug}`} className="group block h-full">
                                                 <motion.article
                                                     whileHover={{ y: -6 }}
                                                     transition={{ duration: 0.7, ease: slowEase }}
@@ -285,3 +285,4 @@ export default function Blog() {
         </PageTransition>
     );
 }
+

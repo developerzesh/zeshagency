@@ -55,7 +55,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
           transition={{ duration: 1.4, delay: 0.4, ease: slowEase }}
           className="flex flex-wrap items-center gap-3 mb-8"
         >
-          <a href={`/industries?slug=${cs.industrySlug}`} className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal border border-signal/30 bg-signal/10 px-3 py-1.5 hover:bg-signal hover:text-paper transition-all duration-500">
+          <a href={`/industries/${cs.industrySlug}`} className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal border border-signal/30 bg-signal/10 px-3 py-1.5 hover:bg-signal hover:text-paper transition-all duration-500">
             {cs.industry}
           </a>
           {cs.services.map(s => (
@@ -369,7 +369,7 @@ function ConclusionSection({ cs }: { cs: CaseStudy }) {
               <div className="mt-10 pt-8 border-t border-border/40">
                 <p className="font-lato text-xs text-text-muted uppercase tracking-[0.2em] mb-3">Industry</p>
                 <a
-                  href={`/industries?slug=${cs.industrySlug}`}
+                  href={`/industries/${cs.industrySlug}`}
                   className="font-lato text-sm text-signal sig-hover hover:text-ink transition-colors duration-700"
                 >
                   Read our {cs.industry} industry guide →
@@ -402,7 +402,7 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
           {related.map((rel, i) => (
             <RevealText key={rel.slug} delay={i * 0.1}>
-              <a href={`/case-studies?slug=${rel.slug}`} className="group block">
+              <a href={`/case-studies/${rel.slug}`} className="group block">
                 <motion.div
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.8, ease: slowEase }}
@@ -498,3 +498,5 @@ export default function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy })
     </PageTransition>
   );
 }
+
+

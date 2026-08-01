@@ -14,9 +14,9 @@ const insightCategories = ['AI & Search', 'Web Development', 'SEO Strategy'];
 
 // ── Primary nav (with submenus) ──────────────────────────
 const primaryNav: NavItem[] = [
-  { label: 'Solutions', path: '/solutions', submenu: solutions.map(s => ({ label: s.title, path: `/solutions?slug=${s.slug}` })) },
-  { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries?slug=${i.slug}` })) },
-  { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies?slug=${cs.slug}` })) },
+  { label: 'Solutions', path: '/solutions', submenu: solutions.map(s => ({ label: s.title, path: `/solutions/${s.slug}` })) },
+  { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
+  { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
   // { label: 'Locations', path: '/city-dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
 ];
 
@@ -389,3 +389,5 @@ export default function Navigation() {
     </>
   );
 }
+
+
