@@ -79,6 +79,14 @@ const capabilityDescriptions: Record<string, string[]> = {
     'We deliver a written, step-by-step execution blueprint with prioritized actions, keyword targets, and 90-day milestones your team can implement immediately after the workshop.',
     'We provide ongoing principal-led oversight sessions to validate that the roadmap is being executed correctly and adjust strategy based on live performance data.',
   ],
+  'google-ads': [
+    'We structure campaigns using strict thematic grouping, ensuring high ad relevance scores that lower your average cost-per-click (CPC) and improve ad placement.',
+    'We bypass informational search queries to target transactional, bottom-of-funnel keywords where buyers are actively looking for commercial vendors.',
+    'We design and match high-converting, speed-optimized landing pages to each ad group, maximizing quality score and landing page conversion rates.',
+    'We configure server-side conversion tracking and GTM data layers, ensuring every dollar spent is accurately attributed to qualified pipeline.',
+    'We implement exhaustive lists of negative keywords to eliminate job-seekers, competitors, and irrelevant informational traffic before they cost you budget.',
+    'We transition campaigns from manual bidding to smart, value-based automated bidding strategies once stable conversion baselines are established.'
+  ],
 };
 
 // ── Scroll-driven Capability Accordion ────────────────────────────────────────

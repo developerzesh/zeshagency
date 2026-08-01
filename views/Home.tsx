@@ -251,12 +251,13 @@ function WhyChooseUs() {
 }
 
 function SolutionsGrid() {
-  const topSolutions = solutions.slice(0, 4);
+  const FEATURED = ['seo', 'google-ads', 'web-dev', 'social-media'];
+  const topSolutions = FEATURED.map(slug => solutions.find(s => s.slug === slug)!).filter(Boolean);
   const diagnoses = [
     'Your site has technical barriers preventing crawlers from indexing your highest-value pages.',
-    'Conversational AI models don\x27t cite your brand because your entity lacks structured semantic trust signals.',
-    'Generative search engines compile answers without referencing your domain or expertise.',
+    'You\'re spending budget on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
     'Slow, plugin-heavy architecture is killing your conversion rates and wasting your crawl budget.',
+    'Your executives are invisible on LinkedIn while competitors build authority and attract inbound deal flow.',
   ];
   return (
     <section className="relative py-32 md:py-48 border-t border-border">
@@ -308,7 +309,7 @@ function SolutionsGrid() {
         </div>
         <RevealText delay={0.5}>
           <div className="mt-10 flex justify-start">
-            <a href="/solutions" className="font-lato text-sm font-medium text-signal sig-hover">View All 8 Capabilities →</a>
+            <a href="/solutions" className="font-lato text-sm font-medium text-signal sig-hover">View All 9 Capabilities →</a>
           </div>
         </RevealText>
       </div>

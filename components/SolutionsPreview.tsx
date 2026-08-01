@@ -10,7 +10,7 @@ export default function SolutionsPreview() {
             <RevealText duration={2}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em]">Solutions<span className="text-signal">.</span></h2></RevealText>
           </div>
           <div className="md:col-span-4 md:col-start-8 flex items-end">
-            <RevealText delay={0.2} duration={1.6}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">Eight specialized disciplines, one unified growth system. Each solution designed to compound with the others.</p></RevealText>
+            <RevealText delay={0.2} duration={1.6}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">Nine specialized disciplines, one unified growth system. Each solution designed to compound with the others.</p></RevealText>
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-0">

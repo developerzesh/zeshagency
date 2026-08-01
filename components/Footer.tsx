@@ -45,6 +45,7 @@ export default function Footer() {
         { label: "Scalable Lead Generation", path: "/solutions/lead-gen" },
         { label: "Social Media Management", path: "/solutions/social-media" },
         { label: "High-Trust Consultation", path: "/solutions/consultation" },
+        { label: "Google Ads & Paid Search", path: "/solutions/google-ads" },
       ].map((l) => (
         <li key={l.label}>
           <a

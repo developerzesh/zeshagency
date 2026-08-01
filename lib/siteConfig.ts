@@ -228,6 +228,31 @@ export const solutions: Solution[] = [
       { phase: '03', title: 'Oversight', description: 'Implementation oversight, monthly health checks, and strategic roadmap adjustments.' },
     ],
   },
+  {
+    slug: 'google-ads',
+    title: 'Google Ads & Paid Search',
+    shortTitle: 'Google Ads',
+    tagline: 'High-intent paid traffic that converts immediately.',
+    description: 'Organic search strategy takes time to mature. Paid search campaigns intercept high-intent buyers instantly. We build, audit, and optimize Google Ads accounts with strict conversion tracking and zero-waste budget routing.',
+    features: [
+      'Search Campaign Architecture',
+      'High-Intent Keyword Harvesting',
+      'Landing Page Conversion Alignment',
+      'Conversion Tracking Validation',
+      'B2B Negative Keyword Scrubber',
+      'Bid Strategy Calibration'
+    ],
+    outcomes: [
+      'Lower cost-per-acquisition (CPA) on paid campaigns',
+      'Significant increases in qualified demo requests and leads',
+      'Elimination of budget waste on low-intent search queries'
+    ],
+    roadmap: [
+      { phase: '01', title: 'Account & Audit Scans', description: 'Auditing legacy campaigns, mapping conversion track leaks, and identifying negative keyword drains.' },
+      { phase: '02', title: 'Campaign Build & Alignment', description: 'Re-building campaign groups around high-intent ad units and configuring custom landing experiences.' },
+      { phase: '03', title: 'Calibrate & Scale', description: 'Automating bid strategy rules, monitoring click-to-lead latency, and scaling top performers.' },
+    ],
+  },
 ];
 
 // ── Industries ────────────────────────────────────────────
