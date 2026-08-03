@@ -64,12 +64,12 @@ export default function SeoAeoGeoPage() {
   return (
     <PageTransition>
       {/* ── HERO ── */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-40 pb-20">
+      <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden pt-16 md:pt-40 pb-12 md:pb-20">
         <ParticleField />
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-signal/[0.04] blur-[150px] rounded-full pointer-events-none animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-cyan-500/[0.03] blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full">
           <RevealText duration={1.6}>
             <h1 className="font-syne text-5xl md:text-8xl font-800 tracking-[-0.04em] leading-[0.9] max-w-5xl">
               SEO / AEO / GEO<br />
@@ -86,12 +86,12 @@ export default function SeoAeoGeoPage() {
           <RevealText delay={0.35} duration={1.4}>
             <div className="flex flex-wrap items-center gap-6">
               <MagneticButton strength={0.4}>
-                <Link href="/contact" className="group flex items-center gap-4">
+                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                   <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                     <span className="text-paper text-sm">→</span>
                   </span>
                   <span className="font-lato text-sm font-medium text-ink">Get A Future-Proof Search Audit</span>
-                </Link>
+                </a>
               </MagneticButton>
             </div>
           </RevealText>
@@ -99,8 +99,8 @@ export default function SeoAeoGeoPage() {
       </section>
 
       {/* ── EVOLUTION ROADMAP (Interactive Tabs) ── */}
-      <section className="py-24 md:py-36 border-t border-border bg-surface/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border bg-surface/10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">THE NEW PARADIGM</p>
             <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -175,8 +175,8 @@ export default function SeoAeoGeoPage() {
       </section>
 
       {/* ── REGIONAL DIRECTORY (Target City Links) ── */}
-      <section className="py-24 md:py-36 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20 text-center max-w-2xl mx-auto">
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">LOCATION INDEX</p>
             <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -211,7 +211,7 @@ export default function SeoAeoGeoPage() {
 
       {/* ── CONCLUDING CTA STRIP ── */}
       <section className="border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-16 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-16 md:py-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 bg-signal/5 border border-signal/20 rounded-2xl px-8 md:px-12 py-10 md:py-12">
             <div>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-3 font-semibold">GET STARTED</p>
@@ -224,12 +224,12 @@ export default function SeoAeoGeoPage() {
             </div>
             <div className="flex flex-col gap-4 flex-shrink-0">
               <MagneticButton strength={0.4}>
-                <Link href="/contact" className="group flex items-center gap-4">
+                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                   <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                     <span className="text-paper text-sm">→</span >
                   </span>
                   <span className="font-lato text-sm font-medium text-ink font-semibold">Request System Audit</span>
-                </Link>
+                </a>
               </MagneticButton>
             </div>
           </div>

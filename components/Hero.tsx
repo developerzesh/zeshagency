@@ -2,7 +2,8 @@ import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import ParticleField from './ParticleField';
-import { useCursor } from './CursorContext';
+import LineGrid from './LineGrid';
+
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -26,8 +27,6 @@ export default function Hero() {
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const { startLoading } = useCursor();
-
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const parallaxX = useSpring(useTransform(mouseX, [-500, 500], [-4, 4]), { damping: 60, stiffness: 40, mass: 2 });
@@ -42,7 +41,7 @@ export default function Hero() {
   const words = ['We', 'engineer', 'the', 'future', 'of', 'growth.'];
 
   return (
-    <section id="hero" ref={containerRef} className="relative min-h-screen md:h-screen flex items-center overflow-hidden">
+    <section id="hero" ref={containerRef} className="relative min-h-[70vh] md:h-screen flex items-center overflow-hidden">
       <ParticleField />
 
       {/* Soft ambient glow */}
@@ -50,7 +49,10 @@ export default function Hero() {
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-ink/[0.012] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full pt-40 md:pt-40">
+      {/* Line grid – right side */}
+      <LineGrid className="hidden md:block" />
+
+      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40">
         {/* Location tag */}
         <motion.p
           initial={{ opacity: 0, filter: 'blur(20px)' }}
@@ -62,7 +64,7 @@ export default function Hero() {
         </motion.p>
 
         {/* Headline */}
-        <h1 className="font-syne text-[clamp(3rem,8vw,8.5rem)] font-800 leading-[0.92] tracking-[-0.03em] mb-32 md:mb-28">
+        <h1 className="font-syne text-[clamp(3rem,8vw,8.5rem)] font-800 leading-[0.92] tracking-[-0.03em] mb-20 md:mb-32">
           {words.map((word, i) => (
             <BlurWord key={word} word={word} delay={0.5 + i * 0.12} />
           ))}
@@ -86,7 +88,7 @@ export default function Hero() {
             className="flex items-center gap-10"
           >
             <MagneticButton strength={0.4}>
-              <a href="#work" onClick={startLoading} className="group flex items-center gap-4">
+                <a href="#work" className="group flex items-center gap-4">
                 <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                   <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                 </span>

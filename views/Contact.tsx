@@ -8,9 +8,9 @@ import PageTransition from '../components/PageTransition';
 import Testimonials from '../components/Testimonials';
 
 const offices = [
-  { city: 'New York', type: 'HQ', email: 'Shahana@zeshagency.com' },
-  { city: 'London', type: 'Studio', email: 'Shahana@zeshagency.com' },
-  { city: 'Tokyo', type: 'Studio', email: 'Shahana@zeshagency.com' },
+  { city: 'India', type: 'HQ', email: 'Pune' },
+  { city: 'USA', type: 'Studio', email: 'San Jose' },
+  // { city: 'Tokyo', type: 'Studio', email: 'Shahana@zeshagency.com' },
 ];
 
 export default function Contact() {
@@ -23,7 +23,7 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [message, setMessage] = useState('');
-  
+
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMsg, setStatusMsg] = useState('');
 
@@ -91,18 +91,18 @@ export default function Contact() {
 
   return (
     <PageTransition>
-      <section className="relative pt-40 pb-36 overflow-hidden" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
+      <section className="relative pt-24 md:pt-40 pb-20 md:pb-36 overflow-hidden" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-signal/[0.015] blur-[200px] pointer-events-none" />
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.006] blur-[180px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <RevealText duration={1.4}><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-6">Discovery</p></RevealText>
           <RevealText duration={2}><h1 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.04em] leading-[0.9] mb-10">Let's build a predictable revenue engine<span className="text-signal">.</span></h1></RevealText>
           <RevealText delay={0.2} duration={1.6}><p className="font-lato text-lg md:text-xl text-text-secondary max-w-2xl leading-[1.85]">We respect your time. No generic sales pitches or follow-up call sequences. You will speak directly with our founders to analyze your organic search pipeline and conversion roadblocks.</p></RevealText>
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16">
             <div className="md:col-span-7">
               <RevealText duration={1.4}><p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-8">Share your challenge</p></RevealText>
@@ -168,11 +168,10 @@ export default function Contact() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      className={`p-4 rounded-xl border font-lato text-sm leading-[1.6] ${
-                        status === 'sending' ? 'bg-ink/5 border-ink/10 text-ink/70' :
+                      className={`p-4 rounded-xl border font-lato text-sm leading-[1.6] ${status === 'sending' ? 'bg-ink/5 border-ink/10 text-ink/70' :
                         status === 'success' ? 'bg-signal/5 border-signal/25 text-ink' :
-                        'bg-red-500/5 border-red-500/25 text-red-600'
-                      }`}
+                          'bg-red-500/5 border-red-500/25 text-red-600'
+                        }`}
                     >
                       {statusMsg}
                     </motion.div>
@@ -207,13 +206,18 @@ export default function Contact() {
               <RevealText delay={0.45} duration={1.2}>
                 <div className="mt-10">
                   <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-4">General</p>
-                  <a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700">Shahana@zeshagency.com</a>
+                  <a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700 block mb-3">Shahana@zeshagency.com</a>
+                  <a href="tel:+917498194011" className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700 block mb-4">+91 74981 94011</a>
+                  <p className="font-lato text-sm text-text-secondary leading-[1.8]">Pizza Hut, Green Park, 7/2/3A, Rajas Society, Katraj, Pune, Maharashtra 411046</p>
                 </div>
               </RevealText>
               <RevealText delay={0.5} duration={1.2}>
                 <div className="mt-8">
                   <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-4">Social</p>
-                  <div className="flex gap-6">{['Twitter', 'LinkedIn', 'Dribbble'].map((s) => (<a key={s} href="#" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700">{s}</a>))}</div>
+                  <div className="flex gap-6">
+                    <a href="https://www.linkedin.com/company/zesh-agency/" target="_blank" rel="noopener noreferrer" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700">LinkedIn</a>
+                    <a href="https://www.instagram.com/zeshagency" target="_blank" rel="noopener noreferrer" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700">Instagram</a>
+                  </div>
                 </div>
               </RevealText>
             </div>

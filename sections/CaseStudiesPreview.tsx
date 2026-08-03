@@ -5,9 +5,9 @@ import { caseStudies } from '../lib/data';
 
 export default function CaseStudiesPreview() {
   return (
-    <section className="py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="text-center mb-24">
+    <section className="py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="text-center mb-20 md:mb-24">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Proof</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">Case Studies<span className="text-signal">.</span></h2></RevealText>
           <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-[1.8] mt-6">Real results from real engagements. No vanity metrics — just revenue impact.</p></RevealText>

@@ -17,36 +17,42 @@ export default function About() {
 
   return (
     <PageTransition>
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-36">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">OUR ETHOS</p></RevealText>
           <RevealText duration={2}><h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85]">Built to focus purely on outcomes<span className="text-signal">.</span></h1></RevealText>
-          <RevealText delay={0.3} duration={1.6}><p className="font-lato text-lg md:text-xl text-text-secondary max-w-lg mt-10 leading-[1.85]">We built this consultancy to focus purely on outcomes. Our mission is to align strategic growth planning with high-converting execution, replacing speculation with performance.</p></RevealText>
+          <RevealText delay={0.3} duration={1.6}><p className="font-lato text-lg md:text-xl text-text-secondary max-w-lg mt-10 leading-[1.85]">We built this agency to focus purely on outcomes. Our mission is to align strategic growth planning with high-converting execution, replacing speculation with performance.</p></RevealText>
         </motion.div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="max-w-3xl">
-            <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Our Story</p></RevealText>
-            <RevealText delay={0.1} duration={1.8}>
-              <blockquote className="font-syne text-2xl md:text-4xl font-800 tracking-[-0.02em] leading-[1.4] text-ink">
-                "Every week, we speak with operators who are looking for strategic clarity. They want growth systems that connect directly to their bottom line without administrative bottlenecks or delayed updates.
-                <br /><br />
-                We started this consultancy with a single mandate: to build the strategic partner we would want to hire. A lean, highly technical team of operators who work directly on your codebase, design your databases, and declare your entity maps.
-                <br /><br />
-                We don't employ account executives or sales reps. When you partner with us, you work directly with senior engineers and strategists building your growth engines. If something isn't working, we are honest about it."
-                <br /><br />
-                <span className="text-signal text-lg md:text-xl">— The Founding Team</span>
-              </blockquote>
-            </RevealText>
-          </div>
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Our Story</p></RevealText>
+          <RevealText delay={0.1} duration={1.8}>
+            <blockquote className="font-syne text-2xl md:text-4xl font-800 tracking-[-0.02em] leading-[1.4] text-ink">
+              "Every week, we speak with operators who are looking for strategic clarity. They want growth systems that connect directly to their bottom line without administrative bottlenecks or delayed updates.
+              <br /><br />
+              We started this agency with a single mandate: to build the strategic partner we would want to hire. A lean, highly technical team of operators who work directly on your codebase, design your databases, and declare your entity maps.
+              <br /><br />
+              We don't employ account executives or sales reps. When you partner with us, you work directly with senior engineers and strategists building your growth engines. If something isn't working, we are honest about it."
+              <br /><br />
+              <span className="text-signal text-lg md:text-xl">— The Founding Team</span>
+            </blockquote>
+          </RevealText>
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">THE OPERATORS</p></RevealText>
+          <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-10">The heroes who make everything possible<span className="text-signal">.</span></h2></RevealText>
+          <RevealText delay={0.2} duration={1.8}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We believe exceptional systems are built by operators who have the quiet focus to think clearly. We don't just hire specialists; we partner with the absolute best in their fields. These are the developers, search architects, and data strategists who work behind the scenes every day to design and code the growth systems that compound our partners' revenue. They are our heroes—the ones who make our clients' success possible through their relentless dedication, high-performance code, and strategic brilliance. We don't have account managers or layers of administration to slow down execution. Every partner you collaborate with is directly responsible for engineering your growth pathways, bringing senior expertise to your everyday strategy. We are incredibly grateful to work alongside them, and we know that every milestone we achieve is built entirely on their expertise.</p></RevealText>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
             <div className="md:col-span-5 md:sticky md:top-40 md:self-start">
               <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">PRINCIPLES</p></RevealText>
@@ -59,21 +65,13 @@ export default function About() {
               <RevealText delay={0.3}>
                 <div className="flex flex-col gap-4">
                   <a
-                    href="https://calendar.app.google/SU1NfUdT8yYEVbVe7"
-                    className="group flex items-center gap-4"
+                    href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
                   >
-                    <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[800ms] flex-shrink-0">
-                      <motion.span
-                        animate={{ x: [0, 3, 0] }}
-                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                        className="text-paper text-sm"
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                    <span className="font-lato text-sm font-medium text-ink group-hover:text-signal transition-colors duration-500">
-                      Schedule Discovery Call
-                    </span>
+                    <span>Schedule Discovery Call</span>
+                    <span className="text-xs">→</span>
                   </a>
                   <a
                     href="/case-studies"
@@ -98,39 +96,29 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="max-w-3xl">
-            <RevealText duration={2}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-10">Long-term partners, not locked-in clients<span className="text-signal">.</span></h2></RevealText>
-            <RevealText delay={0.2} duration={1.6}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We are incredibly grateful that nearly all of our partners join us through direct recommendations and word of mouth. Our longest relationships span up to 8 years, growing together as our systems compound their digital presence.</p></RevealText>
-          </div>
+
+
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <RevealText duration={2}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-10">Long-term partners, not locked-in clients<span className="text-signal">.</span></h2></RevealText>
+          <RevealText delay={0.2} duration={1.6}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We are incredibly grateful that nearly all of our partners join us through direct recommendations and word of mouth. Our longest relationships span up to 8 years, growing together as our systems compound their digital presence.</p></RevealText>
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="max-w-4xl">
-            <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">THE OPERATORS</p></RevealText>
-            <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-10">The heroes who make everything possible<span className="text-signal">.</span></h2></RevealText>
-            <RevealText delay={0.2} duration={1.8}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We believe exceptional systems are built by operators who have the quiet focus to think clearly. We don't just hire specialists; we partner with the absolute best in their fields. These are the developers, search architects, and data strategists who work behind the scenes every day to design and code the growth systems that compound our partners' revenue. They are our heroes—the ones who make our clients' success possible through their relentless dedication, high-performance code, and strategic brilliance. We don't have account managers or layers of administration to slow down execution. Every partner you collaborate with is directly responsible for engineering your growth pathways, bringing senior expertise to your everyday strategy. We are incredibly grateful to work alongside them, and we know that every milestone we achieve is built entirely on their expertise.</p></RevealText>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 text-center">
+          <div className="flex flex-wrap justify-between gap-10 md:gap-8">
             {aboutStats.map((stat, i) => (
               <RevealText key={stat.label} delay={i * 0.1} duration={1.8}>
-                <motion.div whileHover={{ y: -3 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}>
+                <motion.div whileHover={{ y: -3 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="text-center">
                   <span className="font-lato text-4xl md:text-6xl font-700 tracking-tight text-ink">{stat.value}</span>
                   <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mt-3">{stat.label}</p>
                 </motion.div>
               </RevealText>
             ))}
           </div>
-          <div className="mt-20">
-            <MagneticButton strength={0.3}><a href="/contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
+          <div className="mt-20 flex justify-center">
+            <MagneticButton strength={0.3}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
           </div>
         </div>
       </section>

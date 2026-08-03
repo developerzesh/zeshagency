@@ -5,9 +5,9 @@ import { caseStudies } from '../lib/data';
 
 export default function CaseStudiesPreview() {
   return (
-    <section id="case-studies" className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-24 md:mb-32">
+    <section id="case-studies" className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-20 md:mb-32">
           <div>
             <RevealText duration={2}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em]">Case Studies<span className="text-signal">.</span></h2></RevealText>
           </div>

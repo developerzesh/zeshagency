@@ -515,9 +515,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
     <PageTransition>
 
       {/* ── 1. HERO ── */}
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-36">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText duration={1.4}>
             <a href="/solutions" className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 block">
               ← All Solutions
@@ -527,7 +527,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">{solution.shortTitle}</p>
           </RevealText>
           <RevealText delay={0.1} duration={2}>
-            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.88] mb-32">
+            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.88] mb-20 md:mb-32">
               {solution.title}<span className="text-signal">.</span>
             </h1>
           </RevealText>
@@ -540,7 +540,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <MagneticButton strength={0.4}>
-                  <a href="/contact" className="group flex items-center gap-4">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                       <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                     </span>
@@ -656,8 +656,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
           const jd = journeyData[solution.slug] ?? journeyData['seo'];
 
           return (
-            <section className="py-24 md:py-36 border-t border-border bg-paper relative">
-              <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+            <section className="py-16 md:py-36 border-t border-border bg-paper relative">
+              <div className="max-w-[1400px] mx-auto px-4 md:px-16">
 
                 {/* Header Title block */}
                 <div className="max-w-4xl mb-16 md:mb-24">
@@ -809,8 +809,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
 
 
       {/* ── 2. WHAT WE DELIVER ── */}
-      {/* <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      {/* <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-4 md:sticky md:top-40 md:self-start">
               <RevealText>
@@ -834,8 +834,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section> */}
 
       {/* ── 3. CORE CAPABILITIES ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-4 md:sticky md:top-40 md:self-start">
               <RevealText>
@@ -1498,11 +1498,11 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         };
 
         return (
-          <section className="py-32 md:py-48 border-t border-border">
-            <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+          <section className="py-16 md:py-48 border-t border-border">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-16">
 
               {/* Header Title block */}
-              <div className="max-w-4xl mb-20 md:mb-28">
+              <div className="max-w-4xl mb-20 md:mb-16 md:mb-28">
                 <RevealText>
                   <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">SERVICES</p>
                 </RevealText>
@@ -1549,7 +1549,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               {/* Red/Orange full-width CTA Box */}
               <RevealText delay={0.15} duration={1.4}>
                 <a
-                  href="#contact"
+                  href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-16 flex items-center justify-between bg-signal text-ink hover:bg-ink hover:text-paper px-8 py-5 md:py-6 rounded-xl font-syne text-sm md:text-base font-800 tracking-tight transition-all duration-500 ease-out group"
                 >
                   <span>Book an AI Visibility Audit</span>
@@ -1667,8 +1669,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
           }
         ];
         return (
-          <section className="py-24 md:py-36 border-t border-border bg-paper relative">
-            <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+          <section className="py-16 md:py-36 border-t border-border bg-paper relative">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-16">
               <div className="max-w-4xl mb-16 md:mb-24">
                 <RevealText>
                   <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">PLATFORMS</p>
@@ -1776,8 +1778,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         const wd = whoWeWorkData[slug] ?? whoWeWorkData.seo;
 
         return (
-          <section className="py-24 md:py-36 border-t border-border">
-            <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+          <section className="py-16 md:py-36 border-t border-border">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-16">
 
               {/* Header */}
               <div className="max-w-4xl mb-16 md:mb-20">
@@ -1853,9 +1855,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       })()}
 
       {/* ── 4. ROADMAP ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="mb-32 md:mb-28">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="mb-20 md:mb-16 md:mb-16 md:mb-28">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">IMPLEMENTATION</p>
             </RevealText>
@@ -1896,8 +1898,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section>
 
       {/* ── 5. EXPECTED OUTCOMES ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-4 md:sticky md:top-40 md:self-start">
               <RevealText>
@@ -1937,9 +1939,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section>
 
       {/* ── 6. PLATFORM COMPATIBILITY ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="mb-32 md:mb-28">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="mb-20 md:mb-16 md:mb-16 md:mb-28">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">INTEGRATIONS</p>
             </RevealText>
@@ -1976,8 +1978,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section>
 
       {/* ── 7. EXAMPLE / DEMONSTRATION ── */}
-      {/* <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      {/* <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-4 md:sticky md:top-40 md:self-start">
               <RevealText>
@@ -2043,9 +2045,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section> */}
 
       {/* ── 8. CASE STUDY ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="mb-28 md:mb-24">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="mb-16 md:mb-28 md:mb-24">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">PROOF</p>
             </RevealText>
@@ -2153,8 +2155,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         const faqs = faqData[slug] ?? faqData.seo;
 
         return (
-          <section className="py-24 md:py-36 border-t border-border">
-            <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+          <section className="py-16 md:py-36 border-t border-border">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-16">
 
               {/* Header */}
               <div className="mb-14 md:mb-16">
@@ -2202,9 +2204,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       })()}
 
       {/* ── 9. FINAL CTA ── */}
-      <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+      <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-8">
               <RevealText>
@@ -2216,14 +2218,14 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 </h2>
               </RevealText>
               <RevealText delay={0.2}>
-                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-32">
+                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-20 md:mb-32">
                   Book a 30-minute discovery call. Our founders will audit your current position, identify the biggest opportunities, and map out a custom {solution.shortTitle} roadmap — free, with no commitment.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
                   <MagneticButton strength={0.4}>
-                    <a href="/contact" className="group flex items-center gap-4">
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>

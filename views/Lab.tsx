@@ -27,18 +27,18 @@ export default function Lab() {
 
   return (
     <PageTransition>
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-32">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-32">
         <FloatingGeometry />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Experimental</p></RevealText>
           <RevealText delay={0.1}><h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85]">The Lab<span className="text-signal">.</span></h1></RevealText>
           <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-lg mt-8 leading-[1.85]">Where ideas become prototypes. Our experimental playground for creative technology and interactive experiences.</p></RevealText>
         </motion.div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 md:mb-28">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-28">
             <div className="md:col-span-4"><RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Explore</p></RevealText><RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em]">Experiments<span className="text-signal">.</span></h2></RevealText></div>
             <div className="md:col-span-5 md:col-start-8 flex items-end"><RevealText delay={0.2}><p className="font-lato text-base text-text-secondary leading-[1.85]">Internal R&D projects that push technology to its limits.</p></RevealText></div>
           </div>
@@ -59,8 +59,8 @@ export default function Lab() {
         </div>
       </section>
 
-      <section className="py-36 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {[{ value: '47', label: 'Experiments Shipped' }, { value: '12', label: 'Open Source Projects' }, { value: '8', label: 'Tech Talks Given' }, { value: '3', label: 'Awards Won' }].map((stat, i) => (
               <RevealText key={stat.label} delay={i * 0.1}><motion.div whileHover={{ y: -4 }} transition={{ duration: 1, ease: slowEase }}><span className="font-lato text-3xl md:text-5xl font-700 tracking-tight text-ink">{stat.value}</span><p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mt-3">{stat.label}</p></motion.div></RevealText>
@@ -69,8 +69,8 @@ export default function Lab() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Have an idea<span className="text-signal">?</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">We love collaborating on experimental projects. Let's build something that's never been done before.</p></RevealText>
           <MagneticButton strength={0.3}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Shahana@zeshagency.com →</a></MagneticButton>

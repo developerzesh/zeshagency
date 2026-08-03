@@ -19,9 +19,9 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
 
   return (
     <PageTransition>
-      <article className="pt-40 pb-36">
+      <article className="pt-24 md:pt-40 pb-20 md:pb-36">
         {/* Header Section (Readable container width) */}
-        <div className="max-w-[900px] mx-auto px-6 md:px-16">
+        <div className="max-w-[900px] mx-auto px-4 md:px-16">
           {/* Back breadcrumb */}
           <RevealText duration={1.2}>
             <a
@@ -56,7 +56,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
 
           {/* Author Section */}
           <RevealText delay={0.3} duration={1.4}>
-            <div className="flex items-center gap-4 mb-32 pb-8 border-b border-border/60">
+            <div className="flex items-center gap-4 mb-16 md:mb-28 pb-8 border-b border-border/60">
               <img
                 src={article.authorAvatar}
                 alt={article.author}
@@ -71,7 +71,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
         </div>
 
         {/* Featured Image (Wider cinematic width) */}
-        <div className="max-w-[1200px] mx-auto px-6 md:px-16 mb-28">
+        <div className="max-w-[1200px] mx-auto px-4 md:px-16 mb-20 md:mb-28">
           <RevealText duration={1.8}>
             <CinematicImage
               src={article.image}
@@ -125,7 +125,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                   <p className="font-lato text-xs text-text-muted">Chat directly withLuca or the search engineering team.</p>
                 </div>
                 <MagneticButton strength={0.3}>
-                  <a href="/contact" className="font-lato text-xs font-semibold uppercase tracking-wider text-signal hover:text-ink transition-colors duration-700 inline-block py-2">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-xs font-semibold uppercase tracking-wider text-signal hover:text-ink transition-colors duration-700 inline-block py-2">
                     Start a Conversation →
                   </a>
                 </MagneticButton>
@@ -136,10 +136,10 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
 
         {/* Related Articles Section (Wider grid layout) */}
         {relatedArticles.length > 0 && (
-          <section className="mt-28 pt-40 border-t border-border/60 bg-surface/10">
-            <div className="max-w-[1000px] mx-auto px-6 md:px-16">
+          <section className="mt-16 md:mt-28 pt-24 md:pt-40 border-t border-border/60 bg-surface/10">
+            <div className="max-w-[1000px] mx-auto px-4 md:px-16">
               <RevealText>
-                <h3 className="font-syne text-2xl md:text-3xl font-800 tracking-tight mb-32">
+                <h3 className="font-syne text-2xl md:text-3xl font-800 tracking-tight mb-16 md:mb-28">
                   Related Insights<span className="text-signal">.</span>
                 </h3>
               </RevealText>

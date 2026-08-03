@@ -234,7 +234,7 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
       {!isExiting && (
         <motion.div exit={{ y: '-100%' }} transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }} className="fixed inset-0 z-[9998] bg-paper flex items-center justify-center">
           <div className="relative z-10 flex flex-col items-center max-w-lg px-6">
-            <motion.div initial={{ opacity: 0, filter: 'blur(10px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration: 1.2, ease: slowEase }} className="mb-28">
+            <motion.div initial={{ opacity: 0, filter: 'blur(10px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration: 1.2, ease: slowEase }} className="mb-20 md:mb-28">
               <img src={isDark ? "/images/zesh_logo.png" : "/images/zesh_logo_light.png"} alt="ZESH." className="h-6 md:h-7 w-auto" />
             </motion.div>
             <motion.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ delay: 0.3, duration: 1, ease: slowEase }} className="flex items-end gap-1 mb-10">

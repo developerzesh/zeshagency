@@ -11,12 +11,12 @@ export default function CTA() {
   const parallaxY = useSpring(useTransform(mouseY, [-500, 500], [-4, 4]), { damping: 60, stiffness: 40, mass: 2 });
 
   return (
-    <section id="contact" className="relative py-32 md:py-48 border-t border-border" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
+    <section id="contact" className="relative py-16 md:py-48 border-t border-border" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
       <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-signal/[0.02] blur-[200px] pointer-events-none" />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
         <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8">Start a Project</p></RevealText>
         <RevealText delay={0.1}>
-          <h2 className="font-syne text-6xl md:text-8xl lg:text-[10rem] font-800 tracking-[-0.04em] leading-[0.88] mb-32">
+          <h2 className="font-syne text-6xl md:text-8xl lg:text-[10rem] font-800 tracking-[-0.04em] leading-[0.88] mb-20 md:mb-32">
             Let's create<br />something great<span className="text-signal">.</span>
           </h2>
         </RevealText>

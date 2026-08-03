@@ -5,7 +5,7 @@ const clients = ['Fortune 500', 'Series A–D Startups', 'Healthcare Networks', 
 export default function TrustBar() {
   return (
     <section className="py-14 md:py-16 border-y border-border">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-16">
         <RevealText>
           <p className="font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted mb-8 text-center">Trusted by growth-focused organizations</p>
         </RevealText>

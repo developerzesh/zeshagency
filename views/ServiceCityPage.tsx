@@ -33,13 +33,13 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
     <PageTransition>
 
       {/* ── 1. HERO ── */}
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-36">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
         <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-signal/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] font-syne font-800 text-[10rem] md:text-[16rem] text-ink/[0.02] dark:text-white/[0.015] leading-none select-none pointer-events-none z-0 uppercase">
           {data.badge}
         </div>
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText duration={1.6}>
             <h1 className="font-syne text-4xl md:text-7xl lg:text-8xl font-800 tracking-[-0.04em] leading-[0.92] max-w-5xl">
               {data.serviceShortTitle} Agency<br />
@@ -54,12 +54,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
           <RevealText delay={0.35} duration={1.4}>
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
               <MagneticButton strength={0.4}>
-                <Link href="/contact" className="group flex items-center gap-4">
+                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                   <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                     <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                   </span>
                   <span className="font-lato text-sm font-medium text-ink">Get {data.cityName} Strategy Audit</span>
-                </Link>
+                </a>
               </MagneticButton>
               <MagneticButton strength={0.3}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
@@ -72,8 +72,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 2. OUR SERVICES ── */}
-      <section className="py-24 md:py-36 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">OUR SERVICES</p>
@@ -108,8 +108,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 3. WHY CHOOSE US ── */}
-      <section className="py-24 md:py-36 border-t border-border bg-surface/20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border bg-surface/20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
             <div>
               <RevealText>
@@ -125,12 +125,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               </RevealText>
               <RevealText delay={0.3}>
                 <MagneticButton strength={0.4}>
-                  <Link href="/contact" className="group inline-flex items-center gap-4 font-lato text-sm font-medium">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-4 font-lato text-sm font-medium">
                     <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                       <span className="text-paper text-xs">→</span>
                     </span>
                     <span className="text-ink">Start Your Audit</span>
-                  </Link>
+                  </a>
                 </MagneticButton>
               </RevealText>
             </div>
@@ -160,8 +160,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 4. OUR RESULTS ── */}
-      <section className="py-24 md:py-36 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center mb-20">
             <div className="md:col-span-6">
               <RevealText>
@@ -210,8 +210,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 5. OUR PROCESS ── */}
-      <section className="py-24 md:py-36 border-t border-border bg-surface/20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border bg-surface/20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">OUR PROCESS</p>
@@ -241,8 +241,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 6. TESTIMONIALS ── */}
-      <section className="py-24 md:py-36 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">CLIENT TESTIMONIALS</p>
@@ -280,8 +280,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 7. LOCAL PRESENCE ── */}
-      <section className="py-24 md:py-36 border-t border-border bg-surface/20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border bg-surface/20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
             <div>
               <RevealText>
@@ -330,8 +330,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 8. ABOUT SEO/AEO/GEO SERVICES ── */}
-      <section className="py-24 md:py-36 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
             <div className="md:col-span-4 md:sticky md:top-40 md:self-start">
               <RevealText>
@@ -363,7 +363,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
 
       {/* ── 9. EXPLORE MORE (CTA STRIP) ── */}
       <section className="border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-16 md:py-20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-16 md:py-16">
           <RevealText duration={1.4}>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 bg-signal/5 border border-signal/20 rounded-2xl px-8 md:px-12 py-10 md:py-12">
               <div>
@@ -377,12 +377,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               </div>
               <div className="flex flex-col gap-4 flex-shrink-0">
                 <MagneticButton strength={0.4}>
-                  <Link href="/contact" className="group flex items-center gap-4">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                       <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                     </span>
                     <span className="font-lato text-sm font-medium text-ink">Book Free Strategy Call</span>
-                  </Link>
+                  </a>
                 </MagneticButton>
                 <MagneticButton strength={0.3}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
@@ -396,8 +396,8 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
       </section>
 
       {/* ── 10. RESOURCES ── */}
-      <section className="py-24 md:py-36 border-t border-border bg-surface/20">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-36 border-t border-border bg-surface/20">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-14 md:mb-16">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">RESOURCES</p>
@@ -429,7 +429,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
 
       {/* ── OTHER CITIES ── */}
       <section className="py-16 md:py-24 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText>
             <p className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mb-8 font-semibold">Also Serving</p>
           </RevealText>

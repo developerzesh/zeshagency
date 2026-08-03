@@ -19,20 +19,20 @@ const testimonials = [
   {
     quote:
       "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that.",
-    name: "Hafsa Sayed",
+    name: "Hafsa Syed",
     role: "Founder, HAFSA The Couture",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+    <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
       {/* Subtle ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
         {/* Section header */}
-        <div className="mb-32 md:mb-28">
+        <div className="mb-20 md:mb-28">
           <RevealText>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">
               WHAT CLIENTS SAY

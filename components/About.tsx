@@ -24,11 +24,11 @@ export default function About() {
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -40]);
 
   return (
-    <section id="about" ref={containerRef} className="relative py-32 md:py-48 border-t border-border">
+    <section id="about" ref={containerRef} className="relative py-16 md:py-48 border-t border-border">
       <motion.div style={{ y: backgroundY }} className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[200px] pointer-events-none" />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         {/* Stats — no hover images, just clean numbers */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-28 md:mb-36">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-20 md:mb-36">
           {stats.map((stat, i) => (
             <RevealText key={stat.label} delay={i * 0.1}>
               <motion.div whileHover={{ y: -3 }} transition={{ duration: 1, ease: slowEase }}>

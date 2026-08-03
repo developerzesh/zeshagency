@@ -84,7 +84,7 @@ export default function Careers() {
       {/* Hero Section */}
       <section
         ref={heroRef}
-        className="relative min-h-[85vh] flex items-center overflow-hidden"
+        className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden"
         onMouseMove={e => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}
       >
         <ParticleField />
@@ -93,7 +93,7 @@ export default function Careers() {
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full pt-40 pb-32">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
           <motion.p
             initial={{ opacity: 0, filter: 'blur(12px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -147,8 +147,8 @@ export default function Careers() {
       </section>
 
       {/* § 1 — Why Work With Us */}
-      <section id="why-us" className="py-28 md:py-36 border-t border-border/60">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section id="why-us" className="py-14 md:py-36 border-t border-border/60">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
@@ -175,8 +175,8 @@ export default function Careers() {
       </section>
 
       {/* § 2 — Culture */}
-      <section className="py-28 md:py-36 border-t border-border/60 bg-surface/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
@@ -213,9 +213,9 @@ export default function Careers() {
       </section>
 
       {/* § 3 — Benefits */}
-      <section className="py-28 md:py-36 border-t border-border/60">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="mb-28 md:mb-32">
+      <section className="py-14 md:py-36 border-t border-border/60">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="mb-16 md:mb-32">
             <RevealText>
               <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Benefits</p>
             </RevealText>
@@ -231,9 +231,9 @@ export default function Careers() {
               { title: 'Top-Tier Remote Compensation', desc: 'We pay above typical market rates because we expect self-directed engineering and project ownership.' },
               { title: 'Autonomous Workplaces', desc: 'Work from wherever you are most productive. We support absolute remote flexibility across global timezone nodes.' },
               { title: 'Choice of Premium Gear', desc: 'Specify whatever machine, monitor, and peripheral layout you need to build at your best. We finance it completely.' },
-              { title: 'Unlimited Paid Time Off', desc: 'We require a minimum of 4 weeks off annually. Burnout is a failure of system management, not an employee metric.' },
-              { title: 'Health & Wellness Stipends', desc: 'Monthly subsidies covering medical insurance supplements, workspace memberships, and physical conditioning.' },
-              { title: 'Quiet Focus Days', desc: 'Tuesday and Thursday are code-exclusive blocks. Internal calls and messaging are paused to guard flow state.' }
+              // { title: 'Unlimited Paid Time Off', desc: 'We require a minimum of 4 weeks off annually. Burnout is a failure of system management, not an employee metric.' },
+              // { title: 'Health & Wellness Stipends', desc: 'Monthly subsidies covering medical insurance supplements, workspace memberships, and physical conditioning.' },
+              // { title: 'Quiet Focus Days', desc: 'Tuesday and Thursday are code-exclusive blocks. Internal calls and messaging are paused to guard flow state.' }
             ].map((ben, idx) => (
               <RevealText key={ben.title} delay={idx * 0.05}>
                 <div className="p-8 md:p-10 border-l border-b border-border/60 h-full hover:bg-surface/20 transition-colors duration-500">
@@ -248,8 +248,8 @@ export default function Careers() {
       </section>
 
       {/* § 4 — Learning Opportunities */}
-      <section className="py-28 md:py-36 border-t border-border/60 bg-surface/10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
@@ -287,9 +287,9 @@ export default function Careers() {
       </section>
 
       {/* § 5 — Open Roles */}
-      <section id="roles" className="py-28 md:py-36 border-t border-border/60">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-28 md:mb-32">
+      <section id="roles" className="py-14 md:py-36 border-t border-border/60">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-32">
             <div className="md:col-span-4">
               <RevealText>
                 <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">{careers.length} Available Openings</p>
@@ -315,11 +315,11 @@ export default function Careers() {
       </section>
 
       {/* § 6 — Footer CTA */}
-      <section className="py-32 md:py-48 border-t border-border/60 relative overflow-hidden">
+      <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <RevealText>

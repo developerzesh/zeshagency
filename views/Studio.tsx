@@ -76,18 +76,18 @@ export default function Studio() {
 
   return (
     <PageTransition>
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-32">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-32">
         <WireframeGlobe />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Our Studio</p></RevealText>
           <RevealText delay={0.1}><h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85]">The Studio<span className="text-signal">.</span></h1></RevealText>
           <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-lg mt-8 leading-[1.85]">A collective of visionaries, engineers, and storytellers united by an obsession with exceptional design.</p></RevealText>
         </motion.div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 md:mb-28">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-28">
             <div className="md:col-span-4"><RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">The People</p></RevealText><RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em]">Team<span className="text-signal">.</span></h2></RevealText></div>
             <div className="md:col-span-5 md:col-start-8 flex items-end"><RevealText delay={0.2}><p className="font-lato text-base text-text-secondary leading-[1.85]">40+ creatives across four continents. Diverse perspectives, one shared standard of excellence.</p></RevealText></div>
           </div>
@@ -99,8 +99,8 @@ export default function Studio() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-5 md:sticky md:top-32 md:self-start">
               <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">How We Think</p></RevealText>
@@ -120,8 +120,8 @@ export default function Studio() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 text-center">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 text-center">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Join the team<span className="text-signal">.</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mx-auto mb-10 leading-[1.85]">We're always looking for exceptional people who share our obsession with craft.</p></RevealText>
           <MagneticButton strength={0.3}><a href="/careers" className="font-lato text-sm font-medium text-signal sig-hover">View Openings →</a></MagneticButton>

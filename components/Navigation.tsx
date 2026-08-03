@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { solutions, industries, caseStudies, citiesNav } from '../lib/data';
-import { useCursor } from './CursorContext';
 import { useTheme } from './ThemeContext';
 
 interface SubItem { label: string; path: string }
@@ -49,11 +48,10 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const pathname = usePathname();
-  const { startLoading } = useCursor();
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
 
-  const handleNavClick = () => { startLoading(); setIsOpen(false); };
+  const handleNavClick = () => { setIsOpen(false); };
 
   const showSubmenu = (path: string) => {
     if (submenuTimeout.current) clearTimeout(submenuTimeout.current);
@@ -85,7 +83,7 @@ export default function Navigation() {
         className="fixed top-0 left-0 right-0 z-50"
       >
         {/* ── Bar ────────────────────────────────────────── */}
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
             {/* Logo */}
@@ -316,7 +314,7 @@ export default function Navigation() {
             transition={{ duration: 0.5 }}
             className="fixed inset-0 z-40 bg-paper"
           >
-            <div className="h-full flex flex-col pt-40 px-8 md:px-16 pb-8 overflow-y-auto">
+            <div className="h-full flex flex-col pt-24 md:pt-40 px-8 md:px-16 pb-8 overflow-y-auto">
               <div className="flex-1">
                 {navItems.map((item, i) => (
                   <motion.div

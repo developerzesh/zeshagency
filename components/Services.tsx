@@ -2,7 +2,8 @@ import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import RevealText from './RevealText';
 import CinematicImage from './CinematicImage';
-import { useCursor } from './CursorContext';
+import LineGrid from './LineGrid';
+
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -16,8 +17,6 @@ const services = [
 
 export default function Services() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { setCursorState } = useCursor();
-
   const handleWheel = (e: React.WheelEvent) => {
     const el = scrollRef.current;
     if (!el) return;
@@ -28,8 +27,10 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 mb-28 md:mb-32">
+    <section id="services" className="relative py-16 md:py-48 border-t border-border overflow-hidden">
+      {/* Line grid – right side */}
+      <LineGrid className="hidden md:block" />
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 mb-20 md:mb-32">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">What We Do</p></RevealText>
@@ -53,9 +54,7 @@ export default function Services() {
       <div
         ref={scrollRef}
         onWheel={handleWheel}
-        onMouseEnter={() => setCursorState('drag-h')}
-        onMouseLeave={() => setCursorState('default')}
-        className="overflow-x-auto overflow-y-hidden scrollbar-hide px-6 md:px-16"
+        className="overflow-x-auto overflow-y-hidden scrollbar-hide px-4 md:px-16"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <div className="flex gap-6 md:gap-8 pb-4" style={{ width: 'max-content' }}>

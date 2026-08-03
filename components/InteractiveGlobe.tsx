@@ -110,7 +110,7 @@ function Marker({ office, onHover }: { office: typeof offices[0]; onHover: (o: t
       {/* Solid dot */}
       <mesh
         ref={dotRef}
-        onPointerOver={(e) => { e.stopPropagation(); setHovered(true); onHover(office); document.body.style.cursor = 'none'; }}
+        onPointerOver={(e) => { e.stopPropagation(); setHovered(true); onHover(office); }}
         onPointerOut={() => { setHovered(false); onHover(null); }}
       >
         <sphereGeometry args={[0.025, 16, 16]} />

@@ -3,9 +3,9 @@ import { solutions } from '../lib/data';
 
 export default function SolutionsPreview() {
   return (
-    <section id="solutions" className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24 md:mb-32">
+    <section id="solutions" className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20 md:mb-32">
           <div className="md:col-span-5">
             <RevealText duration={2}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em]">Solutions<span className="text-signal">.</span></h2></RevealText>
           </div>

@@ -38,10 +38,6 @@
   --glass-border: rgba(255, 255, 255, 0.10);
 }
 
-* {
-  cursor: none !important;
-}
-
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);

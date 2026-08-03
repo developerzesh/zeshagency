@@ -20,14 +20,14 @@ export default function Industries() {
     <PageTransition>
 
       {/* ── Hero ── */}
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-36">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">WHO WE SERVE</p>
           </RevealText>
           <RevealText duration={2}>
-            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85] mb-32">
+            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85] mb-20 md:mb-32">
               Growth Systems Tailored to Your Industry Vitals<span className="text-signal">.</span>
             </h1>
           </RevealText>
@@ -44,11 +44,11 @@ export default function Industries() {
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-col items-start gap-4">
                 <MagneticButton strength={0.4}>
-                  <a href="/contact" className="group flex items-center gap-4">
-                    <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
-                    </span>
-                    <span className="font-lato text-sm font-medium text-ink">Book a Consultation Call</span>
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                      <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
+                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                      </span>
+                      <span className="font-lato text-sm font-medium text-ink">Book a Consultation Call</span>
                   </a>
                 </MagneticButton>
                 <MagneticButton strength={0.3}>
@@ -61,14 +61,14 @@ export default function Industries() {
       </section>
 
       {/* ── Industry List ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {industries.map((ind, i) => (
             <RevealText key={ind.slug} delay={i * 0.07} duration={1.4}>
               <motion.div
                 whileHover={{ x: 6 }}
                 transition={{ duration: 1, ease: slowEase }}
-                className="group py-32 md:py-40 border-b border-border"
+                className="group py-16 md:py-40 border-b border-border"
               >
                 {/* Top row: index + title + badge */}
                 <div className="flex items-start md:items-center justify-between gap-6 mb-4">
@@ -148,9 +148,9 @@ export default function Industries() {
       </section>
 
       {/* ── Bottom CTA Section ── */}
-      <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+      <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
 
             {/* Left copy */}
@@ -164,14 +164,14 @@ export default function Industries() {
                 </h2>
               </RevealText>
               <RevealText delay={0.2}>
-                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-32">
+                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-20 md:mb-32">
                   Partner with us to engineer high-intent search hubs customized perfectly for your industry's buying behaviors. Get started with a zero-cost 30-minute visibility audit.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
                   <MagneticButton strength={0.4}>
-                    <a href="/contact" className="group flex items-center gap-4">
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>

@@ -20,14 +20,14 @@ export default function Solutions() {
     <PageTransition>
 
       {/* ── Hero ── */}
-      <section ref={heroRef} className="relative min-h-[80vh] flex items-end overflow-hidden pb-36">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">WHAT WE BUILD</p>
           </RevealText>
           <RevealText duration={2}>
-            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85] mb-32">
+            <h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85] mb-20 md:mb-32">
               Growth Systems Built for Search Dominance<span className="text-signal">.</span>
             </h1>
           </RevealText>
@@ -44,7 +44,7 @@ export default function Solutions() {
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <MagneticButton strength={0.4}>
-                  <a href="/contact" className="group flex items-center gap-4">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                       <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                     </span>
@@ -62,8 +62,8 @@ export default function Solutions() {
 
 
       {/* ── Solution List ── */}
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {solutions.map((s, i) => (
             <RevealText key={s.slug} delay={i * 0.07} duration={1.4}>
               <motion.div
@@ -133,9 +133,9 @@ export default function Solutions() {
       </section>
 
       {/* ── Bottom CTA Section ── */}
-      <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+      <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
 
             {/* Left copy */}
@@ -149,14 +149,14 @@ export default function Solutions() {
                 </h2>
               </RevealText>
               <RevealText delay={0.2}>
-                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-32">
+                <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-20 md:mb-32">
                   Our founders run a free 30-minute discovery call where we audit your current search visibility, identify your biggest growth blockers, and map out a custom capability stack — at no cost and no obligation.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
                   <MagneticButton strength={0.4}>
-                    <a href="/contact" className="group flex items-center gap-4">
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>

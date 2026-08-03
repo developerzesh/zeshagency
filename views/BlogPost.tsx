@@ -35,9 +35,9 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                 className="fixed top-0 left-0 right-0 h-[3px] bg-signal origin-left z-[100] pointer-events-none"
             />
 
-            <article ref={articleRef} className="pt-40 pb-36">
+            <article ref={articleRef} className="pt-24 md:pt-40 pb-20 md:pb-36">
                 {/* ── Article Header ── */}
-                <div className="max-w-[900px] mx-auto px-6 md:px-16">
+                <div className="max-w-[900px] mx-auto px-4 md:px-16">
                     {/* Breadcrumb */}
                     <RevealText duration={1.2}>
                         <a
@@ -109,7 +109,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                 </div>
 
                 {/* ── Featured Image ── */}
-                <div className="max-w-[1200px] mx-auto px-6 md:px-16 mb-20">
+                <div className="max-w-[1200px] mx-auto px-4 md:px-16 mb-20">
                     <RevealText duration={1.8}>
                         <CinematicImage
                             src={post.image}
@@ -123,7 +123,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                 </div>
 
                 {/* ── Body + Sidebar ── */}
-                <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+                <div className="max-w-[1200px] mx-auto px-4 md:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
                         {/* ── Sidebar ToC ── */}
@@ -245,13 +245,13 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                         </div>
                                         <MagneticButton strength={0.3}>
                                             <a
-                                                href="https://calendar.app.google/SU1NfUdT8yYEVbVe7"
-                                                className="group flex items-center gap-4 flex-shrink-0"
+                                                href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500 flex-shrink-0"
                                             >
-                                                <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[800ms]">
-                                                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
-                                                </span>
-                                                <span className="font-lato text-sm font-medium text-ink group-hover:text-signal transition-colors duration-500">Book Free Audit</span>
+                                                <span>Book Free Audit</span>
+                                                <span className="text-xs">→</span>
                                             </a>
                                         </MagneticButton>
                                     </div>
@@ -264,7 +264,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                 {/* ── Related Posts ── */}
                 {related.length > 0 && (
                     <section className="mt-32 pt-20 border-t border-border/60">
-                        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+                        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                             <RevealText>
                                 <h3 className="font-syne text-3xl md:text-4xl font-800 tracking-tight mb-16">
                                     More to Read<span className="text-signal">.</span>

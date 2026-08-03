@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 import CinematicImage from './CinematicImage';
 import ImageModal from './ImageModal';
-import { useCursor } from './CursorContext';
+
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -18,8 +18,6 @@ const projects = [
 
 export default function Projects() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { setCursorState } = useCursor();
-
   const handleWheel = (e: React.WheelEvent) => {
     const el = scrollRef.current;
     if (!el) return;
@@ -30,8 +28,8 @@ export default function Projects() {
   };
 
   return (
-    <section id="work" className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 mb-28 md:mb-32">
+    <section id="work" className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 mb-20 md:mb-32">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Selected Work</p></RevealText>
@@ -55,9 +53,7 @@ export default function Projects() {
       <div
         ref={scrollRef}
         onWheel={handleWheel}
-        onMouseEnter={() => setCursorState('drag-h')}
-        onMouseLeave={() => setCursorState('default')}
-        className="overflow-x-auto overflow-y-hidden scrollbar-hide px-6 md:px-16"
+        className="overflow-x-auto overflow-y-hidden scrollbar-hide px-4 md:px-16"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         <div className="flex gap-6 md:gap-8 pb-4" style={{ width: 'max-content' }}>
@@ -90,7 +86,7 @@ export default function Projects() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 mt-14">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 mt-14">
         <RevealText delay={0.3}>
           <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies →</a>
         </RevealText>

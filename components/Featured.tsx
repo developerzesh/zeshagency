@@ -4,13 +4,13 @@ import CinematicImage from './CinematicImage';
 
 export default function Featured() {
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
           <p className="font-lato text-[10px] tracking-[0.35em] uppercase text-signal mb-5">Featured</p>
         </RevealText>
         <RevealText delay={0.1} duration={1.4}>
-          <h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em] mb-28 md:mb-24">Latest<span className="text-signal">.</span></h2>
+          <h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em] mb-20 md:mb-24">Latest<span className="text-signal">.</span></h2>
         </RevealText>
 
         {/* Apple-style large feature card */}

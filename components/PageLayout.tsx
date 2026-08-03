@@ -81,8 +81,6 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import Lenis from 'lenis';
 import Navigation from './Navigation';
 import Footer from './Footer';
-import CustomCursor from './CustomCursor';
-import { CursorProvider } from './CursorContext';
 import { ThemeProvider } from './ThemeContext';
 
 function ScrollProgress() {
@@ -123,7 +121,6 @@ function LayoutInner({ children }: { children: ReactNode }) {
     <>
       <ScrollProgress />
       <FilmGrain />
-      <CustomCursor />
       <Navigation />
       <main className="overflow-x-clip">{children}</main>
       <Footer />
@@ -134,9 +131,7 @@ function LayoutInner({ children }: { children: ReactNode }) {
 export default function PageLayout({ children }: { children: ReactNode }) {
   return (
     <ThemeProvider>
-      <CursorProvider>
-        <LayoutInner>{children}</LayoutInner>
-      </CursorProvider>
+      <LayoutInner>{children}</LayoutInner>
     </ThemeProvider>
   );
 }

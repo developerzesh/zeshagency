@@ -9,8 +9,8 @@ const metrics = [
 
 export default function ResultsMetrics() {
   return (
-    <section className="py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+    <section className="py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-16">
         <div className="text-center mb-20">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Impact</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">Results that compound<span className="text-signal">.</span></h2></RevealText>

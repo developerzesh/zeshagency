@@ -16,13 +16,13 @@ export default function Hero() {
   const parallaxY = useSpring(useTransform(mouseY, [-500, 500], [-5, 5]), { damping: 50, stiffness: 80, mass: 2 });
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden">
+    <section ref={ref} className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-ink/[0.006] blur-[180px] animate-float" />
         <motion.div style={{ x: parallaxY, y: parallaxX }} className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-signal/[0.006] blur-[150px] animate-float-delayed" />
       </div>
 
-      <motion.div style={{ y, opacity, filter: useTransform(blurVal, (v) => `blur(${v}px)`) }} className="relative z-10 max-w-[1200px] mx-auto px-6 md:px-16 w-full pt-32 pb-20">
+      <motion.div style={{ y, opacity, filter: useTransform(blurVal, (v) => `blur(${v}px)`) }} className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-16 w-full pt-20 md:pt-32 pb-12 md:pb-20">
         <div className="max-w-4xl">
           <RevealText delay={0.6}>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-10">

@@ -26,7 +26,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden"
       onMouseMove={e => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}
     >
       <ParticleField />
@@ -35,14 +35,14 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full pt-40 pb-36">
+      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-36">
         {/* Breadcrumb */}
         <motion.a
           href="/case-studies"
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: slowEase }}
-          className="inline-flex items-center gap-2 font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-28 group"
+          className="inline-flex items-center gap-2 font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-16 md:mb-28 group"
         >
           <motion.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">←</motion.span>
           Case Studies
@@ -66,7 +66,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
         </motion.div>
 
         {/* Headline */}
-        <h1 className="font-syne text-[clamp(2.6rem,5vw,6rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-32 max-w-5xl">
+        <h1 className="font-syne text-[clamp(2.6rem,5vw,6rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-20 md:mb-32 max-w-5xl">
           <motion.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
@@ -94,7 +94,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
             className="flex flex-col items-start gap-4 flex-shrink-0"
           >
             <MagneticButton strength={0.4}>
-              <a href="/contact" className="group flex items-center gap-4">
+              <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                 <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                   <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                 </span>
@@ -111,10 +111,10 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
 // ─── § 2 — Results ────────────────────────────────────────────────────────────
 function ResultsSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-36 md:py-48 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-16 md:py-48 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
-          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-32">Key Results</p>
+          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-20 md:mb-32">Key Results</p>
         </RevealText>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-border/40">
           {cs.results.map((result, i) => {
@@ -145,7 +145,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
 // ─── § 3 — Hero Image ─────────────────────────────────────────────────────────
 function ImageSection({ cs }: { cs: CaseStudy }) {
   return (
-    <div className="max-w-[1400px] mx-auto px-6 md:px-16 py-6 md:py-10">
+    <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-6 md:py-10">
       <RevealText duration={2}>
         <CinematicImage
           src={cs.image}
@@ -163,8 +163,8 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
 // ─── § 4 — Challenge ─────────────────────────────────────────────────────────
 function ChallengeSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-14 md:py-36 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-4">
             <RevealText>
@@ -190,8 +190,8 @@ function ChallengeSection({ cs }: { cs: CaseStudy }) {
 // ─── § 5 — Solution ───────────────────────────────────────────────────────────
 function SolutionSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-14 md:py-36 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-7 order-2 md:order-1">
             <RevealText delay={0.1}>
@@ -217,8 +217,8 @@ function SolutionSection({ cs }: { cs: CaseStudy }) {
 // ─── § 6 — Strategy ───────────────────────────────────────────────────────────
 function StrategySection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60 bg-surface/10">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-4">
             <RevealText>
@@ -251,9 +251,9 @@ function StrategySection({ cs }: { cs: CaseStudy }) {
 // ─── § 7 — Execution ─────────────────────────────────────────────────────────
 function ExecutionSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="mb-28 md:mb-32">
+    <section className="py-14 md:py-36 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="mb-16 md:mb-28 md:mb-20 md:mb-32">
           <RevealText>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Execution</p>
           </RevealText>
@@ -297,8 +297,8 @@ function ExecutionSection({ cs }: { cs: CaseStudy }) {
 // ─── § 8 — Outcomes ───────────────────────────────────────────────────────────
 function OutcomesSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60 bg-surface/10">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-4">
             <RevealText>
@@ -346,8 +346,8 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
 // ─── § 9 — Conclusion ────────────────────────────────────────────────────────
 function ConclusionSection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-28 md:py-36 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-14 md:py-36 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-4">
             <RevealText>
@@ -389,13 +389,13 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
   if (related.length === 0) return null;
 
   return (
-    <section className="py-36 md:py-48 border-t border-border/60">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-16 md:py-48 border-t border-border/60">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
           <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-3">More Case Studies</p>
         </RevealText>
         <RevealText delay={0.1}>
-          <h2 className="font-syne text-2xl md:text-3xl font-800 tracking-[-0.03em] mb-28">
+          <h2 className="font-syne text-2xl md:text-3xl font-800 tracking-[-0.03em] mb-16 md:mb-28">
             Further Reading<span className="text-signal">.</span>
           </h2>
         </RevealText>
@@ -434,11 +434,11 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
 // ─── § 11 — CTA ──────────────────────────────────────────────────────────────
 function CTASection({ cs }: { cs: CaseStudy }) {
   return (
-    <section className="py-32 md:py-48 border-t border-border/60 relative overflow-hidden">
+    <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
       </div>
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-7">
             <RevealText>
@@ -459,7 +459,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
             <RevealText delay={0.3}>
               <div className="flex flex-col items-start gap-5">
                 <MagneticButton strength={0.4}>
-                  <a href="/contact" className="group flex items-center gap-4">
+                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                       <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                     </span>

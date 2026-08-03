@@ -11,6 +11,7 @@ import { solutions, industries, caseStudies, stats, heroContent, trustLabel, tru
 import { blogPosts } from '../lib/blogData';
 import Testimonials from '../components/Testimonials';
 import { useTheme } from '../components/ThemeContext';
+import LineGrid from '../components/LineGrid';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -78,13 +79,14 @@ function HeroSection() {
   const line2 = headlineWords.slice(mid).join(' ');
 
   return (
-    <section id="hero" ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
+    <section id="hero" ref={containerRef} className="relative min-h-[60vh] md:min-h-screen flex items-center overflow-hidden">
       <ParticleField />
+      <LineGrid className="hidden md:block" />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -right-20 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[250px]" />
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[180px]" />
       </div>
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full pt-28 md:pt-32 pb-8 md:pb-12">
+      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-6 md:pb-12">
         <motion.div
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -130,7 +132,7 @@ function HeroSection() {
             className="flex flex-wrap items-center gap-6 md:gap-10"
           >
             <MagneticButton strength={0.4}>
-              <a href="https://calendar.app.google/SU1NfUdT8yYEVbVe7" className="group flex items-center gap-4">
+              <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" className="group flex items-center gap-4">
                 <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                   <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                 </span>
@@ -160,12 +162,12 @@ function TrustBar() {
   const logos = [...trustLogos, ...trustLogos];
   return (
     <section className="relative py-10 md:py-14 border-y border-border/80 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 mb-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 mb-10">
         <RevealText>
           <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal text-center md:text-left">Retained by leading brands.</p>
         </RevealText>
       </div>
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative">
         <div className="relative w-full overflow-hidden">
           {/* Left fade-out overlay */}
           <div
@@ -221,9 +223,9 @@ function TrustBar() {
 
 function WhyChooseUs() {
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 md:mb-28">
+    <section className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-28">
           <div className="md:col-span-5">
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">THE DIFFERENCE</p></RevealText>
             <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em]">Built for operators who expect clear growth systems<span className="text-signal">.</span></h2></RevealText>
@@ -251,21 +253,97 @@ function WhyChooseUs() {
 }
 
 function SolutionsGrid() {
-  const FEATURED = ['seo', 'google-ads', 'web-dev', 'social-media'];
+  const FEATURED = ['seo', 'web-dev', 'google-ads', 'social-media'];
   const topSolutions = FEATURED.map(slug => solutions.find(s => s.slug === slug)!).filter(Boolean);
   const diagnoses = [
     'Your site has technical barriers preventing crawlers from indexing your highest-value pages.',
-    'You\'re spending budget on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
     'Slow, plugin-heavy architecture is killing your conversion rates and wasting your crawl budget.',
+    'You\'re spending budget on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
     'Your executives are invisible on LinkedIn while competitors build authority and attract inbound deal flow.',
   ];
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 md:mb-28">
+    <section className="relative py-14 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10 md:mb-28">
           <div className="md:col-span-5">
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">SOLUTIONS</p></RevealText>
             <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em]">Engineered to capture market share<span className="text-signal">.</span></h2></RevealText>
+          </div>
+          <div className="md:col-span-6 md:col-start-7 flex flex-col justify-end">
+            <RevealText delay={0.2}>
+              <p className="font-lato text-base text-text-secondary leading-[1.85] mb-8 max-w-md">From search visibility to paid acquisition, every system is built to compound — not just perform once.</p>
+            </RevealText>
+            <RevealText delay={0.3}>
+              <div className="hidden md:flex items-center gap-8">
+                <div className="relative w-[180px] h-[180px] flex-shrink-0">
+                  <svg viewBox="0 0 180 180" className="w-full h-full -rotate-90">
+                    {[75, 93.75, 112.5].map((r) => (
+                      <circle
+                        key={r}
+                        cx="90"
+                        cy="90"
+                        r={r / 2}
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="0.5"
+                        className="text-border/60"
+                      />
+                    ))}
+                    <motion.circle
+                      cx="90" cy="90" r="37.5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      className="text-signal"
+                      strokeDasharray="236"
+                      initial={{ strokeDashoffset: 236 }}
+                      whileInView={{ strokeDashoffset: 60 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2, delay: 0.5, ease: slowEase }}
+                    />
+                    <motion.circle
+                      cx="90" cy="90" r="46.875"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      className="text-signal/50"
+                      strokeDasharray="294"
+                      initial={{ strokeDashoffset: 294 }}
+                      whileInView={{ strokeDashoffset: 98 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2.2, delay: 0.7, ease: slowEase }}
+                    />
+                    <motion.circle
+                      cx="90" cy="90" r="56.25"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      className="text-signal/30"
+                      strokeDasharray="353"
+                      initial={{ strokeDashoffset: 353 }}
+                      whileInView={{ strokeDashoffset: 150 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 2.4, delay: 0.9, ease: slowEase }}
+                    />
+                  </svg>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center">
+                    <motion.span
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 1.2, duration: 0.8 }}
+                      className="font-syne text-5xl font-800 text-ink leading-none"
+                    >
+                      9<span className="text-signal">+</span>
+                    </motion.span>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted">Full-stack</span>
+                  <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted">Growth systems</span>
+                </div>
+              </div>
+            </RevealText>
           </div>
         </div>
         <div className="space-y-0">
@@ -320,8 +398,8 @@ function SolutionsGrid() {
 function HowWeWork() {
   const slowEaseLocal = [0.22, 1, 0.36, 1] as [number, number, number, number];
   return (
-    <section className="py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
           <div className="md:col-span-5 md:sticky md:top-40 md:self-start">
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">PRINCIPLES</p></RevealText>
@@ -334,21 +412,13 @@ function HowWeWork() {
             <RevealText delay={0.3}>
               <div className="flex flex-col gap-4">
                 <a
-                  href="https://calendar.app.google/SU1NfUdT8yYEVbVe7"
-                  className="group flex items-center gap-4"
+                  href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
                 >
-                  <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[800ms] flex-shrink-0">
-                    <motion.span
-                      animate={{ x: [0, 3, 0] }}
-                      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                      className="text-paper text-sm"
-                    >
-                      →
-                    </motion.span>
-                  </span>
-                  <span className="font-lato text-sm font-medium text-ink group-hover:text-signal transition-colors duration-500">
-                    Schedule Discovery Call
-                  </span>
+                  <span>Schedule Discovery Call</span>
+                  <span className="text-xs">→</span>
                 </a>
                 <a
                   href="/case-studies"
@@ -377,10 +447,10 @@ function HowWeWork() {
 
 function Metrics() {
   return (
-    <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+    <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-signal/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-center">
 
           <div className="lg:col-span-5">
@@ -494,35 +564,35 @@ type CellType = 'yes' | 'no' | 'neutral' | 'highlight';
 function ComparisonCell({ text, type, zeshCol = false }: { text: string; type: CellType; zeshCol?: boolean }) {
   if (type === 'yes') {
     return (
-      <div className={`flex items-center justify-center gap-1.5 font-lato text-sm font-semibold ${zeshCol ? 'text-white' : 'text-text-secondary'}`}>
+      <div className={`flex items-center justify-center gap-1.5 font-lato text-[13px] font-medium ${zeshCol ? 'text-white' : 'text-text-secondary'}`}>
         {text} <span className="text-green-400 font-bold">✓</span>
       </div>
     );
   }
   if (type === 'no') {
     return (
-      <div className={`flex items-center justify-center gap-1.5 font-lato text-sm ${zeshCol ? 'text-white/80' : 'text-text-secondary'}`}>
+      <div className={`flex items-center justify-center gap-1.5 font-lato text-[13px] ${zeshCol ? 'text-white/80' : 'text-text-secondary'}`}>
         {text} <span className="text-red-400 font-bold">✗</span>
       </div>
     );
   }
   if (type === 'highlight') {
     return (
-      <div className="font-lato text-sm text-white text-center font-semibold leading-snug">
+      <div className="font-lato text-[13px] text-white text-center font-medium leading-snug">
         {text}
       </div>
     );
   }
-  return <div className="font-lato text-sm text-text-secondary text-center">{text}</div>;
+  return <div className="font-lato text-[13px] text-text-secondary text-center">{text}</div>;
 }
 
 function ComparisonTable() {
   return (
-    <section className="relative py-32 md:py-48 border-t border-border overflow-hidden">
+    <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-signal/[0.04] blur-[180px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
         {/* Section Header */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20 md:mb-24">
           <div className="md:col-span-6">
@@ -546,25 +616,31 @@ function ComparisonTable() {
 
         {/* Comparison Table */}
         <RevealText delay={0.15} duration={1.4}>
-          <div className="w-full overflow-x-auto rounded-2xl border border-border/50">
-            <table className="w-full min-w-[700px] border-collapse">
-              {/* Table Header */}
-              <thead>
-                <tr>
-                  <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm text-left px-6 py-5 font-syne font-800 text-ink text-base tracking-tight border-b border-border/60 rounded-tl-2xl w-[32%]">
-                    Capability
-                  </th>
-                  <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm px-4 py-5 font-lato font-semibold text-ink text-sm text-center border-b border-border/60 border-l border-border/40 w-[20%]">
-                    In-House
-                  </th>
-                  <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm px-4 py-5 font-lato font-semibold text-ink text-sm text-center border-b border-border/60 border-l border-border/40 w-[20%]">
-                    Other Agencies
-                  </th>
-                  <th className="bg-signal/90 px-4 py-5 font-lato font-bold text-white text-sm text-center border-b border-signal/50 border-l border-signal/30 w-[22%] rounded-tr-2xl">
-                    Zesh Agency
-                  </th>
-                </tr>
-              </thead>
+          <div className="relative">
+            {/* Mobile scroll hint */}
+            <div className="md:hidden flex items-center justify-end gap-1.5 mb-3 pr-1">
+              <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }} className="text-signal text-xs font-bold">→</motion.span>
+              <span className="font-lato text-[10px] tracking-[0.15em] uppercase text-signal/70">Scroll</span>
+            </div>
+            <div className="w-full overflow-x-auto rounded-2xl border border-border/50">
+              <table className="w-full min-w-[700px] border-collapse">
+                {/* Table Header */}
+                <thead>
+                  <tr>
+                    <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm text-left px-6 py-5 font-lato font-semibold text-ink text-sm tracking-wide border-b border-border/60 rounded-tl-2xl w-[32%]">
+                      Capability
+                    </th>
+                    <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm px-4 py-5 font-lato font-semibold text-ink text-sm text-center border-b border-border/60 border-l border-border/40 w-[20%]">
+                      In-House
+                    </th>
+                    <th className="bg-paper/60 dark:bg-ink/10 backdrop-blur-sm px-4 py-5 font-lato font-semibold text-ink text-sm text-center border-b border-border/60 border-l border-border/40 w-[20%]">
+                      Other Agencies
+                    </th>
+                    <th className="bg-signal/90 px-4 py-5 font-lato font-bold text-white text-sm text-center border-b border-signal/50 border-l border-signal/30 w-[22%] rounded-tr-2xl">
+                      Zesh Agency
+                    </th>
+                  </tr>
+                </thead>
 
               {/* Table Body */}
               <tbody>
@@ -600,6 +676,7 @@ function ComparisonTable() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </RevealText>
 
@@ -607,13 +684,13 @@ function ComparisonTable() {
         <RevealText delay={0.4}>
           <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
             <a
-              href="https://calendar.app.google/SU1NfUdT8yYEVbVe7"
-              className="font-lato text-sm font-medium text-signal sig-hover flex items-center gap-2 group"
+              href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 bg-signal text-ink px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal/80 transition-colors duration-500"
             >
-              <span className="w-8 h-8 rounded-full bg-signal/15 flex items-center justify-center group-hover:bg-signal/30 transition-colors duration-500">
-                <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-signal text-xs">→</motion.span>
-              </span>
-              Book a Free Consultation
+              <span>Book a Free Consultation</span>
+              <span className="text-xs">→</span>
             </a>
             <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
               Explore All Solutions
@@ -660,10 +737,10 @@ function FeaturedCaseStudy() {
   ];
 
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="relative py-14 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         {/* Header Block */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20 md:mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12 md:mb-24">
           <div className="md:col-span-6">
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">PROOF</p></RevealText>
             <RevealText delay={0.1}>
@@ -748,9 +825,9 @@ function FeaturedCaseStudy() {
 function IndustriesGrid() {
   const topIndustries = industries.slice(0, 4);
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-32 md:mb-28">
+    <section className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-28">
           <div className="md:col-span-6">
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">VERTICALS</p></RevealText>
             <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] leading-tight">Specialized structures for high-value business models<span className="text-signal">.</span></h2></RevealText>
@@ -794,12 +871,12 @@ function CTA() {
   const parallaxY = useSpring(useTransform(mouseY, [-500, 500], [-4, 4]), { damping: 60, stiffness: 40, mass: 2 });
 
   return (
-    <section id="contact" className="relative py-32 md:py-48 border-t border-border" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
+    <section id="contact" className="relative py-16 md:py-48 border-t border-border" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
       <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-signal/[0.02] blur-[200px] pointer-events-none" />
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
         <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8">ACQUISITION</p></RevealText>
         <RevealText delay={0.1}>
-          <h2 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.88] mb-32">
+          <h2 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.88] mb-20 md:mb-32">
             Making marketing work for businesses<span className="text-signal">.</span>
           </h2>
         </RevealText>
@@ -807,7 +884,7 @@ function CTA() {
           <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary max-w-md leading-[1.85]">We analyze your website metrics, inspect competitor search campaigns, and map out custom acquisition strategies from day one.</p></RevealText>
           <RevealText delay={0.3}>
             <div className="flex flex-col items-start gap-5">
-              <MagneticButton strength={0.4}><a href="/contact" className="font-syne text-xl md:text-2xl font-800 text-ink hover:text-signal transition-colors duration-[1200ms] sig-hover">Book a Discovery Call</a></MagneticButton>
+              <MagneticButton strength={0.4}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"><span>Book a Discovery Call</span><span className="text-xs">→</span></a></MagneticButton>
               <MagneticButton strength={0.2}><a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a></MagneticButton>
             </div>
           </RevealText>
@@ -820,8 +897,8 @@ function CTA() {
 function BlogSection() {
   const latestPosts = blogPosts.slice(0, 3);
   return (
-    <section className="relative py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="relative py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-20 md:mb-24">
           <div className="md:col-span-6">
             <RevealText>
@@ -852,13 +929,193 @@ function BlogSection() {
                   className="border border-border/40 hover:border-signal/30 rounded-xl overflow-hidden transition-all duration-700 bg-paper/30 dark:bg-ink/5 h-full flex flex-col justify-between"
                 >
                   <div>
-                    <div className="overflow-hidden aspect-video">
-                      <img
-                        src={post.image}
-                        alt={post.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1200ms]"
-                      />
+                    <div className="aspect-video bg-surface/50 relative overflow-hidden">
+                      {post.category === 'SEO & Search' && (
+                        <svg viewBox="0 0 400 225" className="w-full h-full">
+                          {/* Root node */}
+                          <motion.rect x="170" y="15" width="60" height="24" rx="4" fill="currentColor" className="text-signal"
+                            initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: 0.2 }} />
+                          <motion.text x="200" y="31" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif" fontWeight="600"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>TEMPLATE</motion.text>
+                          {/* Branch lines */}
+                          {[80, 140, 200, 260, 320].map((x, idx) => (
+                            <motion.path key={`line-${idx}`} d={`M 200 39 L 200 65 L ${x} 65 L ${x} 85`}
+                              fill="none" stroke="currentColor" strokeWidth="1" className="text-signal/30"
+                              initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: 0.5 + idx * 0.08 }} />
+                          ))}
+                          {/* Page nodes */}
+                          {[80, 140, 200, 260, 320].map((x, idx) => (
+                            <g key={`page-${idx}`}>
+                              <motion.rect x={x - 18} y="85" width="36" height="28" rx="3" fill="currentColor" className="text-signal/20 group-hover:text-signal/35"
+                                initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                                transition={{ duration: 0.4, delay: 0.8 + idx * 0.08 }} />
+                              <motion.line x1={x - 10} y1="93" x2={x + 10} y2="93" stroke="currentColor" strokeWidth="1" className="text-signal/40"
+                                initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: 1 + idx * 0.06 }} />
+                              <motion.line x1={x - 10} y1="99" x2={x + 6} y2="99" stroke="currentColor" strokeWidth="1" className="text-signal/30"
+                                initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: 1.1 + idx * 0.06 }} />
+                              <motion.line x1={x - 10} y1="105" x2={x + 8} y2="105" stroke="currentColor" strokeWidth="1" className="text-signal/25"
+                                initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+                                transition={{ duration: 0.3, delay: 1.2 + idx * 0.06 }} />
+                            </g>
+                          ))}
+                          {/* Multiply indicator */}
+                          <motion.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.5 }}>
+                            {[80, 140, 200, 260, 320].map((x, idx) => (
+                              <g key={`sub-${idx}`}>
+                                <rect x={x - 14} y="125" width="28" height="18" rx="2" fill="currentColor" className="text-signal/10" />
+                                <line x1={x - 8} y1="131" x2={x + 6} y2="131" stroke="currentColor" strokeWidth="0.5" className="text-signal/20" />
+                                <line x1={x - 8} y1="136" x2={x + 3} y2="136" stroke="currentColor" strokeWidth="0.5" className="text-signal/15" />
+                              </g>
+                            ))}
+                          </motion.g>
+                          {/* Count label */}
+                          <motion.text x="200" y="175" textAnchor="middle" fill="currentColor" fontSize="28" fontFamily="sans-serif" fontWeight="800" className="text-signal/15"
+                            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.3 }}>500+</motion.text>
+                          <motion.text x="200" y="195" textAnchor="middle" fill="currentColor" fontSize="9" fontFamily="sans-serif" className="text-signal/40"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.5 }}>PAGES GENERATED</motion.text>
+                        </svg>
+                      )}
+                      {post.category === 'AI & GEO' && (
+                        <svg viewBox="0 0 400 225" className="w-full h-full">
+                          {/* Center hub - Brand */}
+                          <motion.circle cx="200" cy="112" r="0" fill="currentColor" className="text-signal/30 group-hover:text-signal/50"
+                            initial={{ r: 0 }} whileInView={{ r: 28 }} viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }} />
+                          <motion.circle cx="200" cy="112" r="0" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-signal/20"
+                            initial={{ r: 0 }} whileInView={{ r: 40 }} viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.3 }} />
+                          <motion.text x="200" y="108" textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" fontWeight="700" className="text-signal"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>YOUR</motion.text>
+                          <motion.text x="200" y="120" textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" fontWeight="700" className="text-signal"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.65 }}>BRAND</motion.text>
+                          {/* Outer nodes - AI Engines with labels */}
+                          {[
+                            { cx: 80, cy: 50, label: 'ChatGPT', icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25' },
+                            { cx: 320, cy: 50, label: 'Claude', icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0' },
+                            { cx: 80, cy: 175, label: 'Gemini', icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25' },
+                            { cx: 320, cy: 175, label: 'Perplexity', icon: 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z' },
+                            { cx: 200, cy: 205, label: 'Siri', icon: 'M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18' },
+                          ].map((node, idx) => (
+                            <g key={idx}>
+                              <motion.line x1="200" y1="112" x2={node.cx} y2={node.cy} stroke="currentColor" strokeWidth="0.5" className="text-signal/25"
+                                initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.4 + idx * 0.08 }} />
+                              <motion.circle cx={node.cx} cy={node.cy} r="0" fill="currentColor" className="text-signal/20 group-hover:text-signal/40"
+                                initial={{ r: 0 }} whileInView={{ r: 22 }} viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }} />
+                              <motion.circle cx={node.cx} cy={node.cy} r="0" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-signal/15"
+                                initial={{ r: 0 }} whileInView={{ r: 30 }} viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.7 + idx * 0.1 }} />
+                              <motion.text x={node.cx} y={node.cy + 35} textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" className="text-signal/50"
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1 + idx * 0.08 }}>{node.label}</motion.text>
+                            </g>
+                          ))}
+                        </svg>
+                      )}
+                      {post.category === 'Web Performance' && (
+                        <svg viewBox="0 0 400 225" className="w-full h-full">
+                          {/* Speedometer gauge */}
+                          <motion.path d="M 100 160 A 80 80 0 0 1 300 160" fill="none" stroke="currentColor" strokeWidth="12" className="text-signal/10"
+                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} />
+                          <motion.path d="M 100 160 A 80 80 0 0 1 300 160" fill="none" stroke="currentColor" strokeWidth="12" className="text-signal/30"
+                            strokeDasharray="251" strokeDashoffset="251"
+                            initial={{ strokeDashoffset: 251 }} whileInView={{ strokeDashoffset: 80 }} viewport={{ once: true }}
+                            transition={{ duration: 1.5, delay: 0.4, ease: slowEase }} />
+                          {/* Needle */}
+                          <motion.line x1="200" y1="160" x2="200" y2="90" stroke="currentColor" strokeWidth="2" className="text-signal"
+                            initial={{ transform: 'rotate(-90deg)', transformOrigin: '200px 160px' }}
+                            whileInView={{ transform: 'rotate(40deg)', transformOrigin: '200px 160px' }}
+                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.8, ease: slowEase }} />
+                          <motion.circle cx="200" cy="160" r="6" fill="currentColor" className="text-signal"
+                            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1 }} />
+                          {/* Score */}
+                          <motion.text x="200" y="145" textAnchor="middle" fill="currentColor" fontSize="24" fontFamily="sans-serif" fontWeight="800" className="text-signal"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.2 }}>98</motion.text>
+                          <motion.text x="200" y="185" textAnchor="middle" fill="currentColor" fontSize="8" fontFamily="sans-serif" className="text-signal/50"
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.3 }}>PERFORMANCE</motion.text>
+                          {/* Core Web Vitals bars */}
+                          {[
+                            { label: 'LCP', value: 1.2, max: 2.5, x: 60 },
+                            { label: 'CLS', value: 0.05, max: 0.1, x: 160 },
+                            { label: 'INP', value: 85, max: 200, x: 260 },
+                          ].map((metric, idx) => (
+                            <g key={idx}>
+                              <motion.rect x={metric.x} y="200" width="80" height="6" rx="3" fill="currentColor" className="text-signal/10"
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.4 + idx * 0.1 }} />
+                              <motion.rect x={metric.x} y="200" width="0" height="6" rx="3" fill="currentColor" className="text-signal/50"
+                                initial={{ width: 0 }} whileInView={{ width: 80 * (metric.value / metric.max) }} viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 1.5 + idx * 0.1, ease: slowEase }} />
+                              <motion.text x={metric.x} y="218" fill="currentColor" fontSize="8" fontFamily="sans-serif" fontWeight="600" className="text-signal/60"
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.6 + idx * 0.1 }}>{metric.label}</motion.text>
+                              <motion.text x={metric.x + 80} y="218" textAnchor="end" fill="currentColor" fontSize="7" fontFamily="sans-serif" className="text-signal/35"
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.7 + idx * 0.1 }}>
+                                {metric.label === 'CLS' ? metric.value : `${metric.value}${metric.label === 'LCP' ? 's' : 'ms'}`}
+                              </motion.text>
+                            </g>
+                          ))}
+                          {/* Threshold line */}
+                          <motion.line x1="60" y1="196" x2="340" y2="196" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 2" className="text-signal/25"
+                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ delay: 1.8 }} />
+                        </svg>
+                      )}
+                      {post.category === 'Growth Strategy' && (
+                        <svg viewBox="0 0 400 225" className="w-full h-full">
+                          {[
+                            { x: 40, h: 60 }, { x: 80, h: 90 }, { x: 120, h: 75 },
+                            { x: 160, h: 120 }, { x: 200, h: 100 }, { x: 240, h: 140 },
+                            { x: 280, h: 130 }, { x: 320, h: 170 }, { x: 360, h: 155 }
+                          ].map((bar, idx) => (
+                            <motion.rect
+                              key={idx}
+                              x={bar.x}
+                              y={200}
+                              width={28}
+                              height={0}
+                              fill="currentColor"
+                              className="text-signal/25 group-hover:text-signal/40"
+                              initial={{ height: 0, y: 200 }}
+                              whileInView={{ height: bar.h, y: 200 - bar.h }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.6, delay: 0.2 + idx * 0.06, ease: slowEase }}
+                            />
+                          ))}
+                          <motion.path
+                            d="M 54 140 L 94 110 L 134 125 L 174 80 L 214 100 L 254 60 L 294 70 L 334 30 L 374 45"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            className="text-signal"
+                            initial={{ pathLength: 0 }}
+                            whileInView={{ pathLength: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1.2, delay: 0.8 }}
+                          />
+                        </svg>
+                      )}
+                      {post.category === 'Case Breakdowns' && (
+                        <svg viewBox="0 0 400 225" className="w-full h-full">
+                          <motion.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/20"
+                            strokeDasharray="330 110" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 110 }}
+                            viewport={{ once: true }} transition={{ duration: 1.2, ease: slowEase }} />
+                          <motion.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/40"
+                            strokeDasharray="220 220" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 220 }}
+                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.2, ease: slowEase }} />
+                          <motion.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/60"
+                            strokeDasharray="110 330" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 330 }}
+                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.4, ease: slowEase }} />
+                          {[{ x: 280, h: 80 }, { x: 310, h: 120 }, { x: 340, h: 60 }, { x: 370, h: 100 }].map((bar, idx) => (
+                            <motion.rect key={idx} x={bar.x} y={200} width={20} height={0} fill="currentColor"
+                              className="text-signal/30" initial={{ height: 0, y: 200 }}
+                              whileInView={{ height: bar.h, y: 200 - bar.h }} viewport={{ once: true }}
+                              transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }} />
+                          ))}
+                        </svg>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-surface/50 to-transparent pointer-events-none" />
                     </div>
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
@@ -917,8 +1174,8 @@ function FAQSection() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   return (
-    <section className="py-32 md:py-48 border-t border-border">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+    <section className="py-16 md:py-48 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
           {/* FAQ Header Column */}
           <div className="md:col-span-5 md:sticky md:top-40 md:self-start">

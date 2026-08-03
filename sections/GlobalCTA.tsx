@@ -10,14 +10,14 @@ export default function GlobalCTA() {
 
   return (
     <section
-      className="py-32 md:py-48 border-t border-border"
+      className="py-16 md:py-48 border-t border-border"
       onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}
     >
       <motion.div
         style={{ x: parallaxX, y: parallaxY }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.012] blur-[200px] pointer-events-none"
       />
-      <div className="max-w-[1200px] mx-auto px-6 md:px-16 relative z-10 text-center">
+      <div className="max-w-[1200px] mx-auto px-4 md:px-16 relative z-10 text-center">
         <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8">Start a Project</p></RevealText>
         <RevealText delay={0.1} duration={1.6}>
           <h2 className="font-syne text-3xl md:text-6xl lg:text-8xl font-800 tracking-[-0.03em] leading-[0.95] mb-8">

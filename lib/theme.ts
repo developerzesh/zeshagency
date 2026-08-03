@@ -54,8 +54,6 @@ export const motion = {
   // Spring physics for interactive elements
   spring: {
     magnetic: { damping: 40, stiffness: 150, mass: 1.2 },
-    cursor: { damping: 50, stiffness: 120, mass: 1.5 },
-    cursorDot: { damping: 60, stiffness: 200, mass: 0.8 },
     parallax: { damping: 50, stiffness: 80, mass: 2.0 },
     preloader: { damping: 30, stiffness: 60, mass: 1.5 },
   },

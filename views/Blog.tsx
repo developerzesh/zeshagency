@@ -34,7 +34,7 @@ export default function Blog() {
             {/* ── Hero ── */}
             <section
                 ref={heroRef}
-                className="relative min-h-[88vh] flex items-center overflow-hidden"
+                className="relative min-h-[60vh] md:min-h-[88vh] flex items-center overflow-hidden"
                 onMouseMove={(e) => {
                     mouseX.set(e.clientX - window.innerWidth / 2);
                     mouseY.set(e.clientY - window.innerHeight / 2);
@@ -46,7 +46,7 @@ export default function Blog() {
                     <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
                 </div>
 
-                <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+                <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
                     <motion.p
                         initial={{ opacity: 0, filter: 'blur(12px)' }}
                         animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -84,7 +84,7 @@ export default function Blog() {
                             className="flex flex-col items-start gap-4 flex-shrink-0"
                         >
                             <MagneticButton strength={0.4}>
-                                <a href="/contact" className="group flex items-center gap-4">
+                                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                                     <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                                     </span>
@@ -101,7 +101,7 @@ export default function Blog() {
 
             {/* ── Category Filter Bar ── */}
             <section className="border-t border-b border-border/60 py-5 sticky top-0 z-30 backdrop-blur-2xl bg-paper/80">
-                <div className="max-w-[1400px] mx-auto px-6 md:px-16 flex flex-wrap gap-3 items-center">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-16 flex flex-wrap gap-3 items-center">
                     <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-3 flex-shrink-0">Topic</span>
                     {blogCategories.map((cat) => (
                         <button
@@ -123,7 +123,7 @@ export default function Blog() {
 
             {/* ── Posts ── */}
             <section id="posts" className="py-24 md:py-40">
-                <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     {filtered.length === 0 ? (
                         <div className="py-40 text-center">
                             <p className="font-syne text-2xl font-800 text-text-muted">No posts in this category yet.</p>
@@ -135,7 +135,7 @@ export default function Blog() {
                                 <RevealText duration={1.6}>
                                     <a
                                         href={`/blog/${featured.slug}`}
-                                        className="group block mb-24 md:mb-32 border-b border-border/50 pb-24 md:pb-32"
+                                        className="group block mb-16 md:mb-32 border-b border-border/50 pb-24 md:pb-32"
                                     >
                                         <motion.div
                                             whileHover={{ x: 4 }}
@@ -239,11 +239,11 @@ export default function Blog() {
             </section>
 
             {/* ── Footer CTA ── */}
-            <section className="py-32 md:py-48 border-t border-border/60 relative overflow-hidden">
+            <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
                 </div>
-                <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
+                <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
                         <div className="md:col-span-7">
                             <RevealText>
@@ -264,11 +264,9 @@ export default function Blog() {
                             <RevealText delay={0.3}>
                                 <div className="flex flex-col items-start gap-5">
                                     <MagneticButton strength={0.4}>
-                                        <a href="/contact" className="group flex items-center gap-4">
-                                            <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                                                <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
-                                            </span>
-                                            <span className="font-lato text-sm font-medium text-ink">Book a Discovery Call</span>
+                                        <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                                            <span>Book a Discovery Call</span>
+                                            <span className="text-xs">→</span>
                                         </a>
                                     </MagneticButton>
                                     <MagneticButton strength={0.3}>

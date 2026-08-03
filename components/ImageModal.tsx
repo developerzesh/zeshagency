@@ -16,7 +16,7 @@ export default function ImageModal({ images, children, className = '', captions 
 
   return (
     <>
-      <div onClick={() => { setCurrentIndex(0); setIsOpen(true); }} className={`cursor-none ${className}`}>
+      <div onClick={() => { setCurrentIndex(0); setIsOpen(true); }} className={className}>
         {children}
       </div>
       <AnimatePresence>

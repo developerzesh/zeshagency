@@ -37,7 +37,7 @@ function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[80vh] flex items-center overflow-hidden"
+      className="relative min-h-[60vh] md:min-h-[80vh] flex items-center overflow-hidden"
       onMouseMove={e => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}
     >
       <ParticleField />
@@ -46,7 +46,7 @@ function HeroSection() {
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 w-full pt-40 pb-32">
+      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
         <motion.p
           initial={{ opacity: 0, filter: 'blur(12px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -83,7 +83,7 @@ function HeroSection() {
             className="flex flex-col items-start gap-4 flex-shrink-0"
           >
             <MagneticButton strength={0.4}>
-              <a href="/contact" className="group flex items-center gap-4">
+              <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                 <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                   <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                 </span>
@@ -133,45 +133,49 @@ interface FilterBarProps {
 
 function FilterBar({ activeIndustry, activeService, onIndustry, onService, count, total }: FilterBarProps) {
   return (
-    <div className="border-t border-b border-border/60 py-6 sticky top-0 z-30 backdrop-blur-2xl bg-paper/80">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+    <div className="border-t border-b border-border/60 py-4 sticky top-[72px] z-30 backdrop-blur-2xl bg-paper/80">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-10">
           {/* Industry filter */}
-          <div className="flex flex-wrap gap-2 items-center">
-            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-2 flex-shrink-0">Industry</span>
-            {ALL_INDUSTRIES.map(ind => (
-              <button
-                key={ind}
-                id={`filter-industry-${ind.toLowerCase().replace(/[\s&+]/g, '-')}`}
-                onClick={() => onIndustry(ind)}
-                className={`font-lato text-[11px] tracking-wider uppercase px-3 py-1.5 border transition-all duration-500 ${activeIndustry === ind
-                    ? 'bg-signal text-paper border-signal'
-                    : 'bg-transparent text-text-muted border-border/40 hover:border-signal/50 hover:text-ink'
-                  }`}
-              >
-                {ind}
-              </button>
-            ))}
+          <div className="flex items-center gap-2">
+            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0">Industry</span>
+            <div className="flex overflow-x-auto gap-2 items-center scrollbar-hide">
+              {ALL_INDUSTRIES.map(ind => (
+                <button
+                  key={ind}
+                  id={`filter-industry-${ind.toLowerCase().replace(/[\s&+]/g, '-')}`}
+                  onClick={() => onIndustry(ind)}
+                  className={`font-lato text-[11px] tracking-wider uppercase px-3 py-1.5 border transition-all duration-500 flex-shrink-0 whitespace-nowrap ${activeIndustry === ind
+                      ? 'bg-signal text-paper border-signal'
+                      : 'bg-transparent text-text-muted border-border/40 hover:border-signal/50 hover:text-ink'
+                    }`}
+                >
+                  {ind}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="hidden md:block w-px h-5 bg-border/40 self-center" />
 
           {/* Service filter */}
-          <div className="flex flex-wrap gap-2 items-center">
-            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-2 flex-shrink-0">Service</span>
-            {ALL_SERVICES.map(svc => (
-              <button
-                key={svc}
-                id={`filter-service-${svc.toLowerCase().replace(/[\s&+]/g, '-')}`}
-                onClick={() => onService(svc)}
-                className={`font-lato text-[11px] tracking-wider uppercase px-3 py-1.5 border transition-all duration-500 ${activeService === svc
-                    ? 'bg-ink text-paper border-ink'
-                    : 'bg-transparent text-text-muted border-border/40 hover:border-ink/40 hover:text-ink'
-                  }`}
-              >
-                {svc}
-              </button>
-            ))}
+          <div className="flex items-center gap-2">
+            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0">Service</span>
+            <div className="flex overflow-x-auto gap-2 items-center scrollbar-hide">
+              {ALL_SERVICES.map(svc => (
+                <button
+                  key={svc}
+                  id={`filter-service-${svc.toLowerCase().replace(/[\s&+]/g, '-')}`}
+                  onClick={() => onService(svc)}
+                  className={`font-lato text-[11px] tracking-wider uppercase px-3 py-1.5 border transition-all duration-500 flex-shrink-0 whitespace-nowrap ${activeService === svc
+                      ? 'bg-ink text-paper border-ink'
+                      : 'bg-transparent text-text-muted border-border/40 hover:border-ink/40 hover:text-ink'
+                    }`}
+                >
+                  {svc}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Count */}
@@ -305,8 +309,8 @@ export default function CaseStudies() {
         total={caseStudies.length}
       />
 
-      <section className="py-28 md:py-36">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-14 md:py-36">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {/* Empty state */}
           {filtered.length === 0 && (
             <motion.div
@@ -334,11 +338,11 @@ export default function CaseStudies() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="py-32 md:py-48 border-t border-border relative overflow-hidden">
+      <section className="py-16 md:py-48 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <RevealText>
@@ -359,7 +363,7 @@ export default function CaseStudies() {
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
                   <MagneticButton strength={0.4}>
-                    <a href="/contact" className="group flex items-center gap-4">
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>

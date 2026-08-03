@@ -34,9 +34,9 @@ export default function Philosophy() {
 
   return (
     <PageTransition>
-      <section ref={heroRef} className="relative min-h-[90vh] flex items-end overflow-hidden pb-32">
+      <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[90vh] flex items-end overflow-hidden pb-20 md:pb-32">
         <MorphingShape />
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Our Beliefs</p></RevealText>
           <RevealText delay={0.1}><h1 className="font-syne text-4xl md:text-6xl lg:text-[5rem] font-800 tracking-[-0.04em] leading-[0.85]">Philosophy<span className="text-signal">.</span></h1></RevealText>
           <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-lg mt-8 leading-[1.85]">The invisible architecture behind every decision we make.</p></RevealText>
@@ -45,10 +45,10 @@ export default function Philosophy() {
 
       <div className="fixed top-0 left-0 right-0 z-50 h-[1px]"><motion.div style={{ width: progressWidth }} className="h-full bg-signal" /></div>
 
-      <section ref={manifestoRef} className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section ref={manifestoRef} className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">D.E.S.I.G.N.</p></RevealText>
-          <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-32 md:mb-28">Manifesto<span className="text-signal">.</span></h2></RevealText>
+          <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-16 md:mb-28">Manifesto<span className="text-signal">.</span></h2></RevealText>
           <div>
             {manifesto.map((item, i) => (
               <RevealText key={item.letter} delay={i * 0.08}>
@@ -62,8 +62,8 @@ export default function Philosophy() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
             <div className="md:col-span-5 md:sticky md:top-40 md:self-start"><RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">How We Work</p></RevealText><RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-6xl font-800 tracking-[-0.03em]">Five Principles<span className="text-signal">.</span></h2></RevealText></div>
             <div className="md:col-span-5 md:col-start-8">
@@ -81,11 +81,11 @@ export default function Philosophy() {
         </div>
       </section>
 
-      <section className="py-32 md:py-48 border-t border-border">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section className="py-16 md:py-48 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Share our vision<span className="text-signal">?</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">If these principles resonate, we should talk.</p></RevealText>
-          <MagneticButton strength={0.3}><a href="/contact" className="font-lato text-sm font-medium text-signal sig-hover">Start a Conversation →</a></MagneticButton>
+          <MagneticButton strength={0.3}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-sm font-medium text-signal sig-hover">Start a Conversation →</a></MagneticButton>
         </div>
       </section>
     </PageTransition>

@@ -27,7 +27,7 @@ export default function Insights() {
     <PageTransition>
       <section
         ref={heroRef}
-        className="relative min-h-[85vh] flex items-center overflow-hidden"
+        className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden"
         onMouseMove={(e) => {
           mouseX.set(e.clientX - window.innerWidth / 2);
           mouseY.set(e.clientY - window.innerHeight / 2);
@@ -39,7 +39,7 @@ export default function Insights() {
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16 pt-40 w-full">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <motion.p
             initial={{ opacity: 0, filter: 'blur(12px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -80,7 +80,7 @@ export default function Insights() {
               className="flex flex-col items-start gap-4 flex-shrink-0"
             >
               <MagneticButton strength={0.4}>
-                <a href="/contact" className="group flex items-center gap-4">
+                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                   <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                     <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                   </span>
@@ -97,7 +97,7 @@ export default function Insights() {
 
       {/* Categories Filter Strip */}
       <section className="border-t border-b border-border/60 py-6 sticky top-0 z-30 backdrop-blur-2xl bg-paper/80">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16 flex flex-wrap gap-4 items-center">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16 flex flex-wrap gap-4 items-center">
           <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-3 flex-shrink-0">Topic</span>
           {insightCategories.map((cat) => (
             <button
@@ -115,10 +115,10 @@ export default function Insights() {
       </section>
 
       {/* Articles Listing */}
-      <section id="articles" className="py-32 md:py-48">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
+      <section id="articles" className="md:py-48">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {filtered.length === 0 ? (
-            <div className="py-32 text-center">
+            <div className="py-14 md:py-32 text-center">
               <p className="font-syne text-xl font-800 text-text-muted">No articles found in this category.</p>
             </div>
           ) : (
@@ -128,7 +128,7 @@ export default function Insights() {
                   <motion.article
                     whileHover={{ x: 6 }}
                     transition={{ duration: 0.8, ease: slowEase }}
-                    className="py-32 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline"
+                    className="py-14 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline"
                   >
                     {/* Index / Date Meta */}
                     <div className="md:col-span-3 flex flex-col gap-1">
@@ -166,11 +166,11 @@ export default function Insights() {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-32 md:py-48 border-t border-border/60 relative overflow-hidden">
+      <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-16">
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
             <div className="md:col-span-7">
               <RevealText>
@@ -191,7 +191,7 @@ export default function Insights() {
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
                   <MagneticButton strength={0.4}>
-                    <a href="/contact" className="group flex items-center gap-4">
+                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
                         <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
                       </span>

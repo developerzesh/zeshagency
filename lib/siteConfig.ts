@@ -72,6 +72,7 @@ export const trustLogos = [
   { src: '/client-logos/shri_ram_school.png', alt: 'Shri Ram School' },
   { src: '/client-logos/tata.png', alt: 'Tata' },
   { src: '/client-logos/xarwin.avif', alt: 'Xarwin' },
+  { src: '/client-logos/hafsa logo.png', alt: 'Hafsa' },
 ] as const;
 
 // ── Stats ─────────────────────────────────────────────────
@@ -145,6 +146,55 @@ export const solutions: Solution[] = [
     ],
   },
   {
+    slug: 'web-dev', title: 'Website Development', shortTitle: 'Web Dev',
+    tagline: 'Zero-bloat static engines built for speed and conversions.',
+    description: 'Most websites are weighed down by heavy WordPress plugins and unoptimized code structures. We build on modern static stacks using lightweight vanilla HTML, CSS, and clean Javascript — designed for crawler indexing and user experience.',
+    features: ['Headless Static Development', 'Frictionless Intake Funnels', 'Core Web Vitals Engineering', 'Conversion Pipeline Engineering', 'API CRM Integration', 'PageSpeed Optimization'],
+    outcomes: ['Average load speeds under 0.5s', 'Conversion rate increases up to 40%', 'Zero code dependency on heavy third-party plugins'],
+    roadmap: [
+      { phase: '01', title: 'Speed & UX Audit', description: 'Speed bottleneck analysis, intake form UX wireframes, and responsive schema mapping.' },
+      { phase: '02', title: 'Headless Build', description: 'Headless frontend code engineering using modern CSS/JS libraries.' },
+      { phase: '03', title: 'Integration & Validation', description: 'API CRM connections, database field mappings, and PageSpeed validation.' },
+    ],
+  },
+  {
+    slug: 'google-ads',
+    title: 'Google Ads & Paid Search',
+    shortTitle: 'Google Ads',
+    tagline: 'High-intent paid traffic that converts immediately.',
+    description: 'Organic search strategy takes time to mature. Paid search campaigns intercept high-intent buyers instantly. We build, audit, and optimize Google Ads accounts with strict conversion tracking and zero-waste budget routing.',
+    features: [
+      'Search Campaign Architecture',
+      'High-Intent Keyword Harvesting',
+      'Landing Page Conversion Alignment',
+      'Conversion Tracking Validation',
+      'B2B Negative Keyword Scrubber',
+      'Bid Strategy Calibration'
+    ],
+    outcomes: [
+      'Lower cost-per-acquisition (CPA) on paid campaigns',
+      'Significant increases in qualified demo requests and leads',
+      'Elimination of budget waste on low-intent search queries'
+    ],
+    roadmap: [
+      { phase: '01', title: 'Account & Audit Scans', description: 'Auditing legacy campaigns, mapping conversion track leaks, and identifying negative keyword drains.' },
+      { phase: '02', title: 'Campaign Build & Alignment', description: 'Re-building campaign groups around high-intent ad units and configuring custom landing experiences.' },
+      { phase: '03', title: 'Calibrate & Scale', description: 'Automating bid strategy rules, monitoring click-to-lead latency, and scaling top performers.' },
+    ],
+  },
+  {
+    slug: 'social-media', title: 'Social Media Management & Distribution', shortTitle: 'Social',
+    tagline: 'Elevate executive authority where B2B buyers read.',
+    description: 'High-value B2B buyers trust experienced operators. We write strategic case study insights and distribute them on LinkedIn and Twitter to position your executives as authoritative consultancies.',
+    features: ['Executive Ghostwriting', 'Case Study Redistribution', 'Thought-Leadership Architecture', 'Intent-Driven Writing', 'Founder-Led Campaigns', 'Distribution Pipelines'],
+    outcomes: ['Significant increases in profile views', 'Organic network growth', 'Qualified DMs from enterprise decision-makers'],
+    roadmap: [
+      { phase: '01', title: 'Voice Audit', description: 'Founder voice audits, content themes selection, and target profile planning.' },
+      { phase: '02', title: 'Content Creation', description: 'Thought leadership article creation and case-study redistribution campaigns.' },
+      { phase: '03', title: 'Publish & Grow', description: 'Automated publishing, follower growth audits, and direct-inquiry funnel sync.' },
+    ],
+  },
+  {
     slug: 'aeo', title: 'Answer Engine Optimization', shortTitle: 'AEO',
     tagline: 'Securing citations inside conversational AI models.',
     description: 'Conversational models evaluate semantic trust networks. To win AEO, your brand must exist in high-authority reference databases, possess clean JSON-LD schemas, and maintain active, verified reviews that LLM scrapers scan.',
@@ -166,18 +216,6 @@ export const solutions: Solution[] = [
       { phase: '01', title: 'Citation Audit', description: 'SGE citation audits and AI search indexing scan profiles mapping.' },
       { phase: '02', title: 'RAG Optimization', description: 'Coding retrieval-augmented generation (RAG) structural optimizations.' },
       { phase: '03', title: 'Monitor & Cover', description: 'Live context-aware recommendation monitoring and content coverage loops.' },
-    ],
-  },
-  {
-    slug: 'web-dev', title: 'Website Development', shortTitle: 'Web Dev',
-    tagline: 'Zero-bloat static engines built for speed and conversions.',
-    description: 'Most websites are weighed down by heavy WordPress plugins and unoptimized code structures. We build on modern static stacks using lightweight vanilla HTML, CSS, and clean Javascript — designed for crawler indexing and user experience.',
-    features: ['Headless Static Development', 'Frictionless Intake Funnels', 'Core Web Vitals Engineering', 'Conversion Pipeline Engineering', 'API CRM Integration', 'PageSpeed Optimization'],
-    outcomes: ['Average load speeds under 0.5s', 'Conversion rate increases up to 40%', 'Zero code dependency on heavy third-party plugins'],
-    roadmap: [
-      { phase: '01', title: 'Speed & UX Audit', description: 'Speed bottleneck analysis, intake form UX wireframes, and responsive schema mapping.' },
-      { phase: '02', title: 'Headless Build', description: 'Headless frontend code engineering using modern CSS/JS libraries.' },
-      { phase: '03', title: 'Integration & Validation', description: 'API CRM connections, database field mappings, and PageSpeed validation.' },
     ],
   },
   {
@@ -205,18 +243,6 @@ export const solutions: Solution[] = [
     ],
   },
   {
-    slug: 'social-media', title: 'Social Media Management & Distribution', shortTitle: 'Social',
-    tagline: 'Elevate executive authority where B2B buyers read.',
-    description: 'High-value B2B buyers trust experienced operators. We write strategic case study insights and distribute them on LinkedIn and Twitter to position your executives as authoritative consultancies.',
-    features: ['Executive Ghostwriting', 'Case Study Redistribution', 'Thought-Leadership Architecture', 'Intent-Driven Writing', 'Founder-Led Campaigns', 'Distribution Pipelines'],
-    outcomes: ['Significant increases in profile views', 'Organic network growth', 'Qualified DMs from enterprise decision-makers'],
-    roadmap: [
-      { phase: '01', title: 'Voice Audit', description: 'Founder voice audits, content themes selection, and target profile planning.' },
-      { phase: '02', title: 'Content Creation', description: 'Thought leadership article creation and case-study redistribution campaigns.' },
-      { phase: '03', title: 'Publish & Grow', description: 'Automated publishing, follower growth audits, and direct-inquiry funnel sync.' },
-    ],
-  },
-  {
     slug: 'consultation', title: 'High-Trust Consultation', shortTitle: 'Consulting',
     tagline: 'Principal-led workshops to unlock hidden revenue.',
     description: 'Most agencies pitch templates. We run database-backed analysis sessions where our founders examine your conversion funnels, code base bottlenecks, and design custom execution roadmaps.',
@@ -226,31 +252,6 @@ export const solutions: Solution[] = [
       { phase: '01', title: 'Diagnostics', description: 'Growth metrics diagnostics, competitor search spend scans, and site auditing.' },
       { phase: '02', title: 'Workshop', description: 'Principal-led workshops, roadblock diagnostics, and custom blueprint mapping.' },
       { phase: '03', title: 'Oversight', description: 'Implementation oversight, monthly health checks, and strategic roadmap adjustments.' },
-    ],
-  },
-  {
-    slug: 'google-ads',
-    title: 'Google Ads & Paid Search',
-    shortTitle: 'Google Ads',
-    tagline: 'High-intent paid traffic that converts immediately.',
-    description: 'Organic search strategy takes time to mature. Paid search campaigns intercept high-intent buyers instantly. We build, audit, and optimize Google Ads accounts with strict conversion tracking and zero-waste budget routing.',
-    features: [
-      'Search Campaign Architecture',
-      'High-Intent Keyword Harvesting',
-      'Landing Page Conversion Alignment',
-      'Conversion Tracking Validation',
-      'B2B Negative Keyword Scrubber',
-      'Bid Strategy Calibration'
-    ],
-    outcomes: [
-      'Lower cost-per-acquisition (CPA) on paid campaigns',
-      'Significant increases in qualified demo requests and leads',
-      'Elimination of budget waste on low-intent search queries'
-    ],
-    roadmap: [
-      { phase: '01', title: 'Account & Audit Scans', description: 'Auditing legacy campaigns, mapping conversion track leaks, and identifying negative keyword drains.' },
-      { phase: '02', title: 'Campaign Build & Alignment', description: 'Re-building campaign groups around high-intent ad units and configuring custom landing experiences.' },
-      { phase: '03', title: 'Calibrate & Scale', description: 'Automating bid strategy rules, monitoring click-to-lead latency, and scaling top performers.' },
     ],
   },
 ];
