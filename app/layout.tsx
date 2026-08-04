@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "ZESH — Digital Marketing Agency",
   description: "Zesh Agency · Strategic Growth Consultancy",
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon2.png',
   },
 };
 

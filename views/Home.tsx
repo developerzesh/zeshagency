@@ -192,7 +192,6 @@ function TrustBar() {
             {logos.map((logo, i) => {
               const isMeetstream = logo.alt === 'Meetstream';
               const isWhiteLogo = logo.alt === 'Saarthee' || logo.alt === 'Goldmine';
-              const isLargeLogo = logo.alt === 'Xarwin' || logo.alt === 'Tata';
               
               const logoSrc = isMeetstream
                 ? (isDark ? '/client-logos/Meetstreamblack.png' : '/client-logos/Meetstream.png')
@@ -203,8 +202,7 @@ function TrustBar() {
                   <img
                     src={logoSrc}
                     alt={logo.alt}
-                    className={`${isLargeLogo ? 'h-16 md:h-24' : 'h-8 md:h-12'
-                      } w-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
+                    className={`h-10 md:h-12 w-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
                         ? 'grayscale hover:opacity-100 hover:grayscale-0'
                         : isWhiteLogo
                           ? 'invert dark:invert-0 hover:opacity-100 hover:invert-0'
