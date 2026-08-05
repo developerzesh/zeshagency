@@ -89,10 +89,10 @@ export default function Hero() {
           >
             <MagneticButton strength={0.4}>
                 <a href="#work" className="group flex items-center gap-4">
-                <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
                 </span>
-                <span className="font-lato text-sm font-medium text-ink hidden md:inline">Selected Work</span>
+                <span className="font-lato text-sm font-medium text-paper hidden md:inline">Selected Work</span>
               </a>
             </MagneticButton>
             <MagneticButton strength={0.3}>

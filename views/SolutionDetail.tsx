@@ -540,12 +540,12 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <MagneticButton strength={0.4}>
-                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                    <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
                     </span>
-                    <span className="font-lato text-sm font-medium text-ink">Book a Consultation Call</span>
-                  </a>
+                    <span className="font-lato text-sm font-medium text-paper">Book a Consultation Call</span>
+                  </button>
                 </MagneticButton>
                 <MagneticButton strength={0.3}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
@@ -1548,10 +1548,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
 
               {/* Red/Orange full-width CTA Box */}
               <RevealText delay={0.15} duration={1.4}>
-                <a
-                  href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                   className="mt-16 flex items-center justify-between bg-signal text-ink hover:bg-ink hover:text-paper px-8 py-5 md:py-6 rounded-xl font-syne text-sm md:text-base font-800 tracking-tight transition-all duration-500 ease-out group"
                 >
                   <span>Book an AI Visibility Audit</span>
@@ -1560,7 +1558,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                     <span className="w-[3px] h-4 bg-ink group-hover:bg-paper transition-colors duration-500" />
                     <span className="w-[3px] h-3 bg-ink group-hover:bg-paper transition-colors duration-500" />
                   </div>
-                </a>
+                </button>
               </RevealText>
 
             </div>
@@ -2225,12 +2223,12 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
                   <MagneticButton strength={0.4}>
-                    <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                      <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
                       </span>
-                      <span className="font-lato text-sm font-medium text-ink">Book a Free Discovery Call</span>
-                    </a>
+                      <span className="font-lato text-sm font-medium text-paper">Book a Free Discovery Call</span>
+                    </button>
                   </MagneticButton>
                   <MagneticButton strength={0.3}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>

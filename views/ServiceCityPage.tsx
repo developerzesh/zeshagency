@@ -54,12 +54,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
           <RevealText delay={0.35} duration={1.4}>
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
               <MagneticButton strength={0.4}>
-                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                  <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                  <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
                   </span>
-                  <span className="font-lato text-sm font-medium text-ink">Get {data.cityName} Strategy Audit</span>
-                </a>
+                  <span className="font-lato text-sm font-medium text-paper">Get {data.cityName} Strategy Audit</span>
+                </button>
               </MagneticButton>
               <MagneticButton strength={0.3}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
@@ -125,12 +125,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               </RevealText>
               <RevealText delay={0.3}>
                 <MagneticButton strength={0.4}>
-                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-4 font-lato text-sm font-medium">
-                    <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                      <span className="text-paper text-xs">→</span>
+                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                    <span className="w-10 h-10 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                      <span className="text-ink text-xs">→</span>
                     </span>
-                    <span className="text-ink">Start Your Audit</span>
-                  </a>
+                    <span className="text-paper">Start Your Audit</span>
+                  </button>
                 </MagneticButton>
               </RevealText>
             </div>
@@ -377,12 +377,12 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               </div>
               <div className="flex flex-col gap-4 flex-shrink-0">
                 <MagneticButton strength={0.4}>
-                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                    <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
                     </span>
-                    <span className="font-lato text-sm font-medium text-ink">Book Free Strategy Call</span>
-                  </a>
+                    <span className="font-lato text-sm font-medium text-paper">Book Free Strategy Call</span>
+                  </button>
                 </MagneticButton>
                 <MagneticButton strength={0.3}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">

@@ -85,7 +85,7 @@ export default function Philosophy() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Share our vision<span className="text-signal">?</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">If these principles resonate, we should talk.</p></RevealText>
-          <MagneticButton strength={0.3}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-sm font-medium text-signal sig-hover">Start a Conversation →</a></MagneticButton>
+          <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Start a Conversation →</button></MagneticButton>
         </div>
       </section>
     </PageTransition>

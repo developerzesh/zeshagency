@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
-import { solutions, industries, caseStudies, citiesNav } from '../lib/data';
+import { solutions, industries, caseStudies } from '../lib/data';
 import { useTheme } from './ThemeContext';
 
 interface SubItem { label: string; path: string }
@@ -47,6 +47,7 @@ function Chevron({ active }: { active: boolean }) {
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const pathname = usePathname();
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
@@ -316,43 +317,68 @@ export default function Navigation() {
           >
             <div className="h-full flex flex-col pt-24 md:pt-40 px-8 md:px-16 pb-8 overflow-y-auto">
               <div className="flex-1">
-                {navItems.map((item, i) => (
-                  <motion.div
-                    key={item.path}
-                    initial={{ opacity: 0, filter: 'blur(16px)', x: -24 }}
-                    animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
-                    exit={{ opacity: 0, filter: 'blur(12px)', x: -16 }}
-                    transition={{ delay: i * 0.06, duration: 0.8, ease: slowEase }}
-                    className="mb-1"
-                  >
-                    <a
-                      href={item.path}
-                      onClick={handleNavClick}
-                      className="font-syne text-4xl md:text-6xl font-800 text-ink/60 hover:text-ink transition-colors duration-300 block py-2"
+                {navItems.map((item, i) => {
+                  const hasSubmenu = item.submenu && item.submenu.length > 0;
+                  const isExpanded = expandedMobile === item.path;
+                  return (
+                    <motion.div
+                      key={item.path}
+                      initial={{ opacity: 0, filter: 'blur(16px)', x: -24 }}
+                      animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
+                      exit={{ opacity: 0, filter: 'blur(12px)', x: -16 }}
+                      transition={{ delay: i * 0.06, duration: 0.8, ease: slowEase }}
+                      className="mb-1"
                     >
-                      {item.label}
-                    </a>
-                    {item.submenu && (
-                      <motion.div
-                        initial={{ opacity: 0, filter: 'blur(6px)' }}
-                        animate={{ opacity: 1, filter: 'blur(0px)' }}
-                        transition={{ delay: i * 0.06 + 0.15, duration: 0.6 }}
-                        className="grid grid-cols-2 gap-x-6 pl-1 pt-1 pb-4"
-                      >
-                        {item.submenu.slice(0, 4).map((sub) => (
-                          <a
-                            key={sub.path + sub.label}
-                            href={sub.path}
-                            onClick={handleNavClick}
-                            className="font-lato text-[11px] tracking-[0.08em] uppercase text-ink/40 hover:text-ink transition-colors duration-300 py-1"
+                      <div className="flex items-center justify-between">
+                        <a
+                          href={item.path}
+                          onClick={handleNavClick}
+                          className="font-syne text-4xl md:text-6xl font-800 text-ink/60 hover:text-ink transition-colors duration-300 block py-2"
+                        >
+                          {item.label}
+                        </a>
+                        {hasSubmenu && (
+                          <button
+                            onClick={() => setExpandedMobile(isExpanded ? null : item.path)}
+                            className="p-2 text-ink/40 hover:text-ink transition-colors duration-300"
                           >
-                            {sub.label}
-                          </a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </motion.div>
-                ))}
+                            <motion.svg
+                              animate={{ rotate: isExpanded ? 180 : 0 }}
+                              transition={{ duration: 0.3 }}
+                              width="16" height="16" viewBox="0 0 16 16" fill="none"
+                            >
+                              <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </motion.svg>
+                          </button>
+                        )}
+                      </div>
+                      <AnimatePresence>
+                        {hasSubmenu && isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: slowEase }}
+                            className="overflow-hidden"
+                          >
+                            <div className="grid grid-cols-2 gap-x-6 pl-1 pt-1 pb-4">
+                              {item.submenu!.slice(0, 6).map((sub) => (
+                                <a
+                                  key={sub.path + sub.label}
+                                  href={sub.path}
+                                  onClick={handleNavClick}
+                                  className="font-lato text-[11px] tracking-[0.08em] uppercase text-ink/40 hover:text-ink transition-colors duration-300 py-1"
+                                >
+                                  {sub.label}
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* Mobile footer */}
@@ -363,14 +389,12 @@ export default function Navigation() {
                 className="pt-8 mt-auto"
               >
                 <div className="border-t border-border/50 pt-6">
-                  <div className="flex flex-wrap gap-8 mb-6">
-                    {['New York', 'London', 'Tokyo', 'Dubai'].map((city) => (
-                      <span key={city} className="font-lato text-[10px] tracking-[0.2em] uppercase text-ink/35">{city}</span>
-                    ))}
-                  </div>
-                  <div className="flex flex-wrap gap-6">
-                    {['Twitter', 'LinkedIn', 'Dribbble'].map((s) => (
-                      <a key={s} href="#" className="font-lato text-[10px] tracking-[0.15em] uppercase text-ink/40 hover:text-ink transition-colors duration-300">{s}</a>
+                  <div className="flex flex-wrap gap-6 mb-6">
+                    {[
+                      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/zesh-agency/' },
+                      { name: 'Instagram', href: 'https://www.instagram.com/zeshagency' },
+                    ].map((s) => (
+                      <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className="font-lato text-[10px] tracking-[0.15em] uppercase text-ink/40 hover:text-ink transition-colors duration-300">{s.name}</a>
                     ))}
                   </div>
                   <div className="mt-6 pt-6 border-t border-border/30">

@@ -140,3 +140,11 @@ div {
     transition: none !important;
   }
 }
+
+/* 390px+ breakpoint for specific mobile adjustments */
+@media (min-width: 390px) {
+  .pt-390-hero { padding-top: 7rem; }
+  .pt-390-trust { padding-top: 3.5rem; }
+  .logo-meta-390 { height: 2.5rem; }
+  .logo-shark-390 { height: 3rem; }
+}

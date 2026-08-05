@@ -86,17 +86,19 @@ function HeroSection() {
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -right-20 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[250px]" />
         <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[180px]" />
       </div>
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-6 md:pb-12">
+      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-20 md:pt-40 pb-10 md:pb-12 pt-390-hero">
         <motion.div
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
-          className="flex flex-wrap items-center gap-4 font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-4 md:mb-6"
+          className="flex flex-wrap items-center gap-4 font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-8 md:mb-12"
         >
           <span>GROWTH PARTNER TO BRANDS BACKED BY</span>
-          <img src="/meta_logo.png" alt="Meta" className="h-3 md:h-8 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 md:-mx-4 -mx-2" />
+          <span className="hidden md:inline text-text-muted">Meta</span>
+          <img src="/meta_logo.png" alt="Meta" className="h-6 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 md:-mx-4 -mx-2 logo-meta-390" />
           <span>and</span>
-          <img src="/shark_tank_logo.png" alt="Shark Tank" className="h-5 md:h-8 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500" />
+          <span className="hidden md:inline text-text-muted">Shark Tank</span>
+          <img src="/shark_tank_logo.png" alt="Shark Tank" className="h-7 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 logo-shark-390" />
         </motion.div>
         <h1 className="font-syne text-[clamp(2.2rem,5.5vw,5.5rem)] font-800 leading-[0.9] tracking-[-0.03em] mb-6 md:mb-8 max-w-5xl">
           <motion.span
@@ -132,12 +134,12 @@ function HeroSection() {
             className="flex flex-wrap items-center gap-6 md:gap-10"
           >
             <MagneticButton strength={0.4}>
-              <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" className="group flex items-center gap-4">
-                <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-paper text-sm">→</motion.span>
+              <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-2 md:gap-3 bg-ink text-paper px-4 py-2 md:px-6 md:py-3 rounded-lg font-lato text-xs md:text-sm font-medium hover:bg-signal transition-colors duration-500">
+                <span className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-xs md:text-sm">→</motion.span>
                 </span>
-                <span className="font-lato text-sm font-medium text-ink">{heroContent.primaryCTA.label}</span>
-              </a>
+                <span className="font-lato text-xs md:text-sm font-medium text-paper">{heroContent.primaryCTA.label}</span>
+              </button>
             </MagneticButton>
             <MagneticButton strength={0.3}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">{heroContent.secondaryCTA.label}</a>
@@ -161,7 +163,7 @@ function TrustBar() {
   const { isDark } = useTheme();
   const logos = [...trustLogos, ...trustLogos];
   return (
-    <section className="relative py-10 md:py-14 border-y border-border/80 overflow-hidden">
+    <section className="relative pt-10 md:pt-14 pb-10 md:py-14 mt-4 md:mt-6 border-y border-border/80 overflow-hidden pt-390-trust">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16 mb-10">
         <RevealText>
           <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal text-center md:text-left">Retained by leading brands.</p>
@@ -409,18 +411,16 @@ function HowWeWork() {
             </RevealText>
             <RevealText delay={0.3}>
               <div className="flex flex-col gap-4">
-                <a
-                  href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
+                <button
+                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  className="inline-flex items-center gap-2 md:gap-3 bg-ink text-paper px-4 py-2 md:px-6 md:py-3 rounded-lg font-lato text-xs md:text-sm font-medium hover:bg-signal transition-colors duration-500 w-fit"
                 >
                   <span>Schedule Discovery Call</span>
                   <span className="text-xs">→</span>
-                </a>
+                </button>
                 <a
                   href="/case-studies"
-                  className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover pl-14"
+                  className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover"
                 >
                   View Case Studies
                 </a>
@@ -681,15 +681,13 @@ function ComparisonTable() {
         {/* Bottom CTA */}
         <RevealText delay={0.4}>
           <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
-            <a
-              href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
               className="inline-flex items-center gap-3 bg-signal text-ink px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal/80 transition-colors duration-500"
             >
               <span>Book a Free Consultation</span>
               <span className="text-xs">→</span>
-            </a>
+            </button>
             <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
               Explore All Solutions
             </a>
@@ -882,7 +880,7 @@ function CTA() {
           <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary max-w-md leading-[1.85]">We analyze your website metrics, inspect competitor search campaigns, and map out custom acquisition strategies from day one.</p></RevealText>
           <RevealText delay={0.3}>
             <div className="flex flex-col items-start gap-5">
-              <MagneticButton strength={0.4}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"><span>Book a Discovery Call</span><span className="text-xs">→</span></a></MagneticButton>
+              <MagneticButton strength={0.4}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"><span>Book a Discovery Call</span><span className="text-xs">→</span></button></MagneticButton>
               <MagneticButton strength={0.2}><a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a></MagneticButton>
             </div>
           </RevealText>

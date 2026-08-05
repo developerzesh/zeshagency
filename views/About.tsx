@@ -64,15 +64,13 @@ export default function About() {
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col gap-4">
-                  <a
-                    href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                     className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
                   >
                     <span>Schedule Discovery Call</span>
                     <span className="text-xs">→</span>
-                  </a>
+                  </button>
                   <a
                     href="/case-studies"
                     className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover pl-14"
@@ -118,7 +116,7 @@ export default function About() {
             ))}
           </div>
           <div className="mt-20 flex justify-center">
-            <MagneticButton strength={0.3}><a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
+            <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
           </div>
         </div>
       </section>

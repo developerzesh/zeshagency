@@ -125,9 +125,9 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                   <p className="font-lato text-xs text-text-muted">Chat directly withLuca or the search engineering team.</p>
                 </div>
                 <MagneticButton strength={0.3}>
-                  <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="font-lato text-xs font-semibold uppercase tracking-wider text-signal hover:text-ink transition-colors duration-700 inline-block py-2">
+                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     Start a Conversation →
-                  </a>
+                  </button>
                 </MagneticButton>
               </div>
             </div>

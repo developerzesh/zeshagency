@@ -6,9 +6,9 @@ export default function Footer() {
   const { isDark } = useTheme();
 
   return (
-    <footer className="border-t border-border py-18 md:py-36">
+    <footer className="border-t border-border py-14 md:py-28">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-10 md:gap-x-90 gap-y-10 md:gap-y-8 mb-20 md:mb-28 justify-between">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-16 md:mb-24">
           {/* Brand block */}
           <div className="col-span-2 md:col-span-1">
             <MagneticButton strength={0.1}>
@@ -56,26 +56,32 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Cities We Serve block */}
-          {/* <div className="col-span-1">
-    <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
-      Cities We Serve
-    </p>
+          {/* Industries block */}
+          <div className="col-span-1">
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
+              Industries
+            </p>
 
-    <ul className="space-y-3">
-      {citiesNav.map((city) => (
-        <li key={city.label} className="flex items-center gap-2">
-          <div className="w-1 h-1 rounded-full bg-signal" />
-          <a
-            href={city.path}
-            className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
-          >
-            {city.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </div> */}
+            <ul className="space-y-3">
+              {[
+                { label: "SaaS & Technology", path: "/industries/saas" },
+                { label: "E-commerce & D2C", path: "/industries/ecommerce" },
+                { label: "Education & EdTech", path: "/industries/education" },
+                { label: "Healthcare", path: "/industries/healthcare" },
+                { label: "Real Estate", path: "/industries/real-estate" },
+                { label: "Finance & FinTech", path: "/industries/finance" },
+              ].map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.path}
+                    className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Consultancy block */}
           <div className="col-span-1">
@@ -85,7 +91,7 @@ export default function Footer() {
 
             <ul className="space-y-3">
               {[
-                { label: "Why Partner With Us", path: "/about" },
+                { label: "About", path: "/about" },
                 { label: "Featured Cases", path: "/case-studies" },
                 { label: "Insights & Advisory", path: "/insights" },
                 { label: "Blog & Articles", path: "/blog" },

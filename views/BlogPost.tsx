@@ -244,15 +244,13 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                             </p>
                                         </div>
                                         <MagneticButton strength={0.3}>
-                                            <a
-                                                href="https://calendar.app.google/Mp8HrgYK67yjuYA29"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
+                                            <button
+                                                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                                                 className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500 flex-shrink-0"
                                             >
                                                 <span>Book Free Audit</span>
                                                 <span className="text-xs">→</span>
-                                            </a>
+                                            </button>
                                         </MagneticButton>
                                     </div>
                                 </div>

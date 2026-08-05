@@ -86,12 +86,12 @@ export default function SeoAeoGeoPage() {
           <RevealText delay={0.35} duration={1.4}>
             <div className="flex flex-wrap items-center gap-6">
               <MagneticButton strength={0.4}>
-                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                  <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                    <span className="text-paper text-sm">→</span>
-                  </span>
-                  <span className="font-lato text-sm font-medium text-ink">Get A Future-Proof Search Audit</span>
-                </a>
+                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                     <span className="text-ink text-sm">→</span>
+                   </span>
+                   <span className="font-lato text-sm font-medium text-paper">Get A Future-Proof Search Audit</span>
+                 </button>
               </MagneticButton>
             </div>
           </RevealText>
@@ -224,12 +224,12 @@ export default function SeoAeoGeoPage() {
             </div>
             <div className="flex flex-col gap-4 flex-shrink-0">
               <MagneticButton strength={0.4}>
-                <a href="https://calendar.app.google/Mp8HrgYK67yjuYA29" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                  <span className="w-12 h-12 rounded-full bg-ink flex items-center justify-center group-hover:bg-signal transition-colors duration-[1200ms]">
-                    <span className="text-paper text-sm">→</span >
-                  </span>
-                  <span className="font-lato text-sm font-medium text-ink font-semibold">Request System Audit</span>
-                </a>
+                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
+                     <span className="text-ink text-sm">→</span >
+                   </span>
+                   <span className="font-lato text-sm font-medium text-paper font-semibold">Request System Audit</span>
+                 </button>
               </MagneticButton>
             </div>
           </div>
