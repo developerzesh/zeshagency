@@ -18,14 +18,14 @@ export const offices = [
 ] as const;
 
 export const citiesNav = [
-  { label: 'Dubai', path: '/city-dubai' },
-  { label: 'Abu Dhabi', path: '/city-abudhabi' },
-  { label: 'New York', path: '/city-newyork' },
-  { label: 'London', path: '/city-london' },
-  { label: 'Sydney', path: '/city-sydney' },
-  { label: 'Mumbai', path: '/city-mumbai' },
-  { label: 'Riyadh', path: '/city-riyadh' },
-  { label: 'Johannesburg', path: '/city-johannesburg' },
+  { label: 'Dubai', path: '/city/dubai' },
+  { label: 'Abu Dhabi', path: '/city/abudhabi' },
+  { label: 'New York', path: '/city/newyork' },
+  { label: 'London', path: '/city/london' },
+  { label: 'Sydney', path: '/city/sydney' },
+  { label: 'Mumbai', path: '/city/mumbai' },
+  { label: 'Riyadh', path: '/city/riyadh' },
+  { label: 'Johannesburg', path: '/city/johannesburg' },
 ] as const;
 
 // ── Navigation ────────────────────────────────────────────

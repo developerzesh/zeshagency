@@ -278,7 +278,7 @@ export const SERVICE_CITY_SLUG_MAP: Record<string, { serviceKey: ServiceKey; cit
 
 for (const serviceKey of ['seo-aeo-geo', 'lead-gen', 'social-media', 'web-dev'] as ServiceKey[]) {
   for (const city of SOLUTIONS_CITIES) {
-    const slug = `${serviceKey}_in_${city.key}`;
+    const slug = `${serviceKey}_service_in_${city.key}`;
     SERVICE_CITY_SLUG_MAP[slug] = { serviceKey, cityKey: city.key };
   }
 }

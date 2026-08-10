@@ -1,6 +1,7 @@
 import MagneticButton from './MagneticButton';
 import { useTheme } from './ThemeContext';
 import { citiesNav } from '../lib/data';
+import { SOLUTIONS_CITIES } from '../lib/serviceCityData';
 
 export default function Footer() {
   const { isDark } = useTheme();
@@ -8,9 +9,12 @@ export default function Footer() {
   return (
     <footer className="border-t border-border py-14 md:py-28">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-16 md:mb-24">
+        
+        {/* Top Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-10 md:mb-16">
+          
           {/* Brand block */}
-          <div className="col-span-2 md:col-span-1">
+          <div className="col-span-1 md:col-span-3">
             <MagneticButton strength={0.1}>
               <a href="/" className="block">
                 <img
@@ -27,7 +31,7 @@ export default function Footer() {
           </div>
 
           {/* Solutions block */}
-          <div className="col-span-1">
+          <div className="col-span-1 md:col-span-3">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
               Solutions
             </p>
@@ -56,8 +60,43 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Regional Solutions block */}
+          <div className="col-span-1 md:col-span-6">
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Regional Solutions</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+              {SOLUTIONS_CITIES.map((city) => (
+                <div key={city.key} className="flex flex-col gap-3">
+                  <span className="font-syne font-bold text-xs text-text-secondary border-b border-border/50 pb-2">{city.name}</span>
+                  <ul className="flex flex-col gap-2">
+                    {[
+                      { label: `SEO services in ${city.name}`, path: `/seo-aeo-geo_service_in_${city.key}` },
+                      { label: `Lead Gen services in ${city.name}`, path: `/lead-gen_service_in_${city.key}` },
+                      { label: `Social Media services in ${city.name}`, path: `/social-media_service_in_${city.key}` },
+                      { label: `Web Dev services in ${city.name}`, path: `/web-dev_service_in_${city.key}` },
+                    ].map((service, idx) => (
+                      <li key={idx} className="flex items-center gap-2">
+                        <div className="w-1 h-1 rounded-full bg-signal/50" />
+                        <a
+                          href={service.path}
+                          className="font-lato text-[11px] text-text-muted hover:text-signal transition-colors duration-300"
+                        >
+                          {service.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+        </div>
+
+        {/* Bottom Row */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-16 md:mb-24">
+          
           {/* Industries block */}
-          <div className="col-span-1">
+          <div className="col-span-1 md:col-span-3">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
               Industries
             </p>
@@ -84,7 +123,7 @@ export default function Footer() {
           </div>
 
           {/* Consultancy block */}
-          <div className="col-span-1">
+          <div className="col-span-1 md:col-span-3">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
               Consultancy
             </p>
@@ -109,6 +148,25 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Cities We Serve block */}
+          <div className="col-span-1 md:col-span-6">
+            <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">Cities We Serve</p>
+            <ul className="grid grid-cols-2 gap-y-3">
+              {citiesNav.map((city) => (
+                <li key={city.label} className="flex items-center gap-2">
+                  <div className="w-1 h-1 rounded-full bg-signal" />
+                  <a
+                    href={city.path}
+                    className="font-lato text-sm text-text-secondary hover:text-ink transition-colors duration-700"
+                  >
+                    {city.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
 
         {/* Bottom bar */}

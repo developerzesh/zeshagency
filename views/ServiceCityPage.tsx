@@ -437,7 +437,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             {otherCities.map((c) => (
               <Link
                 key={c.key}
-                href={`/${serviceKey}_in_${c.key}`}
+                href={`/${serviceKey}_service_in_${c.key}`}
                 className="font-lato text-[11px] font-bold text-text-secondary py-3.5 px-4 border border-border/50 rounded-xl transition-all duration-[400ms] flex items-center justify-between hover:bg-ink hover:text-paper hover:border-ink dark:hover:bg-white dark:hover:text-ink"
               >
                 <span>{c.name}</span>

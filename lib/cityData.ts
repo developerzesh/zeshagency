@@ -1,12 +1,12 @@
 export const CITIES = [
-  ['Dubai', 'city-dubai'],
-  ['Abu Dhabi', 'city-abudhabi'],
-  ['New York', 'city-newyork'],
-  ['London', 'city-london'],
-  ['Sydney', 'city-sydney'],
-  ['Mumbai', 'city-mumbai'],
-  ['Riyadh', 'city-riyadh'],
-  ['Johannesburg', 'city-johannesburg'],
+  ['Dubai', 'city/dubai'],
+  ['Abu Dhabi', 'city/abudhabi'],
+  ['New York', 'city/newyork'],
+  ['London', 'city/london'],
+  ['Sydney', 'city/sydney'],
+  ['Mumbai', 'city/mumbai'],
+  ['Riyadh', 'city/riyadh'],
+  ['Johannesburg', 'city/johannesburg'],
 ] as const;
 
 export const SOL_MAP: Record<string, string> = {

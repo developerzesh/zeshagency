@@ -11,7 +11,18 @@ import { CITY_DATA, CITIES, SOL_MAP } from '../lib/cityData';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const toPath = (p: string) => {
+const getServiceLink = (p: string, cityKey: string) => {
+  const cityServiceMap: Record<string, string> = {
+    'sol-seo': 'seo-aeo-geo',
+    'sol-ads': 'lead-gen',
+    'sol-linkedin': 'social-media',
+    'sol-social': 'social-media',
+    'sol-leadgen': 'lead-gen',
+    'sol-web': 'web-dev',
+  };
+  if (cityServiceMap[p]) {
+    return `/${cityServiceMap[p]}_service_in_${cityKey}`;
+  }
   const slug = SOL_MAP[p] || p;
   return `/solutions/${slug}`;
 };
@@ -116,7 +127,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {(data.services as [string, string, string][]).map(([title, desc, pathKey], i) => (
               <RevealText key={title} delay={i * 0.08} duration={1.4}>
-                <Link href={toPath(pathKey)} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
+                <Link href={getServiceLink(pathKey, cityKey)} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
                   <div className="w-6 h-0.5 bg-signal mb-6 transition-transform duration-500 group-hover:scale-x-150 group-hover:origin-left" />
                   <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight mb-4 group-hover:text-signal transition-colors duration-500">{title}</h3>
                   <p className="font-lato text-sm text-text-secondary leading-[1.8] mb-8 group-hover:text-text-muted transition-colors duration-500">{desc}</p>
@@ -474,7 +485,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             <p className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mb-8 font-semibold">Also Serving</p>
           </RevealText>
           <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-            {CITIES.filter(([, p]) => p !== `city-${cityKey}`).map(([name, path]) => (
+            {CITIES.filter(([, p]) => p !== `city/${cityKey}`).map(([name, path]) => (
               <Link
                 key={name}
                 href={`/${path}`}
