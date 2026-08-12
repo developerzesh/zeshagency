@@ -4,26 +4,24 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { solutions, industries, caseStudies } from '../lib/data';
+import { citiesNav } from '../lib/siteConfig';
 import { useTheme } from './ThemeContext';
 
 interface SubItem { label: string; path: string }
 interface NavItem { label: string; path: string; submenu?: SubItem[] }
 
-const insightCategories = ['AI & Search', 'Web Development', 'SEO Strategy'];
-
 // ── Primary nav (with submenus) ──────────────────────────
 const primaryNav: NavItem[] = [
-  { label: 'Solutions', path: '/solutions', submenu: solutions.map(s => ({ label: s.title, path: `/solutions/${s.slug}` })) },
+  { label: 'Solutions', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
   { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
+  { label: 'Locations', path: '/location/dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
   { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
-  // { label: 'Locations', path: '/city-dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
 ];
 
 // ── Secondary nav ────────────────────────────────────────
 const secondaryNav: NavItem[] = [
   { label: 'About', path: '/about' },
-  { label: 'Insights', path: '/insights', submenu: [{ label: 'All Articles', path: '/insights' }, ...insightCategories.map(c => ({ label: c, path: '/insights' }))] },
-  { label: 'Blog', path: '/blog', submenu: [{ label: 'All Posts', path: '/blog' }, { label: 'SEO & Search', path: '/blog' }, { label: 'AI & GEO', path: '/blog' }, { label: 'Web Performance', path: '/blog' }, { label: 'Growth Strategy', path: '/blog' }] },
+  { label: 'Resources', path: '/blog', submenu: [{ label: 'Blog', path: '/blog' }, { label: 'Insights', path: '/insights' }] },
   { label: 'Careers', path: '/careers', submenu: [{ label: 'Open Roles', path: '/careers' }] },
 ];
 
@@ -48,8 +46,10 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
+  const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const pathname = usePathname();
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const cityTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
 
   const handleNavClick = () => { setIsOpen(false); };
@@ -60,6 +60,14 @@ export default function Navigation() {
   };
   const hideSubmenu = () => {
     submenuTimeout.current = setTimeout(() => setActiveSubmenu(null), 300);
+  };
+
+  const showCityServices = (cityKey: string) => {
+    if (cityTimeout.current) clearTimeout(cityTimeout.current);
+    setHoveredCity(cityKey);
+  };
+  const hideCityServices = () => {
+    cityTimeout.current = setTimeout(() => setHoveredCity(null), 200);
   };
 
   const activeItem = navItems.find(item => item.path === activeSubmenu);
@@ -187,12 +195,11 @@ export default function Navigation() {
               transition={{ duration: 0.45, ease: slowEase }}
               onMouseEnter={() => showSubmenu(activeSubmenu)}
               onMouseLeave={hideSubmenu}
-              className="hidden lg:block absolute left-1/2 -translate-x-1/2 mt-2 w-full max-w-4xl"
+              className="hidden lg:block absolute left-1/2 -translate-x-1/2 mt-2 w-full max-w-5xl"
             >
               <div className="mx-6 md:mx-16 relative rounded-2xl overflow-hidden">
 
                 {/* ── Glass shell ── */}
-                {/* Outermost: frosted glass layer */}
                 <div
                   className="absolute inset-0 rounded-2xl"
                   style={{
@@ -202,26 +209,22 @@ export default function Navigation() {
                     boxShadow: '0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06)',
                   }}
                 />
-                {/* Top-edge light refraction gradient */}
                 <div
                   className="absolute inset-x-0 top-0 h-px rounded-t-2xl"
                   style={{
                     background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.9) 50%, rgba(255,255,255,0.7) 60%, transparent 100%)',
                   }}
                 />
-                {/* Inner top glow / reflection */}
                 <div
                   className="absolute inset-x-0 top-0 h-16 rounded-t-2xl pointer-events-none"
                   style={{
                     background: 'linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 100%)',
                   }}
                 />
-                {/* Outer border – uses token so it's dark in light mode, bright in dark */}
                 <div
                   className="absolute inset-0 rounded-2xl pointer-events-none"
                   style={{ border: '1px solid var(--glass-border)' }}
                 />
-                {/* Bottom inner shadow line */}
                 <div
                   className="absolute inset-x-0 bottom-0 h-px"
                   style={{ background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }}
@@ -249,39 +252,109 @@ export default function Navigation() {
                     </a>
                   </div>
 
-                  {/* Item grid */}
-                  <div className="grid grid-cols-2 gap-x-8 gap-y-0">
-                    {activeItem.submenu.map((sub, i) => (
-                      <motion.div
-                        key={sub.path + sub.label}
-                        initial={{ opacity: 0, y: 6 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.03, duration: 0.4, ease: slowEase }}
-                      >
-                        <a
-                          href={sub.path}
-                          onClick={handleNavClick}
-                          className="group flex items-center gap-3 py-3 border-b border-ink/10 hover:border-signal/30 transition-all duration-300"
+                  {/* Locations: full-width cities grid */}
+                  {activeItem.label === 'Locations' ? (
+                    <div className="pb-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        {activeItem.submenu.map((sub, i) => {
+                          const pathParts = sub.path.split('/').filter(Boolean);
+                          const cityKey = pathParts[pathParts.length - 1];
+                          const cityName = sub.label;
+                          const isHovered = hoveredCity === cityKey;
+                          return (
+                            <motion.div
+                              key={sub.path + sub.label}
+                              initial={{ opacity: 0, y: 6 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: i * 0.03, duration: 0.4, ease: slowEase }}
+                              className="relative"
+                              onMouseEnter={() => showCityServices(cityKey)}
+                              onMouseLeave={hideCityServices}
+                            >
+                              <a
+                                href={sub.path}
+                                onClick={handleNavClick}
+                                className={`group flex items-center gap-3 py-3 px-4 border-b border-ink/5 hover:border-signal/30 transition-all duration-300 rounded-lg ${isHovered ? 'bg-signal/10 border-signal/30' : ''}`}
+                              >
+                                <span className={`w-[5px] h-[5px] rounded-full shrink-0 transition-all duration-300 ${isHovered ? 'bg-signal' : ''}`} style={{ background: isHovered ? 'rgba(244,165,54,1)' : 'transparent', border: isHovered ? 'none' : '1.5px solid rgba(244,165,54,0.55)' }} />
+                                <span className={`font-lato text-[13px] transition-colors duration-300 ${isHovered ? 'text-ink font-semibold' : 'text-ink/75 group-hover:text-ink'}`}>{sub.label}</span>
+                                <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
+                              </a>
+                              {/* Services dropdown below city on hover */}
+                              <AnimatePresence>
+                                {isHovered && (
+                                  <motion.div
+                                    initial={{ opacity: 0, height: 0 }}
+                                    animate={{ opacity: 1, height: 'auto' }}
+                                    exit={{ opacity: 0, height: 0 }}
+                                    transition={{ duration: 0.25, ease: slowEase }}
+                                    className="overflow-hidden"
+                                  >
+                                    <div className="pl-4 pt-2 pb-1 space-y-0.5">
+                                      {[
+                                        { slug: 'seo-aeo-geo', label: `SEO services in ${cityName}` },
+                                        { slug: 'lead-gen', label: `Lead Gen services in ${cityName}` },
+                                        { slug: 'social-media', label: `Social Media services in ${cityName}` },
+                                        { slug: 'web-dev', label: `Web Dev services in ${cityName}` },
+                                      ].map((service, j) => (
+                                        <motion.div
+                                          key={service.slug}
+                                          initial={{ opacity: 0, x: -8 }}
+                                          animate={{ opacity: 1, x: 0 }}
+                                          transition={{ delay: j * 0.04, duration: 0.3, ease: slowEase }}
+                                        >
+                                          <a
+                                            href={`/location/${cityKey}/${service.slug}-service-in-${cityKey}`}
+                                            onClick={handleNavClick}
+                                            className="group flex items-center gap-2 py-1.5 hover:text-signal transition-colors duration-200"
+                                          >
+                                            <span className="w-[3px] h-[3px] rounded-full bg-signal/50 shrink-0" />
+                                            <span className="font-lato text-[11px] text-ink/60 group-hover:text-signal transition-colors duration-200">{service.label}</span>
+                                          </a>
+                                        </motion.div>
+                                      ))}
+                                    </div>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </motion.div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ) : (
+                    /* Default: two-column grid for other nav items */
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-0">
+                      {activeItem.submenu.map((sub, i) => (
+                        <motion.div
+                          key={sub.path + sub.label}
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.03, duration: 0.4, ease: slowEase }}
                         >
-                          {/* Accent dot */}
-                          <span
-                            className="w-[5px] h-[5px] rounded-full shrink-0 transition-all duration-300 group-hover:scale-125"
-                            style={{
-                              background: 'transparent',
-                              border: '1.5px solid rgba(244,165,54,0.55)',
-                            }}
-                          />
-                          <span className="font-lato text-[13px] text-ink/75 group-hover:text-ink transition-colors duration-300">
-                            {sub.label}
-                          </span>
-                          {/* Arrow revealed on hover */}
-                          <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                            →
-                          </span>
-                        </a>
-                      </motion.div>
-                    ))}
-                  </div>
+                          <a
+                            href={sub.path}
+                            onClick={handleNavClick}
+                            className="group flex items-center gap-3 py-3 border-b border-ink/10 hover:border-signal/30 transition-all duration-300"
+                          >
+                            <span
+                              className="w-[5px] h-[5px] rounded-full shrink-0 transition-all duration-300 group-hover:scale-125"
+                              style={{
+                                background: 'transparent',
+                                border: '1.5px solid rgba(244,165,54,0.55)',
+                              }}
+                            />
+                            <span className="font-lato text-[13px] text-ink/75 group-hover:text-ink transition-colors duration-300">
+                              {sub.label}
+                            </span>
+                            <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+                              →
+                            </span>
+                          </a>
+                        </motion.div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* ── Frosted footer strip ── */}

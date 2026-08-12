@@ -15,7 +15,7 @@ export default function FeaturedSolutions() {
         <div className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-4 md:overflow-visible md:snap-none">
           {solutions.slice(0, 4).map((solution, i) => (
             <RevealText key={solution.slug} delay={i * 0.08}>
-              <a href={`/solutions/${solution.slug}`} className="block snap-center flex-shrink-0 w-[82vw] md:w-auto">
+              <a href={`/services/${solution.slug}`} className="block snap-center flex-shrink-0 w-[82vw] md:w-auto">
                 <motion.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}

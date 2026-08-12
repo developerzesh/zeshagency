@@ -37,7 +37,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
 
             <article ref={articleRef} className="pt-24 md:pt-40 pb-20 md:pb-36">
                 {/* ── Article Header ── */}
-                <div className="max-w-[900px] mx-auto px-4 md:px-16">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     {/* Breadcrumb */}
                     <RevealText duration={1.2}>
                         <a
@@ -108,23 +108,9 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     </RevealText>
                 </div>
 
-                {/* ── Featured Image ── */}
-                <div className="max-w-[1200px] mx-auto px-4 md:px-16 mb-20">
-                    <RevealText duration={1.8}>
-                        <CinematicImage
-                            src={post.image}
-                            alt={post.title}
-                            aspect="21/9"
-                            parallaxStrength={0.06}
-                            revealDuration={1.8}
-                            hoverZoom={1.01}
-                        />
-                    </RevealText>
-                </div>
-
                 {/* ── Body + Sidebar ── */}
-                <div className="max-w-[1200px] mx-auto px-4 md:px-16">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
                         {/* ── Sidebar ToC ── */}
                         {toc.length > 0 && (
@@ -168,7 +154,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                         )}
 
                         {/* ── Article Content ── */}
-                        <div className={toc.length > 0 ? 'lg:col-span-9' : 'lg:col-span-12 max-w-[700px]'}>
+                        <div className={toc.length > 0 ? 'lg:col-span-6' : 'lg:col-span-12 max-w-[900px]'}>
                             <RevealText delay={0.4} duration={1.6}>
                                 <div className="prose prose-neutral max-w-none">
                                     {post.content.map((section, idx) => {
@@ -233,6 +219,27 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                 </div>
                             </RevealText>
 
+                            {/* Author Section */}
+                            <RevealText delay={0.55} duration={1.4}>
+                                <div className="mt-12 pt-10 border-t border-border/60">
+                                    <p className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal font-semibold mb-5">About the author</p>
+                                    <div className="flex gap-5">
+                                        <img
+                                            src="/images/shahana-avatar.jpg"
+                                            alt="Shahana Shaikh"
+                                            className="w-16 h-16 rounded-full object-cover border border-border/60 flex-shrink-0"
+                                        />
+                                        <div>
+                                            <h4 className="font-syne text-lg font-800 text-ink leading-tight mb-1">Shahana Shaikh</h4>
+                                            <p className="font-lato text-[11px] text-signal uppercase tracking-wider mb-3">Founder</p>
+                                            <p className="font-lato text-[13px] text-text-secondary leading-[1.8]">
+                                                Shahana is the Founder of Zesh Agency, a strategic growth consultancy partnering with ambitious brands to engineer high-converting growth systems. With deep expertise in SEO, AEO, GEO, and full-stack digital marketing, she leads principal-level execution for clients across SaaS, healthcare, real estate, and B2B services. Shahana personally strategizes and supervises every engagement, ensuring technical precision and revenue alignment.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </RevealText>
+
                             {/* Inline CTA */}
                             <RevealText delay={0.6} duration={1.4}>
                                 <div className="mt-14 pt-10 border-t border-border/60">
@@ -256,6 +263,28 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                 </div>
                             </RevealText>
                         </div>
+
+                        {/* ── Sidebar CTA ── */}
+                        <aside className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
+                            <RevealText delay={0.2}>
+                                <div className="border border-border/50 rounded-xl p-6 bg-paper/40 dark:bg-ink/10 backdrop-blur-sm">
+                                    <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal font-semibold">Get Started</span>
+                                    <h4 className="font-syne text-lg font-800 text-ink mt-4 mb-2">Want this built for your brand?</h4>
+                                    <p className="font-lato text-[12px] text-text-muted leading-relaxed mb-5">
+                                        We implement these exact strategies for our partners. Book a free audit.
+                                    </p>
+                                    <MagneticButton strength={0.3}>
+                                        <button
+                                            onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                                            className="w-full inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-lg font-lato text-[11px] font-medium hover:bg-signal transition-colors duration-500"
+                                        >
+                                            <span>Book Free Audit</span>
+                                            <span className="text-xs">→</span>
+                                        </button>
+                                    </MagneticButton>
+                                </div>
+                            </RevealText>
+                        </aside>
                     </div>
                 </div>
 

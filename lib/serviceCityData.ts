@@ -80,9 +80,9 @@ The era of simple ten-blue-links is over. We future-proof your digital presence,
         ],
         industries: ["Real Estate & PropTech","B2B Enterprise","Professional Services","Healthcare & Wellness","Finance & FinTech","E-Commerce"],
         resources: [
-        {"title":"Dubai Search Authority Guide","desc":"Strategies to build bilingual visibility across traditional and AI search engines.","href":"/blog"},
-        {"title":"AI Search Impact in the UAE","desc":"Analyzing how Dubai decision-makers leverage AI for purchasing.","href":"/blog"},
-        {"title":"Technical SEO for MENA","desc":"Structured data and schema markup essentials for the UAE market.","href":"/blog"}
+        {"title":"Dubai Search Authority Guide","desc":"Strategies to build bilingual visibility across traditional and AI search engines.","href":"/services/seo"},
+        {"title":"AI Search Impact in the UAE","desc":"Analyzing how Dubai decision-makers leverage AI for purchasing.","href":"/services/aeo"},
+        {"title":"Technical SEO for MENA","desc":"Structured data and schema markup essentials for the UAE market.","href":"/services/local-seo"}
       ],
         process: [
         {"step":"01","title":"Data-Driven Audit","desc":"We evaluate your current footprint across Google.ae and major AI engines to identify revenue-blocking gaps."},
@@ -1188,12 +1188,12 @@ export const getServiceCityData = (serviceKey: ServiceKey, cityKey: CityKey) => 
   };
 };
 
-// Map generated flat slugs to their keys
+// Map generated slugs to their keys — format: cityKey/serviceKey-service-in-cityKey
 export const SERVICE_CITY_SLUG_MAP: Record<string, { serviceKey: ServiceKey; cityKey: CityKey }> = {};
 
 for (const serviceKey of ['seo-aeo-geo', 'lead-gen', 'social-media', 'web-dev'] as ServiceKey[]) {
   for (const city of SOLUTIONS_CITIES) {
-    const slug = `${serviceKey}_service_in_${city.key}`;
+    const slug = `${city.key}/${serviceKey}-service-in-${city.key}`;
     SERVICE_CITY_SLUG_MAP[slug] = { serviceKey, cityKey: city.key };
   }
 }

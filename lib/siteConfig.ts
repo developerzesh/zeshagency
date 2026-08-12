@@ -18,23 +18,24 @@ export const offices = [
 ] as const;
 
 export const citiesNav = [
-  { label: 'Dubai', path: '/city/dubai' },
-  { label: 'Abu Dhabi', path: '/city/abudhabi' },
-  { label: 'New York', path: '/city/newyork' },
-  { label: 'London', path: '/city/london' },
-  { label: 'Sydney', path: '/city/sydney' },
-  { label: 'Mumbai', path: '/city/mumbai' },
-  { label: 'Riyadh', path: '/city/riyadh' },
-  { label: 'Johannesburg', path: '/city/johannesburg' },
+  { label: 'Dubai', path: '/location/dubai' },
+  { label: 'Abu Dhabi', path: '/location/abudhabi' },
+  { label: 'New York', path: '/location/newyork' },
+  { label: 'London', path: '/location/london' },
+  { label: 'Sydney', path: '/location/sydney' },
+  { label: 'Mumbai', path: '/location/mumbai' },
+  { label: 'Riyadh', path: '/location/riyadh' },
+  { label: 'Johannesburg', path: '/location/johannesburg' },
 ] as const;
 
 // ── Navigation ────────────────────────────────────────────
 export const navLinks = [
-  { label: 'Solutions', path: '/solutions' },
+  { label: 'Services', path: '/services' },
   { label: 'Industries', path: '/industries' },
+  { label: 'Locations', path: '/location/dubai' },
   { label: 'Case Studies', path: '/case-studies' },
   { label: 'About', path: '/about' },
-  { label: 'Insights', path: '/insights' },
+  { label: 'Resources', path: '/blog' },
   { label: 'Careers', path: '/careers' },
   { label: 'Contact', path: '/contact' },
 ] as const;
@@ -65,13 +66,13 @@ export const trustLogos = [
   { src: '/client-logos/Pawparazzi.png', alt: 'Pawparazzi' },
   { src: '/client-logos/Pincha.png', alt: 'Pincha' },
   { src: '/client-logos/bajaj.png', alt: 'Bajaj' },
-  { src: '/client-logos/nyx.png', alt: 'NYX' },
+  { src: '/client-logos/nyxw.png', alt: 'NYX' },
   { src: '/client-logos/saarthee.png', alt: 'Saarthee' },
   { src: '/client-logos/uleadspace.png', alt: 'UleadSpace' },
   { src: '/client-logos/sdb.png', alt: 'SDB' },
   { src: '/client-logos/shri_ram_school.png', alt: 'Shri Ram School' },
   { src: '/client-logos/tata.png', alt: 'Tata' },
-  { src: '/client-logos/xarwin.avif', alt: 'Xarwin' },
+  { src: '/client-logos/xarwin.png', alt: 'Xarwin' },
   { src: '/client-logos/hafsa logo.png', alt: 'Hafsa' },
 ] as const;
 

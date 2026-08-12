@@ -119,7 +119,7 @@ export default function Solutions() {
 
                   {/* Learn More CTA */}
                   <a
-                    href={`/solutions/${s.slug}`}
+                    href={`/services/${s.slug}`}
                     className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300 flex-shrink-0"
                   >
                     Learn More

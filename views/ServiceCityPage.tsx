@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 import { getServiceCityData, SOLUTIONS_CITIES, ServiceKey, CityKey } from '../lib/serviceCityData';
+import { industries } from '../lib/siteConfig';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -93,7 +94,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {(data.services as [string, string, string][]).map(([title, desc, pathKey], i) => (
               <RevealText key={title} delay={i * 0.08} duration={1.4}>
-                <Link href={`/solutions/${pathKey}`} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
+                <Link href={`/services/${pathKey}`} className="block bg-surface/30 border border-border/40 p-8 md:p-10 rounded-2xl transition-all duration-[600ms] hover:bg-ink dark:hover:bg-white hover:text-paper dark:hover:text-ink group relative overflow-hidden">
                   <div className="w-6 h-0.5 bg-signal mb-6 transition-transform duration-500 group-hover:scale-x-150 group-hover:origin-left" />
                   <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight mb-4 group-hover:text-signal transition-colors duration-500">{title}</h3>
                   <p className="font-lato text-sm text-text-secondary leading-[1.8] mb-8 group-hover:text-text-muted transition-colors duration-500">{desc}</p>
@@ -329,6 +330,42 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
         </div>
       </section>
 
+      {/* ── 7b. VERTICALS ── */}
+      <section className="py-16 md:py-24 border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <RevealText>
+            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">VERTICALS</p>
+          </RevealText>
+          <RevealText delay={0.1}>
+            <h2 className="font-syne text-2xl md:text-3xl font-800 tracking-[-0.03em] leading-tight mb-8">
+              Specialized structures for high-value business models<span className="text-signal">.</span>
+            </h2>
+          </RevealText>
+          <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-4 -mx-4 px-4 md:mx-0 md:px-0">
+            {industries.map((ind, i) => (
+              <RevealText key={ind.slug} delay={i * 0.05} duration={1.2}>
+                <Link
+                  href={`/industries/${ind.slug}`}
+                  className="group block flex-shrink-0 w-[280px] md:w-[300px] bg-surface/30 border border-border/40 rounded-2xl p-6 hover:border-signal/40 hover:bg-signal/5 transition-all duration-500 h-full"
+                >
+                  <div className="flex items-start justify-between gap-2 mb-3">
+                    <h3 className="font-syne text-lg font-800 tracking-tight text-ink group-hover:text-signal transition-colors duration-300">{ind.title}</h3>
+                    <span className="text-signal group-hover:translate-x-1 transition-transform duration-[600ms] text-xs mt-1">→</span>
+                  </div>
+                  <p className="font-lato text-[11px] uppercase tracking-wider text-signal font-semibold mb-3">{ind.tagline}</p>
+                  <p className="font-lato text-[13px] text-text-muted leading-[1.6]">{ind.description}</p>
+                </Link>
+              </RevealText>
+            ))}
+          </div>
+          <RevealText delay={0.4}>
+            <div className="mt-8">
+              <Link href="/industries" className="font-lato text-sm font-medium text-signal sig-hover">Explore All Sectors We Serve →</Link>
+            </div>
+          </RevealText>
+        </div>
+      </section>
+
       {/* ── 8. ABOUT SEO/AEO/GEO SERVICES ── */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
@@ -437,7 +474,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             {otherCities.map((c) => (
               <Link
                 key={c.key}
-                href={`/${serviceKey}_service_in_${c.key}`}
+                href={`/location/${c.key}/${serviceKey}-service-in-${c.key}`}
                 className="font-lato text-[11px] font-bold text-text-secondary py-3.5 px-4 border border-border/50 rounded-xl transition-all duration-[400ms] flex items-center justify-between hover:bg-ink hover:text-paper hover:border-ink dark:hover:bg-white dark:hover:text-ink"
               >
                 <span>{c.name}</span>

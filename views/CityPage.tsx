@@ -21,10 +21,10 @@ const getServiceLink = (p: string, cityKey: string) => {
     'sol-web': 'web-dev',
   };
   if (cityServiceMap[p]) {
-    return `/${cityServiceMap[p]}_service_in_${cityKey}`;
+    return `/location/${cityKey}/${cityServiceMap[p]}-service-in-${cityKey}`;
   }
   const slug = SOL_MAP[p] || p;
-  return `/solutions/${slug}`;
+  return `/services/${slug}`;
 };
 
 interface CityPageProps {

@@ -194,18 +194,21 @@ function TrustBar() {
             {logos.map((logo, i) => {
               const isMeetstream = logo.alt === 'Meetstream';
               const isWhiteLogo = logo.alt === 'Saarthee' || logo.alt === 'Goldmine';
-              
+              const isHafsa = logo.alt === 'Hafsa';
+
               const logoSrc = isMeetstream
                 ? (isDark ? '/client-logos/Meetstreamblack.png' : '/client-logos/Meetstream.png')
                 : logo.src;
 
               return (
-                <div key={`${logo.alt}-${i}`} className="flex items-center flex-shrink-0">
+                <div key={`${logo.alt}-${i}`} className="flex items-center justify-center flex-shrink-0 w-32 h-12 md:w-44 md:h-16">
                   <img
                     src={logoSrc}
                     alt={logo.alt}
-                    className={`h-10 md:h-12 w-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
-                        ? 'grayscale hover:opacity-100 hover:grayscale-0'
+                    className={`max-h-full max-w-full w-auto h-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
+                      ? 'grayscale hover:opacity-100 hover:grayscale-0'
+                      : isHafsa
+                        ? 'dark:invert hover:opacity-100 hover:invert dark:hover:invert-0'
                         : isWhiteLogo
                           ? 'invert dark:invert-0 hover:opacity-100 hover:invert-0'
                           : 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0'
@@ -253,13 +256,17 @@ function WhyChooseUs() {
 }
 
 function SolutionsGrid() {
-  const FEATURED = ['seo', 'web-dev', 'google-ads', 'social-media'];
-  const topSolutions = FEATURED.map(slug => solutions.find(s => s.slug === slug)!).filter(Boolean);
+  const topSolutions = solutions;
   const diagnoses = [
     'Your site has technical barriers preventing crawlers from indexing your highest-value pages.',
     'Slow, plugin-heavy architecture is killing your conversion rates and wasting your crawl budget.',
-    'You\'re spending budget on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
+    'You\'re wasting ad spend on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
     'Your executives are invisible on LinkedIn while competitors build authority and attract inbound deal flow.',
+    'Your brand is missing from AI-generated answers while competitors get recommended by ChatGPT and Perplexity.',
+    'Your content isn\'t optimized for voice search and conversational AI queries.',
+    'Local competitors dominate the map pack while your business is invisible in local search results.',
+    'Your lead capture forms are generic and unqualified, wasting your sales team\'s time.',
+    'You need strategic guidance but keep getting generic template-based consulting instead of data-driven insights.',
   ];
   return (
     <section className="relative py-14 md:py-48 border-t border-border">
@@ -350,7 +357,7 @@ function SolutionsGrid() {
           {topSolutions.map((s, i) => (
             <RevealText key={s.slug} delay={i * 0.1} duration={1.4}>
               <motion.a
-                href={`/solutions/${s.slug}`}
+                href={`/services/${s.slug}`}
                 whileHover={{ x: 6 }}
                 transition={{ duration: 0.8, ease: slowEase }}
                 className="group block py-8 md:py-10"
@@ -363,7 +370,7 @@ function SolutionsGrid() {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
                   <div className="md:col-span-5">
                     <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal mb-3">Diagnosis</p>
-                    <p className="font-lato text-sm md:text-base text-text-muted leading-[1.8]">&ldquo;{diagnoses[i]}&rdquo;</p>
+                    <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.8]">&ldquo;{diagnoses[i]}&rdquo;</p>
                   </div>
                   <div className="md:col-span-6 md:col-start-7">
                     {/* <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal mb-2">Prescription</p> */}
@@ -640,40 +647,40 @@ function ComparisonTable() {
                   </tr>
                 </thead>
 
-              {/* Table Body */}
-              <tbody>
-                {comparisonRows.map((row, i) => (
-                  <motion.tr
-                    key={row.capability}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-60px' }}
-                    transition={{ duration: 0.5, delay: i * 0.04, ease: slowEase }}
-                    className="group"
-                  >
-                    {/* Capability */}
-                    <td className={`px-6 py-5 font-lato text-sm text-ink border-b border-border/40 transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
-                      {row.capability}
-                    </td>
+                {/* Table Body */}
+                <tbody>
+                  {comparisonRows.map((row, i) => (
+                    <motion.tr
+                      key={row.capability}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-60px' }}
+                      transition={{ duration: 0.5, delay: i * 0.04, ease: slowEase }}
+                      className="group"
+                    >
+                      {/* Capability */}
+                      <td className={`px-6 py-5 font-lato text-sm text-ink border-b border-border/40 transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
+                        {row.capability}
+                      </td>
 
-                    {/* In-House */}
-                    <td className={`px-4 py-5 border-b border-border/40 border-l border-border/30 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
-                      <ComparisonCell text={row.inHouse.text} type={row.inHouse.type as CellType} />
-                    </td>
+                      {/* In-House */}
+                      <td className={`px-4 py-5 border-b border-border/40 border-l border-border/30 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
+                        <ComparisonCell text={row.inHouse.text} type={row.inHouse.type as CellType} />
+                      </td>
 
-                    {/* Other Agencies */}
-                    <td className={`px-4 py-5 border-b border-border/40 border-l border-border/30 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
-                      <ComparisonCell text={row.other.text} type={row.other.type as CellType} />
-                    </td>
+                      {/* Other Agencies */}
+                      <td className={`px-4 py-5 border-b border-border/40 border-l border-border/30 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-paper/30 dark:bg-ink/5' : 'bg-transparent'} group-hover:bg-signal/5`}>
+                        <ComparisonCell text={row.other.text} type={row.other.type as CellType} />
+                      </td>
 
-                    {/* Zesh Column — always highlighted */}
-                    <td className={`px-4 py-5 border-b border-signal/20 border-l border-signal/20 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-signal/85' : 'bg-signal/75'} group-hover:bg-signal ${i === comparisonRows.length - 1 ? 'rounded-br-2xl' : ''}`}>
-                      <ComparisonCell text={row.zesh.text} type={row.zesh.type as CellType} zeshCol />
-                    </td>
-                  </motion.tr>
-                ))}
-              </tbody>
-            </table>
+                      {/* Zesh Column — always highlighted */}
+                      <td className={`px-4 py-5 border-b border-signal/20 border-l border-signal/20 text-center transition-colors duration-300 ${i % 2 === 0 ? 'bg-signal/85' : 'bg-signal/75'} group-hover:bg-signal ${i === comparisonRows.length - 1 ? 'rounded-br-2xl' : ''}`}>
+                        <ComparisonCell text={row.zesh.text} type={row.zesh.type as CellType} zeshCol />
+                      </td>
+                    </motion.tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </RevealText>
@@ -819,7 +826,6 @@ function FeaturedCaseStudy() {
 }
 
 function IndustriesGrid() {
-  const topIndustries = industries.slice(0, 4);
   return (
     <section className="relative py-16 md:py-48 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
@@ -829,8 +835,8 @@ function IndustriesGrid() {
             <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] leading-tight">Specialized structures for high-value business models<span className="text-signal">.</span></h2></RevealText>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12">
-          {topIndustries.map((ind, i) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12">
+          {industries.map((ind, i) => (
             <RevealText key={ind.slug} delay={i * 0.08} duration={1.4}>
               <a href={`/industries/${ind.slug}`} className="group block py-6 border-b border-border h-full flex flex-col justify-between">
                 <div>
