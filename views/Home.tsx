@@ -194,8 +194,8 @@ function TrustBar() {
             {logos.map((logo, i) => {
               const isMeetstream = logo.alt === 'Meetstream';
               const isWhiteLogo = logo.alt === 'Saarthee' || logo.alt === 'Goldmine';
-              const isHafsa = logo.alt === 'Hafsa';
-
+              const isHafsaOrSDB = logo.alt === 'Hafsa' || logo.alt === 'SDB';
+              
               const logoSrc = isMeetstream
                 ? (isDark ? '/client-logos/Meetstreamblack.png' : '/client-logos/Meetstream.png')
                 : logo.src;
@@ -206,12 +206,12 @@ function TrustBar() {
                     src={logoSrc}
                     alt={logo.alt}
                     className={`max-h-full max-w-full w-auto h-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
-                      ? 'grayscale hover:opacity-100 hover:grayscale-0'
-                      : isHafsa
-                        ? 'dark:invert hover:opacity-100 hover:invert dark:hover:invert-0'
-                        : isWhiteLogo
-                          ? 'invert dark:invert-0 hover:opacity-100 hover:invert-0'
-                          : 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0'
+                        ? 'grayscale hover:opacity-100 hover:grayscale-0'
+                        : isHafsaOrSDB
+                          ? 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 dark:hover:invert'
+                          : isWhiteLogo
+                            ? 'invert dark:invert-0 hover:opacity-100'
+                            : 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0'
                       }`}
                   />
                 </div>
