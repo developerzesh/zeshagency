@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import ParticleField from '../components/ParticleField';
 import MagneticButton from '../components/MagneticButton';
@@ -95,10 +96,10 @@ function HeroSection() {
         >
           <span>GROWTH PARTNER TO BRANDS BACKED BY</span>
           <span className="hidden md:inline text-text-muted">Meta</span>
-          <img src="/meta_logo.png" alt="Meta" className="h-6 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 md:-mx-4 -mx-2 logo-meta-390" />
+          <Image src="/meta_logo.png" alt="Meta" width={140} height={48} className="h-6 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 md:-mx-4 -mx-2 logo-meta-390" />
           <span>and</span>
           <span className="hidden md:inline text-text-muted">Shark Tank</span>
-          <img src="/shark_tank_logo.png" alt="Shark Tank" className="h-7 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 logo-shark-390" />
+          <Image src="/shark_tank_logo.png" alt="Shark Tank" width={140} height={48} className="h-7 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 logo-shark-390" />
         </motion.div>
         <h1 className="font-syne text-[clamp(2.2rem,5.5vw,5.5rem)] font-800 leading-[0.9] tracking-[-0.03em] mb-6 md:mb-8 max-w-5xl">
           <motion.span
@@ -202,9 +203,13 @@ function TrustBar() {
 
               return (
                 <div key={`${logo.alt}-${i}`} className="flex items-center justify-center flex-shrink-0 w-32 h-12 md:w-44 md:h-16">
-                  <img
+                  <Image
                     src={logoSrc}
                     alt={logo.alt}
+                    width={176}
+                    height={38}
+                    sizes="(max-width: 768px) 128px, 176px"
+                    quality={80}
                     className={`max-h-full max-w-full w-auto h-auto object-contain opacity-50 transition-all duration-500 ${isMeetstream
                         ? 'grayscale hover:opacity-100 hover:grayscale-0'
                         : isHafsaOrSDB

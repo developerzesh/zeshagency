@@ -1,6 +1,10 @@
 export const CITIES = [
   ['Dubai', 'location/dubai'],
   ['Abu Dhabi', 'location/abudhabi'],
+  ['San Jose', 'location/sanjose'],
+  ['Texas', 'location/texas'],
+  ['Fremont', 'location/fremont'],
+  ['Pleasanton', 'location/pleasanton'],
   ['New York', 'location/newyork'],
   ['London', 'location/london'],
   ['Sydney', 'location/sydney'],
@@ -1165,6 +1169,590 @@ export const CITY_DATA = {
         "title": "Africa Market Entry Digital Strategy",
         "desc": "How international brands use SEO and digital marketing to enter Sub-Saharan African markets.",
         "href": "/services/aeo"
+      }
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Discovery & Audit",
+        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+      },
+      {
+        "step": "02",
+        "title": "Strategy & Roadmap",
+        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+      },
+      {
+        "step": "03",
+        "title": "Execution & Build",
+        "desc": "Our team deploys the strategy — technical fixes, content production, link acquisition, and campaign setup — with weekly progress updates."
+      },
+      {
+        "step": "04",
+        "title": "Report & Optimise",
+        "desc": "Monthly reports connect every action to revenue impact. We adjust the strategy based on live performance data to compound results quarter over quarter."
+      }
+    ]
+  },
+  "sanjose": {
+    "name": "San Jose",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "tagline": "The Innovation Capital of Silicon Valley.",
+    "sub": "We help San Jose tech startups, enterprise B2B firms, and South Bay businesses build generative search authority, scale organic pipelines, and outpace Silicon Valley competitors.",
+    "badge": "USA",
+    "stats": [
+      [
+        "98.5%",
+        "Tech Market Density"
+      ],
+      [
+        "84%",
+        "B2B Organic Search Intent"
+      ],
+      [
+        "96.8%",
+        "Google & AI Search Penetration"
+      ],
+      [
+        "2.4M+",
+        "South Bay Professional Reach"
+      ]
+    ],
+    "services": [
+      [
+        "SEO Agency San Jose",
+        "Rank on Google, ChatGPT, and Perplexity for competitive South Bay tech queries.",
+        "sol-seo"
+      ],
+      [
+        "Local SEO San Jose",
+        "Dominate Google Maps and local search across San Jose and Santa Clara County.",
+        "sol-localseo"
+      ],
+      [
+        "B2B Demand Gen San Jose",
+        "Target Silicon Valley decision-makers with high-converting paid & organic search.",
+        "sol-ads"
+      ],
+      [
+        "LinkedIn Executive Branding",
+        "Position your leadership team in front of Silicon Valley VCs and enterprise buyers.",
+        "sol-linkedin"
+      ]
+    ],
+    "why": "San Jose is the commercial heart of Silicon Valley, where traditional SEO is no longer enough. Decision-makers in Santa Clara County search across Google, Perplexity, and AI search engines before committing to software or enterprise services. We optimize your brand across traditional and generative search engines to capture high-intent demand from Silicon Valley buyers.",
+    "market": [
+      "Silicon Valley B2B search intent",
+      "Generative AI search (ChatGPT, Perplexity, GEO)",
+      "South Bay tech ecosystem positioning",
+      "High-intent SaaS buyer journeys",
+      "Enterprise decision-maker targeting"
+    ],
+    "industries": [
+      "SaaS & Enterprise Software",
+      "Hardware & Semiconductors",
+      "Artificial Intelligence & Cloud",
+      "Professional & Legal Services",
+      "Commercial Real Estate",
+      "Biotech & HealthTech"
+    ],
+    "results": [
+      [
+        "310%",
+        "Pipeline Growth",
+        "For South Bay B2B tech clients in 12 months"
+      ],
+      [
+        "#1",
+        "AI Search Citations",
+        "Achieved across ChatGPT and Perplexity for target keywords"
+      ],
+      [
+        "3.8x",
+        "Qualified Inbound Leads",
+        "Scale achieved for Silicon Valley enterprise services"
+      ],
+      [
+        "45 Days",
+        "To Technical Impact",
+        "From initial AI search audit to indexation gains"
+      ]
+    ],
+    "testimonials": [
+      {
+        "name": "Sriram Sankar",
+        "role": "FOUNDER",
+        "company": "Nyx Wolves",
+        "quote": "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh. They are among the rare few agencies that actually do exactly what they promise."
+      },
+      {
+        "name": "Abdul Khan",
+        "role": "Ex-CMO",
+        "company": "TATA · Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+        "quote": "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with."
+      },
+      {
+        "name": "Hafsa Sayed",
+        "role": "FOUNDER",
+        "company": "HAFSA The Couture",
+        "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
+      }
+    ],
+    "about": "Succeeding in San Jose requires a digital strategy engineered for the world's most sophisticated tech market. Traditional SEO agencies rely on outdated keyword volume metrics that fail to reach B2B software buyers, VC partners, and enterprise executives across Silicon Valley.\n\nModern buyers in San Jose research solutions through AI answer engines like ChatGPT, Claude, and Perplexity long before visiting a pricing page. We unify technical SEO, Answer Engine Optimization (AEO), and Generative Engine Optimization (GEO) to position your brand directly in AI-generated answers and top Google search results.\n\nOur San Jose SEO methodology focuses on revenue attribution. By building structured entity authority, optimizing schema data, and producing high-density technical content, we ensure your business outranks competitors and converts high-value search traffic into predictable revenue.",
+    "resources": [
+      {
+        "title": "Silicon Valley AI Search Guide 2026",
+        "desc": "How San Jose B2B brands capture high-intent buyers on Google, ChatGPT, and Perplexity.",
+        "href": "/services/seo"
+      },
+      {
+        "title": "Generative Engine Optimization (GEO) Report",
+        "desc": "Strategies to get cited by LLM answer engines in competitive tech markets.",
+        "href": "/services/geo"
+      },
+      {
+        "title": "San Jose B2B Lead Gen Strategy",
+        "desc": "Building scalable acquisition channels for South Bay software and services firms.",
+        "href": "/services/lead-gen"
+      }
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Discovery & Audit",
+        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+      },
+      {
+        "step": "02",
+        "title": "Strategy & Roadmap",
+        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+      },
+      {
+        "step": "03",
+        "title": "Execution & Build",
+        "desc": "Our team deploys the strategy — technical fixes, content production, link acquisition, and campaign setup — with weekly progress updates."
+      },
+      {
+        "step": "04",
+        "title": "Report & Optimise",
+        "desc": "Monthly reports connect every action to revenue impact. We adjust the strategy based on live performance data to compound results quarter over quarter."
+      }
+    ]
+  },
+  "texas": {
+    "name": "Texas",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "tagline": "The Economic Powerhouse of the Sunbelt.",
+    "sub": "We help Texas enterprises, Austin tech leaders, Dallas B2B firms, and Houston industrial brands capture high-intent digital search and dominate market share across the Lone Star State.",
+    "badge": "USA",
+    "stats": [
+      [
+        "#1",
+        "State Business Climate"
+      ],
+      [
+        "78%",
+        "B2B Digital Search Intent"
+      ],
+      [
+        "97.2%",
+        "Search Market Coverage"
+      ],
+      [
+        "8.9M+",
+        "Texas Commercial Reach"
+      ]
+    ],
+    "services": [
+      [
+        "Texas Enterprise SEO",
+        "Rank #1 across Dallas, Austin, Houston, and San Antonio for high-value B2B terms.",
+        "sol-seo"
+      ],
+      [
+        "Local SEO Texas",
+        "Dominate Google Maps and regional search across major Texas metroplexes.",
+        "sol-localseo"
+      ],
+      [
+        "B2B Lead Gen Texas",
+        "High-performance acquisition campaigns targeting Texas enterprise buyers.",
+        "sol-ads"
+      ],
+      [
+        "Executive Branding & Social",
+        "Build authority on LinkedIn and digital channels to connect with Texas executives.",
+        "sol-linkedin"
+      ]
+    ],
+    "why": "Texas is home to one of the fastest-growing enterprise economies in North America. From Austin's Silicon Hills to Dallas's corporate corridors and Houston's energy hub, competition for digital search visibility is fierce. We deliver tailored search strategies that combine local relevance with generative AI optimization to ensure your brand captures market share across Texas.",
+    "market": [
+      "Texas B2B & Enterprise search dynamics",
+      "Bilingual & regional Texas search intent",
+      "Generative AI search optimization (GEO)",
+      "Multi-location Texas SEO architecture",
+      "Sunbelt industrial & tech buyer intent"
+    ],
+    "industries": [
+      "Enterprise Technology & SaaS",
+      "Energy, Oil & CleanTech",
+      "Financial Services & Banking",
+      "Commercial Real Estate & Construction",
+      "Healthcare & Medical Networks",
+      "Logistics & Manufacturing"
+    ],
+    "results": [
+      [
+        "325%",
+        "Average Campaign ROI",
+        "Delivered across Texas client accounts over 12 months"
+      ],
+      [
+        "#1",
+        "Regional Search Rankings",
+        "Secured across Dallas, Austin, and Houston markets"
+      ],
+      [
+        "4.1x",
+        "Qualified Pipeline Growth",
+        "Achieved for Texas B2B & industrial service leaders"
+      ],
+      [
+        "60 Days",
+        "To Measurable Momentum",
+        "From technical execution to ranking and lead gains"
+      ]
+    ],
+    "testimonials": [
+      {
+        "name": "Sriram Sankar",
+        "role": "FOUNDER",
+        "company": "Nyx Wolves",
+        "quote": "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh. They are among the rare few agencies that actually do exactly what they promise."
+      },
+      {
+        "name": "Abdul Khan",
+        "role": "Ex-CMO",
+        "company": "TATA · Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+        "quote": "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with."
+      },
+      {
+        "name": "Hafsa Sayed",
+        "role": "FOUNDER",
+        "company": "HAFSA The Couture",
+        "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
+      }
+    ],
+    "about": "Marketing to Texas businesses requires a deep understanding of regional dynamics spanning Austin, Dallas-Fort Worth, Houston, and San Antonio. Generic national templates fail to address the specific search behaviors of Texas corporate leaders and commercial decision-makers.\n\nAs search habits evolve, buyers across Texas consult AI tools like ChatGPT and Perplexity alongside Google to evaluate software, financial services, and enterprise vendors. We structure your digital assets so search engines and AI models recognize your authority and present your brand at the top of search results.\n\nOur Texas digital strategy aligns technical excellence with conversion-focused copywriting. We eliminate wasted ad spend, focus on high-intent search terms, and turn search visibility into a consistent, compounding growth system for your business.",
+    "resources": [
+      {
+        "title": "Texas Enterprise SEO Benchmark 2026",
+        "desc": "Comprehensive guide to dominating organic search across Texas metro markets.",
+        "href": "/services/seo"
+      },
+      {
+        "title": "Answer Engine Optimization for Texas B2B",
+        "desc": "How Lone Star State brands win AI-driven search recommendations.",
+        "href": "/services/aeo"
+      },
+      {
+        "title": "Texas B2B Lead Acquisition Blueprint",
+        "desc": "Scaling predictable inbound pipelines for Texas growth companies.",
+        "href": "/services/lead-gen"
+      }
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Discovery & Audit",
+        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+      },
+      {
+        "step": "02",
+        "title": "Strategy & Roadmap",
+        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+      },
+      {
+        "step": "03",
+        "title": "Execution & Build",
+        "desc": "Our team deploys the strategy — technical fixes, content production, link acquisition, and campaign setup — with weekly progress updates."
+      },
+      {
+        "step": "04",
+        "title": "Report & Optimise",
+        "desc": "Monthly reports connect every action to revenue impact. We adjust the strategy based on live performance data to compound results quarter over quarter."
+      }
+    ]
+  },
+  "fremont": {
+    "name": "Fremont",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "tagline": "The Advanced Manufacturing & Hardware Hub of Silicon Valley.",
+    "sub": "We help Fremont advanced manufacturing, CleanTech, hardware, and East Bay B2B companies build search authority, generate enterprise leads, and win high-value contracts.",
+    "badge": "USA",
+    "stats": [
+      [
+        "#1",
+        "CA Manufacturing Density"
+      ],
+      [
+        "82%",
+        "Industrial Search Intent"
+      ],
+      [
+        "96.9%",
+        "Google & AI Search Reach"
+      ],
+      [
+        "1.1M+",
+        "East Bay Commercial Intent"
+      ]
+    ],
+    "services": [
+      [
+        "SEO & AEO Fremont",
+        "Rank for high-intent manufacturing, hardware, and CleanTech B2B searches.",
+        "sol-seo"
+      ],
+      [
+        "Local SEO Fremont",
+        "Capture East Bay commercial intent on Google Maps and local search.",
+        "sol-localseo"
+      ],
+      [
+        "Industrial B2B Lead Gen",
+        "Drive high-ticket contract inquiries from Silicon Valley hardware & tech leaders.",
+        "sol-ads"
+      ],
+      [
+        "LinkedIn Executive Presence",
+        "Position your engineering leadership in front of Silicon Valley enterprise buyers.",
+        "sol-linkedin"
+      ]
+    ],
+    "why": "Fremont is Silicon Valley's hardware and advanced manufacturing powerhouse, home to green tech pioneers, biotech labs, and precision manufacturers. Winning digital mindshare in Fremont requires technical authority that communicates value to engineers, procurement officers, and corporate executives. We build search campaigns engineered specifically for industrial and B2B growth.",
+    "market": [
+      "Advanced manufacturing & CleanTech search intent",
+      "B2B procurement & supplier discovery",
+      "East Bay & Silicon Valley regional SEO",
+      "Generative AI search optimization (AEO & GEO)",
+      "High-ticket contract acquisition journeys"
+    ],
+    "industries": [
+      "Advanced Manufacturing & Robotics",
+      "CleanTech & Renewable Energy",
+      "Biotech & Life Sciences",
+      "Semiconductor & Electronics",
+      "Commercial Real Estate & Logistics",
+      "Professional Engineering Services"
+    ],
+    "results": [
+      [
+        "295%",
+        "Lead Quality Increase",
+        "For East Bay industrial and manufacturing clients"
+      ],
+      [
+        "#1",
+        "Local Search Dominance",
+        "Achieved across Fremont and East Bay B2B service categories"
+      ],
+      [
+        "3.6x",
+        "Contract Inquiry Volume",
+        "Generated for Fremont hardware and CleanTech providers"
+      ],
+      [
+        "45 Days",
+        "To Technical Optimization",
+        "From site architecture fixes to ranking momentum"
+      ]
+    ],
+    "testimonials": [
+      {
+        "name": "Sriram Sankar",
+        "role": "FOUNDER",
+        "company": "Nyx Wolves",
+        "quote": "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh. They are among the rare few agencies that actually do exactly what they promise."
+      },
+      {
+        "name": "Abdul Khan",
+        "role": "Ex-CMO",
+        "company": "TATA · Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+        "quote": "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with."
+      },
+      {
+        "name": "Hafsa Sayed",
+        "role": "FOUNDER",
+        "company": "HAFSA The Couture",
+        "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
+      }
+    ],
+    "about": "Fremont sits at the vital intersection of Silicon Valley technology and East Bay industrial capacity. Unlike consumer-facing businesses, Fremont hardware, CleanTech, and manufacturing companies need search visibility that reaches technical buyers and corporate procurement teams.\n\nModern B2B buyers in Fremont evaluate partners using both Google and AI answer engines like Perplexity and ChatGPT. We build search architectures that present your technical capabilities, certifications, and solutions in formats optimized for search algorithms and AI LLMs.\n\nBy focusing on semantic relevance and technical SEO, we position your Fremont business directly in front of buyers searching for reliable manufacturing, engineering, and tech partnership solutions.",
+    "resources": [
+      {
+        "title": "Fremont Industrial SEO Playbook 2026",
+        "desc": "How East Bay manufacturing and hardware firms generate high-value B2B leads.",
+        "href": "/services/seo"
+      },
+      {
+        "title": "AI Search Optimization for Hardware & Tech",
+        "desc": "Structuring technical content so ChatGPT and Perplexity recommend your solutions.",
+        "href": "/services/geo"
+      },
+      {
+        "title": "East Bay B2B Demand Generation",
+        "desc": "Capturing high-intent commercial inquiries in Fremont and Santa Clara County.",
+        "href": "/services/lead-gen"
+      }
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": "Discovery & Audit",
+        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+      },
+      {
+        "step": "02",
+        "title": "Strategy & Roadmap",
+        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+      },
+      {
+        "step": "03",
+        "title": "Execution & Build",
+        "desc": "Our team deploys the strategy — technical fixes, content production, link acquisition, and campaign setup — with weekly progress updates."
+      },
+      {
+        "step": "04",
+        "title": "Report & Optimise",
+        "desc": "Monthly reports connect every action to revenue impact. We adjust the strategy based on live performance data to compound results quarter over quarter."
+      }
+    ]
+  },
+  "pleasanton": {
+    "name": "Pleasanton",
+    "country": "United States",
+    "flag": "🇺🇸",
+    "tagline": "The Tri-Valley Business & Enterprise Capital.",
+    "sub": "We help Pleasanton enterprise headquarters, Tri-Valley professional services, and East Bay B2B firms build digital search authority, capture qualified leads, and outpace regional competitors.",
+    "badge": "USA",
+    "stats": [
+      [
+        "97.8%",
+        "Search Engine Penetration"
+      ],
+      [
+        "85%",
+        "Corporate B2B Buyer Intent"
+      ],
+      [
+        "$160K+",
+        "Tri-Valley Household Income"
+      ],
+      [
+        "850K+",
+        "East Bay Business Reach"
+      ]
+    ],
+    "services": [
+      [
+        "SEO & AEO Pleasanton",
+        "Rank #1 for high-intent B2B, legal, corporate, and healthcare queries.",
+        "sol-seo"
+      ],
+      [
+        "Local SEO Pleasanton",
+        "Dominate Google Maps and local search across Hacienda Business Park and the Tri-Valley.",
+        "sol-localseo"
+      ],
+      [
+        "B2B Demand Gen Pleasanton",
+        "High-ROI paid search and social campaigns targeting East Bay executives.",
+        "sol-ads"
+      ],
+      [
+        "Executive Branding Pleasanton",
+        "Establish C-suite authority on LinkedIn to win regional enterprise contracts.",
+        "sol-linkedin"
+      ]
+    ],
+    "why": "Pleasanton is the corporate crown jewel of the Tri-Valley, hosting major business parks, enterprise headquarters, and high-end professional services. Businesses in Pleasanton need a refined digital strategy that connects with affluent local consumers and corporate decision-makers. We combine local precision with generative AI search optimization to drive measurable growth.",
+    "market": [
+      "Tri-Valley enterprise & B2B search intent",
+      "Hacienda Business Park corporate ecosystem",
+      "Generative AI search presence (ChatGPT & GEO)",
+      "High-income East Bay consumer targeting",
+      "Professional services digital acquisition"
+    ],
+    "industries": [
+      "Enterprise Software & Tech",
+      "Financial & Wealth Management",
+      "Legal & Executive Consulting",
+      "Healthcare & Specialist Clinics",
+      "Commercial & Residential Real Estate",
+      "BioTech & Medical Devices"
+    ],
+    "results": [
+      [
+        "305%",
+        "Pipeline Growth",
+        "Delivered for Tri-Valley corporate & professional services"
+      ],
+      [
+        "#1",
+        "Tri-Valley Search Visibility",
+        "Achieved across high-intent local and B2B keywords"
+      ],
+      [
+        "3.9x",
+        "Inbound Consultation Volume",
+        "For Pleasanton enterprise and legal service clients"
+      ],
+      [
+        "45 Days",
+        "To Ranking Traction",
+        "From strategy execution to top-tier search placements"
+      ]
+    ],
+    "testimonials": [
+      {
+        "name": "Sriram Sankar",
+        "role": "FOUNDER",
+        "company": "Nyx Wolves",
+        "quote": "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh. They are among the rare few agencies that actually do exactly what they promise."
+      },
+      {
+        "name": "Abdul Khan",
+        "role": "Ex-CMO",
+        "company": "TATA · Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+        "quote": "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with."
+      },
+      {
+        "name": "Hafsa Sayed",
+        "role": "FOUNDER",
+        "company": "HAFSA The Couture",
+        "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
+      }
+    ],
+    "about": "Pleasanton's thriving business landscape — centered around major hubs like Hacienda Business Park — requires digital marketing that reflects the high standards of the Tri-Valley economy. Generic agency tactics cannot capture the nuanced search behavior of local corporate executives and affluent residents.\n\nWhether your prospective clients search on Google, ChatGPT, or Perplexity, your brand must appear as the trusted authority. We optimize your website, content entities, and technical data structures so search engines and AI engines consistently cite your services.\n\nOur Pleasanton SEO practice focuses on lead quality and commercial impact. We turn search engines into a reliable channel for high-ticket client acquisition, ensuring every dollar spent delivers measurable revenue.",
+    "resources": [
+      {
+        "title": "Pleasanton & Tri-Valley SEO Guide 2026",
+        "desc": "Comprehensive strategy for ranking #1 in Pleasanton, San Ramon, and Dublin.",
+        "href": "/services/seo"
+      },
+      {
+        "title": "AI Search for Professional Services",
+        "desc": "Winning client recommendations on ChatGPT and Perplexity in East Bay markets.",
+        "href": "/services/aeo"
+      },
+      {
+        "title": "Tri-Valley Executive Lead Gen Report",
+        "desc": "Predictable client acquisition systems for Pleasanton corporate and B2B firms.",
+        "href": "/services/lead-gen"
       }
     ],
     "process": [

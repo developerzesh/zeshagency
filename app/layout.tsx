@@ -1,6 +1,28 @@
 import type { Metadata } from "next";
+import { Syne, Inter, Lato } from "next/font/google";
 import "./globals.css";
 import PageLayout from "@/components/PageLayout";
+
+const syne = Syne({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700", "900"],
+  variable: "--font-lato",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "ZESH — Digital Marketing Agency",
@@ -16,11 +38,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}>
       <head>
-        {/* When JavaScript is disabled, Framer Motion inline opacity:0 / blur / transform
-            styles would leave the page blank. This noscript block overrides them so all
-            content is immediately visible without JS. */}
         <noscript>
           <style>{`
             * {

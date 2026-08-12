@@ -20,6 +20,10 @@ export const offices = [
 export const citiesNav = [
   { label: 'Dubai', path: '/location/dubai' },
   { label: 'Abu Dhabi', path: '/location/abudhabi' },
+  { label: 'San Jose', path: '/location/sanjose' },
+  { label: 'Texas', path: '/location/texas' },
+  { label: 'Fremont', path: '/location/fremont' },
+  { label: 'Pleasanton', path: '/location/pleasanton' },
   { label: 'New York', path: '/location/newyork' },
   { label: 'London', path: '/location/london' },
   { label: 'Sydney', path: '/location/sydney' },

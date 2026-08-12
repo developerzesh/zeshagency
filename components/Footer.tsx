@@ -11,10 +11,10 @@ export default function Footer() {
   return (
     <footer className="border-t border-border py-14 md:py-28">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        
+
         {/* Top Row - Brand, Solutions, Industries, Consultancy */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-10 md:mb-16">
-          
+
           {/* Brand block */}
           <div className="col-span-1 md:col-span-3">
             <MagneticButton strength={0.1}>
