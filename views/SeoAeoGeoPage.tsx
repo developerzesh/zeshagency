@@ -221,14 +221,11 @@ export default function SeoAeoGeoPage() {
               </p>
             </div>
             <div className="flex flex-col gap-4 flex-shrink-0">
-              <MagneticButton strength={0.4}>
-                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                     <span className="text-ink text-sm">→</span >
-                   </span>
-                   <span className="font-lato text-sm font-medium text-paper font-semibold">Request System Audit</span>
-                 </button>
-              </MagneticButton>
+              <CircleArrowButton
+                label="Request System Audit"
+                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                animated={false}
+              />
             </div>
           </div>
         </div>

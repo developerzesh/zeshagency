@@ -1,6 +1,7 @@
 ﻿import { useEffect, useRef } from 'react';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import CircleArrowButton from './CircleArrowButton';
+import MagneticButton from './MagneticButton';
 import ParticleField from './ParticleField';
 import LineGrid from './LineGrid';
 
