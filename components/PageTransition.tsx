@@ -9,9 +9,9 @@ export default function PageTransition({ children }: Props) {
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        initial={{ opacity: 0, filter: 'blur(40px)', scale: 0.97 }}
-        animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
-        exit={{ opacity: 0, filter: 'blur(20px)', scale: 0.98 }}
+        initial={{ opacity: 0, scale: 0.97 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.98 }}
         transition={{ duration: 1.4, ease: slowEase }}
       >
         {children}

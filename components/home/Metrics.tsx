@@ -82,17 +82,17 @@ export default function Metrics() {
                     <div className="absolute top-0 right-0 w-32 h-32 bg-signal/10 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 group-hover:bg-signal/30 transition-colors duration-700" />
 
                     <div className="w-16 h-14 mb-8 flex items-end justify-between relative z-10 opacity-90 group-hover:opacity-100 transition-opacity duration-300">
-                      <m.div initial={{ height: 0 }} whileInView={{ height: "40%" }} viewport={{ once: true }} transition={{ delay: 0.2, duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/30 rounded-t-sm" />
-                      <m.div initial={{ height: 0 }} whileInView={{ height: "60%" }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/60 rounded-t-sm" />
-                      <m.div initial={{ height: 0 }} whileInView={{ height: "80%" }} viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/90 rounded-t-sm" />
-                      <m.div initial={{ height: 0 }} whileInView={{ height: "100%" }} viewport={{ once: true }} transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal rounded-t-sm" />
+                      <m.div initial={{ height: 0 }} whileInView={{ height: "40%" }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/30 rounded-t-sm" />
+                      <m.div initial={{ height: 0 }} whileInView={{ height: "60%" }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/60 rounded-t-sm" />
+                      <m.div initial={{ height: 0 }} whileInView={{ height: "80%" }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal/90 rounded-t-sm" />
+                      <m.div initial={{ height: 0 }} whileInView={{ height: "100%" }} viewport={{ once: true }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-2.5 bg-signal rounded-t-sm" />
 
                       <svg className="absolute inset-0 w-full h-full pointer-events-none drop-shadow-md" viewBox="0 0 64 56">
                         <m.path
                           initial={{ pathLength: 0 }}
                           whileInView={{ pathLength: 1 }}
                           viewport={{ once: true }}
-                          transition={{ delay: 0.6, duration: 1, ease: "easeInOut" }}
+                          transition={{ duration: 1, ease: "easeInOut" }}
                           d="M 4 36 L 22 18 L 36 30 L 60 6"
                           fill="none"
                           stroke="currentColor"
@@ -105,7 +105,7 @@ export default function Metrics() {
                           initial={{ opacity: 0 }}
                           whileInView={{ opacity: 1 }}
                           viewport={{ once: true }}
-                          transition={{ delay: 1.4 }}
+                          transition={{ duration: 0.4 }}
                           d="M 48 6 H 60 V 18"
                           fill="none"
                           stroke="currentColor"

@@ -45,32 +45,32 @@ export default function BlogSection() {
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.rect x="170" y="15" width="60" height="24" rx="4" fill="currentColor" className="text-signal"
                             initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }} />
+                            transition={{ duration: 0.5 }} />
                           <m.text x="200" y="31" textAnchor="middle" fill="white" fontSize="8" fontFamily="sans-serif" fontWeight="600"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>TEMPLATE</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>TEMPLATE</m.text>
                           {[80, 140, 200, 260, 320].map((x, idx) => (
                             <m.path key={`line-${idx}`} d={`M 200 39 L 200 65 L ${x} 65 L ${x} 85`}
                               fill="none" stroke="currentColor" strokeWidth="1" className="text-signal/30"
                               initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
-                              transition={{ duration: 0.6, delay: 0.5 + idx * 0.08 }} />
+                              transition={{ duration: 0.6 }} />
                           ))}
                           {[80, 140, 200, 260, 320].map((x, idx) => (
                             <g key={`page-${idx}`}>
                               <m.rect x={x - 18} y="85" width="36" height="28" rx="3" fill="currentColor" className="text-signal/20 group-hover:text-signal/35"
                                 initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                                transition={{ duration: 0.4, delay: 0.8 + idx * 0.08 }} />
+                                transition={{ duration: 0.4 }} />
                               <m.line x1={x - 10} y1="93" x2={x + 10} y2="93" stroke="currentColor" strokeWidth="1" className="text-signal/40"
                                 initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: 1 + idx * 0.06 }} />
+                                transition={{ duration: 0.3 }} />
                               <m.line x1={x - 10} y1="99" x2={x + 6} y2="99" stroke="currentColor" strokeWidth="1" className="text-signal/30"
                                 initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: 1.1 + idx * 0.06 }} />
+                                transition={{ duration: 0.3 }} />
                               <m.line x1={x - 10} y1="105" x2={x + 8} y2="105" stroke="currentColor" strokeWidth="1" className="text-signal/25"
                                 initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
-                                transition={{ duration: 0.3, delay: 1.2 + idx * 0.06 }} />
+                                transition={{ duration: 0.3 }} />
                             </g>
                           ))}
-                          <m.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.5 }}>
+                          <m.g initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                             {[80, 140, 200, 260, 320].map((x, idx) => (
                               <g key={`sub-${idx}`}>
                                 <rect x={x - 14} y="125" width="28" height="18" rx="2" fill="currentColor" className="text-signal/10" />
@@ -80,23 +80,23 @@ export default function BlogSection() {
                             ))}
                           </m.g>
                           <m.text x="200" y="175" textAnchor="middle" fill="currentColor" fontSize="28" fontFamily="sans-serif" fontWeight="800" className="text-signal/15"
-                            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 1.3 }}>500+</m.text>
+                            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>500+</m.text>
                           <m.text x="200" y="195" textAnchor="middle" fill="currentColor" fontSize="9" fontFamily="sans-serif" className="text-signal/40"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.5 }}>PAGES GENERATED</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>PAGES GENERATED</m.text>
                         </svg>
                       )}
                       {post.category === 'AI & GEO' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.circle cx="200" cy="112" r="0" fill="currentColor" className="text-signal/30 group-hover:text-signal/50"
                             initial={{ r: 0 }} whileInView={{ r: 28 }} viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.2 }} />
+                            transition={{ duration: 0.6 }} />
                           <m.circle cx="200" cy="112" r="0" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-signal/20"
                             initial={{ r: 0 }} whileInView={{ r: 40 }} viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.3 }} />
+                            transition={{ duration: 0.8 }} />
                           <m.text x="200" y="108" textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" fontWeight="700" className="text-signal"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.6 }}>YOUR</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>YOUR</m.text>
                           <m.text x="200" y="120" textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" fontWeight="700" className="text-signal"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.65 }}>BRAND</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>BRAND</m.text>
                           {[
                             { cx: 80, cy: 50, label: 'ChatGPT', icon: 'M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25' },
                             { cx: 320, cy: 50, label: 'Claude', icon: 'M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0' },
@@ -107,15 +107,15 @@ export default function BlogSection() {
                             <g key={idx}>
                               <m.line x1="200" y1="112" x2={node.cx} y2={node.cy} stroke="currentColor" strokeWidth="0.5" className="text-signal/25"
                                 initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.4 + idx * 0.08 }} />
+                                transition={{ duration: 0.6 }} />
                               <m.circle cx={node.cx} cy={node.cy} r="0" fill="currentColor" className="text-signal/20 group-hover:text-signal/40"
                                 initial={{ r: 0 }} whileInView={{ r: 22 }} viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }} />
+                                transition={{ duration: 0.5 }} />
                               <m.circle cx={node.cx} cy={node.cy} r="0" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-signal/15"
                                 initial={{ r: 0 }} whileInView={{ r: 30 }} viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: 0.7 + idx * 0.1 }} />
+                                transition={{ duration: 0.6 }} />
                               <m.text x={node.cx} y={node.cy + 35} textAnchor="middle" fill="currentColor" fontSize="7" fontFamily="sans-serif" className="text-signal/50"
-                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1 + idx * 0.08 }}>{node.label}</m.text>
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>{node.label}</m.text>
                             </g>
                           ))}
                         </svg>
@@ -123,21 +123,21 @@ export default function BlogSection() {
                       {post.category === 'Web Performance' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.path d="M 100 160 A 80 80 0 0 1 300 160" fill="none" stroke="currentColor" strokeWidth="12" className="text-signal/10"
-                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: 0.2 }} />
+                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} />
                           <m.path d="M 100 160 A 80 80 0 0 1 300 160" fill="none" stroke="currentColor" strokeWidth="12" className="text-signal/30"
                             strokeDasharray="251" strokeDashoffset="251"
                             initial={{ strokeDashoffset: 251 }} whileInView={{ strokeDashoffset: 80 }} viewport={{ once: true }}
-                            transition={{ duration: 1.5, delay: 0.4, ease: slowEase }} />
+                            transition={{ duration: 1.5, ease: slowEase }} />
                           <m.line x1="200" y1="160" x2="200" y2="90" stroke="currentColor" strokeWidth="2" className="text-signal"
                             initial={{ transform: 'rotate(-90deg)', transformOrigin: '200px 160px' }}
                             whileInView={{ transform: 'rotate(40deg)', transformOrigin: '200px 160px' }}
-                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.8, ease: slowEase }} />
+                            viewport={{ once: true }} transition={{ duration: 1.2, ease: slowEase }} />
                           <m.circle cx="200" cy="160" r="6" fill="currentColor" className="text-signal"
-                            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} transition={{ delay: 1 }} />
+                            initial={{ scale: 0 }} whileInView={{ scale: 1 }} viewport={{ once: true }} />
                           <m.text x="200" y="145" textAnchor="middle" fill="currentColor" fontSize="24" fontFamily="sans-serif" fontWeight="800" className="text-signal"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.2 }}>98</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>98</m.text>
                           <m.text x="200" y="185" textAnchor="middle" fill="currentColor" fontSize="8" fontFamily="sans-serif" className="text-signal/50"
-                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.3 }}>PERFORMANCE</m.text>
+                            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>PERFORMANCE</m.text>
                           {[
                             { label: 'LCP', value: 1.2, max: 2.5, x: 60 },
                             { label: 'CLS', value: 0.05, max: 0.1, x: 160 },
@@ -145,20 +145,20 @@ export default function BlogSection() {
                           ].map((metric, idx) => (
                             <g key={idx}>
                               <m.rect x={metric.x} y="200" width="80" height="6" rx="3" fill="currentColor" className="text-signal/10"
-                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.4 + idx * 0.1 }} />
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} />
                               <m.rect x={metric.x} y="200" width="0" height="6" rx="3" fill="currentColor" className="text-signal/50"
                                 initial={{ width: 0 }} whileInView={{ width: 80 * (metric.value / metric.max) }} viewport={{ once: true }}
-                                transition={{ duration: 0.8, delay: 1.5 + idx * 0.1, ease: slowEase }} />
+                                transition={{ duration: 0.8, ease: slowEase }} />
                               <m.text x={metric.x} y="218" fill="currentColor" fontSize="8" fontFamily="sans-serif" fontWeight="600" className="text-signal/60"
-                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.6 + idx * 0.1 }}>{metric.label}</m.text>
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>{metric.label}</m.text>
                               <m.text x={metric.x + 80} y="218" textAnchor="end" fill="currentColor" fontSize="7" fontFamily="sans-serif" className="text-signal/35"
-                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 1.7 + idx * 0.1 }}>
+                                initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
                                 {metric.label === 'CLS' ? metric.value : `${metric.value}${metric.label === 'LCP' ? 's' : 'ms'}`}
                               </m.text>
                             </g>
                           ))}
                           <m.line x1="60" y1="196" x2="340" y2="196" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 2" className="text-signal/25"
-                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ delay: 1.8 }} />
+                            initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} />
                         </svg>
                       )}
                       {post.category === 'Growth Strategy' && (
@@ -179,7 +179,7 @@ export default function BlogSection() {
                               initial={{ height: 0, y: 200 }}
                               whileInView={{ height: bar.h, y: 200 - bar.h }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.6, delay: 0.2 + idx * 0.06, ease: slowEase }}
+                              transition={{ duration: 0.6, ease: slowEase }}
                             />
                           ))}
                           <m.path
@@ -191,7 +191,7 @@ export default function BlogSection() {
                             initial={{ pathLength: 0 }}
                             whileInView={{ pathLength: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1.2, delay: 0.8 }}
+                            transition={{ duration: 1.2 }}
                           />
                         </svg>
                       )}
@@ -202,15 +202,15 @@ export default function BlogSection() {
                             viewport={{ once: true }} transition={{ duration: 1.2, ease: slowEase }} />
                           <m.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/40"
                             strokeDasharray="220 220" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 220 }}
-                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.2, ease: slowEase }} />
+                            viewport={{ once: true }} transition={{ duration: 1.2, ease: slowEase }} />
                           <m.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/60"
                             strokeDasharray="110 330" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 330 }}
-                            viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.4, ease: slowEase }} />
+                            viewport={{ once: true }} transition={{ duration: 1.2, ease: slowEase }} />
                           {[{ x: 280, h: 80 }, { x: 310, h: 120 }, { x: 340, h: 60 }, { x: 370, h: 100 }].map((bar, idx) => (
                             <m.rect key={idx} x={bar.x} y={200} width={20} height={0} fill="currentColor"
                               className="text-signal/30" initial={{ height: 0, y: 200 }}
                               whileInView={{ height: bar.h, y: 200 - bar.h }} viewport={{ once: true }}
-                              transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }} />
+                              transition={{ duration: 0.5 }} />
                           ))}
                         </svg>
                       )}

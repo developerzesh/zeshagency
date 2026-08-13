@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { m } from 'framer-motion';
 
@@ -6,7 +6,7 @@ type Props = { children: React.ReactNode; className?: string; delay?: number; di
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-export default function RevealText({ children, className = '', delay = 0, direction = 'up', duration = 1.4 }: Props) {
+export default function RevealText({ children, className = '', direction = 'up', duration = 1.4 }: Props) {
   const offsets = { up: { y: 50 }, down: { y: -50 }, left: { x: 50 }, right: { x: -50 } };
   return (
     <m.div
@@ -15,10 +15,9 @@ export default function RevealText({ children, className = '', delay = 0, direct
       viewport={{ once: true, margin: '-80px' }}
       transition={{
         duration,
-        delay,
         ease: slowEase,
-        opacity: { duration: duration * 0.65, delay, ease: slowEase },
-        filter: { duration: duration * 0.8, delay, ease: slowEase },
+        opacity: { duration: duration * 0.65, ease: slowEase },
+        filter: { duration: duration * 0.8, ease: slowEase },
       }}
       className={className}
     >

@@ -1,4 +1,4 @@
-﻿import { m } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export default function SectionWrapper({ label, title, subtitle, children, centered = false, className = '' }: {
   label?: string; title: string; subtitle?: string; children?: React.ReactNode; centered?: boolean; className?: string;

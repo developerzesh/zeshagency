@@ -132,7 +132,7 @@ export default function Footer() {
                     <a
                       href={`/location/${city.key}`}
                       onClick={(e) => e.stopPropagation()}
-                      className="font-syne font-bold text-xs text-text-secondary hover:text-ink transition-colors duration-300"
+                      className="font-lato text-sm font-medium text-text-secondary hover:text-ink transition-colors duration-300"
                     >
                       {city.name}
                     </a>
