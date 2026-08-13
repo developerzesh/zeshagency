@@ -1,14 +1,15 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
-import CinematicImage from '../components/CinematicImage';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import type { CaseStudy } from '../lib/data';
 import { caseStudies } from '../lib/data';
+
+const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -147,14 +148,16 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-6 md:py-10">
       <RevealText duration={2}>
-        <CinematicImage
-          src={cs.image}
-          alt={cs.title}
-          aspect="16/9"
-          parallaxStrength={0.07}
-          revealDuration={2.2}
-          hoverZoom={1.02}
-        />
+        <Suspense fallback={<div className="aspect-video bg-surface animate-pulse" />}>
+          <CinematicImage
+            src={cs.image}
+            alt={cs.title}
+            aspect="16/9"
+            parallaxStrength={0.07}
+            revealDuration={2.2}
+            hoverZoom={1.02}
+          />
+        </Suspense>
       </RevealText>
     </div>
   );

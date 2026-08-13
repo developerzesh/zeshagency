@@ -1,13 +1,14 @@
 "use client";
 
-import { useRef } from 'react';
+import { useRef, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
-import CinematicImage from '../components/CinematicImage';
 import PageTransition from '../components/PageTransition';
 import type { InsightArticle as InsightArticleType } from '../lib/data';
 import { insights } from '../lib/data';
+
+const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -73,14 +74,16 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
         {/* Featured Image (Wider cinematic width) */}
         <div className="max-w-[1200px] mx-auto px-4 md:px-16 mb-20 md:mb-28">
           <RevealText duration={1.8}>
-            <CinematicImage
-              src={article.image}
-              alt={article.title}
-              aspect="21/9"
-              parallaxStrength={0.06}
-              revealDuration={1.8}
-              hoverZoom={1.01}
-            />
+            <Suspense fallback={<div className="aspect-video bg-surface animate-pulse" />}>
+              <CinematicImage
+                src={article.image}
+                alt={article.title}
+                aspect="21/9"
+                parallaxStrength={0.06}
+                revealDuration={1.8}
+                hoverZoom={1.01}
+              />
+            </Suspense>
           </RevealText>
         </div>
 

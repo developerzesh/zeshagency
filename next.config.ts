@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "framer-motion", "@react-three/drei"],
   },
+  poweredByHeader: false,
+  compress: true,
   assetPrefix: process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : undefined,
   async redirects() {
     return [

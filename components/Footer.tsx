@@ -23,6 +23,8 @@ export default function Footer() {
                   src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"}
                   alt="ZESH."
                   className="h-5 md:h-6 w-auto"
+                  width="600"
+                  height="64"
                 />
               </a>
             </MagneticButton>
