@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useRef, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
@@ -29,7 +29,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
               href="/insights"
               className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 group"
             >
-              <motion.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">←</motion.span>
+              <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">â†</m.span>
               Back to Insights
             </a>
           </RevealText>
@@ -129,7 +129,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                 </div>
                 <MagneticButton strength={0.3}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                    Start a Conversation →
+                    Start a Conversation â†’
                   </button>
                 </MagneticButton>
               </div>
@@ -151,7 +151,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                 {relatedArticles.map((rel, i) => (
                   <RevealText key={rel.slug} delay={i * 0.1}>
                     <a href={`/insights/${rel.slug}`} className="group block">
-                      <motion.div
+                      <m.div
                         whileHover={{ y: -4 }}
                         transition={{ duration: 0.8, ease: slowEase }}
                         className="flex flex-col h-full bg-paper border border-border/40 hover:border-signal/30 p-6 transition-all duration-500"
@@ -177,7 +177,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                         <p className="font-lato text-xs text-text-muted leading-relaxed line-clamp-2 mt-auto">
                           {rel.excerpt}
                         </p>
-                      </motion.div>
+                      </m.div>
                     </a>
                   </RevealText>
                 ))}

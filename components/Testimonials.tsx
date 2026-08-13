@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import RevealText from './RevealText';
 
 const testimonials = [
@@ -14,11 +14,11 @@ const testimonials = [
     quote:
       "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with.",
     name: "Abdul Khan",
-    role: "Ex-CMO, TATA · Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+    role: "Ex-CMO, TATA Â· Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
   },
   {
     quote:
-      "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that.",
+      "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet â€” and they deliver exactly that.",
     name: "Hafsa Syed",
     role: "Founder, HAFSA The Couture",
   },
@@ -49,7 +49,7 @@ export default function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {testimonials.map((t, i) => (
             <RevealText key={t.name} delay={i * 0.14} duration={1.6}>
-              <motion.div
+              <m.div
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative flex flex-col justify-between bg-surface/20 border border-border/40 hover:border-signal/30 rounded-3xl p-8 backdrop-blur-2xl overflow-hidden h-full"
@@ -61,7 +61,7 @@ export default function Testimonials() {
                   {/* Stars */}
                   <div className="flex gap-1 mb-6">
                     {Array.from({ length: 5 }).map((_, s) => (
-                      <span key={s} className="text-signal text-sm">★</span>
+                      <span key={s} className="text-signal text-sm">â˜…</span>
                     ))}
                   </div>
 
@@ -85,7 +85,7 @@ export default function Testimonials() {
                     {t.role}
                   </p>
                 </div>
-              </motion.div>
+              </m.div>
             </RevealText>
           ))}
         </div>

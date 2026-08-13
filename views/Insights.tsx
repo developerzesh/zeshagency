@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import PageTransition from '../components/PageTransition';
 import MagneticButton from '../components/MagneticButton';
@@ -35,34 +35,34 @@ export default function Insights() {
       >
         <ParticleField />
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[550px] h-[550px] rounded-full bg-signal/[0.015] blur-[220px]" />
+          <m.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[550px] h-[550px] rounded-full bg-signal/[0.015] blur-[220px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
-          <motion.p
+        <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
+          <m.p
             initial={{ opacity: 0, filter: 'blur(12px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
             className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8"
           >
             Resources & Analysis
-          </motion.p>
+          </m.p>
 
           <h1 className="font-syne text-[clamp(2.8rem,5.5vw,6.5rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-10 max-w-4xl">
-            <motion.span
+            <m.span
               initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.8, delay: 0.5, ease: slowEase }}
               className="block"
             >
               Insights<span className="text-signal">.</span>
-            </motion.span>
+            </m.span>
           </h1>
 
           {/* Two-column Hero bottom details & CTAs */}
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mt-4">
-            <motion.div
+            <m.div
               initial={{ opacity: 0, filter: 'blur(20px)', y: 24 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.6, delay: 1.0, ease: slowEase }}
@@ -71,9 +71,9 @@ export default function Insights() {
               <p className="font-lato text-lg md:text-xl text-text-secondary leading-[1.85]">
                 Straightforward analysis for growth-focused operators. We pull back the curtain on AEO, headless speed optimization, and search strategies.
               </p>
-            </motion.div>
+            </m.div>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, filter: 'blur(16px)', y: 16 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
@@ -82,17 +82,17 @@ export default function Insights() {
               <MagneticButton strength={0.4}>
                 <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                   </span>
                   <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                 </button>
               </MagneticButton>
               <MagneticButton strength={0.3}>
-                <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
+                <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles â†“</a>
               </MagneticButton>
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
       {/* Categories Filter Strip */}
@@ -125,7 +125,7 @@ export default function Insights() {
             filtered.map((article, i) => (
               <RevealText key={article.slug} delay={i * 0.07} duration={1.4}>
                 <a href={`/insights/${article.slug}`} className="group block border-b border-border/60 last:border-b-0">
-                  <motion.article
+                  <m.article
                     whileHover={{ x: 6 }}
                     transition={{ duration: 0.8, ease: slowEase }}
                     className="py-14 md:py-32 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline"
@@ -135,7 +135,7 @@ export default function Insights() {
                       <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal/50 group-hover:text-signal transition-colors duration-[900ms]">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="font-lato text-[11px] text-text-muted mt-2">{article.date} · {article.readTime}</span>
+                      <span className="font-lato text-[11px] text-text-muted mt-2">{article.date} Â· {article.readTime}</span>
                     </div>
 
                     {/* Main Title & Excerpt */}
@@ -154,10 +154,10 @@ export default function Insights() {
                     {/* Arrow indicator */}
                     <div className="md:col-span-2 flex justify-end">
                       <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-lg font-bold">
-                        →
+                        â†’
                       </span>
                     </div>
-                  </motion.article>
+                  </m.article>
                 </a>
               </RevealText>
             ))
@@ -168,7 +168,7 @@ export default function Insights() {
       {/* Footer CTA */}
       <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+          <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
@@ -193,7 +193,7 @@ export default function Insights() {
                   <MagneticButton strength={0.4}>
                     <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                       <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                       </span>
                       <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                     </button>

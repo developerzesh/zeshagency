@@ -1,18 +1,18 @@
-import { useState, useEffect, useMemo } from 'react';
-import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
+﻿import { useState, useEffect, useMemo } from 'react';
+import { m, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useTheme } from './ThemeContext';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const hardTruths = [
   'Your website is not a brochure. It is a revenue engine. Treat it like one or watch your competitors wave goodbye.',
-  'If your SEO strategy hasn\x27t changed since ChatGPT launched, you do not have a strategy — you have a nostalgic habit.',
+  'If your SEO strategy hasn\x27t changed since ChatGPT launched, you do not have a strategy â€” you have a nostalgic habit.',
   'Hiring an agency because your nephew knows WordPress is not a growth strategy. It is a tax on your ambition.',
   'The best time to optimize for AI search was yesterday. The second best time is before your competitor closes the gap.',
   'Most businesses spend more on office coffee than on understanding their search traffic. That tracks.',
   'Your competitors are not outranking you because they have better content. They have better architecture. Big difference.',
   'A beautiful website that does not convert is just an expensive art project. Hope your investors appreciate modern art.',
-  'If your page load time exceeds two seconds, you are not losing visitors — you are curating for the patient. There are fewer of them every day.',
+  'If your page load time exceeds two seconds, you are not losing visitors â€” you are curating for the patient. There are fewer of them every day.',
   'Your CRM is full of leads you paid for. Your organic search pipeline is full of leads you earned. Guess which one gets ignored.',
   'Algorithm updates do not hate your website. They simply do not trust it yet. There is a cure for that.',
   'The seven-figure site you built three years ago now loads slower than your grandmother dial-up. Progress has a cost.',
@@ -180,7 +180,7 @@ function generateStatement(seed: number): string {
   const templates = [
     `${action} your ${noun} ${context}. ${punchline}`,
     `Your ${noun} ${observation}. ${action} ${context}.`,
-    `${action} your ${noun} — your ${observation} ${context}.`,
+    `${action} your ${noun} â€” your ${observation} ${context}.`,
     `${context}: your ${noun} ${observation}. ${punchline}`,
     `${action} your ${noun}. ${observation.charAt(0).toUpperCase() + observation.slice(1)}. ${punchline}`,
     `We are ${action.toLowerCase()} your ${noun} ${context}. ${punchline}`,
@@ -232,32 +232,32 @@ export default function Preloader({ onComplete }: { onComplete: () => void }) {
   return (
     <AnimatePresence>
       {!isExiting && (
-        <motion.div exit={{ y: '-100%' }} transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }} className="fixed inset-0 z-[9998] bg-paper flex items-center justify-center">
+        <m.div exit={{ y: '-100%' }} transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] as [number, number, number, number] }} className="fixed inset-0 z-[9998] bg-paper flex items-center justify-center">
           <div className="relative z-10 flex flex-col items-center max-w-lg px-6">
-            <motion.div initial={{ opacity: 0, filter: 'blur(10px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration: 1.2, ease: slowEase }} className="mb-20 md:mb-28">
+            <m.div initial={{ opacity: 0, filter: 'blur(10px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ duration: 1.2, ease: slowEase }} className="mb-20 md:mb-28">
               <img src={isDark ? "/images/zesh_logo.png" : "/images/zesh_logo_light.png"} alt="ZESH." className="h-6 md:h-7 w-auto" />
-            </motion.div>
-            <motion.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ delay: 0.3, duration: 1, ease: slowEase }} className="flex items-end gap-1 mb-10">
+            </m.div>
+            <m.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ delay: 0.3, duration: 1, ease: slowEase }} className="flex items-end gap-1 mb-10">
               <span className="font-lato text-7xl md:text-9xl font-700 tabular-nums leading-none text-ink">{progress}</span>
               <span className="font-lato text-lg font-light text-text-muted mb-3">%</span>
-            </motion.div>
+            </m.div>
             <div className="w-48 md:w-64 h-[1px] bg-border overflow-hidden">
-              <motion.div style={{ width: progressWidth }} className="h-full bg-ink transition-none" />
+              <m.div style={{ width: progressWidth }} className="h-full bg-ink transition-none" />
             </div>
             <div className="mt-8 min-h-[3.5rem] flex items-center justify-center">
               <AnimatePresence mode="wait">
-                <motion.p
+                <m.p
                   key={statementIndex}
                   initial={{ opacity: 0, y: 8, filter: 'blur(6px)' }}
                   animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                   exit={{ opacity: 0, y: -8, filter: 'blur(6px)' }}
                   transition={{ duration: 0.5, ease: slowEase }}
                   className="text-center font-lato text-xs md:text-sm text-text-muted leading-[1.7]"
-                >{statement}</motion.p>
+                >{statement}</m.p>
               </AnimatePresence>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

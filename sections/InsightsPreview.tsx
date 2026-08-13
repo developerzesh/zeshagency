@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { m } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import { articles } from '../data/articles';
 
@@ -14,7 +14,7 @@ export default function InsightsPreview() {
           {articles.slice(0, 3).map((article, i) => (
             <RevealText key={article.slug} delay={i * 0.08}>
               <a href={`/insights/${article.slug}`}>
-                <motion.div
+                <m.div
                   whileHover={{ x: 8 }}
                   transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
                   className="group py-8 border-b border-border"
@@ -22,17 +22,17 @@ export default function InsightsPreview() {
                   <div className="flex items-center gap-4 mb-2">
                     <span className="font-lato text-[10px] tracking-[0.15em] uppercase text-signal">{article.category}</span>
                     <span className="w-1 h-1 rounded-full bg-text-muted/20" />
-                    <span className="font-lato text-[10px] text-text-muted">{article.date} · {article.readTime}</span>
+                    <span className="font-lato text-[10px] text-text-muted">{article.date} Â· {article.readTime}</span>
                   </div>
                   <h3 className="font-syne text-lg md:text-2xl font-800 group-hover:text-signal transition-colors duration-700">{article.title}</h3>
-                </motion.div>
+                </m.div>
               </a>
             </RevealText>
           ))}
         </div>
         <RevealText delay={0.3}>
           <div className="text-center mt-14">
-            <a href="/insights" className="font-lato text-sm text-signal sig-hover">Read more insights →</a>
+            <a href="/insights" className="font-lato text-sm text-signal sig-hover">Read more insights â†’</a>
           </div>
         </RevealText>
       </div>

@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+﻿import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 
@@ -13,7 +13,7 @@ export default function GlobalCTA() {
       className="py-16 md:py-48 border-t border-border"
       onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}
     >
-      <motion.div
+      <m.div
         style={{ x: parallaxX, y: parallaxY }}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.012] blur-[200px] pointer-events-none"
       />
@@ -26,7 +26,7 @@ export default function GlobalCTA() {
         </RevealText>
         <RevealText delay={0.2} duration={1.4}>
           <p className="font-lato text-base md:text-lg text-text-secondary max-w-lg mx-auto leading-[1.8] mb-14">
-            Let's discuss how we can engineer your next phase of growth. No pitch decks — just a genuine conversation about what's possible.
+            Let's discuss how we can engineer your next phase of growth. No pitch decks â€” just a genuine conversation about what's possible.
           </p>
         </RevealText>
         <RevealText delay={0.3}>

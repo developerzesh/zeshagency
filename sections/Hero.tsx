@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+﻿import { useRef } from 'react';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 
@@ -18,11 +18,11 @@ export default function Hero() {
   return (
     <section ref={ref} className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-ink/[0.006] blur-[180px] animate-float" />
-        <motion.div style={{ x: parallaxY, y: parallaxX }} className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-signal/[0.006] blur-[150px] animate-float-delayed" />
+        <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-ink/[0.006] blur-[180px] animate-float" />
+        <m.div style={{ x: parallaxY, y: parallaxX }} className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-signal/[0.006] blur-[150px] animate-float-delayed" />
       </div>
 
-      <motion.div style={{ y, opacity, filter: useTransform(blurVal, (v) => `blur(${v}px)`) }} className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-16 w-full pt-20 md:pt-32 pb-12 md:pb-20">
+      <m.div style={{ y, opacity, filter: useTransform(blurVal, (v) => `blur(${v}px)`) }} className="relative z-10 max-w-[1200px] mx-auto px-4 md:px-16 w-full pt-20 md:pt-32 pb-12 md:pb-20">
         <div className="max-w-4xl">
           <RevealText delay={0.6}>
             <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-10">
@@ -38,7 +38,7 @@ export default function Hero() {
 
           <RevealText delay={1.0} duration={1.4}>
             <p className="font-lato text-lg md:text-xl text-text-secondary max-w-xl leading-[1.8] mb-16">
-              We build search ecosystems, AI visibility, and conversion architecture that compounds — turning digital presence into predictable revenue.
+              We build search ecosystems, AI visibility, and conversion architecture that compounds â€” turning digital presence into predictable revenue.
             </p>
           </RevealText>
 
@@ -57,17 +57,17 @@ export default function Hero() {
             </div>
           </RevealText>
         </div>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, filter: 'blur(8px)' }}
         animate={{ opacity: 1, filter: 'blur(0px)' }}
         transition={{ delay: 3, duration: 1.6 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3"
       >
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }} className="w-[1px] h-10 bg-ink/10" />
+        <m.div animate={{ y: [0, 6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }} className="w-[1px] h-10 bg-ink/10" />
         <span className="font-lato text-[8px] tracking-[0.35em] uppercase text-text-muted">Scroll</span>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

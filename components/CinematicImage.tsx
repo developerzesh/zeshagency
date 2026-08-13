@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -39,7 +39,7 @@ export default function CinematicImage({
   // Parallax: image shifts vertically as you scroll through the container
   const imageY = useTransform(scrollYProgress, [0, 1], [`${parallaxStrength * 100}%`, `${-parallaxStrength * 100}%`]);
 
-  // Cinematic overlay fade — tied to scroll position for smooth reveal
+  // Cinematic overlay fade â€” tied to scroll position for smooth reveal
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.15, 0.35], [overlayStrength, overlayStrength * 0.3, 0]);
 
   const aspectClass = {
@@ -51,7 +51,7 @@ export default function CinematicImage({
   }[aspect];
 
   return (
-    <motion.div
+    <m.div
       ref={containerRef}
       className={`relative overflow-hidden bg-surface ${aspectClass} ${rounded} ${className}`}
       initial={{ opacity: 0 }}
@@ -59,12 +59,12 @@ export default function CinematicImage({
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: revealDuration * 0.5, delay: revealDelay, ease: slowEase }}
     >
-      {/* Parallax image layer — oversized to allow vertical movement */}
-      <motion.div
+      {/* Parallax image layer â€” oversized to allow vertical movement */}
+      <m.div
         style={{ y: imageY }}
         className="absolute inset-[-18%]"
       >
-        <motion.img
+        <m.img
           src={src}
           alt={alt}
           className="w-full h-full object-cover"
@@ -82,10 +82,10 @@ export default function CinematicImage({
             transition: { duration: 1.8, ease: slowEase },
           }}
         />
-      </motion.div>
+      </m.div>
 
-      {/* Cinematic reveal overlay — paper-colored, fades on scroll */}
-      <motion.div
+      {/* Cinematic reveal overlay â€” paper-colored, fades on scroll */}
+      <m.div
         style={{ opacity: overlayOpacity }}
         className="absolute inset-0 bg-paper pointer-events-none"
       />
@@ -97,6 +97,6 @@ export default function CinematicImage({
           background: 'radial-gradient(ellipse at center, transparent 55%, rgba(10,10,10,0.03) 100%)',
         }}
       />
-    </motion.div>
+    </m.div>
   );
 }

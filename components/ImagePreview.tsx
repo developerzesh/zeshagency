@@ -1,5 +1,5 @@
-import { useState, useRef, useCallback, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import { useState, useRef, useCallback, useEffect } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
 
 type Props = {
   image: string;
@@ -62,7 +62,7 @@ export default function ImagePreview({ image, children, className = '', size = '
 
       <AnimatePresence>
         {isVisible && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, filter: 'blur(40px)', scale: 0.65 }}
             animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
             exit={{ opacity: 0, filter: 'blur(28px)', scale: 0.88 }}
@@ -81,7 +81,7 @@ export default function ImagePreview({ image, children, className = '', size = '
             }}
           >
             <div className="overflow-hidden rounded-2xl border border-border/30 shadow-[0_24px_60px_-12px_rgba(10,10,10,0.12)]">
-              <motion.img
+              <m.img
                 src={image}
                 alt=""
                 draggable={false}
@@ -96,17 +96,17 @@ export default function ImagePreview({ image, children, className = '', size = '
                 style={{ width: dims[size].w, height: dims[size].h, objectFit: 'cover', display: 'block' }}
               />
               {caption && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 4 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35, duration: 0.7, ease: slowEase }}
                   className="bg-paper/95 backdrop-blur-sm px-4 py-2.5 border-t border-border/20"
                 >
                   <span className="font-lato text-[10px] tracking-[0.1em] uppercase text-text-muted">{caption}</span>
-                </motion.div>
+                </m.div>
               )}
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

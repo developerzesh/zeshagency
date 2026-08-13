@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 // code for pre loader
 
@@ -6,7 +6,7 @@
 
 
 // import { ReactNode, useState, useEffect } from 'react';
-// import { motion, useScroll, useSpring } from 'framer-motion';
+// import { m, useScroll, useSpring } from 'framer-motion';
 // import Lenis from 'lenis';
 // import Navigation from './Navigation';
 // import Footer from './Footer';
@@ -19,7 +19,7 @@
 //   const { scrollYProgress } = useScroll();
 //   const scaleX = useSpring(scrollYProgress, { stiffness: 80, damping: 25, restDelta: 0.001 });
 //   return (
-//     <motion.div style={{ scaleX }} className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-signal origin-left" />
+//     <m.div style={{ scaleX }} className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-signal origin-left" />
 //   );
 // }
 
@@ -77,7 +77,7 @@
 
 
 import { ReactNode, useEffect } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { LazyMotion, domAnimation, m, useScroll, useSpring } from 'framer-motion';
 import Lenis from 'lenis';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -87,7 +87,7 @@ function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 80, damping: 25, restDelta: 0.001 });
   return (
-    <motion.div style={{ scaleX }} className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-signal origin-left" />
+    <m.div style={{ scaleX }} className="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-signal origin-left" />
   );
 }
 
@@ -118,13 +118,13 @@ function LayoutInner({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <ScrollProgress />
       <FilmGrain />
       <Navigation />
       <main className="overflow-x-clip">{children}</main>
       <Footer />
-    </>
+    </LazyMotion>
   );
 }
 

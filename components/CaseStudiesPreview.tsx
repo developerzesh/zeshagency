@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { m } from 'framer-motion';
 import RevealText from './RevealText';
 import CinematicImage from './CinematicImage';
 import { caseStudies } from '../lib/data';
@@ -20,7 +20,7 @@ export default function CaseStudiesPreview() {
           {caseStudies.map((cs, i) => (
             <RevealText key={cs.slug} delay={i * 0.12} duration={1.8}>
               <a href={`/case-studies/${cs.slug}`}>
-                <motion.div
+                <m.div
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                   className="group h-full bg-surface/20 border border-border/40 hover:border-signal/40 p-6 rounded-3xl backdrop-blur-2xl relative overflow-hidden flex flex-col justify-between"
@@ -85,7 +85,7 @@ export default function CaseStudiesPreview() {
                       <ul className="space-y-2">
                         {cs.results.map((res, idx) => (
                           <li key={idx} className="flex items-start gap-2 font-lato text-xs text-text-secondary">
-                            <span className="text-[#8cda28] font-bold select-none">✓</span>
+                            <span className="text-[#8cda28] font-bold select-none">âœ“</span>
                             <span>{res}</span>
                           </li>
                         ))}
@@ -97,10 +97,10 @@ export default function CaseStudiesPreview() {
                   <div className="pt-4 border-t border-border/20 flex justify-between items-center mt-auto">
                     <span className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300">
                       Explore Case Study
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">â†’</span>
                     </span>
                   </div>
-                </motion.div>
+                </m.div>
               </a>
             </RevealText>
           ))}
@@ -108,9 +108,9 @@ export default function CaseStudiesPreview() {
 
         <RevealText delay={0.3}>
           <div className="mt-20 md:mt-24 flex justify-center">
-            <motion.div whileHover={{ y: -2 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            <m.div whileHover={{ y: -2 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
               <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies</a>
-            </motion.div>
+            </m.div>
           </div>
         </RevealText>
       </div>

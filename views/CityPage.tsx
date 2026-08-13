@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { m, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import ParticleField from '../components/ParticleField';
@@ -52,7 +52,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             </p>
             <MagneticButton strength={0.3}>
               <Link href="/contact" className="inline-flex items-center gap-4 font-lato text-sm font-medium text-paper bg-ink px-6 py-3.5 rounded-xl hover:bg-signal hover:text-ink transition-all duration-[800ms]">
-                Contact Us →
+                Contact Us â†’
               </Link>
             </MagneticButton>
           </div>
@@ -66,14 +66,14 @@ export default function CityPage({ cityKey }: CityPageProps) {
   return (
     <PageTransition>
 
-      {/* ── 1. HERO ── */}
+      {/* â”€â”€ 1. HERO â”€â”€ */}
       <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
         <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-signal/[0.03] blur-[150px] rounded-full pointer-events-none" />
         <div className="absolute bottom-[-10%] right-[-5%] font-syne font-800 text-[10rem] md:text-[20rem] text-ink/[0.02] dark:text-white/[0.015] leading-none select-none pointer-events-none z-0">
           {data.badge}
         </div>
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
+        <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText duration={1.6}>
             <h1 className="font-syne text-4xl md:text-7xl lg:text-8xl font-800 tracking-[-0.04em] leading-[0.92] max-w-5xl">
               Digital Marketing Agency<br />
@@ -90,7 +90,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               <MagneticButton strength={0.4}>
                 <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                   </span>
                   <span className="font-lato text-sm font-medium text-paper">Get {data.name} Strategy Audit</span>
                 </button>
@@ -102,10 +102,10 @@ export default function CityPage({ cityKey }: CityPageProps) {
               </MagneticButton>
             </div>
           </RevealText>
-        </motion.div>
+        </m.div>
       </section>
 
-      {/* ── 2. OUR SERVICES ── */}
+      {/* â”€â”€ 2. OUR SERVICES â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
@@ -132,7 +132,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                   <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight mb-4 group-hover:text-signal transition-colors duration-500">{title}</h3>
                   <p className="font-lato text-sm text-text-secondary leading-[1.8] mb-8 group-hover:text-text-muted transition-colors duration-500">{desc}</p>
                   <span className="font-lato text-[11px] font-bold text-signal tracking-[0.12em] uppercase flex items-center gap-1 group-hover:translate-x-1.5 transition-transform duration-500">
-                    Explore Service <span className="text-xs">→</span>
+                    Explore Service <span className="text-xs">â†’</span>
                   </span>
                 </Link>
               </RevealText>
@@ -141,7 +141,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 3. WHY CHOOSE US ── */}
+      {/* â”€â”€ 3. WHY CHOOSE US â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border bg-surface/20">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
@@ -161,7 +161,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 <MagneticButton strength={0.4}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     <span className="w-10 h-10 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <span className="text-ink text-xs">→</span>
+                      <span className="text-ink text-xs">â†’</span>
                     </span>
                     <span className="text-paper">Start Your Audit</span>
                   </button>
@@ -173,10 +173,10 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 <p className="font-lato text-[11px] tracking-[0.25em] uppercase text-text-muted mb-6 font-semibold">Why we win in {data.name}</p>
               </RevealText>
               {[
-                { icon: '◆', title: 'Local Market Depth', desc: `Deep understanding of ${data.name}'s search landscape, buyer psychology, and competitive dynamics.` },
-                { icon: '◆', title: 'Proven Process', desc: 'A structured 4-step methodology that turns market intelligence into measurable revenue results.' },
-                { icon: '◆', title: 'Transparent Reporting', desc: 'Every ranking, every lead, every conversion tracked and reported monthly with full attribution.' },
-                { icon: '◆', title: 'Principal-Led Work', desc: 'Senior strategists manage every account. No account managers, no offshore delegation.' },
+                { icon: 'â—†', title: 'Local Market Depth', desc: `Deep understanding of ${data.name}'s search landscape, buyer psychology, and competitive dynamics.` },
+                { icon: 'â—†', title: 'Proven Process', desc: 'A structured 4-step methodology that turns market intelligence into measurable revenue results.' },
+                { icon: 'â—†', title: 'Transparent Reporting', desc: 'Every ranking, every lead, every conversion tracked and reported monthly with full attribution.' },
+                { icon: 'â—†', title: 'Principal-Led Work', desc: 'Senior strategists manage every account. No account managers, no offshore delegation.' },
               ].map((item, i) => (
                 <RevealText key={i} delay={i * 0.08} duration={1.2}>
                   <div className="flex gap-4 py-5 border-b border-border/40 items-start group">
@@ -193,7 +193,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 4. OUR RESULTS ── */}
+      {/* â”€â”€ 4. OUR RESULTS â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center mb-20">
@@ -210,7 +210,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             <div className="md:col-span-6">
               <RevealText delay={0.2}>
                 <p className="font-lato text-base text-text-secondary leading-[1.85]">
-                  Every metric below is drawn from real client campaigns in {data.name} and comparable markets. We don't use industry averages — we use our own data.
+                  Every metric below is drawn from real client campaigns in {data.name} and comparable markets. We don't use industry averages â€” we use our own data.
                 </p>
               </RevealText>
             </div>
@@ -243,7 +243,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 5. OUR PROCESS ── */}
+      {/* â”€â”€ 5. OUR PROCESS â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border bg-surface/20">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
@@ -276,7 +276,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               <MagneticButton strength={0.4}>
                 <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                   </span>
                   <span className="font-lato text-sm font-medium text-paper">Start with a Free Audit</span>
                 </button>
@@ -291,7 +291,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 6. TESTIMONIALS ── */}
+      {/* â”€â”€ 6. TESTIMONIALS â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
@@ -330,7 +330,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 7. LOCAL PRESENCE ── */}
+      {/* â”€â”€ 7. LOCAL PRESENCE â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border bg-surface/20">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-start">
@@ -345,7 +345,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               </RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-base text-text-secondary leading-[1.85]">
-                  Our strategies are calibrated to the specific search behaviour, competitive dynamics, and buyer psychology of {data.name}. We don't apply generic templates — we apply {data.name}-specific intelligence.
+                  Our strategies are calibrated to the specific search behaviour, competitive dynamics, and buyer psychology of {data.name}. We don't apply generic templates â€” we apply {data.name}-specific intelligence.
                 </p>
               </RevealText>
             </div>
@@ -380,7 +380,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 8. ABOUT SEO SERVICES ── */}
+      {/* â”€â”€ 8. ABOUT SEO SERVICES â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -396,7 +396,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               <RevealText delay={0.2}>
                 <MagneticButton strength={0.3}>
                   <Link href="/contact" className="group inline-flex items-center gap-3 font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover">
-                    Speak to a strategist <span className="text-xs">→</span>
+                    Speak to a strategist <span className="text-xs">â†’</span>
                   </Link>
                 </MagneticButton>
               </RevealText>
@@ -412,7 +412,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 9. EXPLORE MORE (CTA STRIP) ── */}
+      {/* â”€â”€ 9. EXPLORE MORE (CTA STRIP) â”€â”€ */}
       <section className="border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-16 md:py-16">
           <RevealText duration={1.4}>
@@ -423,14 +423,14 @@ export default function CityPage({ cityKey }: CityPageProps) {
                   Ready to dominate search in {data.name}<span className="text-signal">?</span>
                 </h2>
                 <p className="font-lato text-sm text-text-secondary mt-3 max-w-lg leading-[1.85]">
-                  Book a free 30-minute strategy call. Our founders will audit your current {data.name} presence and map out a custom growth roadmap — no commitment required.
+                  Book a free 30-minute strategy call. Our founders will audit your current {data.name} presence and map out a custom growth roadmap â€” no commitment required.
                 </p>
               </div>
               <div className="flex flex-col gap-4 flex-shrink-0">
                 <MagneticButton strength={0.4}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                      <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                     </span>
                     <span className="font-lato text-sm font-medium text-paper">Book Free Strategy Call</span>
                   </button>
@@ -446,7 +446,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── 10. RESOURCES ── */}
+      {/* â”€â”€ 10. RESOURCES â”€â”€ */}
       <section className="py-16 md:py-36 border-t border-border bg-surface/20">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-14 md:mb-16">
@@ -469,7 +469,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                     <p className="font-lato text-sm text-text-secondary leading-[1.8]">{res.desc}</p>
                   </div>
                   <span className="font-lato text-[11px] font-bold text-signal tracking-[0.12em] uppercase flex items-center gap-1 mt-6 group-hover:translate-x-1.5 transition-transform duration-500">
-                    Read Guide <span className="text-xs">→</span>
+                    Read Guide <span className="text-xs">â†’</span>
                   </span>
                 </Link>
               </RevealText>
@@ -478,7 +478,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
         </div>
       </section>
 
-      {/* ── OTHER CITIES ── */}
+      {/* â”€â”€ OTHER CITIES â”€â”€ */}
       <section className="py-16 md:py-24 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText>
@@ -492,7 +492,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 className="font-lato text-[11px] font-bold text-text-secondary py-3.5 px-4 border border-border/50 rounded-xl transition-all duration-[400ms] flex items-center justify-between hover:bg-ink hover:text-paper hover:border-ink dark:hover:bg-white dark:hover:text-ink"
               >
                 <span>{name}</span>
-                <span className="text-xs">→</span>
+                <span className="text-xs">â†’</span>
               </Link>
             ))}
           </div>

@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import PageTransition from '../components/PageTransition';
 import MagneticButton from '../components/MagneticButton';
@@ -31,7 +31,7 @@ export default function Blog() {
 
     return (
         <PageTransition>
-            {/* ── Hero ── */}
+            {/* â”€â”€ Hero â”€â”€ */}
             <section
                 ref={heroRef}
                 className="relative min-h-[60vh] md:min-h-[88vh] flex items-center overflow-hidden"
@@ -42,42 +42,42 @@ export default function Blog() {
             >
                 <ParticleField />
                 <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                    <motion.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[240px]" />
+                    <m.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[240px]" />
                     <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
                 </div>
 
-                <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
-                    <motion.p
+                <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
+                    <m.p
                         initial={{ opacity: 0, filter: 'blur(12px)' }}
                         animate={{ opacity: 1, filter: 'blur(0px)' }}
                         transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
                         className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8"
                     >
                         Thinking &amp; Perspective
-                    </motion.p>
+                    </m.p>
 
                     <h1 className="font-syne text-[clamp(3rem,6vw,7.5rem)] font-800 leading-[0.86] tracking-[-0.04em] mb-12 max-w-4xl">
-                        <motion.span
+                        <m.span
                             initial={{ opacity: 0, filter: 'blur(40px)', y: 60 }}
                             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                             transition={{ duration: 1.8, delay: 0.5, ease: slowEase }}
                             className="block"
                         >
                             The Zesh<span className="text-signal"> Blog.</span>
-                        </motion.span>
+                        </m.span>
                     </h1>
 
                     <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mt-4">
-                        <motion.p
+                        <m.p
                             initial={{ opacity: 0, filter: 'blur(20px)', y: 24 }}
                             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                             transition={{ duration: 1.6, delay: 1.0, ease: slowEase }}
                             className="font-lato text-lg md:text-xl text-text-secondary leading-[1.85] max-w-lg"
                         >
                             Unfiltered growth frameworks, search engineering breakdowns, and AI-era marketing tactics written by the operators who build them.
-                        </motion.p>
+                        </m.p>
 
-                        <motion.div
+                        <m.div
                             initial={{ opacity: 0, filter: 'blur(16px)', y: 16 }}
                             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
                             transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
@@ -86,20 +86,20 @@ export default function Blog() {
                             <MagneticButton strength={0.4}>
                                 <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                                     <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                                     </span>
                                     <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                                 </button>
                             </MagneticButton>
                             <MagneticButton strength={0.3}>
-                                <a href="#posts" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
+                                <a href="#posts" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles â†“</a>
                             </MagneticButton>
-                        </motion.div>
+                        </m.div>
                     </div>
-                </motion.div>
+                </m.div>
             </section>
 
-            {/* ── Category Filter Bar ── */}
+            {/* â”€â”€ Category Filter Bar â”€â”€ */}
             <section className="border-t border-b border-border/60 py-5 sticky top-0 z-30 backdrop-blur-2xl bg-paper/80">
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16 flex flex-wrap gap-3 items-center">
                     <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-3 flex-shrink-0">Topic</span>
@@ -121,7 +121,7 @@ export default function Blog() {
                 </div>
             </section>
 
-            {/* ── Posts ── */}
+            {/* â”€â”€ Posts â”€â”€ */}
             <section id="posts" className="py-24 md:py-40">
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     {filtered.length === 0 ? (
@@ -130,21 +130,21 @@ export default function Blog() {
                         </div>
                     ) : (
                         <>
-                            {/* ── Featured Lead Post ── */}
+                            {/* â”€â”€ Featured Lead Post â”€â”€ */}
                             {featured && (
                                 <RevealText duration={1.6}>
                                     <a
                                         href={`/blog/${featured.slug}`}
                                         className="group block mb-16 md:mb-32 border-b border-border/50 pb-24 md:pb-32"
                                     >
-                                        <motion.div
+                                        <m.div
                                             whileHover={{ x: 4 }}
                                             transition={{ duration: 0.8, ease: slowEase }}
                                             className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start"
                                         >
                                             {/* Image */}
                                             <div className="lg:col-span-7 overflow-hidden rounded-xl aspect-[16/9] relative">
-                                                <motion.img
+                                                <m.img
                                                     src={featured.image}
                                                     alt={featured.title}
                                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms] scale-100 group-hover:scale-105"
@@ -162,7 +162,7 @@ export default function Blog() {
                                                         <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal py-1 px-2.5 bg-signal/10 border border-signal/25">
                                                             {featured.category}
                                                         </span>
-                                                        <span className="font-lato text-[11px] text-text-muted">{featured.date} · {featured.readTime}</span>
+                                                        <span className="font-lato text-[11px] text-text-muted">{featured.date} Â· {featured.readTime}</span>
                                                     </div>
                                                     <h2 className="font-syne text-3xl md:text-4xl lg:text-5xl font-800 tracking-[-0.03em] leading-[1.05] mb-6 group-hover:text-signal transition-colors duration-[1000ms]">
                                                         {featured.title}
@@ -177,21 +177,21 @@ export default function Blog() {
                                                         <p className="font-syne text-sm font-800 text-ink leading-tight">{featured.author}</p>
                                                         <p className="font-lato text-[10px] text-text-muted uppercase tracking-wider">{featured.authorRole}</p>
                                                     </div>
-                                                    <span className="ml-auto text-signal/40 group-hover:text-signal transition-colors duration-700 text-xl font-bold">→</span>
+                                                    <span className="ml-auto text-signal/40 group-hover:text-signal transition-colors duration-700 text-xl font-bold">â†’</span>
                                                 </div>
                                             </div>
-                                        </motion.div>
+                                        </m.div>
                                     </a>
                                 </RevealText>
                             )}
 
-                            {/* ── Rest as grid ── */}
+                            {/* â”€â”€ Rest as grid â”€â”€ */}
                             {rest.length > 0 && (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                                     {rest.map((post, i) => (
                                         <RevealText key={post.slug} delay={i * 0.07} duration={1.4}>
                                             <a href={`/blog/${post.slug}`} className="group block h-full">
-                                                <motion.article
+                                                <m.article
                                                     whileHover={{ y: -6 }}
                                                     transition={{ duration: 0.7, ease: slowEase }}
                                                     className="flex flex-col h-full border border-border/40 hover:border-signal/30 transition-all duration-700 overflow-hidden rounded-xl bg-paper/30 dark:bg-ink/5"
@@ -213,7 +213,7 @@ export default function Blog() {
                                                             <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal py-0.5 px-2 bg-signal/10 border border-signal/20">
                                                                 {post.category}
                                                             </span>
-                                                            <span className="font-lato text-[10px] text-text-muted">{post.date} · {post.readTime}</span>
+                                                            <span className="font-lato text-[10px] text-text-muted">{post.date} Â· {post.readTime}</span>
                                                         </div>
                                                         <h3 className="font-syne text-lg md:text-xl font-800 tracking-tight leading-snug mb-3 group-hover:text-signal transition-colors duration-700 flex-grow">
                                                             {post.title}
@@ -224,10 +224,10 @@ export default function Blog() {
                                                         <div className="mt-auto flex items-center gap-3 pt-5 border-t border-border/40">
                                                             <img src={post.authorAvatar} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
                                                             <span className="font-lato text-[11px] text-text-muted">{post.author}</span>
-                                                            <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">→</span>
+                                                            <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">â†’</span>
                                                         </div>
                                                     </div>
-                                                </motion.article>
+                                                </m.article>
                                             </a>
                                         </RevealText>
                                     ))}
@@ -238,10 +238,10 @@ export default function Blog() {
                 </div>
             </section>
 
-            {/* ── Footer CTA ── */}
+            {/* â”€â”€ Footer CTA â”€â”€ */}
             <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+                    <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
                 </div>
                 <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
@@ -266,12 +266,12 @@ export default function Blog() {
                                     <MagneticButton strength={0.4}>
                                         <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                                             <span>Book a Discovery Call</span>
-                                            <span className="text-xs">→</span>
+                                            <span className="text-xs">â†’</span>
                                         </button>
                                     </MagneticButton>
                                     <MagneticButton strength={0.3}>
                                         <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
-                                            View Client Results →
+                                            View Client Results â†’
                                         </a>
                                     </MagneticButton>
                                 </div>

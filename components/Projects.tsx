@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+﻿import { useRef, useEffect, useState } from 'react';
+import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 import CinematicImage from './CinematicImage';
 import ImageModal from './ImageModal';
@@ -60,7 +60,7 @@ export default function Projects() {
           {projects.map((p, i) => (
             <RevealText key={p.id} delay={i * 0.08} duration={1.2}>
               <ImageModal images={[p.image]} captions={[p.description]}>
-                <motion.div
+                <m.div
                   whileHover={{ y: -8 }}
                   transition={{ duration: 1.2, ease: slowEase }}
                   className="group w-[320px] md:w-[440px] flex-shrink-0"
@@ -79,7 +79,7 @@ export default function Projects() {
                     <span className="font-lato text-[11px] text-text-muted">{p.year}</span>
                   </div>
                   <h3 className="font-syne text-2xl md:text-3xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1200ms]">{p.title}</h3>
-                </motion.div>
+                </m.div>
               </ImageModal>
             </RevealText>
           ))}
@@ -88,7 +88,7 @@ export default function Projects() {
 
       <div className="max-w-[1400px] mx-auto px-4 md:px-16 mt-14">
         <RevealText delay={0.3}>
-          <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies →</a>
+          <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies â†’</a>
         </RevealText>
       </div>
     </section>

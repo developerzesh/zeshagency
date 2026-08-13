@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+﻿import { useState } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -21,7 +21,7 @@ export default function ImageModal({ images, children, className = '', captions 
       </div>
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -29,7 +29,7 @@ export default function ImageModal({ images, children, className = '', captions 
             className="fixed inset-0 z-[9990] bg-ink/80 backdrop-blur-2xl flex items-center justify-center"
             onClick={() => setIsOpen(false)}
           >
-            <motion.div
+            <m.div
               initial={{ opacity: 0, filter: 'blur(30px)', scale: 0.88 }}
               animate={{ opacity: 1, filter: 'blur(0px)', scale: 1 }}
               exit={{ opacity: 0, filter: 'blur(24px)', scale: 0.94 }}
@@ -37,7 +37,7 @@ export default function ImageModal({ images, children, className = '', captions 
               className="relative max-w-5xl max-h-[85vh] mx-6"
               onClick={(e) => e.stopPropagation()}
             >
-              <motion.img
+              <m.img
                 src={images[currentIndex]}
                 alt=""
                 className="max-w-full max-h-[80vh] object-contain rounded"
@@ -47,14 +47,14 @@ export default function ImageModal({ images, children, className = '', captions 
                 transition={{ duration: 1.4, ease: slowEase }}
               />
               {captions?.[currentIndex] && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8, ease: slowEase }}
                   className="absolute bottom-0 left-0 right-0 bg-ink/40 backdrop-blur-xl rounded-b px-6 py-3"
                 >
                   <span className="font-lato text-sm text-paper/80">{captions[currentIndex]}</span>
-                </motion.div>
+                </m.div>
               )}
               {images.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
@@ -63,9 +63,9 @@ export default function ImageModal({ images, children, className = '', captions 
                   ))}
                 </div>
               )}
-              <button onClick={() => setIsOpen(false)} className="absolute -top-12 right-0 font-lato text-sm text-paper/50 hover:text-paper transition-colors duration-700">Close ✕</button>
-            </motion.div>
-          </motion.div>
+              <button onClick={() => setIsOpen(false)} className="absolute -top-12 right-0 font-lato text-sm text-paper/50 hover:text-paper transition-colors duration-700">Close âœ•</button>
+            </m.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

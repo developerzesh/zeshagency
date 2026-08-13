@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { m } from 'framer-motion';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -27,7 +27,7 @@ export default function LineGrid({ className = '' }: { className?: string }) {
         </defs>
         <g mask="url(#lineGridMask)">
           {Array.from({ length: cols + 1 }).map((_, i) => (
-            <motion.line
+            <m.line
               key={`v-${i}`}
               x1={i * spacing}
               y1="0"
@@ -42,7 +42,7 @@ export default function LineGrid({ className = '' }: { className?: string }) {
             />
           ))}
           {Array.from({ length: rows + 1 }).map((_, i) => (
-            <motion.line
+            <m.line
               key={`h-${i}`}
               x1="0"
               y1={i * spacing}

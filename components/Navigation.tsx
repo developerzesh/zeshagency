@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
+﻿import { useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { solutions, industries, caseStudies } from '../lib/data';
 import { citiesNav } from '../lib/siteConfig';
@@ -10,7 +10,7 @@ import { useTheme } from './ThemeContext';
 interface SubItem { label: string; path: string }
 interface NavItem { label: string; path: string; submenu?: SubItem[] }
 
-// ── Primary nav (with submenus) ──────────────────────────
+// â”€â”€ Primary nav (with submenus) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const primaryNav: NavItem[] = [
   { label: 'Solutions', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
   { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
@@ -18,14 +18,14 @@ const primaryNav: NavItem[] = [
   { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
 ];
 
-// ── Secondary nav ────────────────────────────────────────
+// â”€â”€ Secondary nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const secondaryNav: NavItem[] = [
   { label: 'About', path: '/about' },
   { label: 'Resources', path: '/blog', submenu: [{ label: 'Blog', path: '/blog' }, { label: 'Insights', path: '/insights' }] },
   { label: 'Careers', path: '/careers', submenu: [{ label: 'Open Roles', path: '/careers' }] },
 ];
 
-// ── All items merged (used for mobile) ──────────────────
+// â”€â”€ All items merged (used for mobile) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const navItems: NavItem[] = [...primaryNav, ...secondaryNav, { label: 'Contact', path: '/contact' }];
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -85,13 +85,13 @@ export default function Navigation() {
 
   return (
     <>
-      <motion.nav
+      <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: slowEase }}
         className="fixed top-0 left-0 right-0 z-50"
       >
-        {/* ── Bar ────────────────────────────────────────── */}
+        {/* â”€â”€ Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
@@ -102,7 +102,7 @@ export default function Navigation() {
               </a>
             </MagneticButton>
 
-            {/* ── Desktop nav ─────────────────────────────── */}
+            {/* â”€â”€ Desktop nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             <div className="hidden lg:flex items-center">
 
               {/* Primary group */}
@@ -143,7 +143,7 @@ export default function Navigation() {
               </div>
             </div>
 
-            {/* ── Right controls ──────────────────────────── */}
+            {/* â”€â”€ Right controls â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             <div className="flex items-center gap-3">
 
               {/* Theme toggle */}
@@ -177,18 +177,18 @@ export default function Navigation() {
 
               {/* Mobile hamburger */}
               <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden flex flex-col gap-1.5 w-7 ml-1" aria-label="Open menu">
-                <motion.span animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
-                <motion.span animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} className="block h-[1.5px] w-full bg-ink origin-center" />
-                <motion.span animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
+                <m.span animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
+                <m.span animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} className="block h-[1.5px] w-full bg-ink origin-center" />
+                <m.span animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* ── Desktop mega dropdown ─────────────────────── */}
+        {/* â”€â”€ Desktop mega dropdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <AnimatePresence>
           {activeSubmenu && activeItem?.submenu && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0, y: -14, scale: 0.98, filter: 'blur(14px)' }}
               animate={{ opacity: 1, y: 0, scale: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -10, scale: 0.98, filter: 'blur(10px)' }}
@@ -199,7 +199,7 @@ export default function Navigation() {
             >
               <div className="mx-6 md:mx-16 relative rounded-2xl overflow-hidden">
 
-                {/* ── Glass shell ── */}
+                {/* â”€â”€ Glass shell â”€â”€ */}
                 <div
                   className="absolute inset-0 rounded-2xl"
                   style={{
@@ -230,7 +230,7 @@ export default function Navigation() {
                   style={{ background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }}
                 />
 
-                {/* ── Content ── */}
+                {/* â”€â”€ Content â”€â”€ */}
                 <div className="relative z-10 px-10 pt-8 pb-0">
 
                   {/* Header row */}
@@ -248,7 +248,7 @@ export default function Navigation() {
                       onClick={handleNavClick}
                       className="sig-hover font-lato text-[11px] tracking-[0.12em] uppercase text-signal hover:text-ink transition-colors duration-300"
                     >
-                      View All →
+                      View All â†’
                     </a>
                   </div>
 
@@ -262,7 +262,7 @@ export default function Navigation() {
                           const cityName = sub.label;
                           const isHovered = hoveredCity === cityKey;
                           return (
-                            <motion.div
+                            <m.div
                               key={sub.path + sub.label}
                               initial={{ opacity: 0, y: 6 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -278,12 +278,12 @@ export default function Navigation() {
                               >
                                 <span className={`w-[5px] h-[5px] rounded-full shrink-0 transition-all duration-300 ${isHovered ? 'bg-signal' : ''}`} style={{ background: isHovered ? 'rgba(244,165,54,1)' : 'transparent', border: isHovered ? 'none' : '1.5px solid rgba(244,165,54,0.55)' }} />
                                 <span className={`font-lato text-[13px] transition-colors duration-300 ${isHovered ? 'text-ink font-semibold' : 'text-ink/75 group-hover:text-ink'}`}>{sub.label}</span>
-                                <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
+                                <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">â†’</span>
                               </a>
                               {/* Services dropdown below city on hover */}
                               <AnimatePresence>
                                 {isHovered && (
-                                  <motion.div
+                                  <m.div
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
                                     exit={{ opacity: 0, height: 0 }}
@@ -297,7 +297,7 @@ export default function Navigation() {
                                         { slug: 'social-media', label: `Social Media services in ${cityName}` },
                                         { slug: 'web-dev', label: `Web Dev services in ${cityName}` },
                                       ].map((service, j) => (
-                                        <motion.div
+                                        <m.div
                                           key={service.slug}
                                           initial={{ opacity: 0, x: -8 }}
                                           animate={{ opacity: 1, x: 0 }}
@@ -311,13 +311,13 @@ export default function Navigation() {
                                             <span className="w-[3px] h-[3px] rounded-full bg-signal/50 shrink-0" />
                                             <span className="font-lato text-[11px] text-ink/60 group-hover:text-signal transition-colors duration-200">{service.label}</span>
                                           </a>
-                                        </motion.div>
+                                        </m.div>
                                       ))}
                                     </div>
-                                  </motion.div>
+                                  </m.div>
                                 )}
                               </AnimatePresence>
-                            </motion.div>
+                            </m.div>
                           );
                         })}
                       </div>
@@ -326,7 +326,7 @@ export default function Navigation() {
                     /* Default: two-column grid for other nav items */
                     <div className="grid grid-cols-2 gap-x-8 gap-y-0">
                       {activeItem.submenu.map((sub, i) => (
-                        <motion.div
+                        <m.div
                           key={sub.path + sub.label}
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -348,16 +348,16 @@ export default function Navigation() {
                               {sub.label}
                             </span>
                             <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                              →
+                              â†’
                             </span>
                           </a>
-                        </motion.div>
+                        </m.div>
                       ))}
                     </div>
                   )}
                 </div>
 
-                {/* ── Frosted footer strip ── */}
+                {/* â”€â”€ Frosted footer strip â”€â”€ */}
                 <div
                   className="relative z-10 mt-5 px-10 py-4 flex items-center justify-between"
                   style={{
@@ -373,15 +373,15 @@ export default function Navigation() {
                   </span>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           )}
         </AnimatePresence>
-      </motion.nav>
+      </m.nav>
 
-      {/* ── Mobile full-screen menu ───────────────────────── */}
+      {/* â”€â”€ Mobile full-screen menu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -394,7 +394,7 @@ export default function Navigation() {
                   const hasSubmenu = item.submenu && item.submenu.length > 0;
                   const isExpanded = expandedMobile === item.path;
                   return (
-                    <motion.div
+                    <m.div
                       key={item.path}
                       initial={{ opacity: 0, filter: 'blur(16px)', x: -24 }}
                       animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
@@ -415,19 +415,19 @@ export default function Navigation() {
                             onClick={() => setExpandedMobile(isExpanded ? null : item.path)}
                             className="p-2 text-ink/40 hover:text-ink transition-colors duration-300"
                           >
-                            <motion.svg
+                            <m.svg
                               animate={{ rotate: isExpanded ? 180 : 0 }}
                               transition={{ duration: 0.3 }}
                               width="16" height="16" viewBox="0 0 16 16" fill="none"
                             >
                               <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                            </motion.svg>
+                            </m.svg>
                           </button>
                         )}
                       </div>
                       <AnimatePresence>
                         {hasSubmenu && isExpanded && (
-                          <motion.div
+                          <m.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
@@ -446,16 +446,16 @@ export default function Navigation() {
                                 </a>
                               ))}
                             </div>
-                          </motion.div>
+                          </m.div>
                         )}
                       </AnimatePresence>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
 
               {/* Mobile footer */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, filter: 'blur(8px)' }}
                 animate={{ opacity: 1, filter: 'blur(0px)' }}
                 transition={{ delay: 0.6, duration: 0.8 }}
@@ -476,9 +476,9 @@ export default function Navigation() {
                     </button>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

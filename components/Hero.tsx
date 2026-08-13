@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+﻿import { useEffect, useRef } from 'react';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import ParticleField from './ParticleField';
 import LineGrid from './LineGrid';
@@ -9,7 +9,7 @@ const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 function BlurWord({ word, delay }: { word: string; delay: number }) {
   return (
-    <motion.span
+    <m.span
       initial={{ opacity: 0, filter: 'blur(36px)', y: 50 }}
       animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
       transition={{ duration: 1.6, delay, ease: slowEase, filter: { duration: 1.4, delay, ease: slowEase } }}
@@ -18,7 +18,7 @@ function BlurWord({ word, delay }: { word: string; delay: number }) {
       {word === 'growth.' ? (
         <span className="text-signal">{word.replace('.', '')}<span className="text-signal">.</span></span>
       ) : word}
-    </motion.span>
+    </m.span>
   );
 }
 
@@ -46,22 +46,22 @@ export default function Hero() {
 
       {/* Soft ambient glow */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-ink/[0.012] blur-[200px]" />
+        <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-ink/[0.012] blur-[200px]" />
       </div>
 
-      {/* Line grid – right side */}
+      {/* Line grid â€“ right side */}
       <LineGrid className="hidden md:block" />
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40">
+      <m.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40">
         {/* Location tag */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
           className="font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-14 md:mb-32"
         >
-          Digital Marketing Agency<span className="text-signal mx-3">—</span>New York · London · Tokyo · Dubai
-        </motion.p>
+          Digital Marketing Agency<span className="text-signal mx-3">â€”</span>New York Â· London Â· Tokyo Â· Dubai
+        </m.p>
 
         {/* Headline */}
         <h1 className="font-syne text-[clamp(3rem,8vw,8.5rem)] font-800 leading-[0.92] tracking-[-0.03em] mb-20 md:mb-32">
@@ -72,16 +72,16 @@ export default function Hero() {
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
-          <motion.p
+          <m.p
             initial={{ opacity: 0, filter: 'blur(24px)', y: 30 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.4, delay: 1.4, ease: slowEase }}
             className="font-lato text-base md:text-[17px] text-text-secondary max-w-md leading-[1.85]"
           >
             Strategy, design, and technology converge to create growth engines that define categories and move markets.
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, filter: 'blur(20px)', y: 20 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.4, delay: 1.6, ease: slowEase }}
@@ -90,7 +90,7 @@ export default function Hero() {
             <MagneticButton strength={0.4}>
                 <a href="#work" className="group flex items-center gap-4">
                 <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                 </span>
                 <span className="font-lato text-sm font-medium text-paper hidden md:inline">Selected Work</span>
               </a>
@@ -98,14 +98,14 @@ export default function Hero() {
             <MagneticButton strength={0.3}>
               <a href="#contact" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Get in Touch</a>
             </MagneticButton>
-          </motion.div>
+          </m.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ delay: 3, duration: 1.8, ease: slowEase }} className="hidden md:flex items-center gap-3 mt-20">
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }} className="w-[1px] h-10 bg-ink/10" />
+        <m.div initial={{ opacity: 0, filter: 'blur(8px)' }} animate={{ opacity: 1, filter: 'blur(0px)' }} transition={{ delay: 3, duration: 1.8, ease: slowEase }} className="hidden md:flex items-center gap-3 mt-20">
+          <m.div animate={{ y: [0, 6, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }} className="w-[1px] h-10 bg-ink/10" />
           <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted">Scroll to explore</span>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

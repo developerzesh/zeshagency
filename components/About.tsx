@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+﻿import { useRef } from 'react';
+import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import ImageModal from './ImageModal';
@@ -25,16 +25,16 @@ export default function About() {
 
   return (
     <section id="about" ref={containerRef} className="relative py-16 md:py-48 border-t border-border">
-      <motion.div style={{ y: backgroundY }} className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[200px] pointer-events-none" />
+      <m.div style={{ y: backgroundY }} className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[200px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        {/* Stats — no hover images, just clean numbers */}
+        {/* Stats â€” no hover images, just clean numbers */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-20 md:mb-36">
           {stats.map((stat, i) => (
             <RevealText key={stat.label} delay={i * 0.1}>
-              <motion.div whileHover={{ y: -3 }} transition={{ duration: 1, ease: slowEase }}>
+              <m.div whileHover={{ y: -3 }} transition={{ duration: 1, ease: slowEase }}>
                 <span className="font-lato text-5xl md:text-7xl font-700 tracking-tight text-ink">{stat.value}</span>
                 <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mt-3">{stat.label}</p>
-              </motion.div>
+              </m.div>
             </RevealText>
           ))}
         </div>
@@ -44,16 +44,16 @@ export default function About() {
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Who We Are</p></RevealText>
             <RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em] mb-8">About<span className="text-signal">.</span></h2></RevealText>
             <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-6">We are a digital marketing agency that engineers growth through SEO, SMO, AEO, GEO, and web development. Since 2019, we've partnered with ambitious brands to turn digital visibility into measurable revenue.</p></RevealText>
-            <RevealText delay={0.3}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-10">Our approach unifies every marketing channel into a single growth engine — where each discipline compounds the others and results accelerate over time.</p></RevealText>
-            <MagneticButton strength={0.3}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
+            <RevealText delay={0.3}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-10">Our approach unifies every marketing channel into a single growth engine â€” where each discipline compounds the others and results accelerate over time.</p></RevealText>
+            <MagneticButton strength={0.3}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk â†’</a></MagneticButton>
           </div>
           <div className="md:col-span-5 md:col-start-8">
             {values.map((v, i) => (
               <RevealText key={v.title} delay={0.3 + i * 0.1}>
-                <motion.div whileHover={{ x: 4 }} transition={{ duration: 1, ease: slowEase }} className="group py-8 border-b border-border">
+                <m.div whileHover={{ x: 4 }} transition={{ duration: 1, ease: slowEase }} className="group py-8 border-b border-border">
                   <h4 className="font-syne text-xl md:text-2xl font-800 mb-2 group-hover:text-signal transition-colors duration-[1200ms]">{v.title}</h4>
                   <p className="font-lato text-sm text-text-secondary leading-[1.85]">{v.description}</p>
-                </motion.div>
+                </m.div>
               </RevealText>
             ))}
             <RevealText delay={0.6}>

@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+﻿import { useRef } from 'react';
+import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from './RevealText';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -30,12 +30,12 @@ export default function Process() {
         </div>
         <div className="relative">
           <div className="absolute left-[15px] md:left-[19px] top-0 bottom-0 w-[1px] bg-border">
-            <motion.div style={{ height: lineHeight }} className="w-full bg-signal transition-none" />
+            <m.div style={{ height: lineHeight }} className="w-full bg-signal transition-none" />
           </div>
           <div>
             {processSteps.map((step, i) => (
               <RevealText key={step.number} delay={i * 0.08} duration={1.2}>
-                <motion.div whileHover={{ x: 6 }} transition={{ duration: 1, ease: slowEase }} className="group flex gap-8 md:gap-14 py-36 md:py-18 border-b border-border">
+                <m.div whileHover={{ x: 6 }} transition={{ duration: 1, ease: slowEase }} className="group flex gap-8 md:gap-14 py-36 md:py-18 border-b border-border">
                   <div className="flex-shrink-0 pt-1">
                     <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-border bg-paper flex items-center justify-center group-hover:border-signal transition-colors duration-[1200ms]">
                       <span className="font-lato text-[10px] font-medium text-signal">{step.number}</span>
@@ -46,7 +46,7 @@ export default function Process() {
                     <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] mb-6 max-w-lg">{step.description}</p>
                     <div className="flex flex-wrap gap-x-6 gap-y-2">{step.details.map((d) => (<span key={d} className="font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted group-hover:text-text-secondary transition-colors duration-[1200ms]">{d}</span>))}</div>
                   </div>
-                </motion.div>
+                </m.div>
               </RevealText>
             ))}
           </div>

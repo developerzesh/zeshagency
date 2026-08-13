@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useRef, lazy, Suspense } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
@@ -13,7 +13,7 @@ const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// ─── § 1 — Hero / Title ───────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 1 â€” Hero / Title â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function HeroSection({ cs }: { cs: CaseStudy }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -32,25 +32,25 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
     >
       <ParticleField />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[640px] h-[640px] rounded-full bg-signal/[0.015] blur-[280px]" />
+        <m.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[640px] h-[640px] rounded-full bg-signal/[0.015] blur-[280px]" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-36">
+      <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-36">
         {/* Breadcrumb */}
-        <motion.a
+        <m.a
           href="/case-studies"
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: slowEase }}
           className="inline-flex items-center gap-2 font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-16 md:mb-28 group"
         >
-          <motion.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">←</motion.span>
+          <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">â†</m.span>
           Case Studies
-        </motion.a>
+        </m.a>
 
         {/* Meta row */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, filter: 'blur(12px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.4, delay: 0.4, ease: slowEase }}
@@ -64,31 +64,31 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
           ))}
           <span className="w-1 h-1 rounded-full bg-border/60 mx-1" />
           <span className="font-lato text-[11px] text-text-muted">{cs.client}</span>
-        </motion.div>
+        </m.div>
 
         {/* Headline */}
         <h1 className="font-syne text-[clamp(2.6rem,5vw,6rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-20 md:mb-32 max-w-5xl">
-          <motion.span
+          <m.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.8, delay: 0.6, ease: slowEase }}
             className="block"
           >
             {cs.title}<span className="text-signal">.</span>
-          </motion.span>
+          </m.span>
         </h1>
 
         {/* Overview + CTAs */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <motion.p
+          <m.p
             initial={{ opacity: 0, filter: 'blur(20px)', y: 24 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.1, ease: slowEase }}
             className="font-lato text-base md:text-[17px] text-text-secondary max-w-xl leading-[1.9]"
           >
             {cs.overview}
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             initial={{ opacity: 0, filter: 'blur(16px)', y: 16 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.5, ease: slowEase }}
@@ -97,19 +97,19 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
             <MagneticButton strength={0.4}>
               <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                 <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                 </span>
                 <span className="font-lato text-sm font-medium text-paper">Get a Similar Result</span>
               </button>
             </MagneticButton>
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }
 
-// ─── § 2 — Results ────────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 2 â€” Results â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ResultsSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-16 md:py-48 border-t border-border/60">
@@ -124,7 +124,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
             const label = parts.slice(1).join(' ');
             return (
               <RevealText key={result} delay={i * 0.1}>
-                <motion.div
+                <m.div
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.8, ease: slowEase }}
                   className="md:px-10 first:pl-0"
@@ -133,7 +133,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
                     {metric}
                   </span>
                   <p className="font-lato text-sm text-text-muted leading-[1.6]">{label}</p>
-                </motion.div>
+                </m.div>
               </RevealText>
             );
           })}
@@ -143,7 +143,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 3 — Hero Image ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 3 â€” Hero Image â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ImageSection({ cs }: { cs: CaseStudy }) {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-6 md:py-10">
@@ -163,7 +163,7 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 4 — Challenge ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 4 â€” Challenge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ChallengeSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -171,7 +171,7 @@ function ChallengeSection({ cs }: { cs: CaseStudy }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 — Challenge</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 â€” Challenge</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -190,7 +190,7 @@ function ChallengeSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 5 — Solution ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 5 â€” Solution â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function SolutionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -203,7 +203,7 @@ function SolutionSection({ cs }: { cs: CaseStudy }) {
           </div>
           <div className="md:col-span-4 md:col-start-9 order-1 md:order-2 flex flex-col md:items-end md:text-right">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 — Solution</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 â€” Solution</p>
             </RevealText>
             <RevealText delay={0.05}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -217,7 +217,7 @@ function SolutionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 6 — Strategy ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 6 â€” Strategy â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function StrategySection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
@@ -225,7 +225,7 @@ function StrategySection({ cs }: { cs: CaseStudy }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Strategy</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 â€” Strategy</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -251,14 +251,14 @@ function StrategySection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 7 — Execution ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 7 â€” Execution â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ExecutionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="mb-16 md:mb-28 md:mb-20 md:mb-32">
           <RevealText>
-            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Execution</p>
+            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 â€” Execution</p>
           </RevealText>
           <RevealText delay={0.1}>
             <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -270,7 +270,7 @@ function ExecutionSection({ cs }: { cs: CaseStudy }) {
         <div className="space-y-0">
           {cs.execution.map((step, i) => (
             <RevealText key={step} delay={i * 0.07}>
-              <motion.div
+              <m.div
                 whileHover={{ x: 6 }}
                 transition={{ duration: 0.8, ease: slowEase }}
                 className="group grid grid-cols-1 md:grid-cols-12 items-baseline gap-4 md:gap-8 py-7 border-b border-border/60 last:border-b-0"
@@ -286,9 +286,9 @@ function ExecutionSection({ cs }: { cs: CaseStudy }) {
                   </p>
                 </div>
                 <div className="hidden md:flex md:col-span-1 justify-end">
-                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">→</span>
+                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">â†’</span>
                 </div>
-              </motion.div>
+              </m.div>
             </RevealText>
           ))}
         </div>
@@ -297,7 +297,7 @@ function ExecutionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 8 — Outcomes ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 8 â€” Outcomes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function OutcomesSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
@@ -305,7 +305,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 — Outcomes</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 â€” Outcomes</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -325,7 +325,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
                 const parts = result.split(' ');
                 return (
                   <RevealText key={result} delay={0.2 + i * 0.08}>
-                    <motion.div
+                    <m.div
                       whileHover={{ x: 4 }}
                       transition={{ duration: 0.8, ease: slowEase }}
                       className="group flex items-baseline gap-4 py-5 border-b border-border/50"
@@ -334,7 +334,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
                         {parts[0]}
                       </span>
                       <p className="font-lato text-sm text-text-muted leading-snug">{parts.slice(1).join(' ')}</p>
-                    </motion.div>
+                    </m.div>
                   </RevealText>
                 );
               })}
@@ -346,7 +346,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 9 — Conclusion ────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 9 â€” Conclusion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ConclusionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -354,7 +354,7 @@ function ConclusionSection({ cs }: { cs: CaseStudy }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">06 — Conclusion</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">06 â€” Conclusion</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -375,7 +375,7 @@ function ConclusionSection({ cs }: { cs: CaseStudy }) {
                   href={`/industries/${cs.industrySlug}`}
                   className="font-lato text-sm text-signal sig-hover hover:text-ink transition-colors duration-700"
                 >
-                  Read our {cs.industry} industry guide →
+                  Read our {cs.industry} industry guide â†’
                 </a>
               </div>
             </RevealText>
@@ -386,7 +386,7 @@ function ConclusionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 10 — Related Case Studies ─────────────────────────────────────────────
+// â”€â”€â”€ Â§ 10 â€” Related Case Studies â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function RelatedSection({ cs }: { cs: CaseStudy }) {
   const related = caseStudies.filter(c => c.slug !== cs.slug).slice(0, 2);
   if (related.length === 0) return null;
@@ -406,7 +406,7 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
           {related.map((rel, i) => (
             <RevealText key={rel.slug} delay={i * 0.1}>
               <a href={`/case-studies/${rel.slug}`} className="group block">
-                <motion.div
+                <m.div
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.8, ease: slowEase }}
                   className="grid grid-cols-3 gap-6 py-8 border-b border-border/60 first:border-t-0 md:pr-12 md:even:pl-12 md:even:pr-0 md:even:border-l md:even:border-t-0 md:border-b border-border/60"
@@ -424,7 +424,7 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
                     <h3 className="font-syne text-base md:text-lg font-800 tracking-tight mb-2 group-hover:text-signal transition-colors duration-[900ms]">{rel.title}</h3>
                     <p className="font-lato text-xs text-text-muted leading-relaxed line-clamp-2">{rel.summary}</p>
                   </div>
-                </motion.div>
+                </m.div>
               </a>
             </RevealText>
           ))}
@@ -434,12 +434,12 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── § 11 — CTA ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Â§ 11 â€” CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function CTASection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+        <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
       </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
@@ -464,7 +464,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
                 <MagneticButton strength={0.4}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                      <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                     </span>
                     <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                   </button>
@@ -483,7 +483,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Main Export ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy }) {
   return (
     <PageTransition>

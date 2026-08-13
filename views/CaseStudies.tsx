@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState, useMemo } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { m, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -15,7 +15,7 @@ const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const ALL_INDUSTRIES = ['All', ...Array.from(new Set(caseStudies.map(cs => cs.industry)))];
 const ALL_SERVICES = ['All', ...Array.from(new Set(caseStudies.flatMap(cs => cs.services)))];
 
-// ─── Aggregate Stats ──────────────────────────────────────────────────────────
+// â”€â”€â”€ Aggregate Stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const STATS = [
   { value: '9', label: 'Industry Verticals' },
   { value: '$45M+', label: 'Client Revenue Attributed' },
@@ -23,7 +23,7 @@ const STATS = [
   { value: '100%', label: 'Verified Results' },
 ];
 
-// ─── Hero ─────────────────────────────────────────────────────────────────────
+// â”€â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -42,41 +42,41 @@ function HeroSection() {
     >
       <ParticleField />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[260px]" />
+        <m.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[260px]" />
         <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
-        <motion.p
+      <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
+        <m.p
           initial={{ opacity: 0, filter: 'blur(12px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
           className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8"
         >
           Client Work
-        </motion.p>
+        </m.p>
 
         <h1 className="font-syne text-[clamp(2.8rem,5.5vw,6.5rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-10 max-w-4xl">
-          <motion.span
+          <m.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.8, delay: 0.5, ease: slowEase }}
             className="block"
           >
             Case Studies<span className="text-signal">.</span>
-          </motion.span>
+          </m.span>
         </h1>
 
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-          <motion.p
+          <m.p
             initial={{ opacity: 0, filter: 'blur(20px)', y: 24 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.0, ease: slowEase }}
             className="font-lato text-base md:text-[17px] text-text-secondary max-w-lg leading-[1.9]"
           >
             Strategic shifts that changed business trajectories. Every number is verified. Every story is real. Nine verticals, nine documented results.
-          </motion.p>
-          <motion.div
+          </m.p>
+          <m.div
             initial={{ opacity: 0, filter: 'blur(16px)', y: 16 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
@@ -85,7 +85,7 @@ function HeroSection() {
             <MagneticButton strength={0.4}>
               <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                 <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                 </span>
                 <span className="font-lato text-sm font-medium text-paper">Start a Project</span>
               </button>
@@ -93,18 +93,18 @@ function HeroSection() {
             <MagneticButton strength={0.3}>
               <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Solutions</a>
             </MagneticButton>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Stats strip */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.6, delay: 1.8, ease: slowEase }}
           className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-20 border-t border-border/50 pt-10"
         >
           {STATS.map((stat, i) => (
-            <motion.div
+            <m.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -113,15 +113,15 @@ function HeroSection() {
             >
               <span className="font-syne text-2xl md:text-3xl font-800 text-signal block mb-1">{stat.value}</span>
               <p className="font-lato text-xs text-text-muted tracking-wide">{stat.label}</p>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }
 
-// ─── Filter Bar ───────────────────────────────────────────────────────────────
+// â”€â”€â”€ Filter Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 interface FilterBarProps {
   activeIndustry: string;
   activeService: string;
@@ -190,10 +190,10 @@ function FilterBar({ activeIndustry, activeService, onIndustry, onService, count
   );
 }
 
-// ─── Case Study Row ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Case Study Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number }) {
   return (
-    <motion.div
+    <m.div
       layout
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
@@ -201,7 +201,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
       transition={{ duration: 0.7, delay: index * 0.06, ease: slowEase }}
     >
       <a href={`/case-studies/${cs.slug}`} className="group block border-b border-border/60 last:border-b-0">
-        <motion.div
+        <m.div
           whileHover={{ x: 5 }}
           transition={{ duration: 0.8, ease: slowEase }}
           className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-10 items-start"
@@ -215,7 +215,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
 
           {/* Image thumbnail */}
           <div className="md:col-span-3 overflow-hidden">
-            <motion.div
+            <m.div
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 1.2, ease: slowEase }}
               className="w-full aspect-video overflow-hidden bg-surface/20"
@@ -226,7 +226,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
                 loading="lazy"
               />
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Content */}
@@ -265,16 +265,16 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
             </div>
             <span className="font-lato text-sm text-signal group-hover:text-ink transition-colors duration-700 sig-hover inline-flex items-center gap-2">
               Read Case Study
-              <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>→</motion.span>
+              <m.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>â†’</m.span>
             </span>
           </div>
-        </motion.div>
+        </m.div>
       </a>
-    </motion.div>
+    </m.div>
   );
 }
 
-// ─── Main Export ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function CaseStudies() {
   const [activeIndustry, setActiveIndustry] = useState('All');
   const [activeService, setActiveService] = useState('All');
@@ -313,7 +313,7 @@ export default function CaseStudies() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {/* Empty state */}
           {filtered.length === 0 && (
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className="py-32 text-center"
@@ -323,9 +323,9 @@ export default function CaseStudies() {
                 onClick={() => { setActiveIndustry('All'); setActiveService('All'); }}
                 className="font-lato text-sm text-signal sig-hover"
               >
-                Clear filters →
+                Clear filters â†’
               </button>
-            </motion.div>
+            </m.div>
           )}
 
           {/* Row list */}
@@ -340,7 +340,7 @@ export default function CaseStudies() {
       {/* Bottom CTA */}
       <section className="py-16 md:py-48 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+          <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
@@ -355,7 +355,7 @@ export default function CaseStudies() {
               </RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-base md:text-[17px] text-text-secondary max-w-lg leading-[1.85] mt-8">
-                  We audit your organic search position, map competitor gaps, and deploy a vertical-specific acquisition strategy. No generic playbooks — only custom-built systems.
+                  We audit your organic search position, map competitor gaps, and deploy a vertical-specific acquisition strategy. No generic playbooks â€” only custom-built systems.
                 </p>
               </RevealText>
             </div>
@@ -365,7 +365,7 @@ export default function CaseStudies() {
                   <MagneticButton strength={0.4}>
                     <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                       <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                       </span>
                       <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                     </button>

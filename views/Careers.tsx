@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
+import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
@@ -10,13 +10,13 @@ import { careers } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// ─── Position Row Component ──────────────────────────────────────────────────
+// â”€â”€â”€ Position Row Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function PositionRow({ position, index }: { position: typeof careers[0]; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <RevealText delay={index * 0.06}>
-      <motion.div layout onClick={() => setIsExpanded(!isExpanded)} className="group cursor-pointer">
-        <motion.div whileHover={{ x: 6 }} transition={{ duration: 1, ease: slowEase }} className="py-8 md:py-10 border-b border-border/60">
+      <m.div layout onClick={() => setIsExpanded(!isExpanded)} className="group cursor-pointer">
+        <m.div whileHover={{ x: 6 }} transition={{ duration: 1, ease: slowEase }} className="py-8 md:py-10 border-b border-border/60">
           <div className="flex items-start md:items-baseline justify-between gap-4">
             <div className="flex-1">
               <div className="flex flex-wrap items-center gap-3 mb-3">
@@ -28,15 +28,15 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
               </div>
               <h3 className="font-syne text-xl md:text-3xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1000ms]">{position.title}</h3>
             </div>
-            <motion.div
+            <m.div
               animate={{ rotate: isExpanded ? 45 : 0 }}
               transition={{ duration: 0.8, ease: slowEase }}
               className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-text-muted group-hover:text-signal transition-colors duration-700"
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" /></svg>
-            </motion.div>
+            </m.div>
           </div>
-          <motion.div
+          <m.div
             initial={false}
             animate={{ height: isExpanded ? 'auto' : 0, opacity: isExpanded ? 1 : 0, filter: isExpanded ? 'blur(0px)' : 'blur(8px)' }}
             transition={{ duration: 0.8, ease: slowEase }}
@@ -48,7 +48,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
                 <p className="font-lato text-[11px] uppercase tracking-wider text-ink font-semibold">Requirements:</p>
                 {position.requirements.map((req) => (
                   <div key={req} className="flex items-start gap-3 py-0.5">
-                    <span className="text-signal text-xs mt-0.5">→</span>
+                    <span className="text-signal text-xs mt-0.5">â†’</span>
                     <span className="font-lato text-sm text-text-secondary leading-snug">{req}</span>
                   </div>
                 ))}
@@ -56,19 +56,19 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
               <div className="flex gap-4">
                 <MagneticButton strength={0.2}>
                   <a href={`mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`} className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block">
-                    Submit Application →
+                    Submit Application â†’
                   </a>
                 </MagneticButton>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </m.div>
+        </m.div>
+      </m.div>
     </RevealText>
   );
 }
 
-// ─── Main Component ───────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function Careers() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -89,42 +89,42 @@ export default function Careers() {
       >
         <ParticleField />
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <motion.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[550px] h-[550px] rounded-full bg-signal/[0.015] blur-[240px]" />
+          <m.div style={{ x: glowX, y: glowY }} className="absolute top-1/3 right-0 w-[550px] h-[550px] rounded-full bg-signal/[0.015] blur-[240px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.007] blur-[180px]" />
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
-          <motion.p
+        <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-32">
+          <m.p
             initial={{ opacity: 0, filter: 'blur(12px)' }}
             animate={{ opacity: 1, filter: 'blur(0px)' }}
             transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
             className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8"
           >
             Work at Zesh
-          </motion.p>
+          </m.p>
 
           <h1 className="font-syne text-[clamp(2.8rem,5.5vw,6.5rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-10 max-w-4xl">
-            <motion.span
+            <m.span
               initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.8, delay: 0.5, ease: slowEase }}
               className="block"
             >
               Join Us<span className="text-signal">.</span>
-            </motion.span>
+            </m.span>
           </h1>
 
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-            <motion.p
+            <m.p
               initial={{ opacity: 0, filter: 'blur(20px)', y: 24 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.6, delay: 1.0, ease: slowEase }}
               className="font-lato text-base md:text-[17px] text-text-secondary max-w-lg leading-[1.85]"
             >
               Built for operators who love quiet focus and elite execution. We do not believe in corporate politics, status meetings, or micro-management.
-            </motion.p>
+            </m.p>
 
-            <motion.div
+            <m.div
               initial={{ opacity: 0, filter: 'blur(16px)', y: 16 }}
               animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
               transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
@@ -133,26 +133,26 @@ export default function Careers() {
               <MagneticButton strength={0.4}>
                 <a href="#roles" className="group flex items-center gap-4">
                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                   </span>
                   <span className="font-lato text-sm font-medium text-paper">Explore Open Roles</span>
                 </a>
               </MagneticButton>
               <MagneticButton strength={0.3}>
-                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh? ↓</a>
+                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh? â†“</a>
               </MagneticButton>
-            </motion.div>
+            </m.div>
           </div>
-        </motion.div>
+        </m.div>
       </section>
 
-      {/* § 1 — Why Work With Us */}
+      {/* Â§ 1 â€” Why Work With Us */}
       <section id="why-us" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 — The Mission</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 â€” The Mission</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -174,13 +174,13 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* § 2 — Culture */}
+      {/* Â§ 2 â€” Culture */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 — Culture</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 â€” Culture</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -212,12 +212,12 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* § 3 — Benefits */}
+      {/* Â§ 3 â€” Benefits */}
       <section className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-32">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Benefits</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 â€” Benefits</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -247,13 +247,13 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* § 4 — Learning Opportunities */}
+      {/* Â§ 4 â€” Learning Opportunities */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Education</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 â€” Education</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -286,7 +286,7 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* § 5 — Open Roles */}
+      {/* Â§ 5 â€” Open Roles */}
       <section id="roles" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-32">
@@ -314,10 +314,10 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* § 6 — Footer CTA */}
+      {/* Â§ 6 â€” Footer CTA */}
       <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+          <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
         </div>
         <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
@@ -342,7 +342,7 @@ export default function Careers() {
                   <MagneticButton strength={0.4}>
                     <a href="mailto:Shahana@zeshagency.com" className="group flex items-center gap-4">
                       <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                       </span>
                       <span className="font-lato text-sm font-medium text-paper">Shahana@zeshagency.com</span>
                     </a>

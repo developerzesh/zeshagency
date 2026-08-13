@@ -1,6 +1,6 @@
-"use client";
+﻿"use client";
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -11,7 +11,7 @@ import { caseStudies } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// ─── Section: Hero ────────────────────────────────────────────────────────────
+// â”€â”€â”€ Section: Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function HeroSection({ industry }: { industry: Industry }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
@@ -22,48 +22,48 @@ function HeroSection({ industry }: { industry: Industry }) {
     <section ref={containerRef} className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
       <ParticleField />
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div className="absolute top-1/3 -right-24 w-[700px] h-[700px] rounded-full bg-signal/[0.012] blur-[300px]" />
-        <motion.div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-ink/[0.006] blur-[200px]" />
+        <m.div className="absolute top-1/3 -right-24 w-[700px] h-[700px] rounded-full bg-signal/[0.012] blur-[300px]" />
+        <m.div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-ink/[0.006] blur-[200px]" />
       </div>
 
-      <motion.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-36">
+      <m.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40 pb-20 md:pb-36">
         {/* Breadcrumb */}
-        <motion.a
+        <m.a
           href="/industries"
           initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.2, ease: slowEase }}
           className="inline-flex items-center gap-2 font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-20 md:mb-28 group"
         >
-          <motion.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal transition-colors duration-700">←</motion.span>
+          <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal transition-colors duration-700">â†</m.span>
           <span>Industries</span>
-        </motion.a>
+        </m.a>
 
         {/* Label */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, filter: 'blur(12px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           transition={{ duration: 1.4, delay: 0.4, ease: slowEase }}
           className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-7"
         >
           {industry.shortTitle}
-        </motion.p>
+        </m.p>
 
         {/* Headline */}
         <h1 className="font-syne text-[clamp(2.6rem,5.5vw,6rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-10 max-w-5xl">
-          <motion.span
+          <m.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.8, delay: 0.6, ease: slowEase }}
             className="block"
           >
             {industry.title}<span className="text-signal">.</span>
-          </motion.span>
+          </m.span>
         </h1>
 
         {/* Two-column bottom row: tagline left / CTAs right */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mt-4">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, filter: 'blur(24px)', y: 24 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.1, ease: slowEase }}
@@ -72,8 +72,8 @@ function HeroSection({ industry }: { industry: Industry }) {
             <p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.9]">
               {industry.description}
             </p>
-          </motion.div>
-          <motion.div
+          </m.div>
+          <m.div
             initial={{ opacity: 0, filter: 'blur(20px)', y: 16 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
             transition={{ duration: 1.6, delay: 1.5, ease: slowEase }}
@@ -82,7 +82,7 @@ function HeroSection({ industry }: { industry: Industry }) {
             <MagneticButton strength={0.4}>
               <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                 <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                 </span>
                 <span className="font-lato text-sm font-medium text-paper">Book a Consultation Call</span>
               </button>
@@ -90,14 +90,14 @@ function HeroSection({ industry }: { industry: Industry }) {
             <MagneticButton strength={0.3}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a>
             </MagneticButton>
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }
 
-// ─── Section: Challenges We Solve ────────────────────────────────────────────
+// â”€â”€â”€ Section: Challenges We Solve â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ChallengesSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -106,7 +106,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
           {/* Left label column */}
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 — Challenges</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 â€” Challenges</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -124,7 +124,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
           <div className="md:col-span-7 md:col-start-6">
             {industry.challenges.map((challenge, i) => (
               <RevealText key={challenge} delay={0.1 + i * 0.07}>
-                <motion.div
+                <m.div
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.8, ease: slowEase }}
                   className="group flex items-baseline gap-6 py-6 border-b border-border/60 last:border-b-0"
@@ -135,7 +135,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
                   <span className="font-lato text-base md:text-lg text-text-secondary group-hover:text-ink transition-colors duration-[900ms] leading-[1.7]">
                     {challenge}
                   </span>
-                </motion.div>
+                </m.div>
               </RevealText>
             ))}
           </div>
@@ -145,7 +145,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
   );
 }
 
-// ─── Section: Our Approach ────────────────────────────────────────────────────
+// â”€â”€â”€ Section: Our Approach â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function ApproachSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -155,7 +155,7 @@ function ApproachSection({ industry }: { industry: Industry }) {
           <div className="md:col-span-7 order-2 md:order-1">
             {industry.opportunities.map((opportunity, i) => (
               <RevealText key={opportunity} delay={0.1 + i * 0.07}>
-                <motion.div
+                <m.div
                   whileHover={{ x: 6 }}
                   transition={{ duration: 0.8, ease: slowEase }}
                   className="group flex items-baseline gap-6 py-6 border-b border-border/60 last:border-b-0"
@@ -166,7 +166,7 @@ function ApproachSection({ industry }: { industry: Industry }) {
                   <span className="font-lato text-base md:text-lg text-text-secondary group-hover:text-ink transition-colors duration-[900ms] leading-[1.7]">
                     {opportunity}
                   </span>
-                </motion.div>
+                </m.div>
               </RevealText>
             ))}
           </div>
@@ -174,7 +174,7 @@ function ApproachSection({ industry }: { industry: Industry }) {
           {/* Label column */}
           <div className="md:col-span-4 md:col-start-9 order-1 md:order-2 flex flex-col md:items-end md:text-right">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 — Approach</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 â€” Approach</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -193,14 +193,14 @@ function ApproachSection({ industry }: { industry: Industry }) {
   );
 }
 
-// ─── Section: Strategic Roadmap ───────────────────────────────────────────────
+// â”€â”€â”€ Section: Strategic Roadmap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function RoadmapSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="mb-16 md:mb-32">
           <RevealText>
-            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Roadmap</p>
+            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 â€” Roadmap</p>
           </RevealText>
           <RevealText delay={0.1}>
             <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -217,7 +217,7 @@ function RoadmapSection({ industry }: { industry: Industry }) {
         <div className="space-y-0">
           {industry.roadmap.map((phase, i) => (
             <RevealText key={phase.phase} delay={i * 0.1}>
-              <motion.div
+              <m.div
                 whileHover={{ x: 6 }}
                 transition={{ duration: 0.8, ease: slowEase }}
                 className="group grid grid-cols-1 md:grid-cols-12 items-baseline gap-4 md:gap-8 py-8 border-b border-border/60 last:border-b-0"
@@ -238,9 +238,9 @@ function RoadmapSection({ industry }: { industry: Industry }) {
                   </p>
                 </div>
                 <div className="md:col-span-1 md:col-start-12 flex md:justify-end">
-                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">→</span>
+                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">â†’</span>
                 </div>
-              </motion.div>
+              </m.div>
             </RevealText>
           ))}
         </div>
@@ -249,7 +249,7 @@ function RoadmapSection({ industry }: { industry: Industry }) {
   );
 }
 
-// ─── Section: Expected Outcomes ───────────────────────────────────────────────
+// â”€â”€â”€ Section: Expected Outcomes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function OutcomesSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -257,7 +257,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Outcomes</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 â€” Outcomes</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -279,7 +279,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
                 const label = parts.slice(1).join(' ');
                 return (
                   <RevealText key={result} delay={i * 0.1}>
-                    <motion.div
+                    <m.div
                       whileHover={{ x: 4 }}
                       transition={{ duration: 0.8, ease: slowEase }}
                       className="group py-8 pr-8 border-b border-border/60 border-r-0 sm:odd:border-r sm:odd:border-border/60"
@@ -288,7 +288,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
                         {metric}
                       </span>
                       <p className="font-lato text-sm text-text-muted leading-[1.6]">{label}</p>
-                    </motion.div>
+                    </m.div>
                   </RevealText>
                 );
               })}
@@ -300,7 +300,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
   );
 }
 
-// ─── Section: Case Study (conditional) ───────────────────────────────────────
+// â”€â”€â”€ Section: Case Study (conditional) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function CaseStudySection({ industry }: { industry: Industry }) {
   // Match by industry slug (case study industry field must match industry slug)
   const matched = caseStudies.find(
@@ -315,7 +315,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
     <section className="py-14 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
-          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 — Proof</p>
+          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 â€” Proof</p>
         </RevealText>
         <RevealText delay={0.1}>
           <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] mb-20 md:mb-28 leading-tight">
@@ -324,7 +324,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
         </RevealText>
 
         <RevealText delay={0.15}>
-          <motion.div
+          <m.div
             whileHover={{ x: 4 }}
             transition={{ duration: 0.8, ease: slowEase }}
             className="group grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start py-10 border-t border-b border-border/60"
@@ -376,23 +376,23 @@ function CaseStudySection({ industry }: { industry: Industry }) {
                   href={`/case-studies/${matched.slug}`}
                   className="font-lato text-sm text-signal sig-hover hover:text-ink transition-colors duration-700"
                 >
-                  Read Full Case Study →
+                  Read Full Case Study â†’
                 </a>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </RevealText>
       </div>
     </section>
   );
 }
 
-// ─── Section: Final CTA ───────────────────────────────────────────────────────
+// â”€â”€â”€ Section: Final CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function CTASection({ industry }: { industry: Industry }) {
   return (
     <section className="py-16 md:py-48 border-t border-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
+        <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
       </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
@@ -419,7 +419,7 @@ function CTASection({ industry }: { industry: Industry }) {
                 <MagneticButton strength={0.4}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <motion.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">→</motion.span>
+                      <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
                     </span>
                     <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
                   </button>
@@ -438,7 +438,7 @@ function CTASection({ industry }: { industry: Industry }) {
   );
 }
 
-// ─── Main Export ──────────────────────────────────────────────────────────────
+// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function IndustryDetail({ industry }: { industry: Industry }) {
   return (
     <PageTransition>

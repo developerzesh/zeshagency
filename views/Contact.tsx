@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useState } from 'react';
-import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
@@ -92,8 +92,8 @@ export default function Contact() {
   return (
     <PageTransition>
       <section className="relative pt-24 md:pt-40 pb-20 md:pb-36 overflow-hidden" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
-        <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-signal/[0.015] blur-[200px] pointer-events-none" />
-        <motion.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.006] blur-[180px] pointer-events-none" />
+        <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-signal/[0.015] blur-[200px] pointer-events-none" />
+        <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.006] blur-[180px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <RevealText duration={1.4}><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-6">Discovery</p></RevealText>
           <RevealText duration={2}><h1 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.04em] leading-[0.9] mb-10">Let's build a predictable revenue engine<span className="text-signal">.</span></h1></RevealText>
@@ -158,13 +158,13 @@ export default function Contact() {
                       className="w-full bg-transparent border-b border-border py-3 font-lato text-base text-ink outline-none focus:border-ink transition-colors duration-700 placeholder:text-text-muted resize-none"
                       placeholder="Tell us about your product, organic search visibility gaps, or current pipeline challenges..."
                     />
-                    <p className="font-lato text-[10px] text-text-muted mt-2 italic">Be as thorough as you like — our founders read every submission.</p>
+                    <p className="font-lato text-[10px] text-text-muted mt-2 italic">Be as thorough as you like â€” our founders read every submission.</p>
                   </div>
                 </RevealText>
 
                 <AnimatePresence mode="wait">
                   {status !== 'idle' && (
-                    <motion.div
+                    <m.div
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
@@ -174,7 +174,7 @@ export default function Contact() {
                         }`}
                     >
                       {statusMsg}
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
 
@@ -185,7 +185,7 @@ export default function Contact() {
                       disabled={status === 'sending'}
                       className={`font-lato text-sm font-medium text-signal sig-hover mt-4 transition-opacity duration-300 ${status === 'sending' ? 'opacity-40 cursor-default' : ''}`}
                     >
-                      {status === 'sending' ? 'Sending Request...' : 'Request Discovery Call →'}
+                      {status === 'sending' ? 'Sending Request...' : 'Request Discovery Call â†’'}
                     </button>
                   </MagneticButton>
                 </RevealText>
@@ -197,10 +197,10 @@ export default function Contact() {
               <RevealText delay={0.2} duration={1.4}><p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-8">Offices</p></RevealText>
               {offices.map((office, i) => (
                 <RevealText key={office.city} delay={0.25 + i * 0.06} duration={1.2}>
-                  <motion.div whileHover={{ x: 4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group py-6 border-b border-border">
+                  <m.div whileHover={{ x: 4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group py-6 border-b border-border">
                     <div className="flex items-center gap-3 mb-1"><div className="w-1.5 h-1.5 rounded-full bg-signal" /><h3 className="font-syne text-lg font-800">{office.city}</h3><span className="font-lato text-[10px] tracking-[0.12em] uppercase text-text-muted">{office.type}</span></div>
                     <a href={`mailto:${office.email}`} className="font-lato text-sm text-text-secondary group-hover:text-ink transition-colors duration-700">{office.email}</a>
-                  </motion.div>
+                  </m.div>
                 </RevealText>
               ))}
               <RevealText delay={0.45} duration={1.2}>

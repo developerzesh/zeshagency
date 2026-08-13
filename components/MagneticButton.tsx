@@ -1,7 +1,7 @@
-"use client";
+﻿"use client";
 
 import { useRef } from 'react';
-import { motion, useMotionValue, useSpring } from 'framer-motion';
+import { m, useMotionValue, useSpring } from 'framer-motion';
 
 type Props = { children: React.ReactNode; className?: string; onClick?: () => void; strength?: number };
 
@@ -12,7 +12,7 @@ export default function MagneticButton({ children, className = '', onClick, stre
   const springY = useSpring(y, { damping: 40, stiffness: 150, mass: 0.8 });
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       style={{ x: springX, y: springY }}
       onMouseMove={(e) => { if (!ref.current) return; const rect = ref.current.getBoundingClientRect(); x.set((e.clientX - rect.left - rect.width / 2) * strength); y.set((e.clientY - rect.top - rect.height / 2) * strength); }}
@@ -21,6 +21,6 @@ export default function MagneticButton({ children, className = '', onClick, stre
       className={`inline-block ${className}`}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

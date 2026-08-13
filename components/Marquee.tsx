@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { m } from 'framer-motion';
 const items = ['SEO', 'SMO', 'AEO', 'GEO', 'Web Development', 'Growth Marketing'];
 export default function Marquee() {
   return (

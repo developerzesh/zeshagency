@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { m } from 'framer-motion';
 import RevealText from './RevealText';
 import CinematicImage from './CinematicImage';
 
@@ -15,7 +15,7 @@ export default function Featured() {
 
         {/* Apple-style large feature card */}
         <RevealText delay={0.2} duration={1.6}>
-          <motion.a href="/work/1" whileHover={{ y: -4 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group block">
+          <m.a href="/work/1" whileHover={{ y: -4 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group block">
             <CinematicImage
               src="/images/project-meridian.jpg"
               alt="Meridian project"
@@ -26,13 +26,13 @@ export default function Featured() {
               rounded="rounded-2xl"
             />
             <div className="absolute bottom-8 left-8 md:bottom-12 md:left-12 z-10">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, filter: 'blur(8px)' }}
                 whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                 transition={{ delay: 0.6, duration: 1 }}
               >
                 <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-ink bg-paper/70 backdrop-blur-xl px-4 py-2 rounded-full">Featured Project</span>
-              </motion.div>
+              </m.div>
             </div>
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-4 mt-8">
               <div>
@@ -42,10 +42,10 @@ export default function Featured() {
               <div className="flex items-baseline gap-6 flex-shrink-0">
                 <span className="font-lato text-[11px] text-text-muted">Brand Identity</span>
                 <span className="font-lato text-[11px] text-text-muted">2024</span>
-                <motion.span animate={{ x: 0 }} whileHover={{ x: 6 }} transition={{ duration: 0.6 }} className="text-signal text-sm">→</motion.span>
+                <m.span animate={{ x: 0 }} whileHover={{ x: 6 }} transition={{ duration: 0.6 }} className="text-signal text-sm">â†’</m.span>
               </div>
             </div>
-          </motion.a>
+          </m.a>
         </RevealText>
 
         {/* Two smaller feature cards */}
@@ -55,7 +55,7 @@ export default function Featured() {
             { title: 'Neural Mesh', subtitle: 'AI-driven mesh generation in real-time WebGL', tag: 'Lab', image: '/images/lab-experiment.jpg', href: '/lab' },
           ].map((item, i) => (
             <RevealText key={item.title} delay={0.3 + i * 0.12} duration={1.2}>
-              <motion.a href={item.href} whileHover={{ y: -4 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group block">
+              <m.a href={item.href} whileHover={{ y: -4 }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group block">
                 <div className="relative">
                   <CinematicImage
                     src={item.image}
@@ -72,7 +72,7 @@ export default function Featured() {
                 </div>
                 <h3 className="font-syne text-xl md:text-2xl font-800 tracking-tight group-hover:text-signal transition-colors duration-700 mb-1 mt-5">{item.title}</h3>
                 <p className="font-lato text-sm text-text-secondary leading-[1.9]">{item.subtitle}</p>
-              </motion.a>
+              </m.a>
             </RevealText>
           ))}
         </div>
