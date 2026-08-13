@@ -11,7 +11,7 @@ export default function CareerDetail({ career }: { career: Career }) {
     <PageTransition>
       <section className="pt-24 md:pt-40 pb-20 md:pb-36">
         <div className="max-w-[800px] mx-auto px-4 md:px-16">
-          <RevealText duration={1.4}><a href="/careers" className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-ink transition-colors duration-700 mb-14 block">â† Careers</a></RevealText>
+          <RevealText duration={1.4}><a href="/careers" className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-ink transition-colors duration-700 mb-14 block">← Careers</a></RevealText>
 
           <RevealText delay={0.1} duration={1.4}>
             <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -35,7 +35,7 @@ export default function CareerDetail({ career }: { career: Career }) {
               <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-8">Requirements</p>
               {career.requirements.map((req, i) => (
                 <m.div key={req} whileHover={{ x: 4 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group flex items-start gap-4 py-3 border-b border-border">
-                  <span className="text-signal text-xs mt-1 group-hover:text-signal transition-colors duration-[1200ms]">â†’</span>
+                  <span className="text-signal text-xs mt-1 group-hover:text-signal transition-colors duration-[1200ms]">→</span>
                   <span className="font-lato text-sm md:text-base text-text-secondary group-hover:text-ink transition-colors duration-[1200ms]">{req}</span>
                 </m.div>
               ))}
@@ -44,7 +44,7 @@ export default function CareerDetail({ career }: { career: Career }) {
 
           <RevealText delay={0.4} duration={1.4}>
             <div className="pt-8 border-t border-border">
-              <MagneticButton strength={0.4}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Apply Now â†’</a></MagneticButton>
+              <MagneticButton strength={0.4}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Apply Now →</a></MagneticButton>
             </div>
           </RevealText>
         </div>

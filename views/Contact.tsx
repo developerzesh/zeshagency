@@ -158,7 +158,7 @@ export default function Contact() {
                       className="w-full bg-transparent border-b border-border py-3 font-lato text-base text-ink outline-none focus:border-ink transition-colors duration-700 placeholder:text-text-muted resize-none"
                       placeholder="Tell us about your product, organic search visibility gaps, or current pipeline challenges..."
                     />
-                    <p className="font-lato text-[10px] text-text-muted mt-2 italic">Be as thorough as you like â€” our founders read every submission.</p>
+                    <p className="font-lato text-[10px] text-text-muted mt-2 italic">Be as thorough as you like — our founders read every submission.</p>
                   </div>
                 </RevealText>
 
@@ -185,7 +185,7 @@ export default function Contact() {
                       disabled={status === 'sending'}
                       className={`font-lato text-sm font-medium text-signal sig-hover mt-4 transition-opacity duration-300 ${status === 'sending' ? 'opacity-40 cursor-default' : ''}`}
                     >
-                      {status === 'sending' ? 'Sending Request...' : 'Request Discovery Call â†’'}
+                      {status === 'sending' ? 'Sending Request...' : 'Request Discovery Call →'}
                     </button>
                   </MagneticButton>
                 </RevealText>

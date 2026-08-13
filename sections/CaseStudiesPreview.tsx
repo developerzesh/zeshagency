@@ -10,7 +10,7 @@ export default function CaseStudiesPreview() {
         <div className="text-center mb-20 md:mb-24">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Proof</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">Case Studies<span className="text-signal">.</span></h2></RevealText>
-          <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-[1.8] mt-6">Real results from real engagements. No vanity metrics â€” just revenue impact.</p></RevealText>
+          <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-[1.8] mt-6">Real results from real engagements. No vanity metrics — just revenue impact.</p></RevealText>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
@@ -82,7 +82,7 @@ export default function CaseStudiesPreview() {
                       <ul className="space-y-2">
                         {cs.results.map((res, idx) => (
                           <li key={idx} className="flex items-start gap-2 font-lato text-xs text-text-secondary">
-                            <span className="text-[#8cda28] font-bold select-none">âœ“</span>
+                            <span className="text-[#8cda28] font-bold select-none">✓</span>
                             <span>{res}</span>
                           </li>
                         ))}
@@ -94,7 +94,7 @@ export default function CaseStudiesPreview() {
                   <div className="pt-4 border-t border-border/20 flex justify-between items-center mt-auto">
                     <span className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300">
                       Explore Case Study
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">â†’</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
                   </div>
                 </m.div>
@@ -105,7 +105,7 @@ export default function CaseStudiesPreview() {
 
         <RevealText delay={0.3}>
           <div className="text-center mt-16">
-            <a href="/case-studies" className="font-lato text-sm text-signal sig-hover">View all case studies â†’</a>
+            <a href="/case-studies" className="font-lato text-sm text-signal sig-hover">View all case studies →</a>
           </div>
         </RevealText>
       </div>

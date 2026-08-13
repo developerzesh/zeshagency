@@ -39,7 +39,7 @@ export default function CinematicImage({
   // Parallax: image shifts vertically as you scroll through the container
   const imageY = useTransform(scrollYProgress, [0, 1], [`${parallaxStrength * 100}%`, `${-parallaxStrength * 100}%`]);
 
-  // Cinematic overlay fade â€” tied to scroll position for smooth reveal
+  // Cinematic overlay fade — tied to scroll position for smooth reveal
   const overlayOpacity = useTransform(scrollYProgress, [0, 0.15, 0.35], [overlayStrength, overlayStrength * 0.3, 0]);
 
   const aspectClass = {
@@ -59,7 +59,7 @@ export default function CinematicImage({
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: revealDuration * 0.5, delay: revealDelay, ease: slowEase }}
     >
-      {/* Parallax image layer â€” oversized to allow vertical movement */}
+      {/* Parallax image layer — oversized to allow vertical movement */}
       <m.div
         style={{ y: imageY }}
         className="absolute inset-[-18%]"
@@ -84,7 +84,7 @@ export default function CinematicImage({
         />
       </m.div>
 
-      {/* Cinematic reveal overlay â€” paper-colored, fades on scroll */}
+      {/* Cinematic reveal overlay — paper-colored, fades on scroll */}
       <m.div
         style={{ opacity: overlayOpacity }}
         className="absolute inset-0 bg-paper pointer-events-none"

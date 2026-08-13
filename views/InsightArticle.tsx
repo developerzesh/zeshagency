@@ -29,7 +29,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
               href="/insights"
               className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 group"
             >
-              <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">â†</m.span>
+              <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal">←</m.span>
               Back to Insights
             </a>
           </RevealText>
@@ -129,7 +129,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                 </div>
                 <MagneticButton strength={0.3}>
                   <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                    Start a Conversation â†’
+                    Start a Conversation →
                   </button>
                 </MagneticButton>
               </div>

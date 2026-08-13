@@ -38,7 +38,7 @@ export default function Hero() {
 
           <RevealText delay={1.0} duration={1.4}>
             <p className="font-lato text-lg md:text-xl text-text-secondary max-w-xl leading-[1.8] mb-16">
-              We build search ecosystems, AI visibility, and conversion architecture that compounds â€” turning digital presence into predictable revenue.
+              We build search ecosystems, AI visibility, and conversion architecture that compounds — turning digital presence into predictable revenue.
             </p>
           </RevealText>
 

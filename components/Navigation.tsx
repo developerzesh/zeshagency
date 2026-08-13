@@ -10,7 +10,7 @@ import { useTheme } from './ThemeContext';
 interface SubItem { label: string; path: string }
 interface NavItem { label: string; path: string; submenu?: SubItem[] }
 
-// â”€â”€ Primary nav (with submenus) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Primary nav (with submenus) ──────────────────────────
 const primaryNav: NavItem[] = [
   { label: 'Solutions', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
   { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
@@ -18,14 +18,14 @@ const primaryNav: NavItem[] = [
   { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
 ];
 
-// â”€â”€ Secondary nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Secondary nav ────────────────────────────────────────
 const secondaryNav: NavItem[] = [
   { label: 'About', path: '/about' },
   { label: 'Resources', path: '/blog', submenu: [{ label: 'Blog', path: '/blog' }, { label: 'Insights', path: '/insights' }] },
   { label: 'Careers', path: '/careers', submenu: [{ label: 'Open Roles', path: '/careers' }] },
 ];
 
-// â”€â”€ All items merged (used for mobile) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── All items merged (used for mobile) ──────────────────
 const navItems: NavItem[] = [...primaryNav, ...secondaryNav, { label: 'Contact', path: '/contact' }];
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -81,8 +81,6 @@ export default function Navigation() {
         : 'text-ink/50 hover:text-ink hover:bg-surface/60'
     }`;
 
-    console.log('isDark:', isDark); // Debugging line to check the theme state
-
   return (
     <>
       <m.nav
@@ -91,7 +89,7 @@ export default function Navigation() {
         transition={{ duration: 1.2, ease: slowEase }}
         className="fixed top-0 left-0 right-0 z-50"
       >
-        {/* â”€â”€ Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── Bar ────────────────────────────────────────── */}
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
@@ -102,7 +100,7 @@ export default function Navigation() {
               </a>
             </MagneticButton>
 
-            {/* â”€â”€ Desktop nav â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Desktop nav ─────────────────────────────── */}
             <div className="hidden lg:flex items-center">
 
               {/* Primary group */}
@@ -143,7 +141,7 @@ export default function Navigation() {
               </div>
             </div>
 
-            {/* â”€â”€ Right controls â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* ── Right controls ──────────────────────────── */}
             <div className="flex items-center gap-3">
 
               {/* Theme toggle */}
@@ -185,7 +183,7 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* â”€â”€ Desktop mega dropdown â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── Desktop mega dropdown ─────────────────────── */}
         <AnimatePresence>
           {activeSubmenu && activeItem?.submenu && (
             <m.div
@@ -199,7 +197,7 @@ export default function Navigation() {
             >
               <div className="mx-6 md:mx-16 relative rounded-2xl overflow-hidden">
 
-                {/* â”€â”€ Glass shell â”€â”€ */}
+                {/* ── Glass shell ── */}
                 <div
                   className="absolute inset-0 rounded-2xl"
                   style={{
@@ -230,7 +228,7 @@ export default function Navigation() {
                   style={{ background: 'linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent)' }}
                 />
 
-                {/* â”€â”€ Content â”€â”€ */}
+                {/* ── Content ── */}
                 <div className="relative z-10 px-10 pt-8 pb-0">
 
                   {/* Header row */}
@@ -248,7 +246,7 @@ export default function Navigation() {
                       onClick={handleNavClick}
                       className="sig-hover font-lato text-[11px] tracking-[0.12em] uppercase text-signal hover:text-ink transition-colors duration-300"
                     >
-                      View All â†’
+                      View All →
                     </a>
                   </div>
 
@@ -278,7 +276,7 @@ export default function Navigation() {
                               >
                                 <span className={`w-[5px] h-[5px] rounded-full shrink-0 transition-all duration-300 ${isHovered ? 'bg-signal' : ''}`} style={{ background: isHovered ? 'rgba(244,165,54,1)' : 'transparent', border: isHovered ? 'none' : '1.5px solid rgba(244,165,54,0.55)' }} />
                                 <span className={`font-lato text-[13px] transition-colors duration-300 ${isHovered ? 'text-ink font-semibold' : 'text-ink/75 group-hover:text-ink'}`}>{sub.label}</span>
-                                <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">â†’</span>
+                                <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">→</span>
                               </a>
                               {/* Services dropdown below city on hover */}
                               <AnimatePresence>
@@ -348,7 +346,7 @@ export default function Navigation() {
                               {sub.label}
                             </span>
                             <span className="ml-auto font-lato text-[10px] text-signal opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
-                              â†’
+                              →
                             </span>
                           </a>
                         </m.div>
@@ -357,7 +355,7 @@ export default function Navigation() {
                   )}
                 </div>
 
-                {/* â”€â”€ Frosted footer strip â”€â”€ */}
+                {/* ── Frosted footer strip ── */}
                 <div
                   className="relative z-10 mt-5 px-10 py-4 flex items-center justify-between"
                   style={{
@@ -378,7 +376,7 @@ export default function Navigation() {
         </AnimatePresence>
       </m.nav>
 
-      {/* â”€â”€ Mobile full-screen menu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── Mobile full-screen menu ───────────────────────── */}
       <AnimatePresence>
         {isOpen && (
           <m.div

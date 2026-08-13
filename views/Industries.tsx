@@ -2,6 +2,7 @@
 
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 import { useRef } from 'react';
@@ -19,7 +20,7 @@ export default function Industries() {
   return (
     <PageTransition>
 
-      {/* â”€â”€ Hero â”€â”€ */}
+      {/* ── Hero ── */}
       <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
         <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
@@ -40,17 +41,13 @@ export default function Industries() {
               </p>
             </RevealText>
 
-            {/* Primary + Secondary CTA â€” bottom-right */}
+            {/* Primary + Secondary CTA — bottom-right */}
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-col items-start gap-4">
-                <MagneticButton strength={0.4}>
-                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Book a Consultation Call</span>
-                  </button>
-                </MagneticButton>
+                <CircleArrowButton
+                  label="Book a Consultation Call"
+                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                />
                 <MagneticButton strength={0.3}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                 </MagneticButton>
@@ -60,7 +57,7 @@ export default function Industries() {
         </m.div>
       </section>
 
-      {/* â”€â”€ Industry List â”€â”€ */}
+      {/* ── Industry List ── */}
       <section className="md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           {industries.map((ind, i) => (
@@ -102,7 +99,7 @@ export default function Industries() {
                     <ul className="space-y-2">
                       {ind.challenges.map((c) => (
                         <li key={c} className="flex items-start gap-2 font-lato text-xs text-text-secondary">
-                          <span className="text-signal select-none mt-0.5">â€¢</span>
+                          <span className="text-signal select-none mt-0.5">•</span>
                           <span>{c}</span>
                         </li>
                       ))}
@@ -113,7 +110,7 @@ export default function Industries() {
                     <ul className="space-y-2">
                       {ind.opportunities.map((o) => (
                         <li key={o} className="flex items-start gap-2 font-lato text-xs text-text-secondary">
-                          <span className="text-signal select-none mt-0.5">â†—</span>
+                          <span className="text-signal select-none mt-0.5">↗</span>
                           <span>{o}</span>
                         </li>
                       ))}
@@ -137,7 +134,7 @@ export default function Industries() {
                     className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300 flex-shrink-0"
                   >
                     View Framework
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">â†’</span>
+                    <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </a>
                 </div>
 
@@ -147,7 +144,7 @@ export default function Industries() {
         </div>
       </section>
 
-      {/* â”€â”€ Bottom CTA Section â”€â”€ */}
+      {/* ── Bottom CTA Section ── */}
       <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
@@ -170,14 +167,10 @@ export default function Industries() {
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
-                  <MagneticButton strength={0.4}>
-                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Book a Free Discovery Call</span>
-                    </button>
-                  </MagneticButton>
+                  <CircleArrowButton
+                    label="Book a Free Discovery Call"
+                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  />
                   <MagneticButton strength={0.3}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                   </MagneticButton>

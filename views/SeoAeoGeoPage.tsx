@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { m, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 
@@ -63,7 +64,7 @@ export default function SeoAeoGeoPage() {
 
   return (
     <PageTransition>
-      {/* â”€â”€ HERO â”€â”€ */}
+      {/* ── HERO ── */}
       <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden pt-16 md:pt-40 pb-12 md:pb-20">
         <ParticleField />
         <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-signal/[0.04] blur-[150px] rounded-full pointer-events-none animate-pulse" />
@@ -85,20 +86,17 @@ export default function SeoAeoGeoPage() {
 
           <RevealText delay={0.35} duration={1.4}>
             <div className="flex flex-wrap items-center gap-6">
-              <MagneticButton strength={0.4}>
-                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                   <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                     <span className="text-ink text-sm">â†’</span>
-                   </span>
-                   <span className="font-lato text-sm font-medium text-paper">Get A Future-Proof Search Audit</span>
-                 </button>
-              </MagneticButton>
+              <CircleArrowButton
+                label="Get A Future-Proof Search Audit"
+                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                animated={false}
+              />
             </div>
           </RevealText>
         </div>
       </section>
 
-      {/* â”€â”€ EVOLUTION ROADMAP (Interactive Tabs) â”€â”€ */}
+      {/* ── EVOLUTION ROADMAP (Interactive Tabs) ── */}
       <section className="py-16 md:py-36 border-t border-border bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20">
@@ -158,7 +156,7 @@ export default function SeoAeoGeoPage() {
                       const [title, desc] = point.split(': ');
                       return (
                         <li key={index} className="flex gap-3 items-start">
-                          <span className="text-signal text-xs mt-1">â—†</span>
+                          <span className="text-signal text-xs mt-1">◆</span>
                           <div>
                             <strong className="font-syne font-700 text-sm text-ink block">{title}</strong>
                             <span className="font-lato text-xs text-text-secondary leading-relaxed">{desc}</span>
@@ -174,7 +172,7 @@ export default function SeoAeoGeoPage() {
         </div>
       </section>
 
-      {/* â”€â”€ REGIONAL DIRECTORY (Target City Links) â”€â”€ */}
+      {/* ── REGIONAL DIRECTORY (Target City Links) ── */}
       <section className="py-16 md:py-36 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-20 text-center max-w-2xl mx-auto">
@@ -200,7 +198,7 @@ export default function SeoAeoGeoPage() {
                     <p className="font-lato text-xs text-text-secondary leading-[1.8]">{city.desc}</p>
                   </div>
                   <span className="font-lato text-[11px] font-bold text-signal tracking-[0.12em] uppercase flex items-center gap-1 mt-6 group-hover:translate-x-1.5 transition-transform duration-500">
-                    Explore Strategy <span className="text-xs">â†’</span>
+                    Explore Strategy <span className="text-xs">→</span>
                   </span>
                 </Link>
               </RevealText>
@@ -209,7 +207,7 @@ export default function SeoAeoGeoPage() {
         </div>
       </section>
 
-      {/* â”€â”€ CONCLUDING CTA STRIP â”€â”€ */}
+      {/* ── CONCLUDING CTA STRIP ── */}
       <section className="border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-16 md:py-16">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 bg-signal/5 border border-signal/20 rounded-2xl px-8 md:px-12 py-10 md:py-12">
@@ -226,7 +224,7 @@ export default function SeoAeoGeoPage() {
               <MagneticButton strength={0.4}>
                 <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                     <span className="text-ink text-sm">â†’</span >
+                     <span className="text-ink text-sm">→</span >
                    </span>
                    <span className="font-lato text-sm font-medium text-paper font-semibold">Request System Audit</span>
                  </button>

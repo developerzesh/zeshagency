@@ -8,7 +8,7 @@ import MorphingShape from '../components/MorphingShape';
 import PageTransition from '../components/PageTransition';
 
 const manifesto = [
-  { letter: 'D', title: 'Design is Intent', text: 'Every visual decision carries meaning. We don\'t decorate â€” we communicate. Form follows purpose, always.' },
+  { letter: 'D', title: 'Design is Intent', text: 'Every visual decision carries meaning. We don\'t decorate — we communicate. Form follows purpose, always.' },
   { letter: 'E', title: 'Excellence is Non-Negotiable', text: 'Good enough is the enemy of extraordinary. We pursue the exceptional with relentless precision.' },
   { letter: 'S', title: 'Simplicity is Sophistication', text: 'True elegance lies in reduction. We strip away the unnecessary until only the essential remains.' },
   { letter: 'I', title: 'Innovation Through Empathy', text: 'The most groundbreaking solutions come from deeply understanding the humans who will use them.' },
@@ -85,7 +85,7 @@ export default function Philosophy() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Share our vision<span className="text-signal">?</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">If these principles resonate, we should talk.</p></RevealText>
-          <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Start a Conversation â†’</button></MagneticButton>
+          <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Start a Conversation →</button></MagneticButton>
         </div>
       </section>
     </PageTransition>

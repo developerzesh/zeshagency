@@ -9,6 +9,14 @@ import PageTransition from '../components/PageTransition';
 import { values, aboutStats } from '../lib/data';
 import Testimonials from '../components/Testimonials';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About Us | Zesh Agency',
+  description: 'Learn about Zesh Agency — growth partner to ambitious brands.',
+
+};
+
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -37,7 +45,7 @@ export default function About() {
               <br /><br />
               We don't employ account executives or sales reps. When you partner with us, you work directly with senior engineers and strategists building your growth engines. If something isn't working, we are honest about it."
               <br /><br />
-              <span className="text-signal text-lg md:text-xl">â€” The Founding Team</span>
+              <span className="text-signal text-lg md:text-xl">— The Founding Team</span>
             </blockquote>
           </RevealText>
         </div>
@@ -47,7 +55,7 @@ export default function About() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">THE OPERATORS</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-10">The heroes who make everything possible<span className="text-signal">.</span></h2></RevealText>
-          <RevealText delay={0.2} duration={1.8}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We believe exceptional systems are built by operators who have the quiet focus to think clearly. We don't just hire specialists; we partner with the absolute best in their fields. These are the developers, search architects, and data strategists who work behind the scenes every day to design and code the growth systems that compound our partners' revenue. They are our heroesâ€”the ones who make our clients' success possible through their relentless dedication, high-performance code, and strategic brilliance. We don't have account managers or layers of administration to slow down execution. Every partner you collaborate with is directly responsible for engineering your growth pathways, bringing senior expertise to your everyday strategy. We are incredibly grateful to work alongside them, and we know that every milestone we achieve is built entirely on their expertise.</p></RevealText>
+          <RevealText delay={0.2} duration={1.8}><p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">We believe exceptional systems are built by operators who have the quiet focus to think clearly. We don't just hire specialists; we partner with the absolute best in their fields. These are the developers, search architects, and data strategists who work behind the scenes every day to design and code the growth systems that compound our partners' revenue. They are our heroes—the ones who make our clients' success possible through their relentless dedication, high-performance code, and strategic brilliance. We don't have account managers or layers of administration to slow down execution. Every partner you collaborate with is directly responsible for engineering your growth pathways, bringing senior expertise to your everyday strategy. We are incredibly grateful to work alongside them, and we know that every milestone we achieve is built entirely on their expertise.</p></RevealText>
         </div>
       </section>
 
@@ -59,7 +67,7 @@ export default function About() {
               <RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-6xl font-800 tracking-[-0.03em] mb-6">How we work<span className="text-signal">.</span></h2></RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] mb-10 max-w-sm">
-                  We don't use account managers or sales layers. When you partner with Zesh, senior engineers and strategists work directly on your growth systems â€” with full transparency on every action and outcome.
+                  We don't use account managers or sales layers. When you partner with Zesh, senior engineers and strategists work directly on your growth systems — with full transparency on every action and outcome.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>
@@ -69,7 +77,7 @@ export default function About() {
                     className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
                   >
                     <span>Schedule Discovery Call</span>
-                    <span className="text-xs">â†’</span>
+                    <span className="text-xs">→</span>
                   </button>
                   <a
                     href="/case-studies"
@@ -116,7 +124,7 @@ export default function About() {
             ))}
           </div>
           <div className="mt-20 flex justify-center">
-            <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk â†’</button></MagneticButton>
+            <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
           </div>
         </div>
       </section>

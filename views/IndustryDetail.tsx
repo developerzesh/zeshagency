@@ -4,6 +4,7 @@ import { m, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import type { Industry } from '../lib/data';
@@ -11,7 +12,7 @@ import { caseStudies } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// â”€â”€â”€ Section: Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Hero ────────────────────────────────────────────────────────────
 function HeroSection({ industry }: { industry: Industry }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
@@ -35,7 +36,7 @@ function HeroSection({ industry }: { industry: Industry }) {
           transition={{ duration: 1.2, delay: 0.2, ease: slowEase }}
           className="inline-flex items-center gap-2 font-lato text-[10px] tracking-[0.3em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-20 md:mb-28 group"
         >
-          <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal transition-colors duration-700">â†</m.span>
+          <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="group-hover:text-signal transition-colors duration-700">←</m.span>
           <span>Industries</span>
         </m.a>
 
@@ -79,14 +80,10 @@ function HeroSection({ industry }: { industry: Industry }) {
             transition={{ duration: 1.6, delay: 1.5, ease: slowEase }}
             className="flex flex-col items-start gap-4 flex-shrink-0"
           >
-            <MagneticButton strength={0.4}>
-              <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                </span>
-                <span className="font-lato text-sm font-medium text-paper">Book a Consultation Call</span>
-              </button>
-            </MagneticButton>
+            <CircleArrowButton
+              label="Book a Consultation Call"
+              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+            />
             <MagneticButton strength={0.3}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a>
             </MagneticButton>
@@ -97,7 +94,7 @@ function HeroSection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Challenges We Solve â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Challenges We Solve ────────────────────────────────────────────
 function ChallengesSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -106,7 +103,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
           {/* Left label column */}
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 â€” Challenges</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 — Challenges</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -145,7 +142,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Our Approach â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Our Approach ────────────────────────────────────────────────────
 function ApproachSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -174,7 +171,7 @@ function ApproachSection({ industry }: { industry: Industry }) {
           {/* Label column */}
           <div className="md:col-span-4 md:col-start-9 order-1 md:order-2 flex flex-col md:items-end md:text-right">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 â€” Approach</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 — Approach</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -193,14 +190,14 @@ function ApproachSection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Strategic Roadmap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Strategic Roadmap ───────────────────────────────────────────────
 function RoadmapSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="mb-16 md:mb-32">
           <RevealText>
-            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 â€” Roadmap</p>
+            <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Roadmap</p>
           </RevealText>
           <RevealText delay={0.1}>
             <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -238,7 +235,7 @@ function RoadmapSection({ industry }: { industry: Industry }) {
                   </p>
                 </div>
                 <div className="md:col-span-1 md:col-start-12 flex md:justify-end">
-                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">â†’</span>
+                  <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-sm">→</span>
                 </div>
               </m.div>
             </RevealText>
@@ -249,7 +246,7 @@ function RoadmapSection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Expected Outcomes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Expected Outcomes ───────────────────────────────────────────────
 function OutcomesSection({ industry }: { industry: Industry }) {
   return (
     <section className="py-14 md:py-36 border-t border-border">
@@ -257,7 +254,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-start">
           <div className="md:col-span-4">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 â€” Outcomes</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Outcomes</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -300,7 +297,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Case Study (conditional) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Case Study (conditional) ───────────────────────────────────────
 function CaseStudySection({ industry }: { industry: Industry }) {
   // Match by industry slug (case study industry field must match industry slug)
   const matched = caseStudies.find(
@@ -315,7 +312,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
     <section className="py-14 md:py-36 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <RevealText>
-          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 â€” Proof</p>
+          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">05 — Proof</p>
         </RevealText>
         <RevealText delay={0.1}>
           <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] mb-20 md:mb-28 leading-tight">
@@ -376,7 +373,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
                   href={`/case-studies/${matched.slug}`}
                   className="font-lato text-sm text-signal sig-hover hover:text-ink transition-colors duration-700"
                 >
-                  Read Full Case Study â†’
+                  Read Full Case Study →
                 </a>
               </div>
             </div>
@@ -387,7 +384,7 @@ function CaseStudySection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Section: Final CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Section: Final CTA ───────────────────────────────────────────────────────
 function CTASection({ industry }: { industry: Industry }) {
   return (
     <section className="py-16 md:py-48 border-t border-border relative overflow-hidden">
@@ -416,14 +413,10 @@ function CTASection({ industry }: { industry: Industry }) {
           <div className="md:col-span-4 md:col-start-9">
             <RevealText delay={0.3}>
               <div className="flex flex-col items-start gap-5">
-                <MagneticButton strength={0.4}>
-                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                    </span>
-                    <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
-                  </button>
-                </MagneticButton>
+                <CircleArrowButton
+                  label="Book a Strategy Call"
+                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                />
                 <MagneticButton strength={0.3}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                     View Case Studies
@@ -438,7 +431,7 @@ function CTASection({ industry }: { industry: Industry }) {
   );
 }
 
-// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Main Export ──────────────────────────────────────────────────────────────
 export default function IndustryDetail({ industry }: { industry: Industry }) {
   return (
     <PageTransition>

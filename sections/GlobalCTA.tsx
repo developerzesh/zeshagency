@@ -26,7 +26,7 @@ export default function GlobalCTA() {
         </RevealText>
         <RevealText delay={0.2} duration={1.4}>
           <p className="font-lato text-base md:text-lg text-text-secondary max-w-lg mx-auto leading-[1.8] mb-14">
-            Let's discuss how we can engineer your next phase of growth. No pitch decks â€” just a genuine conversation about what's possible.
+            Let's discuss how we can engineer your next phase of growth. No pitch decks — just a genuine conversation about what's possible.
           </p>
         </RevealText>
         <RevealText delay={0.3}>

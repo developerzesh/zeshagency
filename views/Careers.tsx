@@ -4,13 +4,14 @@ import { useRef, useState } from 'react';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import { careers } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// â”€â”€â”€ Position Row Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Position Row Component ──────────────────────────────────────────────────
 function PositionRow({ position, index }: { position: typeof careers[0]; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
@@ -48,7 +49,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
                 <p className="font-lato text-[11px] uppercase tracking-wider text-ink font-semibold">Requirements:</p>
                 {position.requirements.map((req) => (
                   <div key={req} className="flex items-start gap-3 py-0.5">
-                    <span className="text-signal text-xs mt-0.5">â†’</span>
+                    <span className="text-signal text-xs mt-0.5">→</span>
                     <span className="font-lato text-sm text-text-secondary leading-snug">{req}</span>
                   </div>
                 ))}
@@ -56,7 +57,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
               <div className="flex gap-4">
                 <MagneticButton strength={0.2}>
                   <a href={`mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`} className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block">
-                    Submit Application â†’
+                    Submit Application →
                   </a>
                 </MagneticButton>
               </div>
@@ -68,7 +69,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
   );
 }
 
-// â”€â”€â”€ Main Component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Main Component ───────────────────────────────────────────────────────────
 export default function Careers() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -130,29 +131,25 @@ export default function Careers() {
               transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
               className="flex flex-col items-start gap-4 flex-shrink-0"
             >
-              <MagneticButton strength={0.4}>
-                <a href="#roles" className="group flex items-center gap-4">
-                  <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                  </span>
-                  <span className="font-lato text-sm font-medium text-paper">Explore Open Roles</span>
-                </a>
-              </MagneticButton>
+              <CircleArrowButton
+                label="Explore Open Roles"
+                href="#roles"
+              />
               <MagneticButton strength={0.3}>
-                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh? â†“</a>
+                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh? ↓</a>
               </MagneticButton>
             </m.div>
           </div>
         </m.div>
       </section>
 
-      {/* Â§ 1 â€” Why Work With Us */}
+      {/* Â§ 1 — Why Work With Us */}
       <section id="why-us" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 â€” The Mission</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">01 — The Mission</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -174,13 +171,13 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Â§ 2 â€” Culture */}
+      {/* Â§ 2 — Culture */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 â€” Culture</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">02 — Culture</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -212,12 +209,12 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Â§ 3 â€” Benefits */}
+      {/* Â§ 3 — Benefits */}
       <section className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-32">
             <RevealText>
-              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 â€” Benefits</p>
+              <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">03 — Benefits</p>
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -247,13 +244,13 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Â§ 4 â€” Learning Opportunities */}
+      {/* Â§ 4 — Learning Opportunities */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 â€” Education</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">04 — Education</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] leading-tight">
@@ -286,7 +283,7 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Â§ 5 â€” Open Roles */}
+      {/* Â§ 5 — Open Roles */}
       <section id="roles" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-32">
@@ -314,7 +311,7 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Â§ 6 â€” Footer CTA */}
+      {/* Â§ 6 — Footer CTA */}
       <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
@@ -339,14 +336,10 @@ export default function Careers() {
             <div className="md:col-span-4 md:col-start-9">
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
-                  <MagneticButton strength={0.4}>
-                    <a href="mailto:Shahana@zeshagency.com" className="group flex items-center gap-4">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Shahana@zeshagency.com</span>
-                    </a>
-                  </MagneticButton>
+                  <CircleArrowButton
+                    label="Shahana@zeshagency.com"
+                    href="mailto:Shahana@zeshagency.com"
+                  />
                   <MagneticButton strength={0.3}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       Browse Client Case Studies

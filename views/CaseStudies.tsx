@@ -5,6 +5,7 @@ import { m, AnimatePresence, useScroll, useTransform, useMotionValue, useSpring 
 import { useRef } from 'react';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import { caseStudies } from '../lib/data';
@@ -15,7 +16,7 @@ const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const ALL_INDUSTRIES = ['All', ...Array.from(new Set(caseStudies.map(cs => cs.industry)))];
 const ALL_SERVICES = ['All', ...Array.from(new Set(caseStudies.flatMap(cs => cs.services)))];
 
-// â”€â”€â”€ Aggregate Stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Aggregate Stats ──────────────────────────────────────────────────────────
 const STATS = [
   { value: '9', label: 'Industry Verticals' },
   { value: '$45M+', label: 'Client Revenue Attributed' },
@@ -23,7 +24,7 @@ const STATS = [
   { value: '100%', label: 'Verified Results' },
 ];
 
-// â”€â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 function HeroSection() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -82,14 +83,10 @@ function HeroSection() {
             transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
             className="flex flex-col items-start gap-4 flex-shrink-0"
           >
-            <MagneticButton strength={0.4}>
-              <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                </span>
-                <span className="font-lato text-sm font-medium text-paper">Start a Project</span>
-              </button>
-            </MagneticButton>
+            <CircleArrowButton
+              label="Start a Project"
+              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+            />
             <MagneticButton strength={0.3}>
               <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Solutions</a>
             </MagneticButton>
@@ -121,7 +118,7 @@ function HeroSection() {
   );
 }
 
-// â”€â”€â”€ Filter Bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Filter Bar ───────────────────────────────────────────────────────────────
 interface FilterBarProps {
   activeIndustry: string;
   activeService: string;
@@ -190,7 +187,7 @@ function FilterBar({ activeIndustry, activeService, onIndustry, onService, count
   );
 }
 
-// â”€â”€â”€ Case Study Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Case Study Row ───────────────────────────────────────────────────────────
 function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number }) {
   return (
     <m.div
@@ -265,7 +262,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
             </div>
             <span className="font-lato text-sm text-signal group-hover:text-ink transition-colors duration-700 sig-hover inline-flex items-center gap-2">
               Read Case Study
-              <m.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>â†’</m.span>
+              <m.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>→</m.span>
             </span>
           </div>
         </m.div>
@@ -274,7 +271,7 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
   );
 }
 
-// â”€â”€â”€ Main Export â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Main Export ──────────────────────────────────────────────────────────────
 export default function CaseStudies() {
   const [activeIndustry, setActiveIndustry] = useState('All');
   const [activeService, setActiveService] = useState('All');
@@ -323,7 +320,7 @@ export default function CaseStudies() {
                 onClick={() => { setActiveIndustry('All'); setActiveService('All'); }}
                 className="font-lato text-sm text-signal sig-hover"
               >
-                Clear filters â†’
+                Clear filters →
               </button>
             </m.div>
           )}
@@ -355,21 +352,17 @@ export default function CaseStudies() {
               </RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-base md:text-[17px] text-text-secondary max-w-lg leading-[1.85] mt-8">
-                  We audit your organic search position, map competitor gaps, and deploy a vertical-specific acquisition strategy. No generic playbooks â€” only custom-built systems.
+                  We audit your organic search position, map competitor gaps, and deploy a vertical-specific acquisition strategy. No generic playbooks — only custom-built systems.
                 </p>
               </RevealText>
             </div>
             <div className="md:col-span-4 md:col-start-9">
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
-                  <MagneticButton strength={0.4}>
-                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
-                    </button>
-                  </MagneticButton>
+                  <CircleArrowButton
+                    label="Book a Strategy Call"
+                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  />
                   <MagneticButton strength={0.3}>
                     <a href="/industries" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       Explore Our Industries

@@ -11,7 +11,7 @@ export default function IndustriesPreview() {
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">Industries<span className="text-signal">.</span></h2></RevealText>
           <RevealText delay={0.2}><p className="font-lato text-base md:text-lg text-text-secondary max-w-2xl mx-auto leading-[1.8] mt-6">Deep expertise across sectors where search visibility drives revenue.</p></RevealText>
         </div>
-        {/* Horizontal scroll strip â€” no cards */}
+        {/* Horizontal scroll strip — no cards */}
         <div className="flex gap-0 overflow-x-auto scrollbar-hide snap-x snap-mandatory -mx-6 md:mx-0 md:overflow-visible md:snap-none md:flex-wrap md:justify-center">
           {industries.slice(0, 8).map((industry, i) => (
             <RevealText key={industry.slug} delay={i * 0.05}>
@@ -30,7 +30,7 @@ export default function IndustriesPreview() {
         </div>
         <RevealText delay={0.5}>
           <div className="text-center mt-10">
-            <a href="/industries" className="font-lato text-sm text-signal sig-hover">Explore all industries â†’</a>
+            <a href="/industries" className="font-lato text-sm text-signal sig-hover">Explore all industries →</a>
           </div>
         </RevealText>
       </div>

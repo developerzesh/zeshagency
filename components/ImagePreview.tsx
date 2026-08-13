@@ -40,13 +40,17 @@ export default function ImagePreview({ image, children, className = '', size = '
   useEffect(() => {
     if (isVisible) {
       updatePosition();
-      const onScroll = () => updatePosition();
-      const onResize = () => updatePosition();
-      window.addEventListener('scroll', onScroll, true);
-      window.addEventListener('resize', onResize);
+      let rafId = 0;
+      const onScroll = () => {
+        if (rafId) return;
+        rafId = requestAnimationFrame(() => { updatePosition(); rafId = 0; });
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
       return () => {
-        window.removeEventListener('scroll', onScroll, true);
-        window.removeEventListener('resize', onResize);
+        if (rafId) cancelAnimationFrame(rafId);
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
       };
     }
   }, [isVisible, updatePosition]);

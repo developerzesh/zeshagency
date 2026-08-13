@@ -11,7 +11,7 @@ const services = [
   { number: '01', title: 'SEO', description: 'Dominate organic search with technical excellence, content strategy, and authority building that compounds over time.', tags: ['Technical SEO', 'Content Strategy', 'Link Building'], image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop' },
   { number: '02', title: 'SMO', description: 'Optimize your social media presence to build authority, drive engagement, and generate leads across every platform.', tags: ['Platform Strategy', 'Content', 'Community'], image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop' },
   { number: '03', title: 'AEO', description: 'Get your brand cited by AI engines like ChatGPT and Perplexity through structured content and authority positioning.', tags: ['AI Citation', 'Structured Data', 'Entity'], image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop' },
-  { number: '04', title: 'GEO', description: 'Optimize your brand\'s presence in generative AI outputs â€” appearing in synthesized answers and recommendations.', tags: ['Generative AI', 'Content Calibration', 'Monitoring'], image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop' },
+  { number: '04', title: 'GEO', description: 'Optimize your brand\'s presence in generative AI outputs — appearing in synthesized answers and recommendations.', tags: ['Generative AI', 'Content Calibration', 'Monitoring'], image: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=400&fit=crop' },
   { number: '05', title: 'Web Development', description: 'Build high-performance websites engineered for speed, search visibility, and conversion from the ground up.', tags: ['Frontend', 'CMS', 'Performance'], image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop' },
 ];
 
@@ -28,7 +28,7 @@ export default function Services() {
 
   return (
     <section id="services" className="relative py-16 md:py-48 border-t border-border overflow-hidden">
-      {/* Line grid â€“ right side */}
+      {/* Line grid – right side */}
       <LineGrid className="hidden md:block" />
       <div className="max-w-[1400px] mx-auto px-4 md:px-16 mb-20 md:mb-32">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">

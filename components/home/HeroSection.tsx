@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import ParticleField from '../../components/ParticleField';
+import CircleArrowButton from '../../components/CircleArrowButton';
 import MagneticButton from '../../components/MagneticButton';
 import LineGrid from '../../components/LineGrid';
 import { heroContent } from '../../lib/data';
@@ -89,14 +90,11 @@ export default function HeroSection() {
             transition={{ duration: 1.6, delay: 1.7, ease: slowEase }}
             className="flex flex-wrap items-center gap-6 md:gap-10"
           >
-            <MagneticButton strength={0.4}>
-              <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-2 md:gap-3 bg-ink text-paper px-4 py-2 md:px-6 md:py-3 rounded-lg font-lato text-xs md:text-sm font-medium hover:bg-signal transition-colors duration-500">
-                <span className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <span className="text-ink text-xs md:text-sm arrow-bounce">→</span>
-                </span>
-                <span className="font-lato text-xs md:text-sm font-medium text-paper">{heroContent.primaryCTA.label}</span>
-              </button>
-            </MagneticButton>
+            <CircleArrowButton
+              label={heroContent.primaryCTA.label}
+              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              animated={false}
+            />
             <MagneticButton strength={0.3}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">{heroContent.secondaryCTA.label}</a>
             </MagneticButton>

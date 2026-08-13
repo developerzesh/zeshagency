@@ -36,7 +36,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
             />
 
             <article ref={articleRef} className="pt-24 md:pt-40 pb-20 md:pb-36">
-                {/* â”€â”€ Article Header â”€â”€ */}
+                {/* ── Article Header ── */}
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     {/* Breadcrumb */}
                     <RevealText duration={1.2}>
@@ -44,7 +44,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                             href="/blog"
                             className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 group"
                         >
-                            <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}>â†</m.span>
+                            <m.span animate={{ x: [0, -3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}>←</m.span>
                             Back to Blog
                         </a>
                     </RevealText>
@@ -108,11 +108,11 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     </RevealText>
                 </div>
 
-                {/* â”€â”€ Body + Sidebar â”€â”€ */}
+                {/* ── Body + Sidebar ── */}
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
 
-                        {/* â”€â”€ Sidebar ToC â”€â”€ */}
+                        {/* ── Sidebar ToC ── */}
                         {toc.length > 0 && (
                             <aside className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
                                 <RevealText delay={0.1}>
@@ -122,7 +122,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                             className="w-full flex items-center justify-between lg:cursor-default"
                                         >
                                             <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal font-semibold">Contents</span>
-                                            <span className="lg:hidden text-text-muted text-xs">{tocOpen ? 'â–²' : 'â–¼'}</span>
+                                            <span className="lg:hidden text-text-muted text-xs">{tocOpen ? '▲' : '▼'}</span>
                                         </button>
                                         <div className={`mt-4 space-y-2 ${tocOpen ? 'block' : 'hidden lg:block'}`}>
                                             {toc.map((item, i) => (
@@ -153,7 +153,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                             </aside>
                         )}
 
-                        {/* â”€â”€ Article Content â”€â”€ */}
+                        {/* ── Article Content ── */}
                         <div className={toc.length > 0 ? 'lg:col-span-6' : 'lg:col-span-12 max-w-[900px]'}>
                             <RevealText delay={0.4} duration={1.6}>
                                 <div className="prose prose-neutral max-w-none">
@@ -256,7 +256,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                                 className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500 flex-shrink-0"
                                             >
                                                 <span>Book Free Audit</span>
-                                                <span className="text-xs">â†’</span>
+                                                <span className="text-xs">→</span>
                                             </button>
                                         </MagneticButton>
                                     </div>
@@ -264,7 +264,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                             </RevealText>
                         </div>
 
-                        {/* â”€â”€ Sidebar CTA â”€â”€ */}
+                        {/* ── Sidebar CTA ── */}
                         <aside className="lg:col-span-3 lg:sticky lg:top-32 lg:self-start">
                             <RevealText delay={0.2}>
                                 <div className="border border-border/50 rounded-xl p-6 bg-paper/40 dark:bg-ink/10 backdrop-blur-sm">
@@ -279,7 +279,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                             className="w-full inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-lg font-lato text-[11px] font-medium hover:bg-signal transition-colors duration-500"
                                         >
                                             <span>Book Free Audit</span>
-                                            <span className="text-xs">â†’</span>
+                                            <span className="text-xs">→</span>
                                         </button>
                                     </MagneticButton>
                                 </div>
@@ -288,7 +288,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     </div>
                 </div>
 
-                {/* â”€â”€ Related Posts â”€â”€ */}
+                {/* ── Related Posts ── */}
                 {related.length > 0 && (
                     <section className="mt-32 pt-20 border-t border-border/60">
                         <div className="max-w-[1400px] mx-auto px-4 md:px-16">

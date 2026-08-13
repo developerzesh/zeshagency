@@ -80,10 +80,6 @@ body {
   animation: marquee 60s linear infinite;
 }
 
-.three-canvas canvas {
-  outline: none !important;
-}
-
 .sig-hover {
   position: relative;
 }
@@ -172,6 +168,40 @@ div {
 }
 .arrow-bounce-fast {
   animation: arrow-bounce-fast 1.2s ease-in-out infinite;
+}
+
+/* Particle field — slow rotation replacing Three.js Canvas */
+@keyframes particle-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.particle-field {
+  animation: particle-rotate 120s linear infinite;
+  transform-origin: center center;
+}
+
+/* Particle wavy lines — subtle drift */
+@keyframes particle-line-drift {
+  0%, 100% { stroke-dashoffset: 0; opacity: 0.03; }
+  50% { stroke-dashoffset: 40; opacity: 0.06; }
+}
+.particle-line {
+  stroke-dasharray: 8 12;
+  animation: particle-line-drift 8s ease-in-out infinite;
+}
+
+/* Floating geometry — slow rotation for CSS replacements */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes slow-spin-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
 
 /* ─── CSS Animations (replacing framer-motion) ──────────────────────────────── */

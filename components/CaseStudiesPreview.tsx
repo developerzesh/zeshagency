@@ -85,7 +85,7 @@ export default function CaseStudiesPreview() {
                       <ul className="space-y-2">
                         {cs.results.map((res, idx) => (
                           <li key={idx} className="flex items-start gap-2 font-lato text-xs text-text-secondary">
-                            <span className="text-[#8cda28] font-bold select-none">âœ“</span>
+                            <span className="text-[#8cda28] font-bold select-none">✓</span>
                             <span>{res}</span>
                           </li>
                         ))}
@@ -97,7 +97,7 @@ export default function CaseStudiesPreview() {
                   <div className="pt-4 border-t border-border/20 flex justify-between items-center mt-auto">
                     <span className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 group-hover:text-ink transition-colors duration-300">
                       Explore Case Study
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">â†’</span>
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                     </span>
                   </div>
                 </m.div>

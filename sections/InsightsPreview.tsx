@@ -32,7 +32,7 @@ export default function InsightsPreview() {
         </div>
         <RevealText delay={0.3}>
           <div className="text-center mt-14">
-            <a href="/insights" className="font-lato text-sm text-signal sig-hover">Read more insights â†’</a>
+            <a href="/insights" className="font-lato text-sm text-signal sig-hover">Read more insights →</a>
           </div>
         </RevealText>
       </div>

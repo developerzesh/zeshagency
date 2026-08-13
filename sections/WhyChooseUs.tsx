@@ -2,9 +2,9 @@
 import RevealText from '../components/RevealText';
 
 const reasons = [
-  { number: '01', title: 'Compounding, Not Campaigns', description: 'We build growth systems that accelerate over time â€” not campaigns that expire when the budget does.' },
+  { number: '01', title: 'Compounding, Not Campaigns', description: 'We build growth systems that accelerate over time — not campaigns that expire when the budget does.' },
   { number: '02', title: 'Search to Revenue', description: 'Every strategy is designed to convert visibility into pipeline. Traffic is a means, not an end.' },
-  { number: '03', title: 'AI-First Visibility', description: 'We optimize for the AI-powered search landscape â€” LLMs, generative engines, and voice assistants.' },
+  { number: '03', title: 'AI-First Visibility', description: 'We optimize for the AI-powered search landscape — LLMs, generative engines, and voice assistants.' },
   { number: '04', title: 'Senior Teams Only', description: 'No juniors running your account. Every engagement is led by practitioners with 10+ years of experience.' },
 ];
 
@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Why Zesh</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">A different kind of growth partner<span className="text-signal">.</span></h2></RevealText>
         </div>
-        {/* Full-width editorial rows â€” no cards */}
+        {/* Full-width editorial rows — no cards */}
         <div>
           {reasons.map((reason, i) => (
             <RevealText key={reason.number} delay={i * 0.1}>

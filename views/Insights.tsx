@@ -5,6 +5,7 @@ import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-mo
 import RevealText from '../components/RevealText';
 import PageTransition from '../components/PageTransition';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import { insights, insightCategories } from '../lib/data';
 
@@ -79,16 +80,12 @@ export default function Insights() {
               transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
               className="flex flex-col items-start gap-4 flex-shrink-0"
             >
-              <MagneticButton strength={0.4}>
-                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                  <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                    <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                  </span>
-                  <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
-                </button>
-              </MagneticButton>
+              <CircleArrowButton
+                label="Book a Strategy Call"
+                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              />
               <MagneticButton strength={0.3}>
-                <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles â†“</a>
+                <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
               </MagneticButton>
             </m.div>
           </div>
@@ -154,7 +151,7 @@ export default function Insights() {
                     {/* Arrow indicator */}
                     <div className="md:col-span-2 flex justify-end">
                       <span className="text-signal/30 group-hover:text-signal transition-colors duration-[900ms] text-lg font-bold">
-                        â†’
+                        →
                       </span>
                     </div>
                   </m.article>
@@ -190,14 +187,10 @@ export default function Insights() {
             <div className="md:col-span-4 md:col-start-9">
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-5">
-                  <MagneticButton strength={0.4}>
-                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
-                    </button>
-                  </MagneticButton>
+                  <CircleArrowButton
+                    label="Book a Strategy Call"
+                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  />
                   <MagneticButton strength={0.3}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       View Client Case Studies

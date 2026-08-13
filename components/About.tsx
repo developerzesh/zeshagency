@@ -27,7 +27,7 @@ export default function About() {
     <section id="about" ref={containerRef} className="relative py-16 md:py-48 border-t border-border">
       <m.div style={{ y: backgroundY }} className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[200px] pointer-events-none" />
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        {/* Stats â€” no hover images, just clean numbers */}
+        {/* Stats — no hover images, just clean numbers */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14 mb-20 md:mb-36">
           {stats.map((stat, i) => (
             <RevealText key={stat.label} delay={i * 0.1}>
@@ -44,8 +44,8 @@ export default function About() {
             <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Who We Are</p></RevealText>
             <RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em] mb-8">About<span className="text-signal">.</span></h2></RevealText>
             <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-6">We are a digital marketing agency that engineers growth through SEO, SMO, AEO, GEO, and web development. Since 2019, we've partnered with ambitious brands to turn digital visibility into measurable revenue.</p></RevealText>
-            <RevealText delay={0.3}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-10">Our approach unifies every marketing channel into a single growth engine â€” where each discipline compounds the others and results accelerate over time.</p></RevealText>
-            <MagneticButton strength={0.3}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk â†’</a></MagneticButton>
+            <RevealText delay={0.3}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-10">Our approach unifies every marketing channel into a single growth engine — where each discipline compounds the others and results accelerate over time.</p></RevealText>
+            <MagneticButton strength={0.3}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
           </div>
           <div className="md:col-span-5 md:col-start-8">
             {values.map((v, i) => (

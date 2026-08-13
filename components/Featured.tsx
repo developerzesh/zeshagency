@@ -42,7 +42,7 @@ export default function Featured() {
               <div className="flex items-baseline gap-6 flex-shrink-0">
                 <span className="font-lato text-[11px] text-text-muted">Brand Identity</span>
                 <span className="font-lato text-[11px] text-text-muted">2024</span>
-                <m.span animate={{ x: 0 }} whileHover={{ x: 6 }} transition={{ duration: 0.6 }} className="text-signal text-sm">â†’</m.span>
+                <m.span animate={{ x: 0 }} whileHover={{ x: 6 }} transition={{ duration: 0.6 }} className="text-signal text-sm">→</m.span>
               </div>
             </div>
           </m.a>

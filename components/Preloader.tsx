@@ -6,13 +6,13 @@ const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const hardTruths = [
   'Your website is not a brochure. It is a revenue engine. Treat it like one or watch your competitors wave goodbye.',
-  'If your SEO strategy hasn\x27t changed since ChatGPT launched, you do not have a strategy â€” you have a nostalgic habit.',
+  'If your SEO strategy hasn\x27t changed since ChatGPT launched, you do not have a strategy — you have a nostalgic habit.',
   'Hiring an agency because your nephew knows WordPress is not a growth strategy. It is a tax on your ambition.',
   'The best time to optimize for AI search was yesterday. The second best time is before your competitor closes the gap.',
   'Most businesses spend more on office coffee than on understanding their search traffic. That tracks.',
   'Your competitors are not outranking you because they have better content. They have better architecture. Big difference.',
   'A beautiful website that does not convert is just an expensive art project. Hope your investors appreciate modern art.',
-  'If your page load time exceeds two seconds, you are not losing visitors â€” you are curating for the patient. There are fewer of them every day.',
+  'If your page load time exceeds two seconds, you are not losing visitors — you are curating for the patient. There are fewer of them every day.',
   'Your CRM is full of leads you paid for. Your organic search pipeline is full of leads you earned. Guess which one gets ignored.',
   'Algorithm updates do not hate your website. They simply do not trust it yet. There is a cure for that.',
   'The seven-figure site you built three years ago now loads slower than your grandmother dial-up. Progress has a cost.',
@@ -180,7 +180,7 @@ function generateStatement(seed: number): string {
   const templates = [
     `${action} your ${noun} ${context}. ${punchline}`,
     `Your ${noun} ${observation}. ${action} ${context}.`,
-    `${action} your ${noun} â€” your ${observation} ${context}.`,
+    `${action} your ${noun} — your ${observation} ${context}.`,
     `${context}: your ${noun} ${observation}. ${punchline}`,
     `${action} your ${noun}. ${observation.charAt(0).toUpperCase() + observation.slice(1)}. ${punchline}`,
     `We are ${action.toLowerCase()} your ${noun} ${context}. ${punchline}`,

@@ -63,7 +63,7 @@ export default function ImageModal({ images, children, className = '', captions 
                   ))}
                 </div>
               )}
-              <button onClick={() => setIsOpen(false)} className="absolute -top-12 right-0 font-lato text-sm text-paper/50 hover:text-paper transition-colors duration-700">Close âœ•</button>
+              <button onClick={() => setIsOpen(false)} className="absolute -top-12 right-0 font-lato text-sm text-paper/50 hover:text-paper transition-colors duration-700">Close ✕</button>
             </m.div>
           </m.div>
         )}

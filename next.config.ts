@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion", "@react-three/drei"],
+    optimizePackageImports: ["lucide-react", "framer-motion"],
   },
   poweredByHeader: false,
   compress: true,

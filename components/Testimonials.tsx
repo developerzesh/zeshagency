@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     quote:
-      "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet â€” and they deliver exactly that.",
+      "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that.",
     name: "Hafsa Syed",
     role: "Founder, HAFSA The Couture",
   },
@@ -61,7 +61,7 @@ export default function Testimonials() {
                   {/* Stars */}
                   <div className="flex gap-1 mb-6">
                     {Array.from({ length: 5 }).map((_, s) => (
-                      <span key={s} className="text-signal text-sm">â˜…</span>
+                      <span key={s} className="text-signal text-sm">★</span>
                     ))}
                   </div>
 

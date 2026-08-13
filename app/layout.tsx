@@ -25,7 +25,7 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "ZESH — Digital Marketing Agency",
+  title: "ZESHAGENCY — Digital Marketing Agency",
   description: "Zesh Agency · Strategic Growth Consultancy",
   icons: {
     icon: '/Group 3.svg',

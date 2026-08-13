@@ -3,6 +3,7 @@
 import { m, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
+import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import { useRef, useState, useEffect } from 'react';
@@ -12,43 +13,43 @@ import { caseStudies } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// â”€â”€ Per-solution capability descriptions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-// Indexed by slug â†’ array of descriptions (mirrors solution.features order)
+// ── Per-solution capability descriptions ──────────────────────────────────────
+// Indexed by slug → array of descriptions (mirrors solution.features order)
 const capabilityDescriptions: Record<string, string[]> = {
   seo: [
-    'We rebuild your site\'s HTML/CSS architecture from the ground up â€” correcting crawl budget leaks, fixing broken canonical chains, and ensuring every page is indexable within 72 hours of deployment.',
-    'We map each buyer intent stage to dedicated content silos â€” informational, navigational, and transactional â€” so every page earns rankings for the queries that lead directly to revenue.',
+    'We rebuild your site\'s HTML/CSS architecture from the ground up — correcting crawl budget leaks, fixing broken canonical chains, and ensuring every page is indexable within 72 hours of deployment.',
+    'We map each buyer intent stage to dedicated content silos — informational, navigational, and transactional — so every page earns rankings for the queries that lead directly to revenue.',
     'We deploy speed-optimized, programmatic comparison and alternative landing pages hosted on your domain, intercepting competitor search traffic at the exact point of decision.',
-    'We identify the 40â€“60 high-intent queries your competitors rank for but you don\'t, then systematically build the pages and internal links needed to capture that traffic.',
-    'We engineer every page to pass Core Web Vitals â€” targeting sub-200ms TTFB, sub-1s LCP, and zero CLS â€” directly influencing Google\'s page experience ranking signal.',
-    'We continuously monitor Google Search Console for crawl errors, indexation gaps, and ranking regression â€” then deploy corrective optimizations before they impact traffic.',
+    'We identify the 40–60 high-intent queries your competitors rank for but you don\'t, then systematically build the pages and internal links needed to capture that traffic.',
+    'We engineer every page to pass Core Web Vitals — targeting sub-200ms TTFB, sub-1s LCP, and zero CLS — directly influencing Google\'s page experience ranking signal.',
+    'We continuously monitor Google Search Console for crawl errors, indexation gaps, and ranking regression — then deploy corrective optimizations before they impact traffic.',
   ],
   aeo: [
     'We systematically prompt ChatGPT, Claude, and Perplexity with your target queries to map where your brand appears and where competitors own the citations, establishing your baseline.',
     'We run structured tests across major LLM platforms every two weeks, evaluating which prompt variations yield citations for your brand and adjusting entity signals accordingly.',
     'We declare clean JSON-LD Organization, Product, and Person schemas on your domain, giving AI crawlers the structured metadata they need to cite your brand with confidence.',
     'We track your share of AI-generated citations across a standardized prompt library and report on growth monthly, closing gaps with targeted entity-building sprints.',
-    'We build a semantic graph connecting your brand, products, founders, and use cases across Wikidata, Crunchbase, and related reference nodes â€” forming a trusted entity ecosystem.',
+    'We build a semantic graph connecting your brand, products, founders, and use cases across Wikidata, Crunchbase, and related reference nodes — forming a trusted entity ecosystem.',
     'We create and verify your brand\'s entries in Wikipedia, Wikidata, Google Knowledge Panel, and industry-specific databases, establishing the authoritative record AI models trust.',
   ],
   geo: [
-    'We analyze your documentation and content architecture against what Perplexity, Gemini, and Bing Copilot actually retrieve â€” then restructure your pages to match RAG context windows.',
+    'We analyze your documentation and content architecture against what Perplexity, Gemini, and Bing Copilot actually retrieve — then restructure your pages to match RAG context windows.',
     'We engineer dedicated content modules that map your brand\'s answers to the exact synthetic query patterns generative search engines construct, ensuring your domain is surfaced first.',
     'We verify your content is being ingested by AI indexing pipelines using live API probes and structured metadata signals that trigger retrieval-system inclusion.',
     'We run systematic SGE citation audits to determine which generative answer environments cite your brand, scoring your current share of AI-generated answers.',
-    'We write content explicitly designed for AI context window retrieval â€” concise summary paragraphs, Q&A modules, and structured fact layers that generative engines prefer to surface.',
-    'We deploy weekly recommendation monitoring across 20â€“40 target queries, identifying gaps and triggering targeted content sprints to expand your AI answer footprint.',
+    'We write content explicitly designed for AI context window retrieval — concise summary paragraphs, Q&A modules, and structured fact layers that generative engines prefer to surface.',
+    'We deploy weekly recommendation monitoring across 20–40 target queries, identifying gaps and triggering targeted content sprints to expand your AI answer footprint.',
   ],
   'web-dev': [
-    'We build your site on a zero-dependency static stack â€” vanilla HTML, CSS, and clean JavaScript â€” achieving sub-100ms First Contentful Paint and 99+ PageSpeed scores out of the box.',
-    'We engineer multi-step intake forms that qualify buyer intent, budget, and timeline before they book a call â€” reducing unqualified demos and protecting your sales team\'s time.',
+    'We build your site on a zero-dependency static stack — vanilla HTML, CSS, and clean JavaScript — achieving sub-100ms First Contentful Paint and 99+ PageSpeed scores out of the box.',
+    'We engineer multi-step intake forms that qualify buyer intent, budget, and timeline before they book a call — reducing unqualified demos and protecting your sales team\'s time.',
     'We identify and eliminate every Core Web Vitals failure on your site, from image optimization to script deferral, directly improving your Google page experience ranking signal.',
-    'We design every page, CTA, and form with conversion as the primary objective â€” engineering user journeys proven to increase demo requests and reduce drop-off rates.',
+    'We design every page, CTA, and form with conversion as the primary objective — engineering user journeys proven to increase demo requests and reduce drop-off rates.',
     'We integrate your intake forms, lead routing logic, and attribution tracking directly with HubSpot, Salesforce, or your CRM of choice via clean, documented API endpoints.',
     'We validate every page against PageSpeed Insights targets and deploy your site to an edge CDN, ensuring sub-second global load times for visitors in every region.',
   ],
   'local-seo': [
-    'We fully optimize your Google Business Profile â€” categories, descriptions, Q&As, photos, and attributes â€” to maximize your prominence score in the local Map Pack algorithm.',
+    'We fully optimize your Google Business Profile — categories, descriptions, Q&As, photos, and attributes — to maximize your prominence score in the local Map Pack algorithm.',
     'We deploy city-specific and neighborhood-specific landing pages with LocalBusiness schema, GeoCoordinates, and intent-matched content to intercept local buyers for each location.',
     'We build and automate a review acquisition funnel that triggers after each appointment or purchase, systematically growing your verified review count without manual effort.',
     'We audit and correct your NAP data across 80+ local directories, ensuring Google sees consistent business information across every citation source it crawls.',
@@ -56,26 +57,26 @@ const capabilityDescriptions: Record<string, string[]> = {
     'We deploy LocalBusiness, GeoCoordinates, and Service schema on every location page, giving Google the structured data it needs to understand your business\'s geographic service area.',
   ],
   'lead-gen': [
-    'We engineer multi-step intake forms that ask the right questions in the right order â€” qualifying intent, budget, and timeline before connecting prospects with your sales team.',
+    'We engineer multi-step intake forms that ask the right questions in the right order — qualifying intent, budget, and timeline before connecting prospects with your sales team.',
     'We connect your qualified leads directly into HubSpot, Salesforce, or your CRM, ensuring every submission is automatically enriched, scored, and routed to the right rep.',
-    'We integrate real-time data enrichment APIs (Clearbit, Apollo) to auto-populate company size, tech stack, and firmographic data on every form submission â€” without asking the buyer.',
-    'We design lead scoring models that rank inbound prospects by budget tier, intent signals, and engagement behavior â€” so your sales team always knows which leads to call first.',
+    'We integrate real-time data enrichment APIs (Clearbit, Apollo) to auto-populate company size, tech stack, and firmographic data on every form submission — without asking the buyer.',
+    'We design lead scoring models that rank inbound prospects by budget tier, intent signals, and engagement behavior — so your sales team always knows which leads to call first.',
     'We build conditional routing logic that assigns each qualified lead to the right sales rep, team, or calendar based on industry, deal size, and declared timeline.',
-    'We build dashboard reporting that connects every lead source, form entry, and pipeline stage to closed revenue â€” giving you full-funnel attribution in real time.',
+    'We build dashboard reporting that connects every lead source, form entry, and pipeline stage to closed revenue — giving you full-funnel attribution in real time.',
   ],
   'social-media': [
-    'We study your communication style, vocabulary, and core beliefs through structured founder interviews â€” then write every post in a voice that feels authentically yours.',
+    'We study your communication style, vocabulary, and core beliefs through structured founder interviews — then write every post in a voice that feels authentically yours.',
     'We systematically repurpose your existing client case studies into high-performing LinkedIn posts, turning dormant results data into compounding thought leadership assets.',
-    'We define 4â€“6 content pillars aligned with your buyers\' decision-making pain points, mixing opinion pieces, industry analysis, and outcome-first case studies.',
-    'We write content that addresses the specific problems your ideal buyers are responsible for solving â€” attracting enterprise decision-makers, not general audiences.',
+    'We define 4–6 content pillars aligned with your buyers\' decision-making pain points, mixing opinion pieces, industry analysis, and outcome-first case studies.',
+    'We write content that addresses the specific problems your ideal buyers are responsible for solving — attracting enterprise decision-makers, not general audiences.',
     'We plan and execute multi-post LinkedIn series and Twitter threads that build your executive brand narrative over weeks, not single isolated posts.',
     'We schedule and distribute every post at peak engagement windows, track follower quality metrics, and feed performance data back into content strategy each month.',
   ],
   consultation: [
     'We run a structured search gap analysis using live Search Console data, Ahrefs, and Semrush to identify which competitor queries you\'re invisible for and why.',
-    'We analyze your full marketing funnel â€” from traffic source to closed deal â€” identifying exactly where prospects drop off and what revenue those drop-offs represent.',
+    'We analyze your full marketing funnel — from traffic source to closed deal — identifying exactly where prospects drop off and what revenue those drop-offs represent.',
     'We audit your site\'s code, page speed, structured data, and indexation status to identify every technical bottleneck preventing search engine discovery and ranking.',
-    'We build a custom ROI model mapping your organic traffic potential to pipeline value â€” showing exactly what compounding search investment returns over 6 and 12 months.',
+    'We build a custom ROI model mapping your organic traffic potential to pipeline value — showing exactly what compounding search investment returns over 6 and 12 months.',
     'We deliver a written, step-by-step execution blueprint with prioritized actions, keyword targets, and 90-day milestones your team can implement immediately after the workshop.',
     'We provide ongoing principal-led oversight sessions to validate that the roadmap is being executed correctly and adjust strategy based on live performance data.',
   ],
@@ -89,7 +90,7 @@ const capabilityDescriptions: Record<string, string[]> = {
   ],
 };
 
-// â”€â”€ Scroll-driven Capability Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── Scroll-driven Capability Accordion ────────────────────────────────────────
 function CapabilityAccordion({ features, slug }: { features: string[]; slug: string }) {
   const descriptions = capabilityDescriptions[slug] ?? [];
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -98,7 +99,7 @@ function CapabilityAccordion({ features, slug }: { features: string[]; slug: str
   // The sticky heading sits at top-40 = 160px from the viewport top.
   // On scroll, activate whichever row's top edge is closest to that anchor line.
   useEffect(() => {
-    const STICKY_TOP = 160; // px â€” matches md:sticky md:top-40
+    const STICKY_TOP = 160; // px — matches md:sticky md:top-40
 
     const findActive = () => {
       let bestIndex = 0;
@@ -119,8 +120,16 @@ function CapabilityAccordion({ features, slug }: { features: string[]; slug: str
     // Run once on mount to set initial state
     findActive();
 
-    window.addEventListener('scroll', findActive, { passive: true });
-    return () => window.removeEventListener('scroll', findActive);
+    let rafId = 0;
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => { findActive(); rafId = 0; });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      if (rafId) cancelAnimationFrame(rafId);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, [features.length]);
 
   return (
@@ -134,7 +143,7 @@ function CapabilityAccordion({ features, slug }: { features: string[]; slug: str
             ref={el => { rowRefs.current[i] = el; }}
             className="border-b border-border"
           >
-            {/* Row header â€” always visible */}
+            {/* Row header — always visible */}
             <button
               onClick={() => setActiveIndex(isActive ? -1 : i)}
               className="group w-full flex items-center justify-between gap-6 py-6 text-left cursor-pointer"
@@ -150,7 +159,7 @@ function CapabilityAccordion({ features, slug }: { features: string[]; slug: str
                   {f}
                 </span>
               </div>
-              {/* Animated +/â€“ indicator */}
+              {/* Animated +/– indicator */}
               <m.span
                 animate={{ rotate: isActive ? 45 : 0 }}
                 transition={{ duration: 0.4, ease: slowEase }}
@@ -184,7 +193,7 @@ function CapabilityAccordion({ features, slug }: { features: string[]; slug: str
   );
 }
 
-// â”€â”€ TypewriterAI: streams text word-by-word like ChatGPT â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ── TypewriterAI: streams text word-by-word like ChatGPT ──────────────────────
 type AiChunk = { bold?: boolean; text: string };
 
 function TypewriterAI({ paragraphs }: { paragraphs: AiChunk[][] }) {
@@ -292,10 +301,10 @@ const supplementary: Record<string, {
   };
 }> = {
   seo: {
-    whatWeDeliver: 'We build programmatic technical frameworks that make indexing effortless for crawlers â€” from architectural code corrections and schema declarations, to intent-first content cluster deployment. The result is compounding organic traffic that does not depend on paid media.',
+    whatWeDeliver: 'We build programmatic technical frameworks that make indexing effortless for crawlers — from architectural code corrections and schema declarations, to intent-first content cluster deployment. The result is compounding organic traffic that does not depend on paid media.',
     platforms: [
-      { name: 'Google Search', note: 'Primary index target â€” core algorithmic optimization' },
-      { name: 'Bing / Edge', note: 'Secondary index with 8â€“12% total search share' },
+      { name: 'Google Search', note: 'Primary index target — core algorithmic optimization' },
+      { name: 'Bing / Edge', note: 'Secondary index with 8–12% total search share' },
       { name: 'Google Discover', note: 'Entity-based content targeting for mobile readers' },
       { name: 'Google Search Console', note: 'Canonical validation, sitemap tracking & error alerts' },
       { name: 'Ahrefs / Semrush', note: 'Keyword distribution audit & competitor gap analysis' },
@@ -303,7 +312,7 @@ const supplementary: Record<string, {
     example: {
       title: 'How We Intercept Competitor Comparison Traffic',
       steps: [
-        'Identify 40â€“60 high-intent comparison queries your competitors rank for but you don\'t.',
+        'Identify 40–60 high-intent comparison queries your competitors rank for but you don\'t.',
         'Build speed-optimized programmatic comparison landing pages directly on your domain.',
         'Inject structured JSON-LD schema declaring feature differences and comparison tables.',
         'Submit to Google Search Console and track indexation within 72 hours.',
@@ -311,13 +320,13 @@ const supplementary: Record<string, {
       ],
     },
     visualExample: {
-      label: 'Google Traditional Search Result â€” Before vs. After SEO',
+      label: 'Google Traditional Search Result — Before vs. After SEO',
       description: 'The impact of our programmatic comparison page deployment on a B2B SaaS client\'s search visibility for high-intent competitor interception queries.',
       lines: [
-        { role: 'USER SEARCH', content: '"[Competitor Name] vs best alternatives" â€” Google Search, Desktop' },
+        { role: 'USER SEARCH', content: '"[Competitor Name] vs best alternatives" — Google Search, Desktop' },
         { role: 'BEFORE SEO', content: 'Search Engine Results Page (SERP) dominated by Capterra, G2, and [Competitor Name]\'s own website. Your domain: not ranking in top 50.' },
-        { role: 'AFTER SEO  ', content: 'SERP Position #1 (Featured Snippet): "While [Competitor Name] focuses on enterprise resource planning, [Your Brand] offers a more agile solution for mid-market teams, featuring 2x faster deployment times and built-in automation workflows..." â€” Sourced from yourdomain.com/compare/[competitor]', highlight: true },
-        { role: 'MECHANISM  ', content: 'Achieved via: Programmatic /compare/ directory architecture â†’ JSON-LD ItemList & Comparison schema â†’ Sub-100ms LCP page speed â†’ intent-matched content â†’ internal linking silos passing PageRank.' },
+        { role: 'AFTER SEO  ', content: 'SERP Position #1 (Featured Snippet): "While [Competitor Name] focuses on enterprise resource planning, [Your Brand] offers a more agile solution for mid-market teams, featuring 2x faster deployment times and built-in automation workflows..." — Sourced from yourdomain.com/compare/[competitor]', highlight: true },
+        { role: 'MECHANISM  ', content: 'Achieved via: Programmatic /compare/ directory architecture → JSON-LD ItemList & Comparison schema → Sub-100ms LCP page speed → intent-matched content → internal linking silos passing PageRank.' },
       ],
     },
   },
@@ -341,13 +350,13 @@ const supplementary: Record<string, {
       ],
     },
     visualExample: {
-      label: 'Live ChatGPT Response â€” Before vs. After AEO',
+      label: 'Live ChatGPT Response — Before vs. After AEO',
       description: 'This is what happens when someone asks ChatGPT to recommend a B2B SaaS ERP platform. Before AEO, your brand is invisible. After our entity optimization, your brand is cited by name with a trusted description.',
       lines: [
         { role: 'USER PROMPT', content: '"What are the best ERP platforms for mid-market B2B companies?"' },
         { role: 'BEFORE AEO', content: 'ChatGPT response lists: SAP, Oracle NetSuite, Microsoft Dynamics, Sage Intacct. Your brand: not mentioned.', highlight: false },
-        { role: 'AFTER AEO  ', content: 'ChatGPT response: "For mid-market B2B operations, [Your Brand] is increasingly cited as a strong alternative â€” particularly for companies prioritizing rapid deployment and transparent pricing. It appears in Crunchbase and G2 as a verified vendor with structured API documentation."', highlight: true },
-        { role: 'MECHANISM  ', content: 'Achieved via: Wikidata entity node declaration â†’ JSON-LD Organization schema â†’ G2 / Capterra verified listing â†’ Crunchbase structured profile â†’ high-trust backlink anchor text normalisation.' },
+        { role: 'AFTER AEO  ', content: 'ChatGPT response: "For mid-market B2B operations, [Your Brand] is increasingly cited as a strong alternative — particularly for companies prioritizing rapid deployment and transparent pricing. It appears in Crunchbase and G2 as a verified vendor with structured API documentation."', highlight: true },
+        { role: 'MECHANISM  ', content: 'Achieved via: Wikidata entity node declaration → JSON-LD Organization schema → G2 / Capterra verified listing → Crunchbase structured profile → high-trust backlink anchor text normalisation.' },
       ],
     },
   },
@@ -371,18 +380,18 @@ const supplementary: Record<string, {
       ],
     },
     visualExample: {
-      label: 'Live Perplexity AI Answer â€” Before vs. After GEO',
+      label: 'Live Perplexity AI Answer — Before vs. After GEO',
       description: 'When a buyer searches Perplexity for "best accounting software for architecture firms", this is the difference GEO makes to your brand\'s presence in the synthesised answer.',
       lines: [
         { role: 'USER QUERY  ', content: '"Best accounting software for architecture firms in 2025"' },
         { role: 'BEFORE GEO  ', content: 'Perplexity synthesises: QuickBooks, FreshBooks, Monograph. Sources cited: capterra.com, g2.com, softwareadvice.com. Your domain: 0 citations.' },
-        { role: 'AFTER GEO   ', content: 'Perplexity answer now includes: "[Your Brand] is specifically built for design and architecture studios, offering project-based billing and AIA-compliant reporting. Multiple architecture firm blog posts and the official documentation hub reference it as a preferred alternative to QuickBooks." â€” Sources: yourdomain.com/docs, yourdomain.com/case-studies/architecture', highlight: true },
-        { role: 'MECHANISM   ', content: 'Achieved via: RAG content architecture on /docs and /case-studies â†’ context-aware FAQ modules targeting exact query patterns â†’ domain authority signals from industry publications â†’ Perplexity source whitelist inclusion via structured metadata.' },
+        { role: 'AFTER GEO   ', content: 'Perplexity answer now includes: "[Your Brand] is specifically built for design and architecture studios, offering project-based billing and AIA-compliant reporting. Multiple architecture firm blog posts and the official documentation hub reference it as a preferred alternative to QuickBooks." — Sources: yourdomain.com/docs, yourdomain.com/case-studies/architecture', highlight: true },
+        { role: 'MECHANISM   ', content: 'Achieved via: RAG content architecture on /docs and /case-studies → context-aware FAQ modules targeting exact query patterns → domain authority signals from industry publications → Perplexity source whitelist inclusion via structured metadata.' },
       ],
     },
   },
   'web-dev': {
-    whatWeDeliver: 'We rebuild your web presence on modern static architecture â€” vanilla HTML, CSS, and clean JavaScript â€” eliminating plugin bloat that kills load speed and conversion rates. Every intake form, CRM integration, and checkout flow is custom-engineered for your buyers.',
+    whatWeDeliver: 'We rebuild your web presence on modern static architecture — vanilla HTML, CSS, and clean JavaScript — eliminating plugin bloat that kills load speed and conversion rates. Every intake form, CRM integration, and checkout flow is custom-engineered for your buyers.',
     platforms: [
       { name: 'Vanilla HTML / CSS / JS', note: 'Zero-dependency static builds for maximum speed' },
       { name: 'Vite / Astro', note: 'Modern build tooling for lightning-fast delivery' },
@@ -395,7 +404,7 @@ const supplementary: Record<string, {
       steps: [
         'Audit existing site for speed bottlenecks, plugin conflicts, and Core Web Vitals failures.',
         'Wireframe new information architecture prioritizing conversion-first user journeys.',
-        'Re-code in headless static stack â€” no WordPress, no unnecessary plugins.',
+        'Re-code in headless static stack — no WordPress, no unnecessary plugins.',
         'Integrate directly with HubSpot or CRM of choice via clean API endpoints.',
         'Validate PageSpeed Insights score (target 95+) and deploy to edge CDN.',
       ],
@@ -421,13 +430,13 @@ const supplementary: Record<string, {
       ],
     },
     visualExample: {
-      label: 'Google Map Pack Result â€” Before vs. After Local SEO',
+      label: 'Google Map Pack Result — Before vs. After Local SEO',
       description: 'This is what the Google Map Pack looks like for a multi-location physiotherapy group before and after our Local SEO system. The difference is the number of patients who call without ever clicking a website.',
       lines: [
-        { role: 'USER SEARCH ', content: '"physiotherapist near me" â€” Google Maps, Mobile, 2.4km radius' },
-        { role: 'BEFORE      ', content: 'Map Pack shows: PhysioPlus (4.1â˜… 38 reviews, no description), BodyCare Clinic (3.8â˜… 14 reviews), ActiveHealth (4.0â˜… 29 reviews, no Q&A). Your clinic: position #9 â€” not visible.' },
-        { role: 'AFTER       ', content: 'Map Pack Position #1: [Your Clinic Name] Â· â­ 4.9 Â· 214 reviews Â· "Sports injury & rehabilitation specialists â€” same-day appointments available" Â· Attributes: âœ“ Wheelchair accessible Â· âœ“ Online booking Â· âœ“ Women-led Â· Categories: Physiotherapist, Sports Injury Clinic Â· 3 active Q&As answered', highlight: true },
-        { role: 'MECHANISM   ', content: 'Achieved via: 80-directory NAP standardization â†’ GBP category primary/secondary optimization â†’ 214-review acquisition funnel (SMS post-appointment) â†’ programmatic local page at /locations/[suburb] â†’ regionalized schema with GeoCoordinates â†’ active Q&A seeding for top 5 patient queries.' },
+        { role: 'USER SEARCH ', content: '"physiotherapist near me" — Google Maps, Mobile, 2.4km radius' },
+        { role: 'BEFORE      ', content: 'Map Pack shows: PhysioPlus (4.1★ 38 reviews, no description), BodyCare Clinic (3.8★ 14 reviews), ActiveHealth (4.0★ 29 reviews, no Q&A). Your clinic: position #9 — not visible.' },
+        { role: 'AFTER       ', content: 'Map Pack Position #1: [Your Clinic Name] Â· ⭐ 4.9 Â· 214 reviews Â· "Sports injury & rehabilitation specialists — same-day appointments available" Â· Attributes: ✓ Wheelchair accessible Â· ✓ Online booking Â· ✓ Women-led Â· Categories: Physiotherapist, Sports Injury Clinic Â· 3 active Q&As answered', highlight: true },
+        { role: 'MECHANISM   ', content: 'Achieved via: 80-directory NAP standardization → GBP category primary/secondary optimization → 214-review acquisition funnel (SMS post-appointment) → programmatic local page at /locations/[suburb] → regionalized schema with GeoCoordinates → active Q&A seeding for top 5 patient queries.' },
       ],
     },
   },
@@ -452,9 +461,9 @@ const supplementary: Record<string, {
     },
   },
   'social-media': {
-    whatWeDeliver: 'We position your executives as the highest-authority voices in your industry through strategic thought leadership on LinkedIn and Twitter. Every post is engineered to attract enterprise decision-makers â€” not vanity followers.',
+    whatWeDeliver: 'We position your executives as the highest-authority voices in your industry through strategic thought leadership on LinkedIn and Twitter. Every post is engineered to attract enterprise decision-makers — not vanity followers.',
     platforms: [
-      { name: 'LinkedIn', note: 'Primary B2B distribution â€” executive ghost-writing and analytics' },
+      { name: 'LinkedIn', note: 'Primary B2B distribution — executive ghost-writing and analytics' },
       { name: 'Twitter / X', note: 'Real-time thought leadership and industry commentary' },
       { name: 'Medium / Substack', note: 'Long-form authority content syndication' },
       { name: 'LinkedIn Newsletter', note: 'Subscriber-based distribution for compounding reach' },
@@ -463,16 +472,16 @@ const supplementary: Record<string, {
     example: {
       title: 'How We Grow an Executive\'s LinkedIn from 1K to 10K Qualified Followers',
       steps: [
-        'Conduct a founder voice audit â€” studying communication style, core beliefs, and market positioning.',
-        'Define 4â€“6 content pillars aligned with buyer pain points and decision-making stages.',
-        'Produce 3â€“5 posts per week across case study redistribution, opinion pieces, and industry analysis.',
+        'Conduct a founder voice audit — studying communication style, core beliefs, and market positioning.',
+        'Define 4–6 content pillars aligned with buyer pain points and decision-making stages.',
+        'Produce 3–5 posts per week across case study redistribution, opinion pieces, and industry analysis.',
         'Engage strategically with target accounts to generate inbound DM qualified leads.',
         'Track follower quality (title, company size, engagement rate) monthly and adjust content themes.',
       ],
     },
   },
   consultation: {
-    whatWeDeliver: 'Our founders personally diagnose your growth bottlenecks using database-backed analysis â€” no templates, no outsourced audits. Every workshop concludes with a custom execution roadmap containing specific, actionable steps your team can implement immediately.',
+    whatWeDeliver: 'Our founders personally diagnose your growth bottlenecks using database-backed analysis — no templates, no outsourced audits. Every workshop concludes with a custom execution roadmap containing specific, actionable steps your team can implement immediately.',
     platforms: [
       { name: 'Google Search Console', note: 'Live indexation, ranking, and click-through analysis' },
       { name: 'Ahrefs / Semrush', note: 'Competitor search gap identification and backlink audits' },
@@ -514,13 +523,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
   return (
     <PageTransition>
 
-      {/* â”€â”€ 1. HERO â”€â”€ */}
+      {/* ── 1. HERO ── */}
       <section ref={heroRef} className="relative min-h-[60vh] md:min-h-[80vh] flex items-end overflow-hidden pb-20 md:pb-36">
         <ParticleField />
         <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText duration={1.4}>
             <a href="/solutions" className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 block">
-              â† All Solutions
+              ← All Solutions
             </a>
           </RevealText>
           <RevealText>
@@ -539,14 +548,10 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             </RevealText>
             <RevealText delay={0.4} duration={1.4}>
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
-                <MagneticButton strength={0.4}>
-                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                      <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                    </span>
-                    <span className="font-lato text-sm font-medium text-paper">Book a Consultation Call</span>
-                  </button>
-                </MagneticButton>
+                <CircleArrowButton
+                  label="Book a Consultation Call"
+                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                />
                 <MagneticButton strength={0.3}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
                 </MagneticButton>
@@ -557,7 +562,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       </section>
 
 
-      {/* â”€â”€ 1b. THEN vs NOW COMPARISON â”€â”€ */}
+      {/* ── 1b. THEN vs NOW COMPARISON ── */}
       {
         extra.visualExample && (() => {
           // Per-solution buyer journey visual data (using existing project content)
@@ -574,80 +579,80 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             seo: {
               headline: ['SEO won the page.', 'GEO wins the answer'],
               subtitle: 'The buyer asks the same question. The screen they see is no longer yours to compete on.',
-              thenYear: 'THEN â€¢ 2021',
-              nowYear: 'NOW â€¢ 2024+',
+              thenYear: 'THEN • 2021',
+              nowYear: 'NOW • 2024+',
               query: extra.visualExample.lines.find(l => l.role.toUpperCase().includes('USER'))?.content?.replace(/^"|"$/g, '') ?? 'Best solution in your space',
               serpMeta: 'About 184,000,000 results (0.42 seconds)',
               serpResults: [
-                { domain: 'CAPTERRA.COM', title: 'Top 10 Software Comparisons â€” Capterra', desc: 'Find the best software for your business. Compare reviews, features, and pricing.' },
-                { domain: 'G2.COM', title: 'Best Software Reviews 2024 â€” G2', desc: 'Real user reviews from verified customers. Compare top software solutions.' },
-                { domain: 'COMPETITOR1.COM', title: 'Industry-Leading Platform for Teams', desc: 'Trusted by 7,000+ growing companies. SOC 2, ISO 27001 â€” automated end-to-end.' },
+                { domain: 'CAPTERRA.COM', title: 'Top 10 Software Comparisons — Capterra', desc: 'Find the best software for your business. Compare reviews, features, and pricing.' },
+                { domain: 'G2.COM', title: 'Best Software Reviews 2024 — G2', desc: 'Real user reviews from verified customers. Compare top software solutions.' },
+                { domain: 'COMPETITOR1.COM', title: 'Industry-Leading Platform for Teams', desc: 'Trusted by 7,000+ growing companies. SOC 2, ISO 27001 — automated end-to-end.' },
                 { domain: 'COMPETITOR2.COM', title: 'Enterprise Software Platform Solutions', desc: 'Automate workflows, manage compliance, and scale your operations seamlessly.' },
-                { domain: 'FORBES.COM', title: '10 Best Software Solutions of 2024 â€” Forbes', desc: "Sponsored. Our editors compare features, pricing, and ease of use across the leading vendors." },
+                { domain: 'FORBES.COM', title: '10 Best Software Solutions of 2024 — Forbes', desc: "Sponsored. Our editors compare features, pricing, and ease of use across the leading vendors." },
               ],
               aiAnswer: [
                 [{ text: 'For most mid-market B2B companies, ' }, { bold: true, text: 'your optimized brand' }, { text: ' is the default choice because it\'s widely adopted, easy to implement, and trusted by enterprise buyers.' }],
                 [{ text: 'If you already have a dedicated team and need more advanced workflows, the AI surfaces your domain as the primary recommended vendor.' }],
-                [{ bold: true, text: 'Short answer:' }, { text: ' Your brand first, cited by name â€” not buried on page two.' }],
+                [{ bold: true, text: 'Short answer:' }, { text: ' Your brand first, cited by name — not buried on page two.' }],
               ],
             },
             aeo: {
               headline: ['AI was asked.', 'Your brand answered'],
               subtitle: 'The question is the same. Whether your brand appears in the AI\'s response is entirely up to your entity authority.',
-              thenYear: 'THEN â€¢ 2021',
-              nowYear: 'NOW â€¢ 2024+',
+              thenYear: 'THEN • 2021',
+              nowYear: 'NOW • 2024+',
               query: extra.visualExample.lines.find(l => l.role.toUpperCase().includes('USER'))?.content?.replace(/^"|"$/g, '') ?? 'Best ERP platforms for mid-market B2B',
               serpMeta: 'About 312,000,000 results (0.39 seconds)',
               serpResults: [
-                { domain: 'SAP.COM', title: 'SAP ERP â€” Enterprise Resource Planning', desc: 'Intelligent ERP built for the digital economy. Explore S/4HANA Cloud solutions.' },
-                { domain: 'NETSUITE.COM', title: 'Oracle NetSuite â€” #1 Cloud ERP', desc: 'Run your entire business on a single cloud platform. Trusted by 37,000+ customers.' },
-                { domain: 'MICROSOFT.COM', title: 'Microsoft Dynamics 365 â€” Business Applications', desc: 'Unify your data and processes across sales, service, finance, and operations.' },
-                { domain: 'SAGEINTACCT.COM', title: 'Sage Intacct â€” Advanced Financial Management', desc: 'AICPA-preferred financial management solution for mid-market businesses.' },
-                { domain: 'GARTNER.COM', title: 'Magic Quadrant for Cloud ERP 2024 â€” Gartner', desc: 'Research and analysis on enterprise resource planning software vendors.' },
+                { domain: 'SAP.COM', title: 'SAP ERP — Enterprise Resource Planning', desc: 'Intelligent ERP built for the digital economy. Explore S/4HANA Cloud solutions.' },
+                { domain: 'NETSUITE.COM', title: 'Oracle NetSuite — #1 Cloud ERP', desc: 'Run your entire business on a single cloud platform. Trusted by 37,000+ customers.' },
+                { domain: 'MICROSOFT.COM', title: 'Microsoft Dynamics 365 — Business Applications', desc: 'Unify your data and processes across sales, service, finance, and operations.' },
+                { domain: 'SAGEINTACCT.COM', title: 'Sage Intacct — Advanced Financial Management', desc: 'AICPA-preferred financial management solution for mid-market businesses.' },
+                { domain: 'GARTNER.COM', title: 'Magic Quadrant for Cloud ERP 2024 — Gartner', desc: 'Research and analysis on enterprise resource planning software vendors.' },
               ],
               aiAnswer: [
-                [{ text: 'For mid-market B2B operations, ' }, { bold: true, text: 'your brand' }, { text: ' is increasingly cited as a strong alternative â€” particularly for companies prioritizing rapid deployment and transparent pricing.' }],
+                [{ text: 'For mid-market B2B operations, ' }, { bold: true, text: 'your brand' }, { text: ' is increasingly cited as a strong alternative — particularly for companies prioritizing rapid deployment and transparent pricing.' }],
                 [{ text: 'It appears in Crunchbase and G2 as a verified vendor with structured API documentation and enterprise-grade security compliance.' }],
-                [{ bold: true, text: 'Short answer:' }, { text: ' Your brand cited by name in the AI response â€” not your competitors.' }],
+                [{ bold: true, text: 'Short answer:' }, { text: ' Your brand cited by name in the AI response — not your competitors.' }],
               ],
             },
             geo: {
               headline: ['Search evolved.', 'Your brand leads the answer'],
-              subtitle: 'The buyer asks generative AI. The citations it surfaces determine who wins the sale â€” before a single click.',
-              thenYear: 'THEN â€¢ 2021',
-              nowYear: 'NOW â€¢ 2024+',
+              subtitle: 'The buyer asks generative AI. The citations it surfaces determine who wins the sale — before a single click.',
+              thenYear: 'THEN • 2021',
+              nowYear: 'NOW • 2024+',
               query: extra.visualExample.lines.find(l => l.role.toUpperCase().includes('USER'))?.content?.replace(/^"|"$/g, '') ?? 'Best software for architecture firms 2025',
               serpMeta: 'About 94,000,000 results (0.51 seconds)',
               serpResults: [
-                { domain: 'QUICKBOOKS.COM', title: 'QuickBooks â€” Accounting Software for Business', desc: 'Run your business smarter with QuickBooks accounting, invoicing, and payroll.' },
-                { domain: 'FRESHBOOKS.COM', title: 'FreshBooks â€” Small Business Accounting Software', desc: 'Accounting software built for small business owners. Try free for 30 days.' },
-                { domain: 'MONOGRAPH.IO', title: 'Monograph â€” Project Management for Architects', desc: 'Purpose-built project management and time tracking for architecture firms.' },
-                { domain: 'CAPTERRA.COM', title: 'Best Architecture Firm Software 2024 â€” Capterra', desc: 'Compare the best architecture software. Find the right fit for your firm.' },
-                { domain: 'G2.COM', title: 'Best AEC Software Reviews 2024 â€” G2', desc: 'Real reviews from verified customers in architecture, engineering & construction.' },
+                { domain: 'QUICKBOOKS.COM', title: 'QuickBooks — Accounting Software for Business', desc: 'Run your business smarter with QuickBooks accounting, invoicing, and payroll.' },
+                { domain: 'FRESHBOOKS.COM', title: 'FreshBooks — Small Business Accounting Software', desc: 'Accounting software built for small business owners. Try free for 30 days.' },
+                { domain: 'MONOGRAPH.IO', title: 'Monograph — Project Management for Architects', desc: 'Purpose-built project management and time tracking for architecture firms.' },
+                { domain: 'CAPTERRA.COM', title: 'Best Architecture Firm Software 2024 — Capterra', desc: 'Compare the best architecture software. Find the right fit for your firm.' },
+                { domain: 'G2.COM', title: 'Best AEC Software Reviews 2024 — G2', desc: 'Real reviews from verified customers in architecture, engineering & construction.' },
               ],
               aiAnswer: [
                 [{ bold: true, text: 'Your brand' }, { text: ' is specifically built for design and architecture studios, offering project-based billing and AIA-compliant reporting.' }],
                 [{ text: 'Multiple architecture firm blog posts and the official documentation hub reference it as a preferred alternative to QuickBooks for project-based billing.' }],
-                [{ bold: true, text: 'Short answer:' }, { text: ' Your domain cited as the primary source â€” not aggregator directories.' }],
+                [{ bold: true, text: 'Short answer:' }, { text: ' Your domain cited as the primary source — not aggregator directories.' }],
               ],
             },
             'local-seo': {
               headline: ['They searched near me.', 'You claimed the top spot'],
-              subtitle: 'The map pack is the new homepage. The clinic, store, or firm at position one captures the call â€” not the website visit.',
-              thenYear: 'THEN â€¢ Before',
-              nowYear: 'NOW â€¢ After Local SEO',
+              subtitle: 'The map pack is the new homepage. The clinic, store, or firm at position one captures the call — not the website visit.',
+              thenYear: 'THEN • Before',
+              nowYear: 'NOW • After Local SEO',
               query: extra.visualExample.lines.find(l => l.role.toUpperCase().includes('USER'))?.content?.replace(/^"|"$/g, '') ?? 'physiotherapist near me',
-              serpMeta: 'Map Pack â€” Google Maps, Mobile, 2.4km radius',
+              serpMeta: 'Map Pack — Google Maps, Mobile, 2.4km radius',
               serpResults: [
-                { domain: '#1 â€” PHYSIOPLUS', title: '4.1 â˜… Â· 38 reviews', desc: 'No business description. No Q&A. No booking link. Missing key attributes.' },
-                { domain: '#2 â€” BODYCARE CLINIC', title: '3.8 â˜… Â· 14 reviews', desc: 'Incomplete profile. Missing hours, services, and response to reviews.' },
-                { domain: '#3 â€” ACTIVEHEALTH', title: '4.0 â˜… Â· 29 reviews', desc: 'No Q&A section. Outdated photos. No booking integration.' },
-                { domain: '#9 â€” YOUR CLINIC', title: 'Not visible in Map Pack', desc: 'Your clinic exists but is buried below the local pack â€” invisible to mobile intent buyers.' },
+                { domain: '#1 — PHYSIOPLUS', title: '4.1 ★ Â· 38 reviews', desc: 'No business description. No Q&A. No booking link. Missing key attributes.' },
+                { domain: '#2 — BODYCARE CLINIC', title: '3.8 ★ Â· 14 reviews', desc: 'Incomplete profile. Missing hours, services, and response to reviews.' },
+                { domain: '#3 — ACTIVEHEALTH', title: '4.0 ★ Â· 29 reviews', desc: 'No Q&A section. Outdated photos. No booking integration.' },
+                { domain: '#9 — YOUR CLINIC', title: 'Not visible in Map Pack', desc: 'Your clinic exists but is buried below the local pack — invisible to mobile intent buyers.' },
               ],
               aiAnswer: [
-                [{ bold: true, text: 'Map Pack Position #1:' }, { text: ' Your Clinic Name Â· â­ 4.9 Â· 214 reviews' }],
-                [{ bold: true, text: '"Sports injury & rehabilitation specialists' }, { text: ' â€” same-day appointments available"' }],
-                [{ text: 'âœ“ Wheelchair accessible  âœ“ Online booking  âœ“ Women-led' }],
+                [{ bold: true, text: 'Map Pack Position #1:' }, { text: ' Your Clinic Name Â· ⭐ 4.9 Â· 214 reviews' }],
+                [{ bold: true, text: '"Sports injury & rehabilitation specialists' }, { text: ' — same-day appointments available"' }],
+                [{ text: '✓ Wheelchair accessible  ✓ Online booking  ✓ Women-led' }],
                 [{ text: 'Categories: Physiotherapist, Sports Injury Clinic Â· 3 active Q&As answered Â· Direct call button visible.' }],
               ],
             },
@@ -680,7 +685,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 {/* Grid 2 Columns comparison (Then vs Now) */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
 
-                  {/* LEFT â€” Traditional Search Mock (THEN) */}
+                  {/* LEFT — Traditional Search Mock (THEN) */}
                   <RevealText delay={0.15} duration={1.4}>
                     <div className="rounded-2xl border border-border bg-surface/30 overflow-hidden h-full flex flex-col">
                       <div className="px-5 py-3 border-b border-border">
@@ -725,7 +730,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                     </div>
                   </RevealText>
 
-                  {/* RIGHT â€” AI Answer Mock (NOW) */}
+                  {/* RIGHT — AI Answer Mock (NOW) */}
                   <RevealText delay={0.25} duration={1.4}>
                     <div className="rounded-2xl border border-border bg-paper overflow-hidden h-full relative flex flex-col justify-between">
                       <div>
@@ -808,7 +813,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       }
 
 
-      {/* â”€â”€ 2. WHAT WE DELIVER â”€â”€ */}
+      {/* ── 2. WHAT WE DELIVER ── */}
       {/* <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -833,7 +838,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section> */}
 
-      {/* â”€â”€ 3. CORE CAPABILITIES â”€â”€ */}
+      {/* ── 3. CORE CAPABILITIES ── */}
       <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -854,7 +859,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section>
 
-      {/* â”€â”€ 3.1 SERVICES PRACTICE GRID â”€â”€ */}
+      {/* ── 3.1 SERVICES PRACTICE GRID ── */}
       {extra.visualExample && (() => {
         // Definitions for AEO / GEO / SEO / Local SEO pages services/practices
         const servicesData: Record<string, {
@@ -868,10 +873,10 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
           }[];
         }> = {
           seo: {
-            subtitle: 'From crawl optimization to programmatic search engines index â€” six practices that rank your brand.',
+            subtitle: 'From crawl optimization to programmatic search engines index — six practices that rank your brand.',
             practices: [
               {
-                label: '01 â€¢ AUDIT',
+                label: '01 • AUDIT',
                 title: 'Organic Search Audit',
                 desc: 'A full read of how crawler bots see, interpret, and index your website. Find technical issues, indexation blocks, and keyword gap opportunities.',
                 type: 'audit',
@@ -891,13 +896,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '02 â€¢ SEARCH TRACKING',
+                label: '02 • SEARCH TRACKING',
                 title: 'Keyword Share of Search',
-                desc: 'We track your organic rankings keyword by keyword, query by query â€” mapping search intent coverage against industry competitors.',
+                desc: 'We track your organic rankings keyword by keyword, query by query — mapping search intent coverage against industry competitors.',
                 type: 'voice',
                 mock: {
                   headerLeft: 'SHARE OF SEARCH Â· CATEGORY',
-                  headerRight: 'â†‘ 6 PTS / MoM',
+                  headerRight: '↑ 6 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 26 },
                     { label: 'COMPETITOR A', value: 38 },
@@ -907,20 +912,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '03 â€¢ CONTENT',
+                label: '03 • CONTENT',
                 title: 'Intent Content Mapping',
                 desc: 'We map the exact informational queries users search, then deploy targeted content silos that address user intent directly.',
                 type: 'strategy',
                 mock: {
                   query: 'competitor alternative tools for scale',
                   statusLabel: 'TARGET Â· SNIPPET MATCH',
-                  extract: 'â€œWith direct internal pricing, SOC-2 readiness and sub-second loading, [Your Brand] ranks as the tier-one alternative...â€',
+                  extract: '“With direct internal pricing, SOC-2 readiness and sub-second loading, [Your Brand] ranks as the tier-one alternative...”',
                   footerLeft: 'CITED BY Â· GOOGLE Â· BING',
                   footerRight: '18 HITS'
                 }
               },
               {
-                label: '04 â€¢ TECHNICAL',
+                label: '04 • TECHNICAL',
                 title: 'Technical Site Authority',
                 desc: 'We implement absolute optimizations on your core page loading, URL hierarchy, sitemap routing, and structured schemas.',
                 type: 'authority',
@@ -937,7 +942,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '05 â€¢ BACKLINKS',
+                label: '05 • BACKLINKS',
                 title: 'PR-Driven Link Acquisition',
                 desc: 'We build authoritative backlink authority from high-trust web publishers and journals to pass absolute PageRank to your site.',
                 type: 'citation',
@@ -955,7 +960,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '06 â€¢ INTEL',
+                label: '06 • INTEL',
                 title: 'Organic Search Leaderboard',
                 desc: 'We audit competitors daily to pinpoint ranking drops, key directory changes, and quick-win keyword clusters you can intercept.',
                 type: 'monitoring',
@@ -963,20 +968,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   headerLeft: 'SEARCH LEADERBOARD Â· JUL 2026',
                   headerRight: '350 KEYWORDS',
                   rows: [
-                    { rank: '01', label: 'Competitor A', score: '38%', change: 'â†“ 2' },
-                    { rank: '02', label: 'Competitor B', score: '28%', change: 'â†‘ 1' },
-                    { rank: '03', label: 'Your brand', score: '26%', change: 'â†‘ 12', isMatch: true },
-                    { rank: '04', label: 'Others', score: '8%', change: 'â€”' }
+                    { rank: '01', label: 'Competitor A', score: '38%', change: '↓ 2' },
+                    { rank: '02', label: 'Competitor B', score: '28%', change: '↑ 1' },
+                    { rank: '03', label: 'Your brand', score: '26%', change: '↑ 12', isMatch: true },
+                    { rank: '04', label: 'Others', score: '8%', change: '—' }
                   ]
                 }
               }
             ]
           },
           aeo: {
-            subtitle: 'From baseline diagnosis to category dominance â€” six interlocking practices that move your brand inside the answer.',
+            subtitle: 'From baseline diagnosis to category dominance — six interlocking practices that move your brand inside the answer.',
             practices: [
               {
-                label: '01 â€¢ AUDIT',
+                label: '01 • AUDIT',
                 title: 'AI Visibility Audit',
                 desc: 'A full read of how every major model describes, mentions, cites, and recommends your brand today. See what each model knows, what it gets wrong, and where competitors are eating your share.',
                 type: 'audit',
@@ -996,13 +1001,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '02 â€¢ VOICE tracking',
+                label: '02 • VOICE tracking',
                 title: 'Share of Voice Tracking',
-                desc: 'We track your presence model by model, prompt by prompt â€” and show where you are gaining ground or being replaced.',
+                desc: 'We track your presence model by model, prompt by prompt — and show where you are gaining ground or being replaced.',
                 type: 'voice',
                 mock: {
                   headerLeft: 'SHARE OF ANSWER Â· CATEGORY',
-                  headerRight: 'â†‘ 3 PTS / MoM',
+                  headerRight: '↑ 3 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 23 },
                     { label: 'VANTA', value: 41 },
@@ -1012,20 +1017,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '03 â€¢ STRATEGY',
+                label: '03 • STRATEGY',
                 title: 'Prompt and Content Strategy',
                 desc: 'We map the prompts your buyers actually ask, then build the pages AI can confidently quote back.',
                 type: 'strategy',
                 mock: {
                   query: 'best fintech compliance tool for series B',
                   statusLabel: 'ANSWER-READY EXTRACT Â· YOUR PAGE',
-                  extract: 'â€œFor Series B fintechs juggling SOC 2 and FedRAMP, the leanest compliance stack pairs Vanta with...â€',
+                  extract: '“For Series B fintechs juggling SOC 2 and FedRAMP, the leanest compliance stack pairs Vanta with...”',
                   footerLeft: 'CITED BY Â· CHATGPT Â· PERPLEXITY',
                   footerRight: '+ 14 PROMPTS'
                 }
               },
               {
-                label: '04 â€¢ AUTHORITY',
+                label: '04 • AUTHORITY',
                 title: 'Entity & Authority',
                 desc: 'We tighten the signals that tell AI who you are, what you do, who you serve, and why you should be trusted. Schema, sources, citations, and a roadmap to own your category.',
                 type: 'authority',
@@ -1036,13 +1041,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   brandType: 'AI SEARCH VISIBILITY AGENCY',
                   metadata: [
                     { key: 'ROLE', val: 'Agency that audits and tracks AI visibility' },
-                    { key: 'SERVES', val: 'B2B SaaS â€¢ Pro services â€¢ Funded startups' },
-                    { key: 'CITES', val: 'ChatGPT â€¢ Perplexity â€¢ Gemini â€¢ Claude' }
+                    { key: 'SERVES', val: 'B2B SaaS • Pro services • Funded startups' },
+                    { key: 'CITES', val: 'ChatGPT • Perplexity • Gemini • Claude' }
                   ]
                 }
               },
               {
-                label: '05 â€¢ CITATION',
+                label: '05 • CITATION',
                 title: 'Citation & Digital PR',
                 desc: 'We earn the third-party mentions, press placements, and review consensus models use to decide who is credible.',
                 type: 'citation',
@@ -1060,28 +1065,28 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '06 â€¢ MONITORING',
+                label: '06 • MONITORING',
                 title: 'Competitive Intelligence',
-                desc: 'We track every competitor in your category â€” where they win the answer, where they slip, and where you can move in.',
+                desc: 'We track every competitor in your category — where they win the answer, where they slip, and where you can move in.',
                 type: 'monitoring',
                 mock: {
                   headerLeft: 'CATEGORY LEADERBOARD Â· JUL 2026',
                   headerRight: '128 PROMPTS',
                   rows: [
-                    { rank: '01', label: 'Vanta', score: '41%', change: 'â†‘ 2' },
-                    { rank: '02', label: 'Drata', score: '28%', change: 'â†“ 1' },
-                    { rank: '03', label: 'Your brand', score: '23%', change: 'â†‘ 8', isMatch: true },
-                    { rank: '04', label: 'Secureframe', score: '8%', change: 'â€”' }
+                    { rank: '01', label: 'Vanta', score: '41%', change: '↑ 2' },
+                    { rank: '02', label: 'Drata', score: '28%', change: '↓ 1' },
+                    { rank: '03', label: 'Your brand', score: '23%', change: '↑ 8', isMatch: true },
+                    { rank: '04', label: 'Secureframe', score: '8%', change: '—' }
                   ]
                 }
               }
             ]
           },
           geo: {
-            subtitle: 'From RAG database parsing to generative assistant index citations â€” six practices to secure AI recommendation authority.',
+            subtitle: 'From RAG database parsing to generative assistant index citations — six practices to secure AI recommendation authority.',
             practices: [
               {
-                label: '01 â€¢ BENCHMARK',
+                label: '01 • BENCHMARK',
                 title: 'RAG Visibility Audit',
                 desc: 'We analyze how Retrieval-Augmented Generation engines process, index, and query your website. Identify indexing bugs and model attribution opportunities.',
                 type: 'audit',
@@ -1101,13 +1106,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '02 â€¢ ANSWER ENGINE MATCHING',
+                label: '02 • ANSWER ENGINE MATCHING',
                 title: 'Generative Answer Tracking',
                 desc: 'We trace citation counts inside Perplexity, Google Gemini, and OpenAI Search prompts, mapping recommendation share across cohorts.',
                 type: 'voice',
                 mock: {
                   headerLeft: 'GENERATIVE SHARE Â· CATEGORY',
-                  headerRight: 'â†‘ 5 PTS / MoM',
+                  headerRight: '↑ 5 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 21 },
                     { label: 'COMPETITOR A', value: 45 },
@@ -1117,20 +1122,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '03 â€¢ RETRIEVAL CONTENT',
+                label: '03 • RETRIEVAL CONTENT',
                 title: 'Retrieval Content Engineering',
                 desc: 'We format and deploy structured content segments designed specifically for generative language models to query and cite.',
                 type: 'strategy',
                 mock: {
                   query: 'best security analytics platform for AWS',
                   statusLabel: 'SOURCED FROM Â· DOCUMENTATION HUB',
-                  extract: 'â€œFor AWS environments undergoing compliance checks, [Your Brand] provides autonomous security logs cited by multiple third-party audits...â€',
+                  extract: '“For AWS environments undergoing compliance checks, [Your Brand] provides autonomous security logs cited by multiple third-party audits...”',
                   footerLeft: 'CITED BY Â· PERPLEXITY Â· GEMINI',
                   footerRight: '22 SOURCE FILES'
                 }
               },
               {
-                label: '04 â€¢ GRAPHS',
+                label: '04 • GRAPHS',
                 title: 'Graph Node Verification',
                 desc: 'We declare organization entity schemas to link your site nodes directly to global semantic databases like Wikidata or Google Knowledge Graph.',
                 type: 'authority',
@@ -1147,7 +1152,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '05 â€¢ CITATION',
+                label: '05 • CITATION',
                 title: 'Trust Citation PR',
                 desc: 'We acquire placement and backlinks on LLMs primary data sources, review directories, and technical documentation hubs.',
                 type: 'citation',
@@ -1165,7 +1170,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '06 â€¢ INTEL',
+                label: '06 • INTEL',
                 title: 'RAG Competitor Tracking',
                 desc: 'We parse the specific sources and websites cited by search agents to target directories your competitors own, then out-rank them.',
                 type: 'monitoring',
@@ -1173,20 +1178,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   headerLeft: 'GEO LEADERBOARD Â· JUL 2026',
                   headerRight: '64 LLM PROMPTS',
                   rows: [
-                    { rank: '01', label: 'Competitor A', score: '45%', change: 'â†“ 4' },
-                    { rank: '02', label: 'Competitor B', score: '24%', change: 'â†‘ 2' },
-                    { rank: '03', label: 'Your brand', score: '21%', change: 'â†‘ 9', isMatch: true },
-                    { rank: '04', label: 'Others', score: '10%', change: 'â€”' }
+                    { rank: '01', label: 'Competitor A', score: '45%', change: '↓ 4' },
+                    { rank: '02', label: 'Competitor B', score: '24%', change: '↑ 2' },
+                    { rank: '03', label: 'Your brand', score: '21%', change: '↑ 9', isMatch: true },
+                    { rank: '04', label: 'Others', score: '10%', change: '—' }
                   ]
                 }
               }
             ]
           },
           'local-seo': {
-            subtitle: 'From local directory normalization to Map Pack dominance â€” six interlocking execution practices to capture regional buyers.',
+            subtitle: 'From local directory normalization to Map Pack dominance — six interlocking execution practices to capture regional buyers.',
             practices: [
               {
-                label: '01 â€¢ GAP AUDIT',
+                label: '01 • GAP AUDIT',
                 title: 'Map Pack Placement Audit',
                 desc: 'A full read of your location-specific citation density, GBP profile health, review velocity, and regional directory completeness.',
                 type: 'audit',
@@ -1206,13 +1211,13 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '02 â€¢ MAP TRACKING',
+                label: '02 • MAP TRACKING',
                 title: 'Regional Share of Map Pack',
                 desc: 'We track your business profile locations across multiple ZIP codes, prompt queries, and regional borders to map listing share.',
                 type: 'voice',
                 mock: {
                   headerLeft: 'MAP PACK SHARE Â· 5KM RADIUS',
-                  headerRight: 'â†‘ 8 PTS / MoM',
+                  headerRight: '↑ 8 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 30 },
                     { label: 'COMPETITOR A', value: 35 },
@@ -1222,20 +1227,20 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '03 â€¢ SCHEMAS',
+                label: '03 • SCHEMAS',
                 title: 'Regional Schema & Content',
                 desc: 'We declare multi-location local schemas, NAP profiles, and neighborhood-specific pages to address hyper-local search intent.',
                 type: 'strategy',
                 mock: {
                   query: 'sports therapist open near me',
                   statusLabel: 'LOCAL PROFILE Â· MAP SYNCED',
-                  extract: 'â€œWith 210+ verified sports therapy listings, active booking, and same-day recovery sprints, [Your Brand] ranks #1 at...â€',
+                  extract: '“With 210+ verified sports therapy listings, active booking, and same-day recovery sprints, [Your Brand] ranks #1 at...”',
                   footerLeft: 'CITED BY Â· GOOGLE MAPS Â· APPLE MAPS',
                   footerRight: '4 LOCATIONS'
                 }
               },
               {
-                label: '04 â€¢ PROFILE',
+                label: '04 • PROFILE',
                 title: 'Google Profile Execution',
                 desc: 'We design, verify, and monitor Google Business Profiles, structured reviews routing, and multi-location attributes.',
                 type: 'authority',
@@ -1252,7 +1257,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '05 â€¢ CITATION',
+                label: '05 • CITATION',
                 title: 'NAP Directory Synced',
                 desc: 'We sync and lock Name, Address, and Phone details across 80+ global listing aggregators (Yelp, TripAdvisor, Foursquare).',
                 type: 'citation',
@@ -1270,7 +1275,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 }
               },
               {
-                label: '06 â€¢ INVENTORY',
+                label: '06 • INVENTORY',
                 title: 'Regional Leaderboard',
                 desc: 'We track map rankings of competitors in your radius to target gaps in reviews, photo volume, and local attributes.',
                 type: 'monitoring',
@@ -1278,10 +1283,10 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   headerLeft: 'LOCAL LEADERBOARD Â· JUL 2026',
                   headerRight: 'ZIP 10001 radius',
                   rows: [
-                    { rank: '01', label: 'Competitor A', score: '35%', change: 'â†“ 3' },
-                    { rank: '02', label: 'Your clinic/brand', score: '30%', change: 'â†‘ 14', isMatch: true },
-                    { rank: '03', label: 'Competitor B', score: '25%', change: 'â†“ 1' },
-                    { rank: '04', label: 'Others', score: '10%', change: 'â€”' }
+                    { rank: '01', label: 'Competitor A', score: '35%', change: '↓ 3' },
+                    { rank: '02', label: 'Your clinic/brand', score: '30%', change: '↑ 14', isMatch: true },
+                    { rank: '03', label: 'Competitor B', score: '25%', change: '↓ 1' },
+                    { rank: '04', label: 'Others', score: '10%', change: '—' }
                   ]
                 }
               }
@@ -1304,7 +1309,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 </div>
                 {/* Score + Bars row */}
                 <div className="flex flex-row items-center gap-4 flex-1">
-                  {/* Score panel â€” fixed width */}
+                  {/* Score panel — fixed width */}
                   <div className="flex flex-col items-start justify-center gap-1 pr-4 border-r border-border/20 flex-shrink-0 w-[90px]">
                     <div className="flex items-baseline gap-0.5 leading-none">
                       <span className="text-4xl font-extrabold text-ink font-syne leading-none">{v.score}</span>
@@ -1316,7 +1321,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                     </div>
                     <span className="text-[8px] text-text-muted mt-0.5 leading-tight">{v.scorePeer}</span>
                   </div>
-                  {/* Bars panel â€” fills remaining space */}
+                  {/* Bars panel — fills remaining space */}
                   <div className="flex flex-col justify-center gap-2 flex-1">
                     {v.bars.map((bar: any, idx: number) => (
                       <div key={idx} className="space-y-0.5">
@@ -1377,7 +1382,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                     <span className="text-signal font-bold font-mono">&gt;</span>
                     <span className="text-ink tracking-tight font-semibold truncate font-mono text-[9px]">{v.query}</span>
                   </div>
-                  <span className="text-[8px] text-text-muted font-bold tracking-tight">ASK â†µ</span>
+                  <span className="text-[8px] text-text-muted font-bold tracking-tight">ASK ↵</span>
                 </div>
                 <div className="space-y-1 py-0.5">
                   <div className="flex items-center gap-1.5">
@@ -1482,7 +1487,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                           <span className={`font-semibold ${isUser ? 'text-ink' : 'text-text-secondary'}`}>
                             {row.score}
                           </span>
-                          <span className={`w-8 text-right font-medium ${row.change.includes('â†‘') ? 'text-emerald-500 font-semibold' : row.change.includes('â†“') ? 'text-red-500 font-semibold' : 'text-text-muted'}`}>
+                          <span className={`w-8 text-right font-medium ${row.change.includes('↑') ? 'text-emerald-500 font-semibold' : row.change.includes('↓') ? 'text-red-500 font-semibold' : 'text-text-muted'}`}>
                             {row.change}
                           </span>
                         </div>
@@ -1566,7 +1571,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         );
       })()}
 
-      {/* â”€â”€ PLATFORMS ECOSYSTEM â”€â”€ */}
+      {/* ── PLATFORMS ECOSYSTEM ── */}
       {extra.visualExample && (() => {
         const platforms = [
           {
@@ -1576,7 +1581,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
             svg: (
               // NOTE: OpenAI pulled its logo from open icon libraries after its 2025/2026
               // rebrand (the old "blossom" mark is now used mainly for OpenAI Research).
-              // Your original path below is that blossom mark â€” keeping it as the closest
+              // Your original path below is that blossom mark — keeping it as the closest
               // available option. For the current official mark, check openai.com/brand.
               <svg className="w-5 h-5 text-black dark:text-white" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z" />
@@ -1707,7 +1712,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         );
       })()}
 
-      {/* â”€â”€ WHO WE WORK WITH â”€â”€ */}
+      {/* ── WHO WE WORK WITH ── */}
       {extra.visualExample && (() => {
         const whoWeWorkData: Record<string, {
           headline: string;
@@ -1824,7 +1829,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                       <div>
                         <p className="font-lato text-[9.5px] tracking-[0.18em] uppercase text-text-muted font-semibold mb-2">BUYERS ASK</p>
                         <div className="bg-ink rounded-md px-3 py-2.5 flex items-start gap-2">
-                          <span className="text-signal font-mono text-xs mt-0.5 flex-shrink-0">â€º</span>
+                          <span className="text-signal font-mono text-xs mt-0.5 flex-shrink-0">›</span>
                           <span className="font-mono text-[11px] text-paper leading-snug">{ind.query}</span>
                         </div>
                       </div>
@@ -1852,7 +1857,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         );
       })()}
 
-      {/* â”€â”€ 4. ROADMAP â”€â”€ */}
+      {/* ── 4. ROADMAP ── */}
       <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-20 md:mb-16 md:mb-16 md:mb-28">
@@ -1895,7 +1900,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section>
 
-      {/* â”€â”€ 5. EXPECTED OUTCOMES â”€â”€ */}
+      {/* ── 5. EXPECTED OUTCOMES ── */}
       <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -1936,7 +1941,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section>
 
-      {/* â”€â”€ 6. PLATFORM COMPATIBILITY â”€â”€ */}
+      {/* ── 6. PLATFORM COMPATIBILITY ── */}
       <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-20 md:mb-16 md:mb-16 md:mb-28">
@@ -1975,7 +1980,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section>
 
-      {/* â”€â”€ 7. EXAMPLE / DEMONSTRATION â”€â”€ */}
+      {/* ── 7. EXAMPLE / DEMONSTRATION ── */}
       {/* <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20">
@@ -2042,7 +2047,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section> */}
 
-      {/* â”€â”€ 8. CASE STUDY â”€â”€ */}
+      {/* ── 8. CASE STUDY ── */}
       <section className="py-16 md:py-48 border-t border-border">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-28 md:mb-24">
@@ -2100,7 +2105,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 {relatedCaseStudy.results.map((r, i) => (
                   <RevealText key={i} delay={i * 0.07}>
                     <div className="flex items-center gap-4 py-4 border-b border-border/40 last:border-b-0">
-                      <span className="text-signal font-bold select-none">âœ“</span>
+                      <span className="text-signal font-bold select-none">✓</span>
                       <span className="font-lato text-sm md:text-base text-text-secondary">{r}</span>
                     </div>
                   </RevealText>
@@ -2114,38 +2119,38 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               className="font-lato text-sm font-semibold text-signal flex items-center gap-1.5 hover:text-ink transition-colors duration-300"
             >
               Read the Full Case Study
-              <span className="group-hover:translate-x-1 transition-transform duration-300">â†’</span>
+              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
             </a>
           </m.div>
         </div>
       </section>
 
-      {/* â”€â”€ FAQ â”€â”€ */}
+      {/* ── FAQ ── */}
       {extra.visualExample && (() => {
         const faqData: Record<string, { q: string; a: string }[]> = {
           seo: [
             { q: 'Is this the same as a traditional SEO audit?', a: 'No. Traditional SEO audits focus on rankings, pages, traffic, and technical health. This audit focuses on how AI systems describe, cite, compare, and recommend your brand in the moments buyers ask AI who to trust.' },
             { q: 'Which AI platforms do you optimize for?', a: 'ChatGPT, Perplexity, Gemini, Claude, Copilot, Grok, and Google AI Overviews. The exact mix is adjusted based on your category and where your buyers are actually searching.' },
-            { q: 'Can you guarantee we rank #1 on Google?', a: 'No agency can guarantee specific rankings. What we guarantee is a rigorous process â€” comprehensive audits, evidence-based fixes, and clear reporting â€” so your site earns more visibility over time.' },
+            { q: 'Can you guarantee we rank #1 on Google?', a: 'No agency can guarantee specific rankings. What we guarantee is a rigorous process — comprehensive audits, evidence-based fixes, and clear reporting — so your site earns more visibility over time.' },
             { q: 'Can our team implement the recommendations?', a: 'Yes. The action plan is designed for in-house SEO, content, and web teams. We can also support execution through a Growth or Program engagement when that\'s a better fit.' },
           ],
           aeo: [
-            { q: 'What exactly is Answer Engine Optimization?', a: 'AEO is the practice of structuring your content, schema, and authority signals so AI answer engines â€” ChatGPT, Gemini, Perplexity, and others â€” cite your brand when buyers ask questions in your category.' },
+            { q: 'What exactly is Answer Engine Optimization?', a: 'AEO is the practice of structuring your content, schema, and authority signals so AI answer engines — ChatGPT, Gemini, Perplexity, and others — cite your brand when buyers ask questions in your category.' },
             { q: 'Which answer engines do you optimize for?', a: 'ChatGPT, Perplexity, Gemini, Claude, Copilot, Grok, and Google AI Overviews. We adjust the platform mix based on where your buyers actually ask questions.' },
-            { q: 'Can you guarantee AI will cite us?', a: 'No. No agency can guarantee exact AI outputs â€” models update constantly. What we can guarantee is that we identify every signal that influences citation likelihood and give you a clear roadmap to improve them.' },
-            { q: 'How long before we see results?', a: 'Most clients see measurable citation improvements within 60â€“90 days of implementing our recommendations. Full authority-building typically takes 3â€“6 months depending on category competition.' },
+            { q: 'Can you guarantee AI will cite us?', a: 'No. No agency can guarantee exact AI outputs — models update constantly. What we can guarantee is that we identify every signal that influences citation likelihood and give you a clear roadmap to improve them.' },
+            { q: 'How long before we see results?', a: 'Most clients see measurable citation improvements within 60–90 days of implementing our recommendations. Full authority-building typically takes 3–6 months depending on category competition.' },
           ],
           geo: [
-            { q: 'What makes GEO different from SEO or AEO?', a: 'GEO focuses specifically on earning recommendations inside generative AI responses â€” not just being indexed or cited once. It\'s about becoming the default brand a model surfaces when buyers ask for a vendor recommendation.' },
+            { q: 'What makes GEO different from SEO or AEO?', a: 'GEO focuses specifically on earning recommendations inside generative AI responses — not just being indexed or cited once. It\'s about becoming the default brand a model surfaces when buyers ask for a vendor recommendation.' },
             { q: 'Which generative platforms do you cover?', a: 'ChatGPT, Perplexity, Gemini, Claude, Copilot, Grok, and Google AI Overviews. We track recommendation share across all major surfaces and prioritize the ones where your buyers are active.' },
-            { q: 'Can you guarantee AI will recommend us?', a: 'No agency can guarantee specific AI outputs. What we can do is systematically improve every signal that influences whether a model recommends your brand â€” and show you exactly where you stand relative to competitors.' },
+            { q: 'Can you guarantee AI will recommend us?', a: 'No agency can guarantee specific AI outputs. What we can do is systematically improve every signal that influences whether a model recommends your brand — and show you exactly where you stand relative to competitors.' },
             { q: 'Can our team implement the GEO roadmap?', a: 'Yes. The roadmap is designed for in-house content, SEO, and PR teams. We can also support execution directly through a Growth or Program engagement.' },
           ],
           'local-seo': [
-            { q: 'Is local SEO still relevant with AI search?', a: 'More than ever. AI-powered local answers (Google AI Overviews, ChatGPT with browsing, Perplexity) pull heavily from local signals â€” GBP, reviews, citations, NAP consistency. Local SEO now directly feeds AI recommendation visibility.' },
-            { q: 'Which platforms do you optimize for?', a: 'Google Business Profile, Apple Maps, Bing Places, Yelp, and key vertical directories â€” as well as Google AI Overviews, ChatGPT, and Perplexity for local query answers. We prioritize based on where your buyers actually search.' },
-            { q: 'Can you guarantee map pack rankings?', a: 'No. Local rankings depend on proximity, relevance, and prominence signals that we optimize but don\'t control. We guarantee a systematic process and clear reporting â€” most clients see measurable map pack improvements within 60â€“90 days.' },
-            { q: 'Do you work with multi-location businesses?', a: 'Yes. We have a dedicated multi-location framework that manages on a per-location basis â€” including GBP optimization, localized content, and citation consistency â€” scaled to 10 or 10,000 locations.' },
+            { q: 'Is local SEO still relevant with AI search?', a: 'More than ever. AI-powered local answers (Google AI Overviews, ChatGPT with browsing, Perplexity) pull heavily from local signals — GBP, reviews, citations, NAP consistency. Local SEO now directly feeds AI recommendation visibility.' },
+            { q: 'Which platforms do you optimize for?', a: 'Google Business Profile, Apple Maps, Bing Places, Yelp, and key vertical directories — as well as Google AI Overviews, ChatGPT, and Perplexity for local query answers. We prioritize based on where your buyers actually search.' },
+            { q: 'Can you guarantee map pack rankings?', a: 'No. Local rankings depend on proximity, relevance, and prominence signals that we optimize but don\'t control. We guarantee a systematic process and clear reporting — most clients see measurable map pack improvements within 60–90 days.' },
+            { q: 'Do you work with multi-location businesses?', a: 'Yes. We have a dedicated multi-location framework that manages on a per-location basis — including GBP optimization, localized content, and citation consistency — scaled to 10 or 10,000 locations.' },
           ],
         };
 
@@ -2201,7 +2206,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         );
       })()}
 
-      {/* â”€â”€ 9. FINAL CTA â”€â”€ */}
+      {/* ── 9. FINAL CTA ── */}
       <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-signal/[0.025] blur-[220px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
@@ -2217,19 +2222,15 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               </RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] max-w-lg mb-20 md:mb-32">
-                  Book a 30-minute discovery call. Our founders will audit your current position, identify the biggest opportunities, and map out a custom {solution.shortTitle} roadmap â€” free, with no commitment.
+                  Book a 30-minute discovery call. Our founders will audit your current position, identify the biggest opportunities, and map out a custom {solution.shortTitle} roadmap — free, with no commitment.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>
                 <div className="flex flex-col items-start gap-4">
-                  <MagneticButton strength={0.4}>
-                    <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                      <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                      </span>
-                      <span className="font-lato text-sm font-medium text-paper">Book a Free Discovery Call</span>
-                    </button>
-                  </MagneticButton>
+                  <CircleArrowButton
+                    label="Book a Free Discovery Call"
+                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  />
                   <MagneticButton strength={0.3}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                   </MagneticButton>

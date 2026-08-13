@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import PageTransition from '../components/PageTransition';
+import CircleArrowButton from '../components/CircleArrowButton';
 import MagneticButton from '../components/MagneticButton';
 import ParticleField from '../components/ParticleField';
 import { blogPosts, blogCategories } from '../lib/blogData';
@@ -31,7 +32,7 @@ export default function Blog() {
 
     return (
         <PageTransition>
-            {/* â”€â”€ Hero â”€â”€ */}
+            {/* ── Hero ── */}
             <section
                 ref={heroRef}
                 className="relative min-h-[60vh] md:min-h-[88vh] flex items-center overflow-hidden"
@@ -83,23 +84,19 @@ export default function Blog() {
                             transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
                             className="flex flex-col items-start gap-4 flex-shrink-0"
                         >
-                            <MagneticButton strength={0.4}>
-                                <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
-                                    <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                                        <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                                    </span>
-                                    <span className="font-lato text-sm font-medium text-paper">Book a Strategy Call</span>
-                                </button>
-                            </MagneticButton>
+                            <CircleArrowButton
+                              label="Book a Strategy Call"
+                              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                            />
                             <MagneticButton strength={0.3}>
-                                <a href="#posts" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles â†“</a>
+                                <a href="#posts" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
                             </MagneticButton>
                         </m.div>
                     </div>
                 </m.div>
             </section>
 
-            {/* â”€â”€ Category Filter Bar â”€â”€ */}
+            {/* ── Category Filter Bar ── */}
             <section className="border-t border-b border-border/60 py-5 sticky top-0 z-30 backdrop-blur-2xl bg-paper/80">
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16 flex flex-wrap gap-3 items-center">
                     <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-3 flex-shrink-0">Topic</span>
@@ -121,7 +118,7 @@ export default function Blog() {
                 </div>
             </section>
 
-            {/* â”€â”€ Posts â”€â”€ */}
+            {/* ── Posts ── */}
             <section id="posts" className="py-24 md:py-40">
                 <div className="max-w-[1400px] mx-auto px-4 md:px-16">
                     {filtered.length === 0 ? (
@@ -130,7 +127,7 @@ export default function Blog() {
                         </div>
                     ) : (
                         <>
-                            {/* â”€â”€ Featured Lead Post â”€â”€ */}
+                            {/* ── Featured Lead Post ── */}
                             {featured && (
                                 <RevealText duration={1.6}>
                                     <a
@@ -177,7 +174,7 @@ export default function Blog() {
                                                         <p className="font-syne text-sm font-800 text-ink leading-tight">{featured.author}</p>
                                                         <p className="font-lato text-[10px] text-text-muted uppercase tracking-wider">{featured.authorRole}</p>
                                                     </div>
-                                                    <span className="ml-auto text-signal/40 group-hover:text-signal transition-colors duration-700 text-xl font-bold">â†’</span>
+                                                    <span className="ml-auto text-signal/40 group-hover:text-signal transition-colors duration-700 text-xl font-bold">→</span>
                                                 </div>
                                             </div>
                                         </m.div>
@@ -185,7 +182,7 @@ export default function Blog() {
                                 </RevealText>
                             )}
 
-                            {/* â”€â”€ Rest as grid â”€â”€ */}
+                            {/* ── Rest as grid ── */}
                             {rest.length > 0 && (
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
                                     {rest.map((post, i) => (
@@ -224,7 +221,7 @@ export default function Blog() {
                                                         <div className="mt-auto flex items-center gap-3 pt-5 border-t border-border/40">
                                                             <img src={post.authorAvatar} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
                                                             <span className="font-lato text-[11px] text-text-muted">{post.author}</span>
-                                                            <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">â†’</span>
+                                                            <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">→</span>
                                                         </div>
                                                     </div>
                                                 </m.article>
@@ -238,7 +235,7 @@ export default function Blog() {
                 </div>
             </section>
 
-            {/* â”€â”€ Footer CTA â”€â”€ */}
+            {/* ── Footer CTA ── */}
             <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
@@ -266,12 +263,12 @@ export default function Blog() {
                                     <MagneticButton strength={0.4}>
                                         <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                                             <span>Book a Discovery Call</span>
-                                            <span className="text-xs">â†’</span>
+                                            <span className="text-xs">→</span>
                                         </button>
                                     </MagneticButton>
                                     <MagneticButton strength={0.3}>
                                         <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
-                                            View Client Results â†’
+                                            View Client Results →
                                         </a>
                                     </MagneticButton>
                                 </div>

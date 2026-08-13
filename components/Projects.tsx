@@ -88,7 +88,7 @@ export default function Projects() {
 
       <div className="max-w-[1400px] mx-auto px-4 md:px-16 mt-14">
         <RevealText delay={0.3}>
-          <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies â†’</a>
+          <a href="/case-studies" className="font-lato text-sm font-medium text-signal sig-hover">View All Case Studies →</a>
         </RevealText>
       </div>
     </section>

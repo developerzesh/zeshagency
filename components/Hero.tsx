@@ -1,6 +1,6 @@
 ﻿import { useEffect, useRef } from 'react';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import MagneticButton from './MagneticButton';
+import CircleArrowButton from './CircleArrowButton';
 import ParticleField from './ParticleField';
 import LineGrid from './LineGrid';
 
@@ -49,7 +49,7 @@ export default function Hero() {
         <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -left-40 w-[500px] h-[500px] rounded-full bg-ink/[0.012] blur-[200px]" />
       </div>
 
-      {/* Line grid â€“ right side */}
+      {/* Line grid – right side */}
       <LineGrid className="hidden md:block" />
 
       <m.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-40">
@@ -60,7 +60,7 @@ export default function Hero() {
           transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
           className="font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-14 md:mb-32"
         >
-          Digital Marketing Agency<span className="text-signal mx-3">â€”</span>New York Â· London Â· Tokyo Â· Dubai
+          Digital Marketing Agency<span className="text-signal mx-3">—</span>New York Â· London Â· Tokyo Â· Dubai
         </m.p>
 
         {/* Headline */}
@@ -87,14 +87,7 @@ export default function Hero() {
             transition={{ duration: 1.4, delay: 1.6, ease: slowEase }}
             className="flex items-center gap-10"
           >
-            <MagneticButton strength={0.4}>
-                <a href="#work" className="group flex items-center gap-4">
-                <span className="w-12 h-12 rounded-full bg-signal flex items-center justify-center group-hover:bg-signal/80 transition-colors duration-[1200ms]">
-                  <m.span animate={{ x: [0, 3, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }} className="text-ink text-sm">â†’</m.span>
-                </span>
-                <span className="font-lato text-sm font-medium text-paper hidden md:inline">Selected Work</span>
-              </a>
-            </MagneticButton>
+            <CircleArrowButton label="Selected Work" href="#work" />
             <MagneticButton strength={0.3}>
               <a href="#contact" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Get in Touch</a>
             </MagneticButton>
