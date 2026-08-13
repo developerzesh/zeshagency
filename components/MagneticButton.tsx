@@ -34,7 +34,7 @@ export default function MagneticButton({ children, className = '', onClick, stre
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
       onClick={onClick}
-      className={`inline-block ${className}`}
+      className={`inline-block will-change-transform ${className}`}
     >
       {children}
     </m.div>

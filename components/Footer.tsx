@@ -155,7 +155,7 @@ export default function Footer() {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.25 }}
-                        className="overflow-hidden"
+                        className="overflow-hidden will-change-transform"
                       >
                         <ul className="flex flex-col gap-2 pt-3">
                           {[

@@ -44,7 +44,7 @@ export default function ParticleField() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none" ref={containerRef}>
       {/* Rotating dot field */}
       <div className="particle-field absolute inset-0" style={{
-        background: `
+        backgroundImage: `
           radial-gradient(1px 1px at 10% 20%, ${dotColor} 50%, transparent 100%),
           radial-gradient(1px 1px at 30% 60%, ${dotColor} 50%, transparent 100%),
           radial-gradient(1px 1px at 50% 10%, ${dotColor} 50%, transparent 100%),

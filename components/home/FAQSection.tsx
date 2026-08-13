@@ -67,7 +67,7 @@ export default function FAQSection() {
                       <m.span
                         animate={{ rotate: isActive ? 45 : 0 }}
                         transition={{ duration: 0.4, ease: slowEase }}
-                        className="text-signal text-xl leading-none flex-shrink-0 select-none"
+                        className="text-signal text-xl leading-none flex-shrink-0 select-none will-change-transform"
                       >
                         +
                       </m.span>
@@ -81,7 +81,7 @@ export default function FAQSection() {
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.55, ease: slowEase }}
-                          className="overflow-hidden"
+                          className="overflow-hidden will-change-transform"
                         >
                           <p className="font-lato text-sm text-text-secondary leading-[1.85] pb-6 pr-4">
                             {faq.answer}

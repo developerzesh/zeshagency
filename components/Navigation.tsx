@@ -175,9 +175,9 @@ export default function Navigation() {
 
               {/* Mobile hamburger */}
               <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden flex flex-col gap-1.5 w-7 ml-1" aria-label="Open menu">
-                <m.span animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
-                <m.span animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} className="block h-[1.5px] w-full bg-ink origin-center" />
-                <m.span animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center" />
+                <m.span animate={isOpen ? { rotate: 45, y: 5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center will-change-transform" />
+                <m.span animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }} className="block h-[1.5px] w-full bg-ink origin-center will-change-transform" />
+                <m.span animate={isOpen ? { rotate: -45, y: -5 } : { rotate: 0, y: 0 }} className="block h-[1.5px] w-full bg-ink origin-center will-change-transform" />
               </button>
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function Navigation() {
               transition={{ duration: 0.45, ease: slowEase }}
               onMouseEnter={() => showSubmenu(activeSubmenu)}
               onMouseLeave={hideSubmenu}
-              className="hidden lg:block absolute left-1/2 -translate-x-1/2 mt-2 w-full max-w-5xl"
+              className="hidden lg:block absolute left-1/2 -translate-x-1/2 mt-2 w-full max-w-5xl will-change-transform"
             >
               <div className="mx-6 md:mx-16 relative rounded-2xl overflow-hidden">
 
@@ -384,7 +384,7 @@ export default function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="fixed inset-0 z-40 bg-paper"
+            className="fixed inset-0 z-40 bg-paper will-change-transform"
           >
             <div className="h-full flex flex-col pt-24 md:pt-40 px-8 md:px-16 pb-8 overflow-y-auto">
               <div className="flex-1">
@@ -398,7 +398,7 @@ export default function Navigation() {
                       animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
                       exit={{ opacity: 0, filter: 'blur(12px)', x: -16 }}
                       transition={{ delay: i * 0.06, duration: 0.8, ease: slowEase }}
-                      className="mb-1"
+                      className="mb-1 will-change-transform"
                     >
                       <div className="flex items-center justify-between">
                         <a
@@ -430,7 +430,7 @@ export default function Navigation() {
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3, ease: slowEase }}
-                            className="overflow-hidden"
+                            className="overflow-hidden will-change-transform"
                           >
                             <div className="grid grid-cols-2 gap-x-6 pl-1 pt-1 pb-4">
                               {item.submenu!.slice(0, 6).map((sub) => (

@@ -37,7 +37,7 @@ export default function BlogSection() {
                 <m.div
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.7, ease: slowEase }}
-                  className="border border-border/40 hover:border-signal/30 rounded-xl overflow-hidden transition-all duration-700 bg-paper/30 dark:bg-ink/5 h-full flex flex-col justify-between"
+                  className="border border-border/40 hover:border-signal/30 rounded-xl overflow-hidden transition-all duration-700 bg-paper/30 dark:bg-ink/5 h-full flex flex-col justify-between will-change-transform"
                 >
                   <div>
                     <div className="aspect-video bg-surface/50 relative overflow-hidden">
