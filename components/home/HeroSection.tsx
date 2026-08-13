@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import ParticleField from '../../components/ParticleField';
@@ -11,6 +11,8 @@ import { heroContent } from '../../lib/data';
 import { slowEase } from '../../lib/animationEasing';
 
 export default function HeroSection() {
+  const [metaActive, setMetaActive] = useState(false);
+  const [sharkActive, setSharkActive] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
@@ -47,21 +49,21 @@ export default function HeroSection() {
         <m.div
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
+          transition={{ duration: 0.8, delay: 0.1, ease: slowEase }}
           className="flex flex-wrap items-center gap-4 font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-8 md:mb-12"
         >
           <span>GROWTH PARTNER TO BRANDS BACKED BY</span>
           <span className="hidden md:inline text-text-muted">Meta</span>
-          <Image src="/meta_logo.png" alt="Meta" width={140} height={48} className="h-6 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 md:-mx-4 -mx-2 logo-meta-390" />
+          <Image src="/meta_logo.png" alt="Meta" width={140} height={48} onClick={() => setMetaActive(!metaActive)} className={`h-6 md:h-12 w-auto object-contain opacity-60 transition-all duration-500 md:-mx-4 -mx-2 logo-meta-390 grayscale hover:opacity-100 hover:grayscale-0 ${metaActive ? '!opacity-100 !grayscale-0' : ''}`} />
           <span>and</span>
           <span className="hidden md:inline text-text-muted">Shark Tank</span>
-          <Image src="/shark_tank_logo.png" alt="Shark Tank" width={140} height={48} className="h-7 md:h-12 w-auto object-contain opacity-60 grayscale dark:brightness-0 dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:brightness-100 hover:dark:invert-0 transition-all duration-500 logo-shark-390" />
+          <Image src="/shark_tank_logo.png" alt="Shark Tank" width={140} height={48} onClick={() => setSharkActive(!sharkActive)} className={`h-7 md:h-12 w-auto object-contain opacity-60 transition-all duration-500 logo-shark-390 grayscale hover:opacity-100 hover:grayscale-0 ${sharkActive ? '!opacity-100 !grayscale-0' : ''}`} />
         </m.div>
         <h1 className="font-syne text-[clamp(2.2rem,5.5vw,5.5rem)] font-800 leading-[0.9] tracking-[-0.03em] mb-6 md:mb-8 max-w-5xl">
           <m.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ duration: 1.6, delay: 0.5, ease: slowEase }}
+            transition={{ duration: 0.6, delay: 0.1, ease: slowEase }}
             className="block mb-2"
           >
             {line1}
@@ -69,7 +71,7 @@ export default function HeroSection() {
           <m.span
             initial={{ opacity: 0, filter: 'blur(40px)', y: 50 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ duration: 1.6, delay: 0.8, ease: slowEase }}
+            transition={{ duration: 0.6, delay: 0.2, ease: slowEase }}
             className="block"
           >
             {line2}
@@ -79,7 +81,7 @@ export default function HeroSection() {
           <m.p
             initial={{ opacity: 0, filter: 'blur(24px)', y: 30 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ duration: 1.6, delay: 1.4, ease: slowEase }}
+            transition={{ duration: 0.8, delay: 0.4, ease: slowEase }}
             className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] max-w-xl"
           >
             {heroContent.description}
@@ -87,7 +89,7 @@ export default function HeroSection() {
           <m.div
             initial={{ opacity: 0, filter: 'blur(20px)', y: 20 }}
             animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-            transition={{ duration: 1.6, delay: 1.7, ease: slowEase }}
+            transition={{ duration: 0.8, delay: 0.5, ease: slowEase }}
             className="flex flex-wrap items-center gap-6 md:gap-10"
           >
             <CircleArrowButton
@@ -109,6 +111,7 @@ export default function HeroSection() {
           {heroContent.microcopy}
         </m.p> */}
       </m.div>
+
     </section>
   );
 }
