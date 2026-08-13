@@ -40,44 +40,46 @@ export default function ParticleField() {
   const dotColor = isDark ? 'rgba(237,236,231,0.08)' : 'rgba(10,10,10,0.06)';
   const lineColor = isDark ? 'rgba(237,236,231,0.03)' : 'rgba(10,10,10,0.02)';
 
+  const dotImage = [
+    'radial-gradient(1px 1px at 10% 20%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 30% 60%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 50% 10%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 70% 40%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 90% 80%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 15% 75%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 45% 35%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 65% 90%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 85% 15%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 25% 45%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 55% 70%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 75% 25%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 5% 55%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 35% 85%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 95% 50%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 40% 5%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 60% 55%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 80% 70%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 20% 95%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 100% 30%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 0% 100%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 50% 50%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 33% 33%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 66% 66%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 12% 42%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 78% 12%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 42% 88%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 88% 38%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 22% 68%, ' + dotColor + ' 50%, transparent 100%)',
+    'radial-gradient(1px 1px at 62% 22%, ' + dotColor + ' 50%, transparent 100%)',
+  ].join(',\n          ');
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" ref={containerRef}>
       {/* Rotating dot field */}
       <div className="particle-field absolute inset-0" style={{
-        backgroundImage: `
-          radial-gradient(1px 1px at 10% 20%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 30% 60%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 50% 10%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 70% 40%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 90% 80%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 15% 75%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 45% 35%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 65% 90%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 85% 15%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 25% 45%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 55% 70%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 75% 25%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 5% 55%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 35% 85%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 95% 50%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 40% 5%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 60% 55%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 80% 70%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 20% 95%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 100% 30%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 0% 100%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 50% 50%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 33% 33%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 66% 66%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 12% 42%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 78% 12%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 42% 88%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 88% 38%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 22% 68%, ${dotColor} 50%, transparent 100%),
-          radial-gradient(1px 1px at 62% 22%, ${dotColor} 50%, transparent 100%)
-        `,
+        backgroundImage: dotImage,
         backgroundSize: '100% 100%',
-      }} />
+      } as React.CSSProperties} />
 
       {/* Subtle wavy lines via CSS */}
       <svg className="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 1400 800" preserveAspectRatio="none">
