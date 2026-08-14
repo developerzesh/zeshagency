@@ -68,7 +68,7 @@ export default function PrivacyPolicy() {
           <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] rounded-full bg-signal/[0.02] blur-[200px]" />
           <div className="absolute bottom-0 left-1/4 w-[350px] h-[350px] rounded-full bg-ink/[0.01] blur-[150px]" />
         </div>
-        <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-20 md:pt-24 pb-8 md:pb-12 w-full">
+        <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 pb-8 md:pb-12 w-full">
           <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Legal</p></RevealText>
           <RevealText><h1 className="font-syne text-[clamp(2.2rem,5vw,4.5rem)] font-800 leading-[0.95] tracking-[-0.02em] mb-4">Privacy Policy</h1></RevealText>
           <RevealText><p className="font-lato text-sm text-text-muted">Last Updated: August 14, 2026</p></RevealText>
