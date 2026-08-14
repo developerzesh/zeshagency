@@ -104,7 +104,7 @@ export default function Footer() {
                 { label: "Insights & Advisory", path: "/insights" },
                 { label: "Blog & Articles", path: "/blog" },
                 { label: "Careers", path: "/careers" },
-                { label: "Privacy Policy", path: "/" },
+                { label: "Privacy Policy", path: "/privacy" },
               ].map((l) => (
                 <li key={l.label}>
                   <a
