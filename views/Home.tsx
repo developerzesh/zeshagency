@@ -1,21 +1,18 @@
-"use client";
-
-import dynamic from 'next/dynamic';
+﻿
 import PageTransition from '../components/PageTransition';
 import HeroSection from '../components/home/HeroSection';
 import TrustBar from '../components/home/TrustBar';
-
-const WhyChooseUs = dynamic(() => import('../components/home/WhyChooseUs'), { loading: () => <div className="min-h-[400px]" /> });
-const SolutionsGrid = dynamic(() => import('../components/home/SolutionsGrid'), { loading: () => <div className="min-h-[800px]" /> });
-const HowWeWork = dynamic(() => import('../components/home/HowWeWork'), { loading: () => <div className="min-h-[600px]" /> });
-const Metrics = dynamic(() => import('../components/home/Metrics'), { loading: () => <div className="min-h-[600px]" /> });
-const ComparisonTable = dynamic(() => import('../components/home/ComparisonTable'), { loading: () => <div className="min-h-[600px]" /> });
-const FeaturedCaseStudy = dynamic(() => import('../components/home/FeaturedCaseStudy'), { loading: () => <div className="min-h-[500px]" /> });
-const IndustriesGrid = dynamic(() => import('../components/home/IndustriesGrid'), { loading: () => <div className="min-h-[600px]" /> });
-const Testimonials = dynamic(() => import('../components/Testimonials'), { loading: () => <div className="min-h-[500px]" /> });
-const BlogSection = dynamic(() => import('../components/home/BlogSection'), { loading: () => <div className="min-h-[600px]" /> });
-const FAQSection = dynamic(() => import('../components/home/FAQSection'), { loading: () => <div className="min-h-[500px]" /> });
-const CTA = dynamic(() => import('../components/home/CTA'), { loading: () => <div className="min-h-[400px]" /> });
+import WhyChooseUs from '../components/home/WhyChooseUs';
+import SolutionsGrid from '../components/home/SolutionsGrid';
+import HowWeWork from '../components/home/HowWeWork';
+import Metrics from '../components/home/Metrics';
+import ComparisonTable from '../components/home/ComparisonTable';
+import FeaturedCaseStudy from '../components/home/FeaturedCaseStudy';
+import IndustriesGrid from '../components/home/IndustriesGrid';
+import Testimonials from '../components/Testimonials';
+import BlogSection from '../components/home/BlogSection';
+import FAQSection from '../components/home/FAQSection';
+import CTA from '../components/home/CTA';
 
 export default function Home() {
   return (

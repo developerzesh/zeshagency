@@ -27,9 +27,6 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "ZESHAGENCY — Digital Marketing Agency",
   description: "Zesh Agency · Strategic Growth Consultancy",
-  icons: {
-    icon: '/Group 3.svg',
-  },
 };
 
 export default function RootLayout({
@@ -38,8 +35,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}>
       <head>
+        {/* Adaptive favicon: Group 2.svg (light/white) for dark browsers, Group 3.svg (dark/black) for light browsers */}
+        <link rel="icon" href="/Group 3.svg" media="(prefers-color-scheme: light)" />
+        <link rel="icon" href="/Group 2.svg" media="(prefers-color-scheme: dark)" />
+        {/* Inline script: runs before React hydrates to prevent white flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('zesh-theme');if(t==='dark'||t===null){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
+          }}
+        />
         <noscript>
           <style>{`
             * {

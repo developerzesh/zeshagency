@@ -10,9 +10,12 @@ import LineGrid from '../../components/LineGrid';
 import { heroContent } from '../../lib/data';
 import { slowEase } from '../../lib/animationEasing';
 
+import BookingModal from '../../components/BookingModal';
+
 export default function HeroSection() {
   const [metaActive, setMetaActive] = useState(false);
   const [sharkActive, setSharkActive] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 80]);
@@ -94,7 +97,7 @@ export default function HeroSection() {
           >
             <CircleArrowButton
               label={heroContent.primaryCTA.label}
-              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              onClick={() => setIsBookingOpen(true)}
               animated={false}
             />
             <MagneticButton strength={0.3}>
@@ -102,16 +105,9 @@ export default function HeroSection() {
             </MagneticButton>
           </m.div>
         </div>
-        {/* <m.p
-          initial={{ opacity: 0, filter: 'blur(12px)' }}
-          animate={{ opacity: 1, filter: 'blur(0px)' }}
-          transition={{ delay: 2.5, duration: 1.8, ease: slowEase }}
-          className="font-lato text-[10px] text-text-muted mt-16 max-w-sm leading-relaxed"
-        >
-          {heroContent.microcopy}
-        </m.p> */}
       </m.div>
 
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }
