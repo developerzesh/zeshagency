@@ -1,10 +1,10 @@
 // lib/queries.ts
-import { client } from './sanity'
+import { fetchSanity } from './sanity'
  
 import { generateExcerpt } from './excert'
 
 export async function getAllPosts() {
-  const posts = await client.fetch(`*[_type == "blogPost"] | order(date desc){
+  const posts = await fetchSanity(`*[_type == "blogPost"] | order(date desc){
     title,
     "slug": slug.current,
     category,
@@ -30,7 +30,7 @@ function formatDate(iso: string) {
 }
 
 export async function getPostBySlug(slug: string) {
-  return client.fetch(
+  return fetchSanity(
     `*[_type == "blogPost" && slug.current == $slug][0]{
       title,
       "slug": slug.current,
@@ -50,7 +50,7 @@ export async function getPostBySlug(slug: string) {
 // ── Jobs ──────────────────────────────────────────────────────────────────────
 
 export async function getAllJobs() {
-  return client.fetch(
+  return fetchSanity(
     `*[_type == "jobOpening" && isActive == true] | order(postedAt desc){
       title,
       "slug": slug.current,
