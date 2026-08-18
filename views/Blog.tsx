@@ -7,11 +7,41 @@ import PageTransition from '../components/PageTransition';
 import CircleArrowButton from '../components/CircleArrowButton';
 import MagneticButton from '../components/MagneticButton';
 import ParticleField from '../components/ParticleField';
-import { blogPosts, blogCategories } from '../lib/blogData';
+import { urlFor } from '../lib/sanity';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-export default function Blog() {
+const blogCategories = [
+    { label: 'All', value: 'All' },
+    { label: 'SEO & Search', value: 'seo-search' },
+    { label: 'AI & GEO', value: 'ai-geo' },
+    { label: 'Web Performance', value: 'web-performance' },
+    { label: 'Growth Strategy', value: 'growth-strategy' },
+    { label: 'Case Breakdowns', value: 'case-breakdowns' },
+];
+
+const categoryLabels: Record<string, string> = {
+    'seo-search': 'SEO & Search',
+    'ai-geo': 'AI & GEO',
+    'web-performance': 'Web Performance',
+    'growth-strategy': 'Growth Strategy',
+    'case-breakdowns': 'Case Breakdowns',
+};
+
+interface BlogPost {
+    title: string;
+    slug: string;
+    category: string;
+    date: string;
+    readTime: string;
+    excerpt: string;
+    author: string;
+    authorRole: string;
+    authorAvatar: any;
+    image: any;
+}
+
+export default function Blog({ posts }: { posts: BlogPost[] }) {
     const heroRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
     const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
@@ -19,8 +49,8 @@ export default function Blog() {
     const [activeCategory, setActiveCategory] = useState('All');
 
     const filtered = activeCategory === 'All'
-        ? blogPosts
-        : blogPosts.filter(p => p.category === activeCategory);
+        ? posts
+        : posts.filter(p => p.category === activeCategory);
 
     const featured = filtered[0];
     const rest = filtered.slice(1);
@@ -102,14 +132,14 @@ export default function Blog() {
                     <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted mr-3 flex-shrink-0">Topic</span>
                     {blogCategories.map((cat) => (
                         <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`font-lato text-[11px] tracking-wider uppercase px-4 py-2 border transition-all duration-500 ${activeCategory === cat
+                            key={cat.value}
+                            onClick={() => setActiveCategory(cat.value)}
+                            className={`font-lato text-[11px] tracking-wider uppercase px-4 py-2 border transition-all duration-500 ${activeCategory === cat.value
                                 ? 'bg-signal text-paper border-signal'
                                 : 'bg-transparent text-text-muted border-border/40 hover:border-signal/50 hover:text-ink'
                                 }`}
                         >
-                            {cat}
+                            {cat.label}
                         </button>
                     ))}
                     <span className="ml-auto font-lato text-[11px] text-text-muted hidden md:block">
@@ -142,7 +172,7 @@ export default function Blog() {
                                             {/* Image */}
                                             <div className="lg:col-span-7 overflow-hidden rounded-xl aspect-[16/9] relative">
                                                 <m.img
-                                                    src={featured.image}
+                                                    src={featured.image ? urlFor(featured.image).width(1400).height(900).url() : ''}
                                                     alt={featured.title}
                                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms] scale-100 group-hover:scale-105"
                                                     style={{ transition: 'transform 1.4s ease, filter 1.4s ease' }}
@@ -157,9 +187,9 @@ export default function Blog() {
                                                 <div>
                                                     <div className="flex flex-wrap items-center gap-3 mb-5">
                                                         <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal py-1 px-2.5 bg-signal/10 border border-signal/25">
-                                                            {featured.category}
+                                                            {categoryLabels[featured.category] || featured.category}
                                                         </span>
-                                                        <span className="font-lato text-[11px] text-text-muted">{featured.date} Â· {featured.readTime}</span>
+                                                        <span className="font-lato text-[11px] text-text-muted">{featured.date} · {featured.readTime}</span>
                                                     </div>
                                                     <h2 className="font-syne text-3xl md:text-4xl lg:text-5xl font-800 tracking-[-0.03em] leading-[1.05] mb-6 group-hover:text-signal transition-colors duration-[1000ms]">
                                                         {featured.title}
@@ -169,7 +199,7 @@ export default function Blog() {
                                                     </p>
                                                 </div>
                                                 <div className="flex items-center gap-3 pt-6 border-t border-border/40">
-                                                    <img src={featured.authorAvatar} alt={featured.author} className="w-9 h-9 rounded-full object-cover grayscale border border-border/60" />
+                                                    <img src={featured.authorAvatar ? urlFor(featured.authorAvatar).width(80).height(80).url() : ''} alt={featured.author} className="w-9 h-9 rounded-full object-cover grayscale border border-border/60" />
                                                     <div>
                                                         <p className="font-syne text-sm font-800 text-ink leading-tight">{featured.author}</p>
                                                         <p className="font-lato text-[10px] text-text-muted uppercase tracking-wider">{featured.authorRole}</p>
@@ -196,7 +226,7 @@ export default function Blog() {
                                                     {/* Card Image */}
                                                     <div className="overflow-hidden aspect-[16/9] relative flex-shrink-0">
                                                         <img
-                                                            src={post.image}
+                                                            src={post.image ? urlFor(post.image).width(800).height(450).url() : ''}
                                                             alt={post.title}
                                                             loading="lazy"
                                                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1200ms]"
@@ -208,9 +238,9 @@ export default function Blog() {
                                                     <div className="p-6 md:p-8 flex flex-col flex-1">
                                                         <div className="flex items-center gap-3 mb-4">
                                                             <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal py-0.5 px-2 bg-signal/10 border border-signal/20">
-                                                                {post.category}
+                                                                {categoryLabels[post.category] || post.category}
                                                             </span>
-                                                            <span className="font-lato text-[10px] text-text-muted">{post.date} Â· {post.readTime}</span>
+                                                            <span className="font-lato text-[10px] text-text-muted">{post.date} · {post.readTime}</span>
                                                         </div>
                                                         <h3 className="font-syne text-lg md:text-xl font-800 tracking-tight leading-snug mb-3 group-hover:text-signal transition-colors duration-700 flex-grow">
                                                             {post.title}
@@ -219,7 +249,7 @@ export default function Blog() {
                                                             {post.excerpt}
                                                         </p>
                                                         <div className="mt-auto flex items-center gap-3 pt-5 border-t border-border/40">
-                                                            <img src={post.authorAvatar} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
+                                                            <img src={post.authorAvatar ? urlFor(post.authorAvatar).width(56).height(56).url() : ''} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
                                                             <span className="font-lato text-[11px] text-text-muted">{post.author}</span>
                                                             <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">→</span>
                                                         </div>
@@ -280,4 +310,3 @@ export default function Blog() {
         </PageTransition>
     );
 }
-

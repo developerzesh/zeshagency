@@ -711,22 +711,6 @@ export const insights: InsightArticle[] = [
   }
 ];
 
-// ── Careers ───────────────────────────────────────────────
-export interface Career {
-  slug: string;
-  title: string;
-  department: string;
-  location: string;
-  type: string;
-  description: string;
-  requirements: string[];
-}
-
-export const careers: Career[] = [
-  { slug: 'senior-growth-engineer', title: 'Senior Growth Engineer (HTML/JS/Performance)', department: 'Engineering', location: 'Remote', type: 'Full-time', description: 'Build zero-bloat static web frameworks, custom intake funnels, and optimized client platforms. You should have deep expertise in vanilla web engineering and performance budgeting.', requirements: ['Deep expertise in vanilla HTML, CSS, and JavaScript', 'Experience with performance budgeting and Core Web Vitals', 'Understanding of headless architecture and static site generation', 'Ability to build custom intake funnels and CRM integrations', 'Comfort with version control and modern development workflows', 'Full ownership of codebase architecture and site performance scoring'] },
-  { slug: 'search-ai-architect', title: 'Search & AI Indexing Architect (SEO/AEO/GEO)', department: 'Search', location: 'Remote', type: 'Full-time', description: 'Declare entity schemas, audit LLM recommendations, and design programmatic comparison indexes. You should have deep experience mapping semantic entities and parsing scraper behaviors.', requirements: ['Deep expertise in technical SEO and semantic entity mapping', 'Understanding of LLM training data and citation patterns', 'Experience with JSON-LD structured data and knowledge graphs', 'Familiarity with AEO and GEO optimization techniques', 'Strong analytical skills for parsing scraper behaviors', 'Design and deploy indexing roadmaps for client portfolios'] },
-];
-
 // ── Careers Page Perks ────────────────────────────────────
 export const perks = [
   { title: 'Autonomy & Trust', description: 'We trust you to manage your time and deliverables. You work directly with founders and clients without administrative middle-managers.' },

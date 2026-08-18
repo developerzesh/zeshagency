@@ -2,11 +2,18 @@
 
 import { m } from 'framer-motion';
 import RevealText from '../../components/RevealText';
-import { blogPosts } from '../../lib/blogData';
 import { slowEase } from '../../lib/animationEasing';
 
-export default function BlogSection() {
-  const latestPosts = blogPosts.slice(0, 3);
+const categoryLabels: Record<string, string> = {
+  'seo-search': 'SEO & Search',
+  'ai-geo': 'AI & GEO',
+  'web-performance': 'Web Performance',
+  'growth-strategy': 'Growth Strategy',
+  'case-breakdowns': 'Case Breakdowns',
+};
+
+export default function BlogSection({ posts = [] }: { posts?: any[] }) {
+  const latestPosts = posts.slice(0, 3);
   return (
     <section className="relative py-16 md:py-48 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
@@ -41,7 +48,7 @@ export default function BlogSection() {
                 >
                   <div>
                     <div className="aspect-video bg-surface/50 relative overflow-hidden">
-                      {post.category === 'SEO & Search' && (
+                      {post.category === 'seo-search' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.rect x="170" y="15" width="60" height="24" rx="4" fill="currentColor" className="text-signal"
                             initial={{ opacity: 0, scale: 0.5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
@@ -85,7 +92,7 @@ export default function BlogSection() {
                             initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>PAGES GENERATED</m.text>
                         </svg>
                       )}
-                      {post.category === 'AI & GEO' && (
+                      {post.category === 'ai-geo' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.circle cx="200" cy="112" r="0" fill="currentColor" className="text-signal/30 group-hover:text-signal/50"
                             initial={{ r: 0 }} whileInView={{ r: 28 }} viewport={{ once: true }}
@@ -120,7 +127,7 @@ export default function BlogSection() {
                           ))}
                         </svg>
                       )}
-                      {post.category === 'Web Performance' && (
+                      {post.category === 'web-performance' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.path d="M 100 160 A 80 80 0 0 1 300 160" fill="none" stroke="currentColor" strokeWidth="12" className="text-signal/10"
                             initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} />
@@ -161,7 +168,7 @@ export default function BlogSection() {
                             initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true }} />
                         </svg>
                       )}
-                      {post.category === 'Growth Strategy' && (
+                      {post.category === 'growth-strategy' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           {[
                             { x: 40, h: 60 }, { x: 80, h: 90 }, { x: 120, h: 75 },
@@ -195,7 +202,7 @@ export default function BlogSection() {
                           />
                         </svg>
                       )}
-                      {post.category === 'Case Breakdowns' && (
+                      {post.category === 'case-breakdowns' && (
                         <svg viewBox="0 0 400 225" className="w-full h-full">
                           <m.circle cx="140" cy="112" r="70" fill="none" stroke="currentColor" strokeWidth="16" className="text-signal/20"
                             strokeDasharray="330 110" initial={{ strokeDashoffset: 440 }} whileInView={{ strokeDashoffset: 110 }}
@@ -218,7 +225,7 @@ export default function BlogSection() {
                     </div>
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal">{post.category}</span>
+                        <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal">{categoryLabels[post.category] || post.category}</span>
                         <span className="w-1 h-1 rounded-full bg-border" />
                         <span className="font-lato text-[10px] text-text-muted">{post.date}</span>
                         <span className="w-1 h-1 rounded-full bg-border" />

@@ -4,18 +4,53 @@ import { useEffect, useRef, useState } from 'react';
 import { m, useScroll, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
-import CinematicImage from '../components/CinematicImage';
 import PageTransition from '../components/PageTransition';
-import type { BlogPost } from '../lib/blogData';
-import { blogPosts } from '../lib/blogData';
+import { PortableText } from '@portabletext/react';
+import { ptComponents } from '../components/PortableTextComponents';
+import { extractToc } from '../lib/toc';
+import { urlFor } from '../lib/sanity';
+
+interface BlogPostData {
+    slug: string;
+    title: string;
+    category: string;
+    date: string;
+    readTime: string;
+    excerpt: string;
+    author?: string | { name?: string; role?: string; avatar?: string; bio?: string };
+    authorRole?: string;
+    authorAvatar?: string;
+    tags?: string[];
+    image?: any;
+    content?: any[];
+    toc?: string[];
+}
+
+interface RelatedPost {
+    slug: string;
+    title: string;
+    category: string;
+    date: string;
+    readTime: string;
+    excerpt: string;
+    image?: any;
+}
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-export default function BlogPostPage({ post }: { post: BlogPost }) {
-    const related = blogPosts.filter(p => p.slug !== post.slug).slice(0, 3);
+const categoryLabels: Record<string, string> = {
+    'seo-search': 'SEO & Search',
+    'ai-geo': 'AI & GEO',
+    'web-performance': 'Web Performance',
+    'growth-strategy': 'Growth Strategy',
+    'case-breakdowns': 'Case Breakdowns',
+};
+
+export default function BlogPostPage({ post, related = [] }: { post: BlogPostData; related?: RelatedPost[] }) {
     const articleRef = useRef<HTMLElement>(null);
     const [readProgress, setReadProgress] = useState(0);
     const [tocOpen, setTocOpen] = useState(false);
+    const [authorOpen, setAuthorOpen] = useState(false);
 
     const { scrollYProgress } = useScroll({ target: articleRef, offset: ['start start', 'end end'] });
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -24,8 +59,8 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
         return scrollYProgress.onChange(v => setReadProgress(Math.round(v * 100)));
     }, [scrollYProgress]);
 
-    // Build table of contents from section headings in the post's toc array
-    const toc = post.toc ?? [];
+    // Build table of contents from Portable Text headings
+    const toc = extractToc(post.content ?? []);
 
     return (
         <PageTransition>
@@ -53,7 +88,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     <RevealText delay={0.1} duration={1.2}>
                         <div className="flex flex-wrap items-center gap-3 mb-6">
                             <span className="font-lato text-[11px] tracking-[0.15em] uppercase text-signal py-1 px-2.5 bg-signal/10 border border-signal/20">
-                                {post.category}
+                                {categoryLabels[post.category] || post.category}
                             </span>
                             <span className="w-1.5 h-1.5 rounded-full bg-border" />
                             <span className="font-lato text-[11px] text-text-muted">{post.date}</span>
@@ -81,15 +116,29 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     {/* Author + Share strip */}
                     <RevealText delay={0.3} duration={1.4}>
                         <div className="flex items-center gap-4 mb-14 pb-8 border-b border-border/60">
-                            <img
-                                src={post.authorAvatar}
-                                alt={post.author}
-                                className="w-12 h-12 rounded-full object-cover grayscale border border-border/80"
-                            />
-                            <div>
-                                <p className="font-syne text-sm font-800 text-ink leading-tight">{post.author}</p>
-                                <p className="font-lato text-xs text-text-muted mt-0.5 uppercase tracking-wider">{post.authorRole}</p>
-                            </div>
+                            {(() => {
+                                const authorObj = typeof post.author === 'object' ? post.author : null;
+                                const avatarSrc = authorObj?.avatar ? urlFor(authorObj.avatar).width(96).height(96).url() : '';
+                                const authorName = authorObj?.name ?? (typeof post.author === 'string' ? post.author : '');
+                                const authorRole = authorObj?.role ?? post.authorRole ?? '';
+                                return (
+                                    <button
+                                        type="button"
+                                        onClick={() => setAuthorOpen(true)}
+                                        className="flex items-center gap-3 cursor-pointer text-left"
+                                    >
+                                        <img
+                                            src={avatarSrc}
+                                            alt={authorName}
+                                            className="w-12 h-12 rounded-full object-cover grayscale border border-border/80 hover:grayscale-0 transition-all duration-500"
+                                        />
+                                        <div>
+                                            <p className="font-syne text-sm font-800 text-ink leading-tight">{authorName}</p>
+                                            <p className="font-lato text-xs text-text-muted mt-0.5 uppercase tracking-wider">{authorRole}</p>
+                                        </div>
+                                    </button>
+                                );
+                            })()}
                             <div className="ml-auto flex items-center gap-4">
                                 <span className="font-lato text-[10px] tracking-[0.15em] uppercase text-text-muted">Share</span>
                                 {['Twitter', 'LinkedIn'].map(s => (
@@ -128,10 +177,10 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                             {toc.map((item, i) => (
                                                 <a
                                                     key={i}
-                                                    href={`#section-${i}`}
+                                                    href={`#${item.id}`}
                                                     className="block font-lato text-[12px] text-text-muted hover:text-signal transition-colors duration-500 leading-snug py-1 border-l border-border/30 hover:border-signal pl-3"
                                                 >
-                                                    {item}
+                                                    {item.text}
                                                 </a>
                                             ))}
                                         </div>
@@ -156,49 +205,15 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                         {/* ── Article Content ── */}
                         <div className={toc.length > 0 ? 'lg:col-span-6' : 'lg:col-span-12 max-w-[900px]'}>
                             <RevealText delay={0.4} duration={1.6}>
-                                <div className="prose prose-neutral max-w-none">
-                                    {post.content.map((section, idx) => {
-                                        if (typeof section === 'string') {
-                                            return (
-                                                <p
-                                                    key={idx}
-                                                    className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.9] mb-8"
-                                                >
-                                                    {section}
-                                                </p>
-                                            );
-                                        }
-                                        // Support rich section objects
-                                        return (
-                                            <div key={idx} id={`section-${idx}`} className="mb-10">
-                                                {section.heading && (
-                                                    <h2 className="font-syne text-2xl md:text-3xl font-800 tracking-tight text-ink mb-4 mt-12">
-                                                        {section.heading}<span className="text-signal">.</span>
-                                                    </h2>
-                                                )}
-                                                {section.body && (
-                                                    <p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.9] mb-6">
-                                                        {section.body}
-                                                    </p>
-                                                )}
-                                                {section.bullets && (
-                                                    <ul className="space-y-3 mb-6 pl-1">
-                                                        {section.bullets.map((b: string, bi: number) => (
-                                                            <li key={bi} className="flex items-start gap-3">
-                                                                <span className="mt-[7px] w-1.5 h-1.5 rounded-full bg-signal flex-shrink-0" />
-                                                                <span className="font-lato text-base text-text-secondary leading-[1.85]">{b}</span>
-                                                            </li>
-                                                        ))}
-                                                    </ul>
-                                                )}
-                                                {section.callout && (
-                                                    <div className="border-l-4 border-signal bg-signal/5 px-6 py-5 rounded-r-xl my-8">
-                                                        <p className="font-lato text-base text-ink leading-[1.85] italic">{section.callout}</p>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        );
-                                    })}
+                                <div className="prose prose-neutral max-w-none font-lato text-base md:text-[17px] text-text-secondary leading-[1.9]">
+                                    {post.content && Array.isArray(post.content) ? (
+                                        <PortableText
+                                            value={post.content}
+                                            components={ptComponents}
+                                        />
+                                    ) : (
+                                        <p className="mb-8">No content available.</p>
+                                    )}
                                 </div>
                             </RevealText>
 
@@ -207,7 +222,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                 <div className="mt-12 pt-8 border-t border-border/60">
                                     <h4 className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mb-4">Tags</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {post.tags.map(tag => (
+                                        {(post.tags ?? []).map(tag => (
                                             <span
                                                 key={tag}
                                                 className="font-lato text-[11px] text-text-secondary hover:text-ink px-3 py-1 bg-surface border border-border/60 transition-colors duration-500 cursor-default"
@@ -223,20 +238,27 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                             <RevealText delay={0.55} duration={1.4}>
                                 <div className="mt-12 pt-10 border-t border-border/60">
                                     <p className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal font-semibold mb-5">About the author</p>
-                                    <div className="flex gap-5">
-                                        <img
-                                            src="/images/shahana-avatar.jpg"
-                                            alt="Shahana Shaikh"
-                                            className="w-16 h-16 rounded-full object-cover border border-border/60 flex-shrink-0"
-                                        />
-                                        <div>
-                                            <h4 className="font-syne text-lg font-800 text-ink leading-tight mb-1">Shahana Shaikh</h4>
-                                            <p className="font-lato text-[11px] text-signal uppercase tracking-wider mb-3">Founder</p>
-                                            <p className="font-lato text-[13px] text-text-secondary leading-[1.8]">
-                                                Shahana is the Founder of Zesh Agency, a strategic growth consultancy partnering with ambitious brands to engineer high-converting growth systems. With deep expertise in SEO, AEO, GEO, and full-stack digital marketing, she leads principal-level execution for clients across SaaS, healthcare, real estate, and B2B services. Shahana personally strategizes and supervises every engagement, ensuring technical precision and revenue alignment.
-                                            </p>
-                                        </div>
-                                    </div>
+                                    {(() => {
+                                        const authorObj = typeof post.author === 'object' ? post.author : null;
+                                        const avatarSrc = authorObj?.avatar ? urlFor(authorObj.avatar).width(128).height(128).url() : '/images/shahana-avatar.jpg';
+                                        const authorName = authorObj?.name ?? 'Shahana Shaikh';
+                                        const authorRole = authorObj?.role ?? 'Founder';
+                                        const authorBio = authorObj?.bio ?? 'Shahana is the Founder of Zesh Agency, a strategic growth consultancy partnering with ambitious brands to engineer high-converting growth systems. With deep expertise in SEO, AEO, GEO, and full-stack digital marketing, she leads principal-level execution for clients across SaaS, healthcare, real estate, and B2B services. Shahana personally strategizes and supervises every engagement, ensuring technical precision and revenue alignment.';
+                                        return (
+                                            <div className="flex gap-5">
+                                                <img
+                                                    src={avatarSrc}
+                                                    alt={authorName}
+                                                    className="w-16 h-16 rounded-full object-cover border border-border/60 flex-shrink-0"
+                                                />
+                                                <div>
+                                                    <h4 className="font-syne text-lg font-800 text-ink leading-tight mb-1">{authorName}</h4>
+                                                    <p className="font-lato text-[11px] text-signal uppercase tracking-wider mb-3">{authorRole}</p>
+                                                    <p className="font-lato text-[13px] text-text-secondary leading-[1.8]">{authorBio}</p>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
                             </RevealText>
 
@@ -308,7 +330,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                             >
                                                 <div className="overflow-hidden aspect-video">
                                                     <img
-                                                        src={rel.image}
+                                                        src={rel.image ? urlFor(rel.image).width(600).height(340).url() : ''}
                                                         alt={rel.title}
                                                         loading="lazy"
                                                         className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1200ms]"
@@ -316,7 +338,7 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                                                 </div>
                                                 <div className="p-6">
                                                     <div className="flex items-center gap-2 mb-3">
-                                                        <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal">{rel.category}</span>
+                                                        <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal">{categoryLabels[rel.category] || rel.category}</span>
                                                         <span className="w-1 h-1 rounded-full bg-border" />
                                                         <span className="font-lato text-[10px] text-text-muted">{rel.date}</span>
                                                     </div>
@@ -334,6 +356,50 @@ export default function BlogPostPage({ post }: { post: BlogPost }) {
                     </section>
                 )}
             </article>
+
+            {/* ── Author Modal ── */}
+            {authorOpen && (() => {
+                const authorObj = typeof post.author === 'object' ? post.author : null;
+                const avatarSrc = authorObj?.avatar ? urlFor(authorObj.avatar).width(192).height(192).url() : '/images/shahana-avatar.jpg';
+                const authorName = authorObj?.name ?? 'Shahana Shaikh';
+                const authorRole = authorObj?.role ?? 'Founder';
+                const authorBio = authorObj?.bio ?? 'Shahana is the Founder of Zesh Agency, a strategic growth consultancy partnering with ambitious brands to engineer high-converting growth systems. With deep expertise in SEO, AEO, GEO, and full-stack digital marketing, she leads principal-level execution for clients across SaaS, healthcare, real estate, and B2B services. Shahana personally strategizes and supervises every engagement, ensuring technical precision and revenue alignment.';
+                return (
+                    <m.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[200] flex items-center justify-center p-4"
+                        onClick={() => setAuthorOpen(false)}
+                    >
+                        <div className="absolute inset-0 bg-ink/60 backdrop-blur-sm" />
+                        <m.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                            className="relative w-full max-w-md bg-paper border border-border/50 rounded-2xl p-8 shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                onClick={() => setAuthorOpen(false)}
+                                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface transition-colors duration-300 text-text-muted hover:text-ink"
+                            >
+                                ✕
+                            </button>
+                            <div className="flex flex-col items-center text-center">
+                                <img
+                                    src={avatarSrc}
+                                    alt={authorName}
+                                    className="w-20 h-20 rounded-full object-cover border-2 border-border/60 mb-4"
+                                />
+                                <h4 className="font-syne text-xl font-800 text-ink leading-tight mb-1">{authorName}</h4>
+                                <p className="font-lato text-[11px] text-signal uppercase tracking-wider mb-5">{authorRole}</p>
+                                <p className="font-lato text-[13px] text-text-secondary leading-[1.85]">{authorBio}</p>
+                            </div>
+                        </m.div>
+                    </m.div>
+                );
+            })()}
         </PageTransition>
     );
 }

@@ -7,12 +7,24 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
-import { careers } from '../lib/data';
+import { PortableText } from '@portabletext/react';
+import { urlFor } from '../lib/sanity';
+
+interface Job {
+  slug: string;
+  title: string;
+  department: string;
+  location: string;
+  jobType: string;
+  description: any[];
+  applyLink?: string;
+  postedAt?: string;
+}
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 // ─── Position Row Component ──────────────────────────────────────────────────
-function PositionRow({ position, index }: { position: typeof careers[0]; index: number }) {
+function PositionRow({ position, index }: { position: Job; index: number }) {
   const [isExpanded, setIsExpanded] = useState(false);
   return (
     <RevealText delay={index * 0.06}>
@@ -25,7 +37,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
                 <span className="w-1.5 h-1.5 rounded-full bg-border" />
                 <span className="font-lato text-[11px] text-text-muted">{position.location}</span>
                 <span className="w-1.5 h-1.5 rounded-full bg-border" />
-                <span className="font-lato text-[11px] text-text-muted">{position.type}</span>
+                <span className="font-lato text-[11px] text-text-muted">{position.jobType}</span>
               </div>
               <h3 className="font-syne text-xl md:text-3xl font-800 tracking-tight group-hover:text-signal transition-colors duration-[1000ms]">{position.title}</h3>
             </div>
@@ -44,19 +56,39 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
             className="overflow-hidden"
           >
             <div className="pt-6">
-              <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] mb-6 max-w-xl">{position.description}</p>
-              <div className="mb-6 space-y-2">
-                <p className="font-lato text-[11px] uppercase tracking-wider text-ink font-semibold">Requirements:</p>
-                {position.requirements.map((req) => (
-                  <div key={req} className="flex items-start gap-3 py-0.5">
-                    <span className="text-signal text-xs mt-0.5">→</span>
-                    <span className="font-lato text-sm text-text-secondary leading-snug">{req}</span>
-                  </div>
-                ))}
+              <div className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] mb-6 max-w-xl">
+                <PortableText
+                  value={position.description}
+                  components={{
+                    list: {
+                      bullet: ({ children }) => <ul className="space-y-2 mb-6">{children}</ul>,
+                      number: ({ children }) => <ol className="space-y-2 mb-6 pl-6 list-decimal">{children}</ol>,
+                    },
+                    listItem: {
+                      bullet: ({ children }) => (
+                        <li className="flex items-start gap-3 py-0.5">
+                          <span className="text-signal text-xs mt-0.5">→</span>
+                          <span className="text-text-secondary leading-snug">{children}</span>
+                        </li>
+                      ),
+                      number: ({ children }) => (
+                        <li className="ml-2">{children}</li>
+                      ),
+                    },
+                    marks: {
+                      strong: ({ children }) => <strong className="font-semibold text-ink">{children}</strong>,
+                    },
+                  }}
+                />
               </div>
               <div className="flex gap-4">
                 <MagneticButton strength={0.2}>
-                  <a href={`mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`} className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block">
+                  <a
+                    href={position.applyLink || `mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`}
+                    target={position.applyLink ? '_blank' : undefined}
+                    rel={position.applyLink ? 'noopener noreferrer' : undefined}
+                    className="font-lato text-xs tracking-wider uppercase font-semibold text-signal hover:text-ink transition-colors duration-700 block"
+                  >
                     Submit Application →
                   </a>
                 </MagneticButton>
@@ -70,7 +102,7 @@ function PositionRow({ position, index }: { position: typeof careers[0]; index: 
 }
 
 // ─── Main Component ───────────────────────────────────────────────────────────
-export default function Careers() {
+export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 160]);
@@ -289,7 +321,7 @@ export default function Careers() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-32">
             <div className="md:col-span-4">
               <RevealText>
-                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">{careers.length} Available Openings</p>
+                <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">{jobs.length} Available Openings</p>
               </RevealText>
               <RevealText delay={0.1}>
                 <h2 className="font-syne text-4xl md:text-5xl font-800 tracking-[-0.03em]">Open Roles<span className="text-signal">.</span></h2>
@@ -304,7 +336,7 @@ export default function Careers() {
             </div>
           </div>
           <div className="space-y-0">
-            {careers.map((p, i) => (
+            {jobs.map((p, i) => (
               <PositionRow key={p.slug} position={p} index={i} />
             ))}
           </div>

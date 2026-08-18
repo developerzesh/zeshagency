@@ -23,9 +23,8 @@ export {
   caseStudies,
   insightCategories,
   insights,
-  careers,
   perks,
   citiesNav,
 } from './siteConfig';
 
-export type { Solution, Industry, CaseStudy, InsightArticle, Career } from './siteConfig';
+export type { Solution, Industry, CaseStudy, InsightArticle } from './siteConfig';

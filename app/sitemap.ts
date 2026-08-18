@@ -1,13 +1,17 @@
 import type { MetadataRoute } from 'next';
 import { solutions, industries, caseStudies, insights } from '@/lib/siteConfig';
-import { blogPosts } from '@/lib/blogData';
+import { getAllPosts } from '@/lib/queries';
 import { CITY_DATA } from '@/lib/cityData';
 import { SOLUTIONS_CITIES, SERVICES_META } from '@/lib/serviceCityData';
 
+export const revalidate = 86400;
+
 const BASE_URL = 'https://zeshagency.com';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
+
+  const posts = await getAllPosts();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1 },
@@ -36,7 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = blogPosts.map((p) => ({
+  const blogPages: MetadataRoute.Sitemap = posts.map((p: any) => ({
     url: `${BASE_URL}/blog/${p.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

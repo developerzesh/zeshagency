@@ -14,7 +14,7 @@ import BlogSection from '../components/home/BlogSection';
 import FAQSection from '../components/home/FAQSection';
 import CTA from '../components/home/CTA';
 
-export default function Home() {
+export default function Home({ posts = [] }: { posts?: any[] }) {
   return (
     <PageTransition>
       <HeroSection />
@@ -27,7 +27,7 @@ export default function Home() {
       <FeaturedCaseStudy />
       <IndustriesGrid />
       <Testimonials />
-      <BlogSection />
+      <BlogSection posts={posts} />
       <FAQSection />
       <CTA />
     </PageTransition>
