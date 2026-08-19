@@ -4,40 +4,23 @@ import { m } from 'framer-motion';
 import RevealText from '../../components/RevealText';
 import { slowEase } from '../../lib/animationEasing';
 
-export default function FeaturedCaseStudy() {
-  const cards = [
-    {
-      slug: 'b2b-saas-pipeline-expansion',
-      title: 'How We Drove a 312% Inbound Pipeline Expansion for an Enterprise B2B SaaS Platform',
-      mainMetric: '312%',
-      stats: [
-        { value: '+312%', label: 'Traffic' },
-        { value: '$1.2M', label: 'Pipeline' },
-        { value: '90 Days', label: 'Duration' }
-      ]
-    },
-    {
-      slug: 'multi-location-healthcare',
-      title: 'How We Achieved #1 Map Pack Dominance Across a Metro Area for 12 Clinical Facilities',
-      mainMetric: '#1',
-      stats: [
-        { value: '+280%', label: 'Bookings' },
-        { value: '1,400+', label: 'Reviews' },
-        { value: '90 Days', label: 'Duration' }
-      ]
-    },
-    {
-      slug: 'architecture-studio-project-inquiries',
-      title: 'How We Doubled High-Budget Commissions and Inquiries for an Architecture Studio',
-      mainMetric: '180%',
-      stats: [
-        { value: '+180%', label: 'Inquiries' },
-        { value: '+320%', label: 'Impressions' },
-        { value: '8 Weeks', label: 'Duration' }
-      ]
-    }
-  ];
+interface HomeStat {
+  value: string;
+  label: string;
+}
 
+interface CaseStudyCard {
+  slug: string;
+  title: string;
+  mainMetric: string;
+  stats: HomeStat[];
+}
+
+interface FeaturedCaseStudyProps {
+  caseStudies: CaseStudyCard[];
+}
+
+export default function FeaturedCaseStudy({ caseStudies }: FeaturedCaseStudyProps) {
   return (
     <section className="relative py-14 md:py-48 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
@@ -55,7 +38,7 @@ export default function FeaturedCaseStudy() {
 
         {/* 3-Column Case Study Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {cards.map((card, i) => (
+          {caseStudies.map((card, i) => (
             <RevealText key={card.slug} delay={i * 0.12} duration={1.6}>
               <m.a
                 href={`/case-studies/${card.slug}`}

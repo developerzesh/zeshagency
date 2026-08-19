@@ -149,7 +149,7 @@ export default function ComparisonTable() {
               <span className="text-xs">→</span>
             </button>
             <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
-              Explore All Solutions
+              Explore All Services
             </a>
           </div>
         </RevealText>

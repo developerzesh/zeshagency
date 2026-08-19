@@ -1,19 +1,22 @@
 import { notFound } from 'next/navigation';
 import CaseStudyDetail from '@/views/CaseStudyDetail';
-import { caseStudies } from '@/lib/data';
+import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/queries';
 import type { Metadata } from 'next';
+
+export const revalidate = 3600;
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return caseStudies.map((cs) => ({ slug: cs.slug }));
+  const caseStudies = await getAllCaseStudies();
+  return caseStudies.map((cs: any) => ({ slug: cs.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const caseStudy = caseStudies.find((cs) => cs.slug === slug);
+  const caseStudy = await getCaseStudyBySlug(slug);
 
   if (!caseStudy) {
     return {
@@ -34,11 +37,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const caseStudy = caseStudies.find((cs) => cs.slug === slug);
+  const caseStudy = await getCaseStudyBySlug(slug);
 
   if (!caseStudy) {
     notFound();
   }
 
-  return <CaseStudyDetail caseStudy={caseStudy} />;
+  const allCaseStudies = await getAllCaseStudies();
+  const related = allCaseStudies.filter((cs: any) => cs.slug !== slug).slice(0, 2);
+
+  return <CaseStudyDetail caseStudy={caseStudy} related={related} />;
 }

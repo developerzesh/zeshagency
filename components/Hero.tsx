@@ -89,7 +89,7 @@ export default function Hero() {
             className="flex items-center gap-10"
           >
             <CircleArrowButton label="Selected Work" href="#work" />
-            <MagneticButton strength={0.3}>
+            <MagneticButton strength={0.15}>
               <a href="#contact" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Get in Touch</a>
             </MagneticButton>
           </m.div>

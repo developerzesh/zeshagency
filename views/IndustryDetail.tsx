@@ -8,7 +8,8 @@ import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import type { Industry } from '../lib/data';
-import { caseStudies } from '../lib/data';
+import { caseStudies, solutions } from '../lib/data';
+import { citiesNav } from '../lib/siteConfig';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -384,6 +385,72 @@ function CaseStudySection({ industry }: { industry: Industry }) {
   );
 }
 
+// ─── Section: Services ──────────────────────────────────────────────────────
+function ServicesSection() {
+  return (
+    <section className="py-16 md:py-36 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <RevealText>
+          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">OUR SERVICES</p>
+        </RevealText>
+        <RevealText delay={0.1}>
+          <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] mb-12">
+            Growth systems we deploy<span className="text-signal">.</span>
+          </h2>
+        </RevealText>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {solutions.filter(s => s.slug !== 'consultation').map((s, idx) => (
+            <RevealText key={s.slug} delay={idx * 0.05} duration={1.3}>
+              <a
+                href={`/services/${s.slug}`}
+                className="group block bg-paper hover:bg-surface/40 border border-border/60 rounded-xl p-6 transition-all duration-500"
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-1.5 h-1.5 bg-signal flex-shrink-0" />
+                  <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted font-semibold">{s.shortTitle}</span>
+                </div>
+                <h3 className="font-syne text-lg font-800 tracking-tight text-ink group-hover:text-signal transition-colors duration-500 mb-2">{s.title}</h3>
+                <p className="font-lato text-sm text-text-secondary leading-relaxed line-clamp-2">{s.tagline}</p>
+              </a>
+            </RevealText>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Section: Locations ─────────────────────────────────────────────────────
+function LocationsSection() {
+  const mainCities = citiesNav.filter(c => ['Dubai', 'Abu Dhabi', 'San Jose', 'Texas', 'New York', 'London'].includes(c.label));
+  return (
+    <section className="py-16 md:py-36 border-t border-border">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+        <RevealText>
+          <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4 font-semibold">LOCATIONS</p>
+        </RevealText>
+        <RevealText delay={0.1}>
+          <h2 className="font-syne text-3xl md:text-5xl font-800 tracking-[-0.03em] mb-12">
+            Where we operate<span className="text-signal">.</span>
+          </h2>
+        </RevealText>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {mainCities.map((city, idx) => (
+            <RevealText key={city.path} delay={idx * 0.05} duration={1.3}>
+              <a
+                href={city.path}
+                className="group block bg-paper hover:bg-surface/40 border border-border/60 rounded-xl p-5 text-center transition-all duration-500"
+              >
+                <h3 className="font-syne text-base font-800 tracking-tight text-ink group-hover:text-signal transition-colors duration-500">{city.label}</h3>
+              </a>
+            </RevealText>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Section: Final CTA ───────────────────────────────────────────────────────
 function CTASection({ industry }: { industry: Industry }) {
   return (
@@ -441,6 +508,8 @@ export default function IndustryDetail({ industry }: { industry: Industry }) {
       <RoadmapSection industry={industry} />
       <OutcomesSection industry={industry} />
       <CaseStudySection industry={industry} />
+      <ServicesSection />
+      <LocationsSection />
       <CTASection industry={industry} />
     </PageTransition>
   );

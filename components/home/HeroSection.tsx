@@ -100,7 +100,7 @@ export default function HeroSection() {
               onClick={() => setIsBookingOpen(true)}
               animated={false}
             />
-            <MagneticButton strength={0.3}>
+            <MagneticButton strength={0.15}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">{heroContent.secondaryCTA.label}</a>
             </MagneticButton>
           </m.div>

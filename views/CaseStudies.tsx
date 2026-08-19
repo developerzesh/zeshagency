@@ -8,13 +8,10 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
-import { caseStudies } from '../lib/data';
+import { urlFor } from '../lib/sanity';
+import type { CaseStudy } from '../lib/data';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
-
-// Derive filters from data
-const ALL_INDUSTRIES = ['All', ...Array.from(new Set(caseStudies.map(cs => cs.industry)))];
-const ALL_SERVICES = ['All', ...Array.from(new Set(caseStudies.flatMap(cs => cs.services)))];
 
 // ─── Aggregate Stats ──────────────────────────────────────────────────────────
 const STATS = [
@@ -88,7 +85,7 @@ function HeroSection() {
               onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
             />
             <MagneticButton strength={0.3}>
-              <a href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Solutions</a>
+              <a href="/services" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Services</a>
             </MagneticButton>
           </m.div>
         </div>
@@ -126,18 +123,20 @@ interface FilterBarProps {
   onService: (v: string) => void;
   count: number;
   total: number;
+  industries: string[];
+  services: string[];
 }
 
-function FilterBar({ activeIndustry, activeService, onIndustry, onService, count, total }: FilterBarProps) {
+function FilterBar({ activeIndustry, activeService, onIndustry, onService, count, total, industries, services }: FilterBarProps) {
   return (
-    <div className="border-t border-b border-border/60 py-4 sticky top-[72px] z-30 backdrop-blur-2xl bg-paper/80">
+    <div className="border-t border-b border-border/60 py-5 sticky top-[72px] z-30 backdrop-blur-2xl bg-paper/80">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-        <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-10">
+        <div className="flex flex-col gap-4">
           {/* Industry filter */}
-          <div className="flex items-center gap-2">
-            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0">Industry</span>
-            <div className="flex overflow-x-auto gap-2 items-center scrollbar-hide">
-              {ALL_INDUSTRIES.map(ind => (
+          <div className="flex items-center gap-3">
+            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0 w-20">Industry</span>
+            <div className="flex gap-2 items-center overflow-x-auto scrollbar-hide">
+              {industries.map(ind => (
                 <button
                   key={ind}
                   id={`filter-industry-${ind.toLowerCase().replace(/[\s&+]/g, '-')}`}
@@ -153,13 +152,11 @@ function FilterBar({ activeIndustry, activeService, onIndustry, onService, count
             </div>
           </div>
 
-          <div className="hidden md:block w-px h-5 bg-border/40 self-center" />
-
           {/* Service filter */}
-          <div className="flex items-center gap-2">
-            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0">Service</span>
-            <div className="flex overflow-x-auto gap-2 items-center scrollbar-hide">
-              {ALL_SERVICES.map(svc => (
+          <div className="flex items-center gap-3">
+            <span className="font-lato text-[10px] tracking-[0.25em] uppercase text-text-muted flex-shrink-0 w-20">Service</span>
+            <div className="flex gap-2 items-center overflow-x-auto scrollbar-hide">
+              {services.map(svc => (
                 <button
                   key={svc}
                   id={`filter-service-${svc.toLowerCase().replace(/[\s&+]/g, '-')}`}
@@ -176,7 +173,7 @@ function FilterBar({ activeIndustry, activeService, onIndustry, onService, count
           </div>
 
           {/* Count */}
-          <div className="md:ml-auto flex-shrink-0">
+          <div className="flex-shrink-0">
             <span className="font-lato text-[11px] text-text-muted">
               Showing <span className="text-ink font-semibold">{count}</span> of <span className="text-ink font-semibold">{total}</span>
             </span>
@@ -187,8 +184,8 @@ function FilterBar({ activeIndustry, activeService, onIndustry, onService, count
   );
 }
 
-// ─── Case Study Row ───────────────────────────────────────────────────────────
-function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number }) {
+// ─── Case Study Card ─────────────────────────────────────────────────────────
+function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
   return (
     <m.div
       layout
@@ -197,84 +194,66 @@ function CaseStudyRow({ cs, index }: { cs: typeof caseStudies[0]; index: number 
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.7, delay: index * 0.06, ease: slowEase }}
     >
-      <a href={`/case-studies/${cs.slug}`} className="group block border-b border-border/60 last:border-b-0">
-        <m.div
-          whileHover={{ x: 5 }}
-          transition={{ duration: 0.8, ease: slowEase }}
-          className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 py-10 items-start"
-        >
-          {/* Index + industry */}
-          <div className="md:col-span-1 flex md:flex-col gap-3 md:gap-0">
-            <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal/50 group-hover:text-signal transition-colors duration-[900ms]">
-              {String(index + 1).padStart(2, '0')}
+      <a href={`/case-studies/${cs.slug}`} className="group block bg-paper border border-border/60 rounded-xl overflow-hidden hover:border-signal/30 transition-all duration-500">
+        {/* Image */}
+        <div className="overflow-hidden">
+          <m.div
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 1.2, ease: slowEase }}
+            className="w-full aspect-video overflow-hidden bg-surface/20"
+          >
+            <img
+              src={cs.image ? urlFor(cs.image).width(800).height(450).url() : ''}
+              alt={cs.title}
+              className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
+              loading="lazy"
+            />
+          </m.div>
+        </div>
+
+        {/* Content */}
+        <div className="p-5 md:p-6">
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-3">
+            <span className="font-lato text-[9px] tracking-[0.2em] uppercase px-2.5 py-1 text-signal border border-signal/30 bg-signal/10">
+              {cs.industry}
             </span>
-          </div>
-
-          {/* Image thumbnail */}
-          <div className="md:col-span-3 overflow-hidden">
-            <m.div
-              whileHover={{ scale: 1.04 }}
-              transition={{ duration: 1.2, ease: slowEase }}
-              className="w-full aspect-video overflow-hidden bg-surface/20"
-            >
-              <img
-                src={cs.image}
-                alt={cs.title}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
-                loading="lazy"
-              />
-            </m.div>
-          </div>
-
-          {/* Content */}
-          <div className="md:col-span-5">
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              <span className="font-lato text-[9px] tracking-[0.2em] uppercase px-2.5 py-1 text-signal border border-signal/30 bg-signal/10">
-                {cs.industry}
+            {cs.services.slice(0, 2).map(s => (
+              <span key={s} className="font-lato text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 text-ink/50 border border-border/50">
+                {s}
               </span>
-              {cs.services.map(s => (
-                <span key={s} className="font-lato text-[9px] tracking-[0.15em] uppercase px-2.5 py-1 text-ink/50 border border-border/50">
-                  {s}
-                </span>
-              ))}
-            </div>
-
-            <h2 className="font-syne text-xl md:text-2xl font-800 tracking-tight mb-3 group-hover:text-signal transition-colors duration-[1000ms]">
-              {cs.title}
-            </h2>
-            <p className="font-lato text-xs text-text-muted tracking-wider uppercase mb-3">{cs.client}</p>
-            <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.85]">
-              {cs.summary}
-            </p>
+            ))}
           </div>
 
-          {/* Results + CTA */}
-          <div className="md:col-span-3">
-            <p className="font-lato text-[10px] tracking-[0.25em] uppercase text-signal mb-4">Key Results</p>
-            <div className="space-y-3 mb-8">
-              {cs.results.slice(0, 3).map(r => (
-                <div key={r} className="flex items-baseline gap-3">
-                  <span className="w-1 h-1 rounded-full bg-signal flex-shrink-0 mt-2" />
-                  <span className="font-lato text-sm text-text-secondary leading-snug">{r}</span>
-                </div>
-              ))}
-            </div>
+          <h2 className="font-syne text-lg md:text-xl font-800 tracking-tight mb-2 group-hover:text-signal transition-colors duration-[1000ms] line-clamp-2">
+            {cs.title}
+          </h2>
+          <p className="font-lato text-xs text-text-muted tracking-wider uppercase mb-3">{cs.client}</p>
+          <p className="font-lato text-sm text-text-secondary leading-[1.7] line-clamp-3">
+            {cs.summary}
+          </p>
+
+          {/* CTA */}
+          <div className="mt-5 pt-4 border-t border-border/40">
             <span className="font-lato text-sm text-signal group-hover:text-ink transition-colors duration-700 sig-hover inline-flex items-center gap-2">
               Read Case Study
               <m.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>→</m.span>
             </span>
           </div>
-        </m.div>
+        </div>
       </a>
     </m.div>
   );
 }
 
 // ─── Main Export ──────────────────────────────────────────────────────────────
-export default function CaseStudies() {
+export default function CaseStudies({ caseStudies }: { caseStudies: CaseStudy[] }) {
   const [activeIndustry, setActiveIndustry] = useState('All');
   const [activeService, setActiveService] = useState('All');
+
+  // Derive filters from data
+  const ALL_INDUSTRIES = useMemo(() => ['All', ...Array.from(new Set(caseStudies.map(cs => cs.industry)))], [caseStudies]);
+  const ALL_SERVICES = useMemo(() => ['All', ...Array.from(new Set(caseStudies.flatMap(cs => cs.services)))], [caseStudies]);
 
   const filtered = useMemo(() => {
     return caseStudies.filter(cs => {
@@ -304,6 +283,8 @@ export default function CaseStudies() {
         onService={handleService}
         count={filtered.length}
         total={caseStudies.length}
+        industries={ALL_INDUSTRIES}
+        services={ALL_SERVICES}
       />
 
       <section className="py-14 md:py-36">
@@ -325,12 +306,14 @@ export default function CaseStudies() {
             </m.div>
           )}
 
-          {/* Row list */}
-          <AnimatePresence mode="popLayout">
-            {filtered.map((cs, i) => (
-              <CaseStudyRow key={cs.slug} cs={cs} index={i} />
-            ))}
-          </AnimatePresence>
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <AnimatePresence mode="popLayout">
+              {filtered.map((cs, i) => (
+                <CaseStudyCard key={cs.slug} cs={cs} index={i} />
+              ))}
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 

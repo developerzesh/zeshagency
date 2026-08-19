@@ -263,7 +263,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                             </RevealText>
 
                             {/* Inline CTA */}
-                            <RevealText delay={0.6} duration={1.4}>
+                            {/* <RevealText delay={0.6} duration={1.4}>
                                 <div className="mt-14 pt-10 border-t border-border/60">
                                     <div className="bg-signal/5 border border-signal/20 p-8 rounded-xl flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                                         <div>
@@ -283,7 +283,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                                         </MagneticButton>
                                     </div>
                                 </div>
-                            </RevealText>
+                            </RevealText> */}
                         </div>
 
                         {/* ── Sidebar CTA ── */}

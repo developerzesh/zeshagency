@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { solutions, industries, caseStudies, insights } from '@/lib/siteConfig';
-import { getAllPosts } from '@/lib/queries';
+import { solutions, industries, insights } from '@/lib/siteConfig';
+import { getAllPosts, getAllCaseStudies } from '@/lib/queries';
 import { CITY_DATA } from '@/lib/cityData';
 import { SOLUTIONS_CITIES, SERVICES_META } from '@/lib/serviceCityData';
 
@@ -11,7 +11,7 @@ const BASE_URL = 'https://zeshagency.com';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();
 
-  const posts = await getAllPosts();
+  const [posts, caseStudyData] = await Promise.all([getAllPosts(), getAllCaseStudies()]);
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: now, changeFrequency: 'weekly', priority: 1 },
@@ -47,7 +47,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const caseStudyPages: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
+  const caseStudyPages: MetadataRoute.Sitemap = caseStudyData.map((cs: any) => ({
     url: `${BASE_URL}/case-studies/${cs.slug}`,
     lastModified: now,
     changeFrequency: 'monthly' as const,

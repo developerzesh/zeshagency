@@ -529,7 +529,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         <m.div style={{ y: heroY, opacity: heroOpacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 pt-24 md:pt-40 w-full">
           <RevealText duration={1.4}>
             <a href="/solutions" className="inline-flex items-center gap-2 font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-signal transition-colors duration-700 mb-10 block">
-              ← All Solutions
+              ← All Services
             </a>
           </RevealText>
           <RevealText>
@@ -1713,68 +1713,138 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
       })()}
 
       {/* ── WHO WE WORK WITH ── */}
-      {extra.visualExample && (() => {
+      {(() => {
         const whoWeWorkData: Record<string, {
           headline: string;
           sub: string;
-          industries: { num: string; title: string; tagline: string; query: string; audits: string[] }[];
+          industries: { num: string; title: string; tagline: string; query: string; audits: string[]; slug: string }[];
         }> = {
           seo: {
             headline: 'Companies that need to be on the shortlist.',
             sub: 'Search visibility matters most where intent is highest. We work with brands competing for the queries below.',
             industries: [
-              { num: '01', title: 'B2B SaaS', tagline: 'Comparison prompts decide the list.', query: 'best CRM for series B teams under 50', audits: ['Comparisons & alternatives', 'Category-leader prompts', 'Integration questions'] },
-              { num: '02', title: 'Professional Services', tagline: 'Authority signals decide the call.', query: 'best SEO agency for enterprise brands', audits: ['Practice-area positioning', 'Authority & expertise signals', 'Client outcome pages'] },
-              { num: '03', title: 'Funded Startups', tagline: 'Google frames you before the analyst does.', query: 'top series A devtools companies 2026', audits: ['Category-creation narrative', 'Founder & investor signals', 'Comparison clarity'] },
-              { num: '04', title: 'Healthcare', tagline: 'Trust signals beat brand awareness.', query: 'HIPAA-compliant telehealth platforms', audits: ['Compliance language', 'Clinical evidence sources', 'Provider directory signals'] },
-              { num: '05', title: 'Fintech & Finance', tagline: 'Regulators shape the answer.', query: 'alternatives to Stripe for marketplaces', audits: ['Regulatory trust signals', 'Fee & feature comparisons', 'Integration depth'] },
-              { num: '06', title: 'Cybersecurity', tagline: 'Google cites whoever the analysts cite.', query: 'best SIEM tools for mid-market', audits: ['Analyst coverage signals', 'Threat report citations', 'Review platform dominance'] },
-              { num: '07', title: 'Ecommerce', tagline: 'Review synthesis is the new shelf.', query: 'best running shoes for plantar fasciitis', audits: ['Review aggregation signals', 'Product schema & structure', 'Category page authority'] },
-              { num: '08', title: 'Local & Multi-Location', tagline: 'Recommendations get geographic.', query: 'top dermatologist in Brooklyn', audits: ['NAP consistency signals', 'Local content depth', 'Map & directory presence'] },
+              { num: '01', title: 'B2B SaaS', tagline: 'Comparison prompts decide the list.', query: 'best CRM for series B teams under 50', audits: ['Comparisons & alternatives', 'Category-leader prompts', 'Integration questions'], slug: 'saas' },
+              { num: '02', title: 'Professional Services', tagline: 'Authority signals decide the call.', query: 'best SEO agency for enterprise brands', audits: ['Practice-area positioning', 'Authority & expertise signals', 'Client outcome pages'], slug: 'b2b-services' },
+              { num: '03', title: 'Funded Startups', tagline: 'Google frames you before the analyst does.', query: 'top series A devtools companies 2026', audits: ['Category-creation narrative', 'Founder & investor signals', 'Comparison clarity'], slug: 'technology-ai' },
+              { num: '04', title: 'Healthcare', tagline: 'Trust signals beat brand awareness.', query: 'HIPAA-compliant telehealth platforms', audits: ['Compliance language', 'Clinical evidence sources', 'Provider directory signals'], slug: 'healthcare-medical' },
+              { num: '05', title: 'Fintech & Finance', tagline: 'Regulators shape the answer.', query: 'alternatives to Stripe for marketplaces', audits: ['Regulatory trust signals', 'Fee & feature comparisons', 'Integration depth'], slug: 'b2b-services' },
+              { num: '06', title: 'Cybersecurity', tagline: 'Google cites whoever the analysts cite.', query: 'best SIEM tools for mid-market', audits: ['Analyst coverage signals', 'Threat report citations', 'Review platform dominance'], slug: 'technology-ai' },
+              { num: '07', title: 'Ecommerce', tagline: 'Review synthesis is the new shelf.', query: 'best running shoes for plantar fasciitis', audits: ['Review aggregation signals', 'Product schema & structure', 'Category page authority'], slug: 'b2c-brands' },
+              { num: '08', title: 'Local & Multi-Location', tagline: 'Recommendations get geographic.', query: 'top dermatologist in Brooklyn', audits: ['NAP consistency signals', 'Local content depth', 'Map & directory presence'], slug: 'restaurants-cafes' },
             ]
           },
           aeo: {
             headline: 'Brands that need to own the answer.',
             sub: 'Answer engine optimization matters most when buyers ask before they click. We work with brands that want to be the cited source.',
             industries: [
-              { num: '01', title: 'B2B SaaS', tagline: 'AI cites the clearest explainer.', query: 'how does AI-powered helpdesk work', audits: ['FAQ schema coverage', 'Definitional content depth', 'Question-answer alignment'] },
-              { num: '02', title: 'Professional Services', tagline: 'Expertise earns the citation.', query: 'what is the difference between AEO and SEO', audits: ['Thought leadership signals', 'Long-form explainer depth', 'Schema markup completeness'] },
-              { num: '03', title: 'Funded Startups', tagline: 'Be the definition of your category.', query: 'what is a usage-based pricing model', audits: ['Category-definition content', 'Comparison & contrast pages', 'Structured data coverage'] },
-              { num: '04', title: 'Healthcare', tagline: 'Patients ask; AI answers.', query: 'what are the symptoms of early-stage diabetes', audits: ['Medical entity accuracy', 'Source credibility signals', 'Condition & treatment depth'] },
-              { num: '05', title: 'Fintech & Finance', tagline: 'Complex questions need clear answers.', query: 'how does revenue-based financing work', audits: ['Regulated-term clarity', 'Jargon-to-plain-language gap', 'Feature explanation depth'] },
-              { num: '06', title: 'Cybersecurity', tagline: 'Define the threat; own the answer.', query: 'what is a zero-trust network model', audits: ['Technical definition accuracy', 'Use-case scenario content', 'Threat taxonomy coverage'] },
-              { num: '07', title: 'Ecommerce', tagline: 'Product questions become citations.', query: 'what fabric is best for athletic wear', audits: ['Product attribute depth', 'Buying-guide content', 'Material & spec schemas'] },
-              { num: '08', title: 'Education & Training', tagline: 'Learning queries need trusted answers.', query: 'what coding language should I learn first', audits: ['Curriculum clarity signals', 'Outcome & ROI language', 'Comparison content depth'] },
+              { num: '01', title: 'B2B SaaS', tagline: 'AI cites the clearest explainer.', query: 'how does AI-powered helpdesk work', audits: ['FAQ schema coverage', 'Definitional content depth', 'Question-answer alignment'], slug: 'saas' },
+              { num: '02', title: 'Professional Services', tagline: 'Expertise earns the citation.', query: 'what is the difference between AEO and SEO', audits: ['Thought leadership signals', 'Long-form explainer depth', 'Schema markup completeness'], slug: 'b2b-services' },
+              { num: '03', title: 'Funded Startups', tagline: 'Be the definition of your category.', query: 'what is a usage-based pricing model', audits: ['Category-definition content', 'Comparison & contrast pages', 'Structured data coverage'], slug: 'technology-ai' },
+              { num: '04', title: 'Healthcare', tagline: 'Patients ask; AI answers.', query: 'what are the symptoms of early-stage diabetes', audits: ['Medical entity accuracy', 'Source credibility signals', 'Condition & treatment depth'], slug: 'healthcare-medical' },
+              { num: '05', title: 'Fintech & Finance', tagline: 'Complex questions need clear answers.', query: 'how does revenue-based financing work', audits: ['Regulated-term clarity', 'Jargon-to-plain-language gap', 'Feature explanation depth'], slug: 'b2b-services' },
+              { num: '06', title: 'Cybersecurity', tagline: 'Define the threat; own the answer.', query: 'what is a zero-trust network model', audits: ['Technical definition accuracy', 'Use-case scenario content', 'Threat taxonomy coverage'], slug: 'technology-ai' },
+              { num: '07', title: 'Ecommerce', tagline: 'Product questions become citations.', query: 'what fabric is best for athletic wear', audits: ['Product attribute depth', 'Buying-guide content', 'Material & spec schemas'], slug: 'b2c-brands' },
+              { num: '08', title: 'Education & Training', tagline: 'Learning queries need trusted answers.', query: 'what coding language should I learn first', audits: ['Curriculum clarity signals', 'Outcome & ROI language', 'Comparison content depth'], slug: 'b2b-services' },
             ]
           },
           geo: {
             headline: 'Brands that need to be recommended.',
             sub: 'Generative engine optimization matters most when AI models shortlist vendors. We help brands become the cited recommendation.',
             industries: [
-              { num: '01', title: 'B2B SaaS', tagline: 'AI recommends the proven option.', query: 'best project management tool for remote teams', audits: ['Recommendation-signal density', 'Use-case clarity depth', 'Comparison page authority'] },
-              { num: '02', title: 'Professional Services', tagline: 'Cited by AI, trusted by buyers.', query: 'best intellectual property law firm for startups', audits: ['Practice-area authority', 'Client outcome signals', 'Third-party citation coverage'] },
-              { num: '03', title: 'Funded Startups', tagline: 'Get cited before the pitch deck.', query: 'top AI infrastructure companies to watch 2026', audits: ['Investor-facing signals', 'Media citation coverage', 'Category-leader narrative'] },
-              { num: '04', title: 'Healthcare', tagline: 'Generative AI surfaces trusted providers.', query: 'best telehealth platform for chronic care management', audits: ['Accreditation signals', 'Clinical outcome citations', 'Provider credibility depth'] },
-              { num: '05', title: 'Fintech & Finance', tagline: 'Compliance signals become recommendations.', query: 'best payment gateway for international SaaS', audits: ['Regulatory compliance signals', 'Integration partner citations', 'Security & trust language'] },
-              { num: '06', title: 'Cybersecurity', tagline: 'AI recommends the most-cited vendor.', query: 'best endpoint security solution for SMBs', audits: ['Analyst report citations', 'Threat-response signals', 'Customer proof depth'] },
-              { num: '07', title: 'Ecommerce', tagline: 'Product recommendations are earned.', query: 'best sustainable yoga mat brand', audits: ['Review synthesis signals', 'Brand value language', 'Product expert citations'] },
-              { num: '08', title: 'Local & Multi-Location', tagline: 'Local recommendations go AI-first.', query: 'top family dentist near downtown Austin', audits: ['Local authority signals', 'Review aggregation coverage', 'Geographic entity depth'] },
+              { num: '01', title: 'B2B SaaS', tagline: 'AI recommends the proven option.', query: 'best project management tool for remote teams', audits: ['Recommendation-signal density', 'Use-case clarity depth', 'Comparison page authority'], slug: 'saas' },
+              { num: '02', title: 'Professional Services', tagline: 'Cited by AI, trusted by buyers.', query: 'best intellectual property law firm for startups', audits: ['Practice-area authority', 'Client outcome signals', 'Third-party citation coverage'], slug: 'b2b-services' },
+              { num: '03', title: 'Funded Startups', tagline: 'Get cited before the pitch deck.', query: 'top AI infrastructure companies to watch 2026', audits: ['Investor-facing signals', 'Media citation coverage', 'Category-leader narrative'], slug: 'technology-ai' },
+              { num: '04', title: 'Healthcare', tagline: 'Generative AI surfaces trusted providers.', query: 'best telehealth platform for chronic care management', audits: ['Accreditation signals', 'Clinical outcome citations', 'Provider credibility depth'], slug: 'healthcare-medical' },
+              { num: '05', title: 'Fintech & Finance', tagline: 'Compliance signals become recommendations.', query: 'best payment gateway for international SaaS', audits: ['Regulatory compliance signals', 'Integration partner citations', 'Security & trust language'], slug: 'b2b-services' },
+              { num: '06', title: 'Cybersecurity', tagline: 'AI recommends the most-cited vendor.', query: 'best endpoint security solution for SMBs', audits: ['Analyst report citations', 'Threat-response signals', 'Customer proof depth'], slug: 'technology-ai' },
+              { num: '07', title: 'Ecommerce', tagline: 'Product recommendations are earned.', query: 'best sustainable yoga mat brand', audits: ['Review synthesis signals', 'Brand value language', 'Product expert citations'], slug: 'b2c-brands' },
+              { num: '08', title: 'Local & Multi-Location', tagline: 'Local recommendations go AI-first.', query: 'top family dentist near downtown Austin', audits: ['Local authority signals', 'Review aggregation coverage', 'Geographic entity depth'], slug: 'restaurants-cafes' },
             ]
           },
           'local-seo': {
             headline: 'Local businesses that deserve to be found.',
             sub: 'Local search intent is hyper-specific. We help businesses own the map pack, the AI answer, and the "near me" moment.',
             industries: [
-              { num: '01', title: 'Restaurants & Hospitality', tagline: 'First result gets the reservation.', query: 'best Italian restaurant open now near me', audits: ['Google Business optimization', 'Menu schema coverage', 'Review velocity signals'] },
-              { num: '02', title: 'Healthcare & Clinics', tagline: 'Patients choose the closest trusted provider.', query: 'urgent care clinic accepting walkins near me', audits: ['NAP consistency signals', 'Specialty & service depth', 'Insurance & hours clarity'] },
-              { num: '03', title: 'Legal Services', tagline: 'Local trust wins the consult.', query: 'personal injury lawyer free consultation Brooklyn', audits: ['Local citation authority', 'Practice-area page depth', 'Review & credential signals'] },
-              { num: '04', title: 'Home Services', tagline: 'Emergency queries need instant answers.', query: '24 hour plumber near me emergency', audits: ['Service-area page coverage', 'Emergency keyword signals', 'Availability & response time'] },
-              { num: '05', title: 'Retail & Boutiques', tagline: 'In-store visits start online.', query: 'vintage clothing store open Saturday Chicago', audits: ['Inventory & hours schema', 'Neighborhood entity signals', 'Google Posts & offers'] },
-              { num: '06', title: 'Fitness & Wellness', tagline: 'Class starts with a search.', query: 'yoga studio with beginners class near downtown', audits: ['Class schedule schema', 'Trainer authority signals', 'Amenity & facility depth'] },
-              { num: '07', title: 'Real Estate', tagline: 'Local market expertise gets cited.', query: 'top real estate agent in Midtown Manhattan', audits: ['Neighborhood content depth', 'Listing & sold data signals', 'Agent authority coverage'] },
-              { num: '08', title: 'Automotive', tagline: 'Service intent is local and urgent.', query: 'best auto repair shop near me for Honda', audits: ['Brand & model specificity', 'Service-type page depth', 'Review recency signals'] },
+              { num: '01', title: 'Restaurants & Hospitality', tagline: 'First result gets the reservation.', query: 'best Italian restaurant open now near me', audits: ['Google Business optimization', 'Menu schema coverage', 'Review velocity signals'], slug: 'restaurants-cafes' },
+              { num: '02', title: 'Healthcare & Clinics', tagline: 'Patients choose the closest trusted provider.', query: 'urgent care clinic accepting walkins near me', audits: ['NAP consistency signals', 'Specialty & service depth', 'Insurance & hours clarity'], slug: 'healthcare-medical' },
+              { num: '03', title: 'Legal Services', tagline: 'Local trust wins the consult.', query: 'personal injury lawyer free consultation Brooklyn', audits: ['Local citation authority', 'Practice-area page depth', 'Review & credential signals'], slug: 'b2b-services' },
+              { num: '04', title: 'Home Services', tagline: 'Emergency queries need instant answers.', query: '24 hour plumber near me emergency', audits: ['Service-area page coverage', 'Emergency keyword signals', 'Availability & response time'], slug: 'b2b-services' },
+              { num: '05', title: 'Retail & Boutiques', tagline: 'In-store visits start online.', query: 'vintage clothing store open Saturday Chicago', audits: ['Inventory & hours schema', 'Neighborhood entity signals', 'Google Posts & offers'], slug: 'b2c-brands' },
+              { num: '06', title: 'Fitness & Wellness', tagline: 'Class starts with a search.', query: 'yoga studio with beginners class near downtown', audits: ['Class schedule schema', 'Trainer authority signals', 'Amenity & facility depth'], slug: 'b2c-brands' },
+              { num: '07', title: 'Real Estate', tagline: 'Local market expertise gets cited.', query: 'top real estate agent in Midtown Manhattan', audits: ['Neighborhood content depth', 'Listing & sold data signals', 'Agent authority coverage'], slug: 'real-estate-development' },
+              { num: '08', title: 'Automotive', tagline: 'Service intent is local and urgent.', query: 'best auto repair shop near me for Honda', audits: ['Brand & model specificity', 'Service-type page depth', 'Review recency signals'], slug: 'b2b-services' },
             ]
-          }
+          },
+          'web-dev': {
+            headline: 'Companies that need a high-converting web presence.',
+            sub: 'Your website is your hardest-working sales asset. We build fast, conversion-optimized sites for brands that compete on intent.',
+            industries: [
+              { num: '01', title: 'B2B SaaS', tagline: 'Demo requests start at page speed.', query: 'best CRM for series B teams under 50', audits: ['Core Web Vitals optimization', 'Conversion-first architecture', 'CRM integration depth'], slug: 'saas' },
+              { num: '02', title: 'Professional Services', tagline: 'Trust is built before the first call.', query: 'best SEO agency for enterprise brands', audits: ['Authority-focused design', 'Case study page architecture', 'Lead capture optimization'], slug: 'b2b-services' },
+              { num: '03', title: 'Healthcare', tagline: 'Patients book online first.', query: 'HIPAA-compliant telehealth platforms', audits: ['HIPAA-compliant forms', 'Provider directory structure', 'Appointment booking flows'], slug: 'healthcare-medical' },
+              { num: '04', title: 'Real Estate', tagline: 'Listings need fast, immersive previews.', query: 'luxury condos for sale in Miami', audits: ['Property listing speed', 'Virtual tour integration', 'Neighborhood page architecture'], slug: 'real-estate-development' },
+              { num: '05', title: 'Restaurants & Cafes', tagline: 'Menu views drive reservations.', query: 'best Italian restaurant open now near me', audits: ['Menu schema markup', 'Mobile-first ordering UX', 'Local SEO integration'], slug: 'restaurants-cafes' },
+              { num: '06', title: 'Fashion & Apparel', tagline: 'Visual speed sells.', query: 'best sustainable activewear brands', audits: ['Image optimization', 'Checkout flow speed', 'Visual search readiness'], slug: 'fashion-apparel' },
+              { num: '07', title: 'Technology & AI', tagline: 'Developer docs drive adoption.', query: 'best API documentation platforms', audits: ['Documentation architecture', 'Developer experience UX', 'Integration showcase pages'], slug: 'technology-ai' },
+              { num: '08', title: 'Architecture & Design', tagline: 'Portfolio speed wins projects.', query: 'best architecture firms in Dubai', audits: ['Portfolio page performance', 'Project gallery UX', 'Contact conversion paths'], slug: 'architecture-design' },
+            ]
+          },
+          'google-ads': {
+            headline: 'Companies that need qualified pipeline fast.',
+            sub: 'Paid search delivers when organic hasn\'t caught up. We build high-ROI ad systems for brands ready to scale now.',
+            industries: [
+              { num: '01', title: 'B2B SaaS', tagline: 'CAC-aware bidding wins.', query: 'best CRM for series B teams under 50', audits: ['Account-based targeting', 'Conversion tracking setup', 'Lead quality filtering'], slug: 'saas' },
+              { num: '02', title: 'Healthcare', tagline: 'Compliant ads convert.', query: 'HIPAA-compliant telehealth platforms', audits: ['Healthcare ad compliance', 'Patient acquisition funnels', 'Insurance keyword targeting'], slug: 'healthcare-medical' },
+              { num: '03', title: 'Real Estate', tagline: 'Listings need instant visibility.', query: 'luxury condos for sale in Miami', audits: ['Property listing ads', 'Neighborhood targeting', 'Lead capture optimization'], slug: 'real-estate-development' },
+              { num: '04', title: 'Ecommerce', tagline: 'Shopping ads drive revenue.', query: 'best running shoes for plantar fasciitis', audits: ['Shopping feed optimization', 'Dynamic remarketing', 'ROAS-focused bidding'], slug: 'b2c-brands' },
+              { num: '05', title: 'Professional Services', tagline: 'High-intent clicks win.', query: 'best SEO agency for enterprise brands', audits: ['Keyword intent mapping', 'Landing page alignment', 'Lead quality tracking'], slug: 'b2b-services' },
+              { num: '06', title: 'Fashion & Apparel', tagline: 'Visual ads sell.', query: 'best sustainable activewear brands', audits: ['Shopping feed visuals', 'Seasonal campaign structure', 'Brand awareness targeting'], slug: 'fashion-apparel' },
+              { num: '07', title: 'Restaurants & Cafes', tagline: 'Local ads drive foot traffic.', query: 'best Italian restaurant open now near me', audits: ['Location extensions', 'Menu promotion ads', 'Reservation tracking'], slug: 'restaurants-cafes' },
+              { num: '08', title: 'Technology & AI', tagline: 'Technical buyers need precision.', query: 'best API documentation platforms', audits: ['Technical keyword targeting', 'Product-led ad copy', 'Demo request optimization'], slug: 'technology-ai' },
+            ]
+          },
+          'social-media': {
+            headline: 'Brands that need consistent audience growth.',
+            sub: 'Social media builds brand awareness and pipeline. We create content systems that turn followers into buyers.',
+            industries: [
+              { num: '01', title: 'B2B SaaS', tagline: 'LinkedIn drives pipeline.', query: 'best CRM for series B teams under 50', audits: ['Thought leadership content', 'Employee advocacy setup', 'LinkedIn ad targeting'], slug: 'saas' },
+              { num: '02', title: 'Fashion & Apparel', tagline: 'Visual storytelling sells.', query: 'best sustainable activewear brands', audits: ['Instagram content strategy', 'UGC campaign setup', 'Shoppable post optimization'], slug: 'fashion-apparel' },
+              { num: '03', title: 'Restaurants & Cafes', tagline: 'Food photos drive visits.', query: 'best Italian restaurant open now near me', audits: ['Instagram Reels strategy', 'Review response automation', 'Local influencer outreach'], slug: 'restaurants-cafes' },
+              { num: '04', title: 'Healthcare', tagline: 'Trust is built in public.', query: 'HIPAA-compliant telehealth platforms', audits: ['Patient education content', 'Compliance-safe posting', 'Community engagement'], slug: 'healthcare-medical' },
+              { num: '05', title: 'Real Estate', tagline: 'Listings need social reach.', query: 'luxury condos for sale in Miami', audits: ['Property showcase content', 'Virtual tour promotion', 'Agent personal branding'], slug: 'real-estate-development' },
+              { num: '06', title: 'Technology & AI', tagline: 'Developer communities engage.', query: 'best API documentation platforms', audits: ['Technical content calendar', 'Developer community building', 'Product launch campaigns'], slug: 'technology-ai' },
+              { num: '07', title: 'B2C Brands', tagline: 'Community drives loyalty.', query: 'best sustainable yoga mat brand', audits: ['Brand community building', 'UGC amplification', 'Social commerce setup'], slug: 'b2c-brands' },
+              { num: '08', title: 'Architecture & Design', tagline: 'Portfolio showcases win.', query: 'best architecture firms in Dubai', audits: ['Visual portfolio sharing', 'Project reveal campaigns', 'Design community engagement'], slug: 'architecture-design' },
+            ]
+          },
+          'lead-gen': {
+            headline: 'Companies that need predictable pipeline.',
+            sub: 'Lead generation turns traffic into revenue. We build automated systems that capture, qualify, and convert.',
+            industries: [
+              { num: '01', title: 'B2B SaaS', tagline: 'MQLs need qualification.', query: 'best CRM for series B teams under 50', audits: ['Lead scoring setup', 'CRM integration', 'Nurture sequence design'], slug: 'saas' },
+              { num: '02', title: 'Professional Services', tagline: 'Consultations close deals.', query: 'best SEO agency for enterprise brands', audits: ['Contact form optimization', 'Calendly integration', 'Lead qualification flows'], slug: 'b2b-services' },
+              { num: '03', title: 'Healthcare', tagline: 'Patient intake starts online.', query: 'HIPAA-compliant telehealth platforms', audits: ['HIPAA-compliant forms', 'Insurance verification flows', 'Appointment scheduling'], slug: 'healthcare-medical' },
+              { num: '04', title: 'Real Estate', tagline: 'Inquiries need instant response.', query: 'luxury condos for sale in Miami', audits: ['Property inquiry forms', 'Instant response automation', 'Lead nurturing sequences'], slug: 'real-estate-development' },
+              { num: '05', title: 'Technology & AI', tagline: 'Demo requests drive revenue.', query: 'best API documentation platforms', audits: ['Demo request optimization', 'Free trial funnels', 'Product-led growth setup'], slug: 'technology-ai' },
+              { num: '06', title: 'Education & Training', tagline: 'Enrollment starts with a lead.', query: 'what coding language should I learn first', audits: ['Course inquiry forms', 'Webinar registration flows', 'Enrollment nurture sequences'], slug: 'b2b-services' },
+              { num: '07', title: 'Home Services', tagline: 'Emergency leads need speed.', query: '24 hour plumber near me emergency', audits: ['Click-to-call optimization', 'Instant quote forms', 'Service area targeting'], slug: 'b2b-services' },
+              { num: '08', title: 'B2C Brands', tagline: 'Conversion funnels win.', query: 'best sustainable yoga mat brand', audits: ['Ecommerce conversion optimization', 'Cart abandonment recovery', 'Email capture flows'], slug: 'b2c-brands' },
+            ]
+          },
+          consultation: {
+            headline: 'Companies that need strategic clarity.',
+            sub: 'Growth starts with the right strategy. We help brands identify the highest-impact opportunities and build executable roadmaps.',
+            industries: [
+              { num: '01', title: 'B2B SaaS', tagline: 'Strategy before tactics.', query: 'best CRM for series B teams under 50', audits: ['Growth audit', 'Competitive positioning', 'Channel strategy'], slug: 'saas' },
+              { num: '02', title: 'Healthcare', tagline: 'Compliance meets growth.', query: 'HIPAA-compliant telehealth platforms', audits: ['Regulatory review', 'Market positioning', 'Patient acquisition strategy'], slug: 'healthcare-medical' },
+              { num: '03', title: 'Technology & AI', tagline: 'Technical positioning wins.', query: 'best API documentation platforms', audits: ['Developer market analysis', 'Product positioning', 'Go-to-market strategy'], slug: 'technology-ai' },
+              { num: '04', title: 'Real Estate', tagline: 'Market timing matters.', query: 'luxury condos for sale in Miami', audits: ['Market analysis', 'Competitive landscape', 'Launch strategy'], slug: 'real-estate-development' },
+              { num: '05', title: 'Professional Services', tagline: 'Authority starts with strategy.', query: 'best SEO agency for enterprise brands', audits: ['Brand positioning', 'Content strategy', 'Authority building plan'], slug: 'b2b-services' },
+              { num: '06', title: 'Fashion & Apparel', tagline: 'Brand narrative drives growth.', query: 'best sustainable activewear brands', audits: ['Brand strategy', 'Market positioning', 'Channel mix optimization'], slug: 'fashion-apparel' },
+              { num: '07', title: 'B2C Brands', tagline: 'Growth systems scale.', query: 'best sustainable yoga mat brand', audits: ['Growth audit', 'Channel strategy', 'Conversion optimization'], slug: 'b2c-brands' },
+              { num: '08', title: 'Restaurants & Cafes', tagline: 'Local dominance starts here.', query: 'best Italian restaurant open now near me', audits: ['Local market analysis', 'Competitive positioning', 'Multi-location strategy'], slug: 'restaurants-cafes' },
+            ]
+          },
         };
 
         const slug = solution.slug as keyof typeof whoWeWorkData;
@@ -1807,11 +1877,11 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 </RevealText>
               </div>
 
-              {/* 4-col Ã— 2-row card grid */}
+              {/* 4-col × 2-row card grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border/60 border border-border/60 rounded-2xl overflow-hidden">
                 {wd.industries.map((ind, idx) => (
                   <RevealText key={idx} delay={idx * 0.05} duration={1.3}>
-                    <div className="bg-paper hover:bg-surface/40 transition-colors duration-500 p-6 md:p-7 flex flex-col gap-5 h-full">
+                    <a href={`/industries/${ind.slug}`} className="block bg-paper hover:bg-surface/40 transition-colors duration-500 p-6 md:p-7 flex flex-col gap-5 h-full">
 
                       {/* Number badge */}
                       <div className="flex items-center gap-2">
@@ -1847,7 +1917,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                         </ul>
                       </div>
 
-                    </div>
+                    </a>
                   </RevealText>
                 ))}
               </div>

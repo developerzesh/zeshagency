@@ -414,7 +414,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
                 />
                 <MagneticButton strength={0.3}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
-                    Explore All Solutions
+                    Explore All Services
                   </Link>
                 </MagneticButton>
               </div>
@@ -465,7 +465,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             {otherCities.map((c) => (
               <Link
                 key={c.key}
-                href={`/location/${c.key}/${serviceKey}-service-in-${c.key}`}
+                href={`/location/${c.key}/${serviceKey}-service`}
                 className="font-lato text-[11px] font-bold text-text-secondary py-3.5 px-4 border border-border/50 rounded-xl transition-all duration-[400ms] flex items-center justify-between hover:bg-ink hover:text-paper hover:border-ink dark:hover:bg-white dark:hover:text-ink"
               >
                 <span>{c.name}</span>

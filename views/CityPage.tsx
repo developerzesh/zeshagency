@@ -22,7 +22,7 @@ const getServiceLink = (p: string, cityKey: string) => {
     'sol-web': 'web-dev',
   };
   if (cityServiceMap[p]) {
-    return `/location/${cityKey}/${cityServiceMap[p]}-service-in-${cityKey}`;
+    return `/location/${cityKey}/${cityServiceMap[p]}-service`;
   }
   const slug = SOL_MAP[p] || p;
   return `/services/${slug}`;
@@ -424,7 +424,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 />
                 <MagneticButton strength={0.3}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
-                    Explore All Solutions
+                    Explore All Services
                   </Link>
                 </MagneticButton>
               </div>

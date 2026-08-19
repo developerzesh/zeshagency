@@ -14,7 +14,17 @@ import BlogSection from '../components/home/BlogSection';
 import FAQSection from '../components/home/FAQSection';
 import CTA from '../components/home/CTA';
 
-export default function Home({ posts = [] }: { posts?: any[] }) {
+export default function Home({ posts = [], caseStudies = [] }: { posts?: any[]; caseStudies?: any[] }) {
+  const featuredCases = caseStudies.slice(0, 3).map((cs: any) => ({
+    slug: cs.slug,
+    title: cs.title,
+    mainMetric: cs.homeStats?.[0]?.value || cs.results?.[0]?.split(' ')[0] || '',
+    stats: cs.homeStats || cs.results?.slice(0, 3).map((r: string) => {
+      const parts = r.split(' ');
+      return { value: parts[0], label: parts.slice(1).join(' ') };
+    }) || [],
+  }));
+
   return (
     <PageTransition>
       <HeroSection />
@@ -24,7 +34,7 @@ export default function Home({ posts = [] }: { posts?: any[] }) {
       <HowWeWork />
       <Metrics />
       <ComparisonTable />
-      <FeaturedCaseStudy />
+      <FeaturedCaseStudy caseStudies={featuredCases} />
       <IndustriesGrid />
       <Testimonials />
       <BlogSection posts={posts} />

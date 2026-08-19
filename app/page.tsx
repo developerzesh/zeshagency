@@ -1,9 +1,9 @@
 import Home from "@/views/Home";
-import { getAllPosts } from "@/lib/queries";
+import { getAllPosts, getAllCaseStudies } from "@/lib/queries";
 
 export const revalidate = 3600;
 
 export default async function Page() {
-  const posts = await getAllPosts();
-  return <Home posts={posts} />;
+  const [posts, caseStudies] = await Promise.all([getAllPosts(), getAllCaseStudies()]);
+  return <Home posts={posts} caseStudies={caseStudies} />;
 }

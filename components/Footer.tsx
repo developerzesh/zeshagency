@@ -12,12 +12,12 @@ export default function Footer() {
     <footer className="border-t border-border py-14 md:py-28">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
 
-        {/* Top Row - Brand, Solutions, Industries, Consultancy */}
+        {/* Top Row - Brand, Services, Industries, Consultancy */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 md:gap-x-12 gap-y-10 md:gap-y-8 mb-10 md:mb-16">
 
           {/* Brand block */}
           <div className="col-span-1 md:col-span-3">
-            <MagneticButton strength={0.1}>
+            <MagneticButton strength={0.08}>
               <a href="/" className="block">
                 <img
                   src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"}
@@ -34,10 +34,10 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Solutions block */}
+          {/* Services block */}
           <div className="col-span-1 md:col-span-3">
             <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-5">
-              Solutions
+              Services
             </p>
 
             <ul className="space-y-3">
@@ -120,9 +120,9 @@ export default function Footer() {
 
         </div>
 
-        {/* Regional Solutions - Accordion */}
+        {/* Regional Services - Accordion */}
         <div className="border-t border-border pt-10 mb-16 md:mb-24">
-          <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-6">Regional Solutions</p>
+          <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-text-muted mb-6">Regional Services</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
             {SOLUTIONS_CITIES.map((city) => {
               const isExpanded = expandedCity === city.key;
@@ -159,10 +159,10 @@ export default function Footer() {
                       >
                         <ul className="flex flex-col gap-2 pt-3">
                           {[
-                            { label: `SEO services in ${city.name}`, path: `/location/${city.key}/seo-aeo-geo-service-in-${city.key}` },
-                            { label: `Lead Gen services in ${city.name}`, path: `/location/${city.key}/lead-gen-service-in-${city.key}` },
-                            { label: `Social Media services in ${city.name}`, path: `/location/${city.key}/social-media-service-in-${city.key}` },
-                            { label: `Web Dev services in ${city.name}`, path: `/location/${city.key}/web-dev-service-in-${city.key}` },
+                            { label: `SEO services in ${city.name}`, path: `/location/${city.key}/seo-aeo-geo-service` },
+                            { label: `Lead Gen services in ${city.name}`, path: `/location/${city.key}/lead-gen-service` },
+                            { label: `Social Media services in ${city.name}`, path: `/location/${city.key}/social-media-service` },
+                            { label: `Web Dev services in ${city.name}`, path: `/location/${city.key}/web-dev-service` },
                           ].map((service, idx) => (
                             <li key={idx} className="flex items-center gap-2">
                               <div className="w-1 h-1 rounded-full bg-signal/50" />

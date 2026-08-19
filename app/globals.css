@@ -312,6 +312,16 @@ div {
   opacity: 0;
 }
 
+/* Normalize all p to 16px */
+p {
+  font-size: 16px !important;
+}
+
+/* Normalize 11px spans to 16px */
+.text-\[11px\] {
+  font-size: 16px !important;
+}
+
 /* Scroll-triggered animations using Intersection Observer */
 .reveal {
   opacity: 0;

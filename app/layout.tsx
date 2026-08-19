@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Syne, Inter, Lato } from "next/font/google";
 import "./globals.css";
 import PageLayout from "@/components/PageLayout";
+import { getAllCaseStudies } from "@/lib/queries";
+
+export const revalidate = 3600;
 
 const syne = Syne({
   subsets: ["latin"],
@@ -29,18 +32,18 @@ export const metadata: Metadata = {
   description: "Zesh Agency · Strategic Growth Consultancy",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const caseStudies = await getAllCaseStudies();
+
   return (
     <html lang="en" suppressHydrationWarning className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}>
       <head>
-        {/* Adaptive favicon: Group 2.svg (light/white) for dark browsers, Group 3.svg (dark/black) for light browsers */}
         <link rel="icon" href="/Group 3.svg" media="(prefers-color-scheme: light)" />
         <link rel="icon" href="/Group 2.svg" media="(prefers-color-scheme: dark)" />
-        {/* Inline script: runs before React hydrates to prevent white flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('zesh-theme');if(t==='dark'||t===null){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
@@ -59,7 +62,7 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className="min-h-full">
-        <PageLayout>
+        <PageLayout caseStudies={caseStudies}>
           {children}
         </PageLayout>
       </body>

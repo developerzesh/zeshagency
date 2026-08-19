@@ -82,6 +82,7 @@ import Lenis from 'lenis';
 import Navigation from './Navigation';
 import Footer from './Footer';
 import { ThemeProvider } from './ThemeContext';
+import type { CaseStudy } from '../lib/data';
 
 function ScrollProgress() {
   const scaleX = useMotionValue(0);
@@ -115,7 +116,7 @@ function FilmGrain() {
   );
 }
 
-function LayoutInner({ children }: { children: ReactNode }) {
+function LayoutInner({ children, caseStudies }: { children: ReactNode; caseStudies: CaseStudy[] }) {
   useEffect(() => {
     const lenis = new Lenis({
       lerp: 0.1,
@@ -132,17 +133,17 @@ function LayoutInner({ children }: { children: ReactNode }) {
     <LazyMotion features={domAnimation}>
       <ScrollProgress />
       <FilmGrain />
-      <Navigation />
+      <Navigation caseStudies={caseStudies} />
       <main className="overflow-x-clip">{children}</main>
       <Footer />
     </LazyMotion>
   );
 }
 
-export default function PageLayout({ children }: { children: ReactNode }) {
+export default function PageLayout({ children, caseStudies }: { children: ReactNode; caseStudies: CaseStudy[] }) {
   return (
     <ThemeProvider>
-      <LayoutInner>{children}</LayoutInner>
+      <LayoutInner caseStudies={caseStudies}>{children}</LayoutInner>
     </ThemeProvider>
   );
 }

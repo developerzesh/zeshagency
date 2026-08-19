@@ -28,8 +28,8 @@ export default function CTA() {
           <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary max-w-md leading-[1.85]">We analyze your website metrics, inspect competitor search campaigns, and map out custom acquisition strategies from day one.</p></RevealText>
           <RevealText delay={0.3}>
             <div className="flex flex-col items-start gap-5">
-              <MagneticButton strength={0.4}><button onClick={() => setIsBookingOpen(true)} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"><span>Book a Discovery Call</span><span className="text-xs">→</span></button></MagneticButton>
-              <MagneticButton strength={0.2}><a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a></MagneticButton>
+              <MagneticButton strength={0.2}><button onClick={() => setIsBookingOpen(true)} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"><span>Book a Discovery Call</span><span className="text-xs">→</span></button></MagneticButton>
+              <MagneticButton strength={0.1}><a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a></MagneticButton>
             </div>
           </RevealText>
         </div>

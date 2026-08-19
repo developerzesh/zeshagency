@@ -3,20 +3,23 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { m, AnimatePresence } from 'framer-motion';
 import MagneticButton from './MagneticButton';
-import { solutions, industries, caseStudies } from '../lib/data';
+import { solutions, industries } from '../lib/data';
 import { citiesNav } from '../lib/siteConfig';
 import { useTheme } from './ThemeContext';
+import type { CaseStudy } from '../lib/data';
 
 interface SubItem { label: string; path: string }
 interface NavItem { label: string; path: string; submenu?: SubItem[] }
 
 // ── Primary nav (with submenus) ──────────────────────────
-const primaryNav: NavItem[] = [
-  { label: 'Solutions', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
-  { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
-  { label: 'Locations', path: '/location/dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
-  { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
-];
+function getPrimaryNav(caseStudies: CaseStudy[]): NavItem[] {
+  return [
+    { label: 'Services', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
+    { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
+    { label: 'Locations', path: '/location/dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
+    { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
+  ];
+}
 
 // ── Secondary nav ────────────────────────────────────────
 const secondaryNav: NavItem[] = [
@@ -24,9 +27,6 @@ const secondaryNav: NavItem[] = [
   { label: 'Resources', path: '/blog', submenu: [{ label: 'Blog', path: '/blog' }, { label: 'Insights', path: '/insights' }] },
   { label: 'Careers', path: '/careers', submenu: [{ label: 'Open Roles', path: '/careers' }] },
 ];
-
-// ── All items merged (used for mobile) ──────────────────
-const navItems: NavItem[] = [...primaryNav, ...secondaryNav, { label: 'Contact', path: '/contact' }];
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -42,7 +42,7 @@ function Chevron({ active }: { active: boolean }) {
   );
 }
 
-export default function Navigation() {
+export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
@@ -51,6 +51,9 @@ export default function Navigation() {
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const cityTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
+
+  const primaryNav = getPrimaryNav(caseStudies);
+  const navItems: NavItem[] = [...primaryNav, ...secondaryNav, { label: 'Contact', path: '/contact' }];
 
   const handleNavClick = () => { setIsOpen(false); };
 
@@ -75,10 +78,10 @@ export default function Navigation() {
   // Shared desktop link class builder
   const linkClass = (path: string) =>
     `inline-flex items-center gap-1.5 font-lato text-[12px] tracking-[0.10em] uppercase px-3.5 py-2 rounded-lg transition-all duration-300 ${activeSubmenu === path
-      ? 'text-ink bg-surface'
+      ? 'text-ink dark:text-white bg-surface'
       : pathname === path
-        ? 'text-ink font-semibold'
-        : 'text-ink/50 hover:text-ink hover:bg-surface/60'
+        ? 'text-ink dark:text-white font-semibold'
+        : 'text-ink/50 dark:text-white/50 hover:text-ink dark:hover:text-white hover:bg-surface/60'
     }`;
 
   return (
@@ -94,7 +97,7 @@ export default function Navigation() {
           <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
             {/* Logo */}
-            <MagneticButton strength={0.2}>
+            <MagneticButton strength={0.1}>
               <a href="/" onClick={handleNavClick} className="block">
                 <img src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"} alt="ZESH." className="h-4 md:h-5 w-auto" width="600" height="64" />
               </a>
@@ -302,7 +305,7 @@ export default function Navigation() {
                                           transition={{ delay: j * 0.04, duration: 0.3, ease: slowEase }}
                                         >
                                           <a
-                                            href={`/location/${cityKey}/${service.slug}-service-in-${cityKey}`}
+                                            href={`/location/${cityKey}/${service.slug}-service`}
                                             onClick={handleNavClick}
                                             className="group flex items-center gap-2 py-1.5 hover:text-signal transition-colors duration-200"
                                           >

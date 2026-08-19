@@ -7,8 +7,8 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
+import { urlFor } from '../lib/sanity';
 import type { CaseStudy } from '../lib/data';
-import { caseStudies } from '../lib/data';
 
 const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
@@ -147,7 +147,7 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
       <RevealText duration={2}>
         <Suspense fallback={<div className="aspect-video bg-surface animate-pulse" />}>
           <CinematicImage
-            src={cs.image}
+            src={cs.image ? urlFor(cs.image).width(1200).height(800).url() : ''}
             alt={cs.title}
             aspect="16/9"
             parallaxStrength={0.07}
@@ -383,9 +383,8 @@ function ConclusionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 10 — Related Case Studies ─────────────────────────────────────────────
-function RelatedSection({ cs }: { cs: CaseStudy }) {
-  const related = caseStudies.filter(c => c.slug !== cs.slug).slice(0, 2);
+// ─── § 10 — Related Case Studies ─────────────────────────────────────────────
+function RelatedSection({ related }: { related: CaseStudy[] }) {
   if (related.length === 0) return null;
 
   return (
@@ -410,7 +409,7 @@ function RelatedSection({ cs }: { cs: CaseStudy }) {
                 >
                   <div className="col-span-1 overflow-hidden">
                     <img
-                      src={rel.image}
+                      src={rel.image ? urlFor(rel.image).width(600).height(400).url() : ''}
                       alt={rel.title}
                       className="w-full aspect-square object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
                       loading="lazy"
@@ -477,7 +476,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
 }
 
 // ─── Main Export ──────────────────────────────────────────────────────────────
-export default function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy }) {
+export default function CaseStudyDetail({ caseStudy, related }: { caseStudy: CaseStudy; related: CaseStudy[] }) {
   return (
     <PageTransition>
       <HeroSection cs={caseStudy} />
@@ -489,7 +488,7 @@ export default function CaseStudyDetail({ caseStudy }: { caseStudy: CaseStudy })
       <ExecutionSection cs={caseStudy} />
       <OutcomesSection cs={caseStudy} />
       <ConclusionSection cs={caseStudy} />
-      <RelatedSection cs={caseStudy} />
+      <RelatedSection related={related} />
       <CTASection cs={caseStudy} />
     </PageTransition>
   );

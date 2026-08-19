@@ -5,12 +5,12 @@ import { m, useMotionValue, useSpring } from 'framer-motion';
 
 type Props = { children: React.ReactNode; className?: string; onClick?: () => void; strength?: number };
 
-export default function MagneticButton({ children, className = '', onClick, strength = 0.3 }: Props) {
+export default function MagneticButton({ children, className = '', onClick, strength = 0.15 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const rectRef = useRef({ left: 0, top: 0, width: 0, height: 0 });
   const x = useMotionValue(0); const y = useMotionValue(0);
-  const springX = useSpring(x, { damping: 40, stiffness: 150, mass: 0.8 });
-  const springY = useSpring(y, { damping: 40, stiffness: 150, mass: 0.8 });
+  const springX = useSpring(x, { damping: 50, stiffness: 180, mass: 0.8 });
+  const springY = useSpring(y, { damping: 50, stiffness: 180, mass: 0.8 });
 
   const onMouseEnter = useCallback(() => {
     if (!ref.current) return;
