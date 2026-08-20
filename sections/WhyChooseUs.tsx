@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
     <section className="py-16 md:py-48 border-t border-border">
       <div className="max-w-[1200px] mx-auto px-4 md:px-16">
         <div className="text-center mb-20">
-          <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Why Zesh</p></RevealText>
+          <RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Why Zesh Agency</p></RevealText>
           <RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.03em]">A different kind of growth partner<span className="text-signal">.</span></h2></RevealText>
         </div>
         {/* Full-width editorial rows — no cards */}

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import CaseStudyDetail from '@/views/CaseStudyDetail';
 import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/queries';
+import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 export const revalidate = 3600;
@@ -20,17 +21,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!caseStudy) {
     return {
-      title: 'Case Study Not Found | ZESH',
+      title: 'Case Study Not Found',
       description: 'The requested case study page is not available.',
     };
   }
 
   return {
-    title: `${caseStudy.title} — Zesh Agency`,
-    description: caseStudy.summary,
+    title: seoTitle(caseStudy.title),
+    description: seoDesc(caseStudy.summary),
+    alternates: {
+      canonical: `/case-studies/${slug}`,
+    },
     openGraph: {
-      title: `${caseStudy.title} — Zesh Agency`,
-      description: caseStudy.summary,
+      title: seoTitle(caseStudy.title),
+      description: seoDesc(caseStudy.summary),
     },
   };
 }

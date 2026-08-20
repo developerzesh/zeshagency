@@ -23,7 +23,7 @@ const faqData = [
     answer: "We focus on outcome-oriented retainer models and quarterly sprints. After our initial discovery workshop, we build a customized 90-day execution blueprint with direct deliverables and milestones, allowing you full flexibility without locked annual contracts."
   },
   {
-    question: "Can Zesh help integrate tracking with my CRM?",
+    question: "Can Zesh Agency help integrate tracking with my CRM?",
     answer: "Absolutely. We build clean API connections that route and score inbound leads from multi-step forms directly into systems like HubSpot, Salesforce, or Marketo, including full closed-loop revenue attribution."
   }
 ];

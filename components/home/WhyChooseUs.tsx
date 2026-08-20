@@ -16,7 +16,7 @@ export default function WhyChooseUs() {
           </div>
           <div className="md:col-span-5 md:col-start-7 flex items-end">
             <RevealText delay={0.2}>
-              <p className="font-lato text-base text-text-secondary leading-[1.85]">We built Zesh to focus purely on measurable outcomes. Our mission is to align strategic growth planning with high-converting execution, replacing speculation with performance.</p>
+              <p className="font-lato text-base text-text-secondary leading-[1.85]">We built Zesh Agency to focus purely on measurable outcomes. Our mission is to align strategic growth planning with high-converting execution, replacing speculation with performance.</p>
             </RevealText>
           </div>
         </div>

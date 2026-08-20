@@ -133,7 +133,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
             transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
             className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-8"
           >
-            Work at Zesh
+            Work at Zesh Agency
           </m.p>
 
           <h1 className="font-syne text-[clamp(2.8rem,5.5vw,6.5rem)] font-800 leading-[0.88] tracking-[-0.04em] mb-10 max-w-4xl">
@@ -168,7 +168,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
                 href="#roles"
               />
               <MagneticButton strength={0.3}>
-                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh? ↓</a>
+                <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh Agency? ↓</a>
               </MagneticButton>
             </m.div>
           </div>
@@ -192,7 +192,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
             <div className="md:col-span-7 md:col-start-6">
               <RevealText delay={0.15}>
                 <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] mb-6">
-                  Zesh is an elite growth agency. We do not design templates or write superficial SEO blog posts. We build high-performance headless search optimization engines, map entity nodes, and deploy programmatic alternative hubs for mid-market platforms.
+                  Zesh Agency is an elite growth agency. We do not design templates or write superficial SEO blog posts. We build high-performance headless search optimization engines, map entity nodes, and deploy programmatic alternative hubs for mid-market platforms.
                 </p>
                 <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85]">
                   If you want to work on projects where performance metrics are verified, data integrity overrides speculation, and your contributions are evaluated by the caliber of your code and strategy, you will thrive here.
@@ -293,7 +293,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
             <div className="md:col-span-7 md:col-start-6">
               <RevealText delay={0.15}>
                 <p className="font-lato text-base md:text-lg text-text-secondary leading-[1.85] mb-6">
-                  The search ecosystem is shifting rapidly. At Zesh, you will actively research and master next-generation discovery platforms:
+                  The search ecosystem is shifting rapidly. At Zesh Agency, you will actively research and master next-generation discovery platforms:
                 </p>
                 <div className="space-y-6">
                   <div className="border-l-2 border-signal/40 pl-6 py-1">

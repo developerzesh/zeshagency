@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import IndustryDetail from '@/views/IndustryDetail';
 import { industries } from '@/lib/data';
+import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -17,17 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!industry) {
     return {
-      title: 'Industry Not Found | ZESH',
+      title: 'Industry Not Found',
       description: 'The requested industry page is not available.',
     };
   }
 
   return {
-    title: `${industry.title} Digital Marketing — Zesh Agency`,
-    description: industry.tagline,
+    title: seoTitle(`${industry.title} Digital Marketing`),
+    description: seoDesc(industry.tagline),
+    alternates: {
+      canonical: `/industries/${slug}`,
+    },
     openGraph: {
-      title: `${industry.title} Digital Marketing — Zesh Agency`,
-      description: industry.tagline,
+      title: seoTitle(`${industry.title} Digital Marketing`),
+      description: seoDesc(industry.tagline),
     },
   };
 }

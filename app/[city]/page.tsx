@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import ServiceCityPage from '@/views/ServiceCityPage';
 import { SERVICE_CITY_SLUG_MAP, getServiceCityData, VALID_SERVICE_CITY_SLUGS } from '@/lib/serviceCityData';
+import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -22,17 +23,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     const data = getServiceCityData(serviceKey, cityKey);
 
     return {
-      title: `${data.serviceTitle} in ${data.cityName} — Zesh Agency`,
-      description: data.sub,
+      title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
+      description: seoDesc(data.sub),
+      alternates: {
+        canonical: `/${rawParam}`,
+      },
       openGraph: {
-        title: `${data.serviceTitle} in ${data.cityName} — Zesh Agency`,
-        description: data.sub,
+        title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
+        description: seoDesc(data.sub),
       },
     };
   }
 
   return {
-    title: 'Page Not Found | ZESH',
+    title: 'Page Not Found',
     description: 'The requested page is not available.',
   };
 }

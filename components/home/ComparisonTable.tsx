@@ -59,7 +59,7 @@ export default function ComparisonTable() {
             </RevealText>
             <RevealText delay={0.1}>
               <h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] leading-tight">
-                Why brands choose Zesh over the alternatives<span className="text-signal">.</span>
+                Why brands choose Zesh Agency over the alternatives<span className="text-signal">.</span>
               </h2>
             </RevealText>
           </div>

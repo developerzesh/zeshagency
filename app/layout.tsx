@@ -27,9 +27,20 @@ const lato = Lato({
   display: "swap",
 });
 
+const BASE_URL = 'https://zeshagency.com';
+
 export const metadata: Metadata = {
-  title: "ZESHAGENCY — Digital Marketing Agency",
-  description: "Zesh Agency · Strategic Growth Consultancy",
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: 'Zesh Agency — Digital Marketing & Growth Consultancy',
+    template: '%s | Zesh Agency',
+  },
+  description: 'Zesh Agency scales brands through SEO, AEO, GEO, web engineering, and high-converting growth systems. Strategic growth consultancy for ambitious brands.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'Zesh Agency',
+  },
 };
 
 export default async function RootLayout({
@@ -44,6 +55,13 @@ export default async function RootLayout({
       <head>
         <link rel="icon" href="/Group 3.svg" media="(prefers-color-scheme: light)" />
         <link rel="icon" href="/Group 2.svg" media="(prefers-color-scheme: dark)" />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKTD0DFMW5"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-DKTD0DFMW5');`,
+          }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('zesh-theme');if(t==='dark'||t===null){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,

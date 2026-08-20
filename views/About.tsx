@@ -12,9 +12,8 @@ import Testimonials from '../components/Testimonials';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About Us | Zesh Agency',
+  title: 'About Us — Zesh Agency',
   description: 'Learn about Zesh Agency — growth partner to ambitious brands.',
-
 };
 
 export default function About() {
@@ -67,7 +66,7 @@ export default function About() {
               <RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-6xl font-800 tracking-[-0.03em] mb-6">How we work<span className="text-signal">.</span></h2></RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.85] mb-10 max-w-sm">
-                  We don't use account managers or sales layers. When you partner with Zesh, senior engineers and strategists work directly on your growth systems — with full transparency on every action and outcome.
+                  We don't use account managers or sales layers. When you partner with Zesh Agency, senior engineers and strategists work directly on your growth systems — with full transparency on every action and outcome.
                 </p>
               </RevealText>
               <RevealText delay={0.3}>

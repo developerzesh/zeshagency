@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import CityPage from '@/views/CityPage';
 import { CITY_DATA } from '@/lib/cityData';
+import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -20,17 +21,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!data) {
     return {
-      title: 'City Page Not Found | ZESH',
+      title: 'City Not Found',
       description: 'The requested city page is not available.',
     };
   }
 
   return {
-    title: `Digital Marketing Agency in ${data.name} — Zesh Agency`,
-    description: data.sub,
+    title: seoTitle(`Digital Marketing Agency in ${data.name}`),
+    description: seoDesc(data.sub),
+    alternates: {
+      canonical: `/location/${cityKey}`,
+    },
     openGraph: {
-      title: `Digital Marketing Agency in ${data.name} — Zesh Agency`,
-      description: data.sub,
+      title: seoTitle(`Digital Marketing Agency in ${data.name}`),
+      description: seoDesc(data.sub),
     },
   };
 }

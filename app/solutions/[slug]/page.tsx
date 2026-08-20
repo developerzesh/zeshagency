@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import SolutionDetail from '@/views/SolutionDetail';
 import { solutions } from '@/lib/data';
+import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -17,17 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!solution) {
     return {
-      title: 'Solution Not Found | ZESH',
+      title: 'Solution Not Found',
       description: 'The requested solution page is not available.',
     };
   }
 
   return {
-    title: `${solution.title} — Zesh Agency`,
-    description: solution.tagline,
+    title: seoTitle(solution.title),
+    description: seoDesc(solution.tagline),
+    alternates: {
+      canonical: `/solutions/${slug}`,
+    },
     openGraph: {
-      title: `${solution.title} — Zesh Agency`,
-      description: solution.tagline,
+      title: seoTitle(solution.title),
+      description: seoDesc(solution.tagline),
     },
   };
 }

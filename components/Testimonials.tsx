@@ -6,19 +6,19 @@ import RevealText from './RevealText';
 const testimonials = [
   {
     quote:
-      "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh. They are among the rare few agencies that actually do exactly what they promise.",
+      "Straightforward, committed, and reliable. These are the three words I would use to describe Zesh Agency. They are among the rare few agencies that actually do exactly what they promise.",
     name: "Sriram Sankar",
     role: "Founder, Nyx Wolves",
   },
   {
     quote:
-      "Zesh combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with.",
+      "Zesh Agency combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with.",
     name: "Abdul Khan",
     role: "Ex-CMO, TATA Â· Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
   },
   {
     quote:
-      "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that.",
+      "Extremely professional and always goal-oriented. Zesh Agency understands that marketing must justify itself on the balance sheet — and they deliver exactly that.",
     name: "Hafsa Syed",
     role: "Founder, HAFSA The Couture",
   },

@@ -187,7 +187,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-10 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-lato text-[11px] text-text-muted">
-            Â© 2026 Zesh. All rights reserved.
+            Â© 2026 Zesh Agency. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
             {[

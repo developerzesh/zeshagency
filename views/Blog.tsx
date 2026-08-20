@@ -94,7 +94,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                             transition={{ duration: 1.8, delay: 0.5, ease: slowEase }}
                             className="block"
                         >
-                            The Zesh<span className="text-signal"> Blog.</span>
+                            The Zesh Agency<span className="text-signal"> Blog.</span>
                         </m.span>
                     </h1>
 
