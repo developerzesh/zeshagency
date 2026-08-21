@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import InsightArticle from '@/views/InsightArticle';
 import { insights } from '@/lib/data';
 import { seoTitle, seoDesc } from '@/lib/seo';
@@ -18,20 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!article) {
     return {
-      title: 'Insight Not Found',
+      title: 'Insight Not Found | Zesh Agency',
       description: 'The requested insight article is not available.',
     };
   }
 
   return {
     title: seoTitle(article.title),
-    description: seoDesc(article.excerpt),
+    description: seoDesc(article.excerpt, article.title),
     alternates: {
       canonical: `/insights/${slug}`,
     },
     openGraph: {
       title: seoTitle(article.title),
-      description: seoDesc(article.excerpt),
+      description: seoDesc(article.excerpt, article.title),
     },
   };
 }
@@ -46,3 +46,4 @@ export default async function Page({ params }: PageProps) {
 
   return <InsightArticle article={article} />;
 }
+

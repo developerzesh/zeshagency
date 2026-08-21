@@ -6,7 +6,7 @@ import { SOLUTIONS_CITIES, SERVICES_META } from '@/lib/serviceCityData';
 
 export const revalidate = 86400;
 
-const BASE_URL = 'https://zeshagency.com';
+const BASE_URL = 'https://www.zeshagency.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date().toISOString();

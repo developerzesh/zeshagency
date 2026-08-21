@@ -2,14 +2,14 @@ import PrivacyPolicy from "@/views/PrivacyPolicy";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Zesh Agency',
-  description: 'Privacy policy for Zesh Agency. Learn how we collect, use, and protect your information when you visit zeshagency.com.',
+  title: 'Privacy Policy | Zesh Agency Data & Security Terms',
+  description: 'Read how Zesh Agency collects, uses, and protects your information and data when you visit zeshagency.com and use our growth services.',
   alternates: {
     canonical: '/privacy',
   },
   openGraph: {
-    title: 'Privacy Policy — Zesh Agency',
-    description: 'Privacy policy for Zesh Agency. How we collect, use, and protect your information.',
+    title: 'Privacy Policy | Zesh Agency Data & Security Terms',
+    description: 'Read how Zesh Agency collects, uses, and protects your information and data when you visit zeshagency.com and use our growth services.',
   },
 };
 

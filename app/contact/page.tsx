@@ -2,17 +2,17 @@ import Contact from "@/views/Contact";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Contact Zesh Agency — Schedule a Free Consultation',
-  description: 'Get in touch with Zesh Agency for a free growth consultation. Expert SEO, AEO, and digital marketing strategies for your brand.',
+  title: 'Contact Zesh Agency | Free SEO & Growth Consultation',
+  description: 'Book a free consultation with Zesh Agency for SEO, AEO, GEO, and digital growth strategy tailored to your brand and industry.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
-    title: 'Contact Zesh Agency — Schedule a Free Consultation',
-    description: 'Get in touch with Zesh Agency for a free growth consultation.',
+    title: 'Contact Zesh Agency | Free SEO & Growth Consultation',
+    description: 'Book a free consultation with Zesh Agency for SEO, AEO, GEO, and digital growth strategy tailored to your brand and industry.',
   },
 };
 
 export default function Page() {
-    return <Contact />;
+  return <Contact />;
 }

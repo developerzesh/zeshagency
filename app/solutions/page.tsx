@@ -1,18 +1,19 @@
-import Solutions from "@/views/Solutions";
+﻿import Solutions from "@/views/Solutions";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Solutions — SEO, AEO, GEO & Growth Systems',
-  description: 'Explore Zesh Agency solutions: SEO, AEO, GEO, web development, Google Ads, lead generation, and strategic consultation for measurable growth.',
+  title: 'Zesh Agency | Growth Solutions, SEO, AEO & GEO',
+  description: 'See how Zesh Agency combines SEO, AEO, GEO, web development, and paid growth into measurable systems for ambitious brands worldwide.',
   alternates: {
     canonical: '/solutions',
   },
   openGraph: {
-    title: 'Solutions — SEO, AEO, GEO & Growth Systems',
-    description: 'SEO, AEO, GEO, web development, and growth systems for measurable results.',
+    title: 'Zesh Agency | Growth Solutions, SEO, AEO & GEO',
+    description: 'See how Zesh Agency combines SEO, AEO, GEO, web development, and paid growth into measurable systems for ambitious brands worldwide.',
   },
 };
 
 export default function Page() {
   return <Solutions />;
 }
+

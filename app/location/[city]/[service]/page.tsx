@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import ServiceCityPage from '@/views/ServiceCityPage';
 import { SERVICE_CITY_SLUG_MAP, getServiceCityData, VALID_SERVICE_CITY_SLUGS } from '@/lib/serviceCityData';
 import { CITY_DATA } from '@/lib/cityData';
@@ -26,19 +26,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
       title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
-      description: seoDesc(data.sub),
+      description: seoDesc(`Zesh Agency delivers ${data.serviceTitle} in ${data.cityName} for brands that want stronger visibility, more leads, and measurable growth.`),
       alternates: {
         canonical: `/location/${resolvedParams.city}/${resolvedParams.service}`,
       },
       openGraph: {
         title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
-        description: seoDesc(data.sub),
+        description: seoDesc(`Zesh Agency delivers ${data.serviceTitle} in ${data.cityName} for brands that want stronger visibility, more leads, and measurable growth.`),
       },
     };
   }
 
   return {
-    title: 'Page Not Found',
+    title: 'Page Not Found | Zesh Agency',
     description: 'The requested page is not available.',
   };
 }
@@ -54,3 +54,4 @@ export default async function Page({ params }: PageProps) {
 
   notFound();
 }
+

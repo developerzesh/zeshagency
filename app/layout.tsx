@@ -27,19 +27,20 @@ const lato = Lato({
   display: "swap",
 });
 
-const BASE_URL = 'https://zeshagency.com';
+const BASE_URL = "https://www.zeshagency.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: 'Zesh Agency — Digital Marketing & Growth Consultancy',
-    template: '%s | Zesh Agency',
+    default: "Zesh Agency | SEO, AEO & Growth Consultancy",
+    template: "%s",
   },
-  description: 'Zesh Agency scales brands through SEO, AEO, GEO, web engineering, and high-converting growth systems. Strategic growth consultancy for ambitious brands.',
+  description:
+    "Zesh Agency is a strategic growth consultancy specializing in SEO, AEO, GEO, web engineering, and high-converting digital systems for ambitious brands.",
   openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Zesh Agency',
+    type: "website",
+    locale: "en_US",
+    siteName: "Zesh Agency",
   },
 };
 
@@ -51,7 +52,11 @@ export default async function RootLayout({
   const caseStudies = await getAllCaseStudies();
 
   return (
-    <html lang="en" suppressHydrationWarning className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`h-full ${syne.variable} ${inter.variable} ${lato.variable}`}
+    >
       <head>
         <link rel="icon" href="/Group 3.svg" media="(prefers-color-scheme: light)" />
         <link rel="icon" href="/Group 2.svg" media="(prefers-color-scheme: dark)" />
@@ -80,9 +85,7 @@ export default async function RootLayout({
         </noscript>
       </head>
       <body className="min-h-full">
-        <PageLayout caseStudies={caseStudies}>
-          {children}
-        </PageLayout>
+        <PageLayout caseStudies={caseStudies}>{children}</PageLayout>
       </body>
     </html>
   );

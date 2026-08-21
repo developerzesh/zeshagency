@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import BlogPostPage from '@/views/BlogPost';
 import { getAllPosts, getPostBySlug } from '@/lib/queries';
 import { seoTitle, seoDesc } from '@/lib/seo';
@@ -21,16 +21,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getPostBySlug(slug);
 
   if (!post) {
-    return { title: 'Blog Post Not Found', description: 'The requested blog post is not available.' };
+    return { title: 'Blog Post Not Found | Zesh Agency', description: 'The requested blog post is not available.' };
   }
 
   return {
     title: seoTitle(post.title),
-    description: seoDesc(post.excerpt),
+    description: seoDesc(post.excerpt, post.title),
     alternates: {
       canonical: `/blog/${slug}`,
     },
-    openGraph: { title: seoTitle(post.title), description: seoDesc(post.excerpt) },
+    openGraph: { title: seoTitle(post.title), description: seoDesc(post.excerpt, post.title) },
   };
 }
 

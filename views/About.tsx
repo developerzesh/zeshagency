@@ -9,13 +9,6 @@ import PageTransition from '../components/PageTransition';
 import { values, aboutStats } from '../lib/data';
 import Testimonials from '../components/Testimonials';
 
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'About Us — Zesh Agency',
-  description: 'Learn about Zesh Agency — growth partner to ambitious brands.',
-};
-
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });

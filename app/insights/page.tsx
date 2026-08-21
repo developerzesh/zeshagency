@@ -1,18 +1,19 @@
-import Insights from "@/views/Insights";
+﻿import Insights from "@/views/Insights";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Insights — AI Search, SEO & Growth Strategy Articles',
-  description: 'In-depth articles on AI search optimization, LLM citations, SEO strategy, and digital growth from Zesh Agency experts.',
+  title: 'Zesh Agency Insights | AI Search, SEO & Strategy',
+  description: 'In-depth articles from Zesh Agency on AI search optimization, LLM citations, SEO strategy, and digital growth for ambitious brands.',
   alternates: {
     canonical: '/insights',
   },
   openGraph: {
-    title: 'Insights — AI Search, SEO & Growth Strategy Articles',
-    description: 'In-depth articles on AI search optimization, SEO strategy, and digital growth.',
+    title: 'Zesh Agency Insights | AI Search, SEO & Strategy',
+    description: 'In-depth articles from Zesh Agency on AI search optimization, LLM citations, SEO strategy, and digital growth for ambitious brands.',
   },
 };
 
 export default function Page() {
   return <Insights />;
 }
+

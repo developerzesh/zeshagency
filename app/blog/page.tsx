@@ -6,14 +6,14 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Blog — SEO, AEO & Growth Insights from Zesh Agency',
-  description: 'Expert insights on SEO, AEO, GEO, web development, and digital growth strategy from Zesh Agency. Stay ahead of search evolution.',
+  title: 'Zesh Agency Blog | SEO, AEO & Search Growth Insights',
+  description: 'Read SEO, AEO, GEO, and web growth insights from Zesh Agency, with strategies built for rankings, conversions, and AI search.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Blog — SEO, AEO & Growth Insights from Zesh Agency',
-    description: 'Expert insights on SEO, AEO, GEO, web development, and digital growth strategy.',
+    title: 'Zesh Agency Blog | SEO, AEO & Search Growth Insights',
+    description: 'Read SEO, AEO, GEO, and web growth insights from Zesh Agency, with strategies built for rankings, conversions, and AI search.',
   },
 };
 

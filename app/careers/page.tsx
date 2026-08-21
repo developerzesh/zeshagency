@@ -5,18 +5,18 @@ import type { Metadata } from "next";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Careers at Zesh Agency — Join Our Growth Team',
-  description: 'Explore career opportunities at Zesh Agency. Join a team of senior growth engineers, strategists, and SEO specialists building high-performance systems.',
+  title: 'Careers at Zesh Agency | Join Our Growth & SEO Team',
+  description: 'Explore careers at Zesh Agency and join a senior team building SEO, AEO, GEO, and high-converting web systems for ambitious brands.',
   alternates: {
     canonical: '/careers',
   },
   openGraph: {
-    title: 'Careers at Zesh Agency — Join Our Growth Team',
-    description: 'Explore career opportunities at Zesh Agency. Join our team of senior growth engineers and strategists.',
+    title: 'Careers at Zesh Agency | Join Our Growth & SEO Team',
+    description: 'Explore careers at Zesh Agency and join a senior team building SEO, AEO, GEO, and high-converting web systems for ambitious brands.',
   },
 };
 
 export default async function Page() {
-    const jobs = await getAllJobs();
-    return <Careers jobs={jobs} />;
+  const jobs = await getAllJobs();
+  return <Careers jobs={jobs} />;
 }

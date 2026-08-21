@@ -18,20 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!solution) {
     return {
-      title: 'Solution Not Found',
+      title: 'Solution Not Found | Zesh Agency',
       description: 'The requested solution page is not available.',
     };
   }
 
   return {
-    title: seoTitle(solution.title),
-    description: seoDesc(solution.tagline),
+    title: seoTitle(`${solution.title} Strategy`),
+    description: seoDesc(`See how Zesh Agency turns ${solution.title.toLowerCase()} into compounding growth, qualified traffic, and revenue.`),
     alternates: {
       canonical: `/solutions/${slug}`,
     },
     openGraph: {
-      title: seoTitle(solution.title),
-      description: seoDesc(solution.tagline),
+      title: seoTitle(`${solution.title} Strategy`),
+      description: seoDesc(`See how Zesh Agency turns ${solution.title.toLowerCase()} into compounding growth, qualified traffic, and revenue.`),
     },
   };
 }

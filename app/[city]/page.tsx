@@ -24,19 +24,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     return {
       title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
-      description: seoDesc(data.sub),
+      description: seoDesc(`Zesh Agency delivers ${data.serviceTitle} in ${data.cityName} for brands that want stronger visibility, more leads, and measurable growth.`),
       alternates: {
         canonical: `/${rawParam}`,
       },
       openGraph: {
         title: seoTitle(`${data.serviceTitle} in ${data.cityName}`),
-        description: seoDesc(data.sub),
+        description: seoDesc(`Zesh Agency delivers ${data.serviceTitle} in ${data.cityName} for brands that want stronger visibility, more leads, and measurable growth.`),
       },
     };
   }
 
   return {
-    title: 'Page Not Found',
+    title: 'Page Not Found | Zesh Agency',
     description: 'The requested page is not available.',
   };
 }

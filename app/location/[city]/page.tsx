@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import CityPage from '@/views/CityPage';
 import { CITY_DATA } from '@/lib/cityData';
 import { seoTitle, seoDesc } from '@/lib/seo';
@@ -21,20 +21,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!data) {
     return {
-      title: 'City Not Found',
+      title: 'City Not Found | Zesh Agency',
       description: 'The requested city page is not available.',
     };
   }
 
   return {
-    title: seoTitle(`Digital Marketing Agency in ${data.name}`),
-    description: seoDesc(data.sub),
+    title: seoTitle(`${data.name} Digital Marketing Agency`),
+    description: seoDesc(`Digital marketing services in ${data.name} built to drive qualified leads, local visibility, and revenue growth.`),
     alternates: {
       canonical: `/location/${cityKey}`,
     },
     openGraph: {
-      title: seoTitle(`Digital Marketing Agency in ${data.name}`),
-      description: seoDesc(data.sub),
+      title: seoTitle(`${data.name} Digital Marketing Agency`),
+      description: seoDesc(`Digital marketing services in ${data.name} built to drive qualified leads, local visibility, and revenue growth.`),
     },
   };
 }
@@ -50,3 +50,4 @@ export default async function Page({ params }: PageProps) {
 
   return <CityPage cityKey={cityKey} />;
 }
+

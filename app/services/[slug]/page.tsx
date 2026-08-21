@@ -1,4 +1,4 @@
-import { notFound } from 'next/navigation';
+﻿import { notFound } from 'next/navigation';
 import SolutionDetail from '@/views/SolutionDetail';
 import { solutions } from '@/lib/data';
 import { seoTitle, seoDesc } from '@/lib/seo';
@@ -18,20 +18,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!solution) {
     return {
-      title: 'Service Not Found',
+      title: 'Service Not Found | Zesh Agency',
       description: 'The requested service page is not available.',
     };
   }
 
   return {
-    title: seoTitle(solution.title),
-    description: seoDesc(solution.tagline),
+    title: seoTitle(`${solution.title} Services`),
+    description: seoDesc(`End-to-end ${solution.title.toLowerCase()} services from Zesh Agency, built to improve visibility, qualified traffic, and conversion.`),
     alternates: {
       canonical: `/services/${slug}`,
     },
     openGraph: {
-      title: seoTitle(solution.title),
-      description: seoDesc(solution.tagline),
+      title: seoTitle(`${solution.title} Services`),
+      description: seoDesc(`End-to-end ${solution.title.toLowerCase()} services from Zesh Agency, built to improve visibility, qualified traffic, and conversion.`),
     },
   };
 }
@@ -46,3 +46,4 @@ export default async function Page({ params }: PageProps) {
 
   return <SolutionDetail solution={solution} />;
 }
+

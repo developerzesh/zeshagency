@@ -13,12 +13,12 @@ export type CityKey = typeof SOLUTIONS_CITIES[number]['key'];
 
 export const SERVICES_META: Record<ServiceKey, { title: string; shortTitle: string; desc: string }> = {
   'seo-aeo-geo': {
-    title: 'SEO / AEO / GEO Services',
+    title: 'SEO, AEO & GEO Services',
     shortTitle: 'SEO/AEO/GEO',
     desc: 'Future-proof search visibility across Google, ChatGPT, Perplexity, and LLM-based answer engines.',
   },
   'lead-gen': {
-    title: 'Lead Generation',
+    title: 'Lead Generation Services',
     shortTitle: 'Lead Gen',
     desc: 'High-intent B2B and B2C acquisition campaigns designed to scale sales pipelines and drive revenue.',
   },
@@ -28,7 +28,7 @@ export const SERVICES_META: Record<ServiceKey, { title: string; shortTitle: stri
     desc: 'Organic storytelling, high-performance executive branding, and paid acquisition on LinkedIn, Meta, and X.',
   },
   'web-dev': {
-    title: 'Website Development',
+    title: 'Website Development Services',
     shortTitle: 'Web Dev',
     desc: 'High-performance, custom-crafted Next.js and React websites built for speed, aesthetics, and conversion.',
   },

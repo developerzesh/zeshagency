@@ -16,7 +16,7 @@ function getPrimaryNav(caseStudies: CaseStudy[]): NavItem[] {
   return [
     { label: 'Services', path: '/services', submenu: solutions.map(s => ({ label: s.title, path: `/services/${s.slug}` })) },
     { label: 'Industries', path: '/industries', submenu: industries.map(i => ({ label: i.title, path: `/industries/${i.slug}` })) },
-    { label: 'Locations', path: '/location/dubai', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
+    { label: 'Locations', path: '', submenu: citiesNav.map(c => ({ label: c.label, path: c.path })) },
     { label: 'Case Studies', path: '/case-studies', submenu: caseStudies.map(cs => ({ label: cs.title, path: `/case-studies/${cs.slug}` })) },
   ];
 }
@@ -73,15 +73,13 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
     cityTimeout.current = setTimeout(() => setHoveredCity(null), 200);
   };
 
-  const activeItem = navItems.find(item => item.path === activeSubmenu);
+  const activeItem = navItems.find(item => item.label === activeSubmenu);
 
   // Shared desktop link class builder
-  const linkClass = (path: string) =>
-    `inline-flex items-center gap-1.5 font-lato text-[12px] tracking-[0.10em] uppercase px-3.5 py-2 rounded-lg transition-all duration-300 ${activeSubmenu === path
+  const linkClass = (label: string) =>
+    `inline-flex items-center gap-1.5 font-lato text-[12px] tracking-[0.10em] uppercase px-3.5 py-2 rounded-lg transition-all duration-300 ${activeSubmenu === label
       ? 'text-ink dark:text-white bg-surface'
-      : pathname === path
-        ? 'text-ink dark:text-white font-semibold'
-        : 'text-ink/50 dark:text-white/50 hover:text-ink dark:hover:text-white hover:bg-surface/60'
+      : 'text-ink/50 dark:text-white/50 hover:text-ink dark:hover:text-white hover:bg-surface/60'
     }`;
 
   return (
@@ -108,19 +106,29 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
 
               {/* Primary group */}
               <div className="flex items-center">
-                {primaryNav.map((item) => (
-                  <div
-                    key={item.path}
-                    onMouseEnter={() => item.submenu && showSubmenu(item.path)}
-                    onMouseLeave={hideSubmenu}
-                    className="relative"
-                  >
-                    <a href={item.path} onClick={handleNavClick} className={linkClass(item.path)}>
-                      {item.label}
-                      {item.submenu && <Chevron active={activeSubmenu === item.path} />}
-                    </a>
-                  </div>
-                ))}
+                {primaryNav.map((item) => {
+                  const isLocations = item.label === 'Locations';
+                  return (
+                    <div
+                      key={item.label}
+                      onMouseEnter={() => item.submenu && showSubmenu(item.label)}
+                      onMouseLeave={hideSubmenu}
+                      className="relative"
+                    >
+                      {isLocations ? (
+                        <span className={`${linkClass(item.label)} cursor-default select-none`}>
+                          {item.label}
+                          {item.submenu && <Chevron active={activeSubmenu === item.label} />}
+                        </span>
+                      ) : (
+                        <a href={item.path} onClick={handleNavClick} className={linkClass(item.label)}>
+                          {item.label}
+                          {item.submenu && <Chevron active={activeSubmenu === item.label} />}
+                        </a>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Divider */}
@@ -130,14 +138,14 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
               <div className="flex items-center">
                 {secondaryNav.map((item) => (
                   <div
-                    key={item.path}
-                    onMouseEnter={() => item.submenu && showSubmenu(item.path)}
+                    key={item.label}
+                    onMouseEnter={() => item.submenu && showSubmenu(item.label)}
                     onMouseLeave={hideSubmenu}
                     className="relative"
                   >
-                    <a href={item.path} onClick={handleNavClick} className={linkClass(item.path)}>
+                    <a href={item.path} onClick={handleNavClick} className={linkClass(item.label)}>
                       {item.label}
-                      {item.submenu && <Chevron active={activeSubmenu === item.path} />}
+                      {item.submenu && <Chevron active={activeSubmenu === item.label} />}
                     </a>
                   </div>
                 ))}
@@ -244,13 +252,15 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
                         Explore {activeItem.label.toLowerCase()}
                       </p>
                     </div>
-                    <a
-                      href={activeItem.path}
-                      onClick={handleNavClick}
-                      className="sig-hover font-lato text-[11px] tracking-[0.12em] uppercase text-signal hover:text-ink transition-colors duration-300"
-                    >
-                      View All →
-                    </a>
+                    {activeItem.label !== 'Locations' && (
+                      <a
+                        href={activeItem.path}
+                        onClick={handleNavClick}
+                        className="sig-hover font-lato text-[11px] tracking-[0.12em] uppercase text-signal hover:text-ink transition-colors duration-300"
+                      >
+                        View All →
+                      </a>
+                    )}
                   </div>
 
                   {/* Locations: full-width cities grid */}
@@ -393,10 +403,11 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
               <div className="flex-1">
                 {navItems.map((item, i) => {
                   const hasSubmenu = item.submenu && item.submenu.length > 0;
-                  const isExpanded = expandedMobile === item.path;
+                  const isExpanded = expandedMobile === item.label;
+                  const isLocations = item.label === 'Locations';
                   return (
                     <m.div
-                      key={item.path}
+                      key={item.label}
                       initial={{ opacity: 0, filter: 'blur(16px)', x: -24 }}
                       animate={{ opacity: 1, filter: 'blur(0px)', x: 0 }}
                       exit={{ opacity: 0, filter: 'blur(12px)', x: -16 }}
@@ -404,16 +415,22 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
                       className="mb-1 will-change-transform"
                     >
                       <div className="flex items-center justify-between">
-                        <a
-                          href={item.path}
-                          onClick={handleNavClick}
-                          className="font-syne text-4xl md:text-6xl font-800 text-ink/60 hover:text-ink transition-colors duration-300 block py-2"
-                        >
-                          {item.label}
-                        </a>
+                        {isLocations ? (
+                          <span className="font-syne text-4xl md:text-6xl font-800 text-ink/60 hover:text-ink transition-colors duration-300 block py-2">
+                            {item.label}
+                          </span>
+                        ) : (
+                          <a
+                            href={item.path}
+                            onClick={handleNavClick}
+                            className="font-syne text-4xl md:text-6xl font-800 text-ink/60 hover:text-ink transition-colors duration-300 block py-2"
+                          >
+                            {item.label}
+                          </a>
+                        )}
                         {hasSubmenu && (
                           <button
-                            onClick={() => setExpandedMobile(isExpanded ? null : item.path)}
+                            onClick={() => setExpandedMobile(isExpanded ? null : item.label)}
                             className="p-2 text-ink/40 hover:text-ink transition-colors duration-300"
                           >
                             <m.svg
@@ -421,7 +438,7 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
                               transition={{ duration: 0.3 }}
                               width="16" height="16" viewBox="0 0 16 16" fill="none"
                             >
-                              <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                              <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                             </m.svg>
                           </button>
                         )}
