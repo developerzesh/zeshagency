@@ -14,7 +14,7 @@ const testimonials = [
     quote:
       "Zesh Agency combines marketing knowledge, consumer insights, innovation, and creativity with a genuine passion for work and an outcome focus unlike any agency I've worked with.",
     name: "Abdul Khan",
-    role: "Ex-CMO, TATA Â· Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
+    role: "Ex-CMO, TATA Ex-Financial Advisor to Dhirubhai & Mukesh Ambani",
   },
   {
     quote:
