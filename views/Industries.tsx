@@ -48,7 +48,7 @@ export default function Industries() {
                   label="Book a Consultation Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                 </MagneticButton>
               </div>
@@ -171,7 +171,7 @@ export default function Industries() {
                     label="Book a Free Discovery Call"
                     onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                   />
-                  <MagneticButton strength={0.3}>
+                  <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                   </MagneticButton>
                 </div>
@@ -187,7 +187,7 @@ export default function Industries() {
               ].map((stat, i) => (
                 <RevealText key={stat.label} delay={0.3 + i * 0.1}>
                   <m.div whileHover={{ x: 4 }} transition={{ duration: 0.8, ease: slowEase }}>
-                    <span className="font-syne text-4xl md:text-5xl font-800 tracking-tight text-ink block leading-none">
+                    <span className="font-lato text-4xl md:text-5xl font-700 tracking-tight text-ink block leading-none">
                       {stat.value}
                     </span>
                     <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted mt-3">

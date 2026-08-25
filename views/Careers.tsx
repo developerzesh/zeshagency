@@ -82,7 +82,7 @@ function PositionRow({ position, index }: { position: Job; index: number }) {
                 />
               </div>
               <div className="flex gap-4">
-                <MagneticButton strength={0.2}>
+                <MagneticButton strength={0.1}>
                   <a
                     href={position.applyLink || `mailto:Shahana@zeshagency.com?subject=Application for ${encodeURIComponent(position.title)}`}
                     target={position.applyLink ? '_blank' : undefined}
@@ -167,7 +167,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
                 label="Explore Open Roles"
                 href="#roles"
               />
-              <MagneticButton strength={0.3}>
+              <MagneticButton strength={0.15}>
                 <a href="#why-us" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Why Zesh Agency? ↓</a>
               </MagneticButton>
             </m.div>
@@ -175,7 +175,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </m.div>
       </section>
 
-      {/* Â§ 1 — Why Work With Us */}
+      {/* § 1 — Why Work With Us */}
       <section id="why-us" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
@@ -203,7 +203,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </div>
       </section>
 
-      {/* Â§ 2 — Culture */}
+      {/* § 2 — Culture */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
@@ -241,7 +241,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </div>
       </section>
 
-      {/* Â§ 3 — Benefits */}
+      {/* § 3 — Benefits */}
       <section className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mb-16 md:mb-32">
@@ -276,7 +276,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </div>
       </section>
 
-      {/* Â§ 4 — Learning Opportunities */}
+      {/* § 4 — Learning Opportunities */}
       <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
@@ -315,7 +315,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </div>
       </section>
 
-      {/* Â§ 5 — Open Roles */}
+      {/* § 5 — Open Roles */}
       <section id="roles" className="py-14 md:py-36 border-t border-border/60">
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16 md:mb-32">
@@ -343,7 +343,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
         </div>
       </section>
 
-      {/* Â§ 6 — Footer CTA */}
+      {/* § 6 — Footer CTA */}
       <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
           <m.div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-signal/[0.018] blur-[280px]" />
@@ -372,7 +372,7 @@ export default function Careers({ jobs = [] }: { jobs?: Job[] }) {
                     label="Shahana@zeshagency.com"
                     href="mailto:Shahana@zeshagency.com"
                   />
-                  <MagneticButton strength={0.3}>
+                  <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       Browse Client Case Studies
                     </a>

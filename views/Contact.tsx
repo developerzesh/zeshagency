@@ -179,7 +179,7 @@ export default function Contact() {
                 </AnimatePresence>
 
                 <RevealText delay={0.3} duration={1.2}>
-                  <MagneticButton strength={0.4}>
+                  <MagneticButton strength={0.2}>
                     <button
                       type="submit"
                       disabled={status === 'sending'}

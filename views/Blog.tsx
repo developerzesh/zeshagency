@@ -118,7 +118,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                               label="Book a Strategy Call"
                               onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                             />
-                            <MagneticButton strength={0.3}>
+                            <MagneticButton strength={0.15}>
                                 <a href="#posts" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
                             </MagneticButton>
                         </m.div>
@@ -290,13 +290,13 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                         <div className="md:col-span-4 md:col-start-9">
                             <RevealText delay={0.3}>
                                 <div className="flex flex-col items-start gap-5">
-                                    <MagneticButton strength={0.4}>
+                                    <MagneticButton strength={0.2}>
                                         <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                                             <span>Book a Discovery Call</span>
                                             <span className="text-xs">→</span>
                                         </button>
                                     </MagneticButton>
-                                    <MagneticButton strength={0.3}>
+                                    <MagneticButton strength={0.15}>
                                         <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                                             View Client Results →
                                         </a>

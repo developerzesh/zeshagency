@@ -124,7 +124,7 @@ export default function Studio() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 text-center">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Join the team<span className="text-signal">.</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mx-auto mb-10 leading-[1.85]">We're always looking for exceptional people who share our obsession with craft.</p></RevealText>
-          <MagneticButton strength={0.3}><a href="/careers" className="font-lato text-sm font-medium text-signal sig-hover">View Openings →</a></MagneticButton>
+          <MagneticButton strength={0.15}><a href="/careers" className="font-lato text-sm font-medium text-signal sig-hover">View Openings →</a></MagneticButton>
         </div>
       </section>
     </PageTransition>

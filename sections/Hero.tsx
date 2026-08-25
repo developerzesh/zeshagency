@@ -44,12 +44,12 @@ export default function Hero() {
 
           <RevealText delay={1.2} duration={1.4}>
             <div className="flex flex-col sm:flex-row items-start gap-5">
-              <MagneticButton strength={0.25}>
+              <MagneticButton strength={0.12}>
                 <a href="/contact" className="font-lato text-[12px] tracking-[0.1em] uppercase bg-ink text-paper px-8 py-4 rounded-full hover:bg-signal transition-colors duration-700 inline-block">
                   Book Discovery Call
                 </a>
               </MagneticButton>
-              <MagneticButton strength={0.25}>
+              <MagneticButton strength={0.12}>
                 <a href="/solutions" className="font-lato text-[12px] tracking-[0.1em] uppercase text-ink hover:text-signal transition-colors duration-700 sig-hover inline-block py-4">
                   Explore Solutions
                 </a>

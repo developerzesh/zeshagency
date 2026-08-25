@@ -26,7 +26,7 @@ const CONTENT = {
       ],
       stats: [['99%', 'Internet Penetration'], ['73%', 'Mobile Search Share'], ['4.6M+', 'Digital Users'], ['Top 10', 'Global Business Hub']],
       results: [['340%', 'Traffic Growth', 'Average organic increase for our Dubai clients.'], ['#1', 'Google Rankings', 'Achieved for high-competition Dubai commercial keywords.'], ['5.8x', 'LLM Mentions', 'Improvement in ChatGPT and Perplexity brand recommendations.'], ['40 Days', 'To First Gains', 'Noticeable uptick in indexation and organic impressions.']],
-      market: ['Bilingual Arabic-English query behaviours', 'AI engine citation patterns in the UAE', 'High-intent MENA buyer signals', 'Competitor backlink profile dynamics', 'Core Web Vitals and speed metrics'],
+      market: ['Bilingual Arabic-English query behaviors', 'AI engine citation patterns in the UAE', 'High-intent MENA buyer signals', 'Competitor backlink profile dynamics', 'Core Web Vitals and speed metrics'],
       industries: ['Real Estate & PropTech', 'B2B Enterprise', 'Professional Services', 'Healthcare & Wellness', 'Finance & FinTech', 'E-Commerce'],
       resources: [
         { title: 'Dubai Search Authority Guide', desc: 'Strategies to build bilingual visibility across traditional and AI search engines.', href: '/blog' },
@@ -98,12 +98,12 @@ const CONTENT = {
       tagline: 'Premium Web Experiences That Reflect Dubai\'s Brand Standards.',
       sub: 'Custom React and Next.js websites built for Dubai enterprises — combining premium design, bilingual functionality, and performance optimization that meets the UAE\'s high market expectations.',
       why: "In Dubai's premium market, your website is evaluated like a business card. A slow, templated site signals that you cut corners — and your prospects will assume the same of your services. We build custom platforms that load instantly, present your brand impeccably, and convert visitors into inquiries.",
-      about: "Our Dubai web practice delivers platforms built for the UAE's demanding digital standards. We implement bilingual React and Next.js architectures, Framer Motion animations, and headless CMS systems that your team can update without developer dependency.\n\nEvery platform we deliver scores above 90 on Google PageSpeed Insights and is optimised for local SEO, ensuring your site ranks and performs across both Arabic and English searches in the UAE.",
+      about: "Our Dubai web practice delivers platforms built for the UAE's demanding digital standards. We implement bilingual React and Next.js architectures, Framer Motion animations, and headless CMS systems that your team can update without developer dependency.\n\nEvery platform we deliver scores above 90 on Google PageSpeed Insights and is optimized for local SEO, ensuring your site ranks and performs across both Arabic and English searches in the UAE.",
       services: [
         ['Bilingual React & Next.js', 'Arabic-English websites built for Dubai\'s diverse enterprise market.', 'web-dev'],
         ['Premium UI/UX Design', 'Custom interfaces that reflect the visual standards Dubai\'s clients expect.', 'web-dev'],
         ['Headless CMS Integration', 'Sanity or Contentful setups for seamless bilingual content management.', 'web-dev'],
-        ['PageSpeed & Local SEO', 'Guaranteed 90+ Core Web Vitals optimised for Google.ae performance.', 'web-dev'],
+        ['PageSpeed & Local SEO', 'Guaranteed 90+ Core Web Vitals optimized for Google.ae performance.', 'web-dev'],
       ],
       stats: [['97+', 'PageSpeed Score'], ['< 0.8s', 'First Contentful Paint'], ['2.3x', 'Conversion Rate Lift'], ['100%', 'Bilingual UX']],
       results: [['2.8x', 'Speed Increase', 'Page load improvement vs. legacy Dubai sites.'], ['195%', 'Session Duration', 'Increase in time-on-site after platform relaunch.'], ['99.9%', 'Uptime', 'Ensured via serverless CDN deployment.'], ['40 Days', 'To Launch', 'Typical project timeline from wireframe to production.']],
@@ -117,7 +117,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Platform Audit', desc: 'We evaluate your current website against Dubai\'s enterprise standards and identify conversion blockers.' },
         { step: '02', title: 'Design & Architecture', desc: 'We design bilingual layouts reflecting your brand\'s market position in the UAE.' },
-        { step: '03', title: 'Development', desc: 'Our team builds fast, accessible, and conversion-optimised platforms using modern frameworks.' },
+        { step: '03', title: 'Development', desc: 'Our team builds fast, accessible, and conversion-optimized platforms using modern frameworks.' },
         { step: '04', title: 'Launch & Reporting', desc: 'Post-launch performance tracking and SEO monitoring for ongoing UAE market relevance.' },
       ],
     },
@@ -137,7 +137,7 @@ const CONTENT = {
       ],
       stats: [['98%', 'Internet Penetration'], ['68%', 'B2B Research on Search'], ['3.2M+', 'Digital Users'], ['Government Hub', 'UAE Capital']],
       results: [['290%', 'Organic Visibility', 'Increase for our Abu Dhabi enterprise clients.'], ['Top 3', 'Institutional Queries', 'Ranking achieved for high-value procurement keywords.'], ['4.8x', 'AI Citations', 'Improvement in LLM recommendation frequency.'], ['50 Days', 'To Results', 'From technical audit to measurable search gains.']],
-      market: ['Government and institutional procurement query patterns', 'Bilingual Arabic-English enterprise search behaviour', 'AI engine citation patterns in UAE B2B', 'Sovereign wealth fund research methodology', 'Capital city regulatory content requirements'],
+      market: ['Government and institutional procurement query patterns', 'Bilingual Arabic-English enterprise search behavior', 'AI engine citation patterns in UAE B2B', 'Sovereign wealth fund research methodology', 'Capital city regulatory content requirements'],
       industries: ['Government & Public Sector', 'Energy & Utilities', 'Finance & Banking', 'B2B Enterprise', 'Professional Services', 'Healthcare'],
       resources: [
         { title: 'Reaching Institutional Buyers', desc: 'Search strategies tailored for the UAE capital\'s government sectors.', href: '/blog' },
@@ -164,7 +164,7 @@ const CONTENT = {
       ],
       stats: [['4.6%', 'Landing Page Conversion'], ['-30%', 'Reduction in CPL'], ['97%', 'Lead Quality Match'], ['B2B Focus', 'Institutional Targeting']],
       results: [['210%', 'Pipeline Growth', 'Qualified enterprise leads in Abu Dhabi within 90 days.'], ['-35%', 'Cost Per Lead', 'Reduction through precise institutional targeting.'], ['3.5x', 'Opportunities Created', 'Through aligned intent-based campaigns.'], ['32 Days', 'To Campaign Launch', 'From brief to live institutional campaigns.']],
-      market: ['Abu Dhabi institutional procurement timelines', 'Government tender research patterns', 'Enterprise audience segmentation in UAE capital', 'Long-cycle B2B buyer behaviour', 'CRM integration for complex sales pipelines'],
+      market: ['Abu Dhabi institutional procurement timelines', 'Government tender research patterns', 'Enterprise audience segmentation in UAE capital', 'Long-cycle B2B buyer behavior', 'CRM integration for complex sales pipelines'],
       industries: ['Government & Public Sector', 'Energy & Infrastructure', 'Finance & Banking', 'Professional Services', 'Healthcare', 'Consulting'],
       resources: [
         { title: 'Abu Dhabi B2B Lead Generation Guide', desc: 'Acquisition strategies for UAE capital institutional markets.', href: '/blog' },
@@ -174,7 +174,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Institutional Audit', desc: 'We map your acquisition gaps against Abu Dhabi\'s specific enterprise buyer journey.' },
         { step: '02', title: 'Campaign Design', desc: 'We build campaigns calibrated to institutional decision-making timelines and channels.' },
-        { step: '03', title: 'Launch & Refine', desc: 'Our team deploys and optimises based on Abu Dhabi institutional engagement signals.' },
+        { step: '03', title: 'Launch & Refine', desc: 'Our team deploys and optimizes based on Abu Dhabi institutional engagement signals.' },
         { step: '04', title: 'Pipeline Reporting', desc: 'Monthly reports track qualified opportunities and direct revenue contribution.' },
       ],
     },
@@ -191,7 +191,7 @@ const CONTENT = {
       ],
       stats: [['3.8M+', 'Professional Network Reach'], ['27%', 'Engagement Rate Boost'], ['2.1x', 'Inbound Inquiries'], ['90%', 'Content Retention Rate']],
       results: [['4.5x', 'Professional Reach', 'Growth in Abu Dhabi institutional network engagement.'], ['115%', 'Inbound Opportunities', 'Increase in professional inquiries via social channels.'], ['Top 10%', 'Sector Authority', 'Achieved for client profiles in UAE institutional markets.'], ['30 Days', 'To Published Content', 'From strategy approval to live, bilingual assets.']],
-      market: ['Abu Dhabi institutional content expectations', 'Government-adjacent audience behaviour', 'Bilingual Arabic-English professional content', 'UAE LinkedIn usage patterns', 'Institutional trust-building content formats'],
+      market: ['Abu Dhabi institutional content expectations', 'Government-adjacent audience behavior', 'Bilingual Arabic-English professional content', 'UAE LinkedIn usage patterns', 'Institutional trust-building content formats'],
       industries: ['Government & Public Sector', 'Energy & Infrastructure', 'Finance & Banking', 'Consulting', 'Healthcare', 'Professional Services'],
       resources: [
         { title: 'Abu Dhabi LinkedIn Authority Guide', desc: 'Building professional authority for UAE institutional markets.', href: '/blog' },
@@ -209,7 +209,7 @@ const CONTENT = {
       tagline: 'Enterprise-Grade Web Platforms for Abu Dhabi\'s Institutional Market.',
       sub: "Custom bilingual React and Next.js websites built to meet the credibility standards of Abu Dhabi's government, enterprise, and professional service sectors.",
       why: "Your website is often the first formal evaluation point for an Abu Dhabi institutional buyer. A slow, generic, or unprofessional platform signals risk before a conversation begins. We build platforms that project the authority, depth, and reliability that Abu Dhabi's institutional market demands.",
-      about: "Our Abu Dhabi web practice builds enterprise-grade digital platforms that meet the exacting standards of government-adjacent and institutional markets. We implement bilingual Arabic-English architectures, enterprise CMS solutions, and performance-optimised frameworks that load reliably across the UAE's network infrastructure.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is structured for long-term SEO performance on Google.ae, ensuring your firm maintains competitive visibility in Abu Dhabi's institutional search landscape.",
+      about: "Our Abu Dhabi web practice builds enterprise-grade digital platforms that meet the exacting standards of government-adjacent and institutional markets. We implement bilingual Arabic-English architectures, enterprise CMS solutions, and performance-optimized frameworks that load reliably across the UAE's network infrastructure.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is structured for long-term SEO performance on Google.ae, ensuring your firm maintains competitive visibility in Abu Dhabi's institutional search landscape.",
       services: [
         ['Bilingual Enterprise Websites', 'Arabic-English platforms built to Abu Dhabi\'s institutional credibility standards.', 'web-dev'],
         ['Government-Standard UI/UX', 'Interfaces that project authority and reliability for UAE institutional audiences.', 'web-dev'],
@@ -248,7 +248,7 @@ const CONTENT = {
       ],
       stats: [['98%', 'Internet Penetration'], ['78%', 'AI Tool Adoption'], ['Tech Hub', '#1 US Innovation Center'], ['B2B Focus', 'Enterprise Buyer Market']],
       results: [['320%', 'Tech Traffic Growth', 'Average increase for our San Jose B2B clients.'], ['Top 3', 'SaaS Rankings', 'Achieved for competitive Silicon Valley tech keywords.'], ['6.1x', 'LLM Citations', 'Improvement in AI engine recommendation frequency.'], ['42 Days', 'To First Gains', 'From technical audit to measurable search results.']],
-      market: ['Silicon Valley B2B buyer research patterns', 'AI tool adoption rates and query behaviours', 'SaaS evaluation and demo-request intent signals', 'Technical content standards for developer audiences', 'Bay Area competitor SEO footprint analysis'],
+      market: ['Silicon Valley B2B buyer research patterns', 'AI tool adoption rates and query behaviors', 'SaaS evaluation and demo-request intent signals', 'Technical content standards for developer audiences', 'Bay Area competitor SEO footprint analysis'],
       industries: ['SaaS & B2B Technology', 'Artificial Intelligence', 'Cybersecurity', 'Developer Tools', 'Enterprise Software', 'Clean Technology'],
       resources: [
         { title: 'Silicon Valley Search Strategies', desc: 'Advanced visibility tactics for highly competitive tech markets.', href: '/blog' },
@@ -302,7 +302,7 @@ const CONTENT = {
       ],
       stats: [['6.1M+', 'Tech Community Reach'], ['34%', 'Engagement Rate Boost'], ['2.8x', 'Inbound Tech Inquiries'], ['92%', 'Content Authority Score']],
       results: [['6.8x', 'Community Growth', 'Technical audience growth across Bay Area channels.'], ['145%', 'Inbound Opportunities', 'Increase in product inquiries from social channels.'], ['Top 5%', 'Tech Authority', 'Achieved for client profiles in Silicon Valley markets.'], ['22 Days', 'To Live Content', 'From strategy to published technical content.']],
-      market: ['Silicon Valley developer and tech community dynamics', 'Technical content formats and engagement patterns', 'Bay Area thought leadership narrative expectations', 'Product Hunt, HackerNews, and tech platform culture', 'Enterprise buyer social research behaviour'],
+      market: ['Silicon Valley developer and tech community dynamics', 'Technical content formats and engagement patterns', 'Bay Area thought leadership narrative expectations', 'Product Hunt, HackerNews, and tech platform culture', 'Enterprise buyer social research behavior'],
       industries: ['SaaS & B2B Technology', 'Artificial Intelligence', 'Developer Tools', 'Enterprise Software', 'Cybersecurity', 'Clean Technology'],
       resources: [
         { title: 'Silicon Valley Tech Authority Guide', desc: 'Building developer community trust through authentic content.', href: '/blog' },
@@ -340,7 +340,7 @@ const CONTENT = {
         { step: '01', title: 'Technical Audit', desc: 'We evaluate your platform against Silicon Valley web performance and conversion benchmarks.' },
         { step: '02', title: 'Architecture Planning', desc: 'We design a scalable, performant platform architecture for your tech product.' },
         { step: '03', title: 'Development', desc: 'Our team builds with Next.js, TypeScript, and modern tooling to Bay Area technical standards.' },
-        { step: '04', title: 'Launch & Monitoring', desc: 'Post-launch performance tracking and ongoing optimisation for Silicon Valley competitiveness.' },
+        { step: '04', title: 'Launch & Monitoring', desc: 'Post-launch performance tracking and ongoing optimization for Silicon Valley competitiveness.' },
       ],
     },
   },
@@ -359,7 +359,7 @@ const CONTENT = {
       ],
       stats: [['30M+', 'Texas Population'], ['4 Major Metros', 'Dallas, Houston, Austin, SA'], ['Energy Hub', 'Global Oil & Gas Center'], ['Tech Growth', 'Fastest US Tech Market']],
       results: [['300%', 'Multi-City Visibility', 'Average increase across Texas metro markets.'], ['Top 3', 'Industry Rankings', 'Achieved across Dallas, Houston, and Austin searches.'], ['5.5x', 'AI Citations', 'Improvement in Texas-specific LLM recommendations.'], ['45 Days', 'To Results', 'From Texas market audit to measurable search gains.']],
-      market: ['Dallas enterprise search intent patterns', 'Houston energy sector query behaviour', 'Austin tech and startup search dynamics', 'Texas multi-city local SEO requirements', 'Energy, finance, and tech sector AI citation patterns'],
+      market: ['Dallas enterprise search intent patterns', 'Houston energy sector query behavior', 'Austin tech and startup search dynamics', 'Texas multi-city local SEO requirements', 'Energy, finance, and tech sector AI citation patterns'],
       industries: ['Energy & Oil and Gas', 'Finance & Banking', 'SaaS & Technology', 'Real Estate & PropTech', 'Healthcare', 'Professional Services'],
       resources: [
         { title: 'Texas Multi-City Search Playbook', desc: 'Adapting strategies for the distinct markets of Dallas, Houston, and Austin.', href: '/blog' },
@@ -376,7 +376,7 @@ const CONTENT = {
     'lead-gen': {
       tagline: 'Generate Qualified Leads Across Every Texas Market.',
       sub: "Multi-city lead generation campaigns for Texas businesses — reaching energy executives in Houston, enterprise buyers in Dallas, and tech decision-makers in Austin with precision targeting.",
-      why: "Texas is too large and economically diverse for a single lead generation approach. Houston buyers in energy think differently from Austin SaaS founders or Dallas financial services executives. We build city-specific acquisition campaigns that speak to each market's distinct priorities and buying behaviour.",
+      why: "Texas is too large and economically diverse for a single lead generation approach. Houston buyers in energy think differently from Austin SaaS founders or Dallas financial services executives. We build city-specific acquisition campaigns that speak to each market's distinct priorities and buying behavior.",
       about: "Lead generation across Texas requires market-specific creative, channel mix, and targeting strategy. We run parallel Google Ads and LinkedIn campaigns calibrated for each major metro, with city-specific landing pages that reflect local market context.\n\nEvery campaign includes CRM integration, lead scoring, and transparent attribution across all Texas markets — so you know exactly which city and channel is driving your best revenue opportunities.",
       services: [
         ['Multi-Metro Google Ads', 'City-specific campaigns targeting high-intent buyers across Texas\'s major markets.', 'lead-gen'],
@@ -386,7 +386,7 @@ const CONTENT = {
       ],
       stats: [['5.2%', 'Landing Page Conversion'], ['-35%', 'Reduction in CPL'], ['93%', 'Lead Quality Match'], ['4 Cities', 'Multi-Metro Coverage']],
       results: [['245%', 'Statewide Pipeline', 'Qualified leads across Texas markets in 90 days.'], ['-37%', 'Cost Per Lead', 'Reduction through city-specific targeting.'], ['3.9x', 'Opportunities', 'Generated across Dallas, Houston, and Austin.'], ['30 Days', 'To Launch', 'From brief to live campaigns across Texas.']],
-      market: ['Houston energy sector budget cycles', 'Dallas enterprise procurement patterns', 'Austin startup and SaaS buyer behaviour', 'Texas-wide B2B decision-maker demographics', 'Multi-city CRM attribution models'],
+      market: ['Houston energy sector budget cycles', 'Dallas enterprise procurement patterns', 'Austin startup and SaaS buyer behavior', 'Texas-wide B2B decision-maker demographics', 'Multi-city CRM attribution models'],
       industries: ['Energy & Oil and Gas', 'Finance & Banking', 'SaaS & Technology', 'Real Estate', 'Healthcare', 'Professional Services'],
       resources: [
         { title: 'Texas Multi-City Lead Gen Guide', desc: 'Acquisition strategies calibrated for each major Texas market.', href: '/blog' },
@@ -396,7 +396,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Texas Market Audit', desc: 'We map acquisition opportunities across each target Texas metro and industry.' },
         { step: '02', title: 'City-Specific Architecture', desc: 'We design market-aware campaigns tailored to each Texas metro\'s buyer profile.' },
-        { step: '03', title: 'Multi-City Launch', desc: 'Our team deploys and optimises parallel campaigns across Texas markets.' },
+        { step: '03', title: 'Multi-City Launch', desc: 'Our team deploys and optimizes parallel campaigns across Texas markets.' },
         { step: '04', title: 'Statewide Reporting', desc: 'Monthly reports track qualified leads and revenue by city and industry sector.' },
       ],
     },
@@ -413,7 +413,7 @@ const CONTENT = {
       ],
       stats: [['4.8M+', 'Texas Market Reach'], ['29%', 'Engagement Rate Boost'], ['2.3x', 'Inbound Leads'], ['3 Metro Markets', 'Simultaneous Coverage']],
       results: [['5.2x', 'Statewide Reach', 'Growth across Texas social channels in 6 months.'], ['118%', 'Inbound Inquiries', 'Increase across Dallas, Houston, and Austin markets.'], ['Top 10%', 'Industry Authority', 'Achieved for clients in Texas energy and tech sectors.'], ['28 Days', 'To Live Content', 'From strategy to published, market-specific content.']],
-      market: ['Texas metro-specific content culture and tone', 'Houston energy sector professional network behaviour', 'Austin startup and tech community engagement patterns', 'Dallas corporate LinkedIn usage and expectations', 'Multi-city content strategy management'],
+      market: ['Texas metro-specific content culture and tone', 'Houston energy sector professional network behavior', 'Austin startup and tech community engagement patterns', 'Dallas corporate LinkedIn usage and expectations', 'Multi-city content strategy management'],
       industries: ['Energy & Oil and Gas', 'Finance & Banking', 'SaaS & Technology', 'Real Estate', 'Healthcare', 'Professional Services'],
       resources: [
         { title: 'Texas Social Media Authority Guide', desc: 'City-specific content strategies for Texas\'s diverse markets.', href: '/blog' },
@@ -431,12 +431,12 @@ const CONTENT = {
       tagline: 'Premium Web Platforms Built for Texas\'s Diverse Business Markets.',
       sub: "Custom React and Next.js websites for Texas enterprises — meeting the professional standards of Houston's energy sector, Dallas's corporate market, and Austin's tech ecosystem.",
       why: "A website built for one Texas market may underperform in another. Houston energy executives expect gravitas and technical depth. Austin tech buyers want speed, simplicity, and clear product value. Dallas corporate buyers need credibility signals and easy paths to consultation. We build platforms that serve each market's priorities.",
-      about: "Our Texas web practice builds scalable digital platforms for businesses operating across multiple markets. We implement Next.js architectures that perform reliably statewide, with content management systems that allow your marketing team to customise messaging by city and sector without developer dependency.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is optimised for local SEO across all target Texas metros, ensuring competitive visibility from Houston to Austin.",
+      about: "Our Texas web practice builds scalable digital platforms for businesses operating across multiple markets. We implement Next.js architectures that perform reliably statewide, with content management systems that allow your marketing team to customise messaging by city and sector without developer dependency.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is optimized for local SEO across all target Texas metros, ensuring competitive visibility from Houston to Austin.",
       services: [
         ['Texas Enterprise Websites', 'Scalable Next.js platforms serving multiple Texas markets simultaneously.', 'web-dev'],
         ['Multi-City Landing Pages', 'Market-specific conversion pages for Dallas, Houston, Austin, and San Antonio.', 'web-dev'],
         ['Headless CMS for Texas Teams', 'Content management that scales across multiple Texas city and sector audiences.', 'web-dev'],
-        ['Multi-Market SEO Architecture', 'Technical web structure optimised for statewide Texas search visibility.', 'web-dev'],
+        ['Multi-Market SEO Architecture', 'Technical web structure optimized for statewide Texas search visibility.', 'web-dev'],
       ],
       stats: [['95+', 'PageSpeed Score'], ['< 0.9s', 'Load Time'], ['2.2x', 'Multi-City Conversion'], ['100%', 'Mobile Responsive']],
       results: [['2.7x', 'Speed Improvement', 'Page load performance across Texas market deployments.'], ['185%', 'Engagement Time', 'Increase in session duration post-platform rebuild.'], ['99.9%', 'Uptime', 'Across all Texas-targeted deployments.'], ['38 Days', 'To Launch', 'Average project timeline for Texas enterprise sites.']],
@@ -450,7 +450,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Texas Market Audit', desc: 'We evaluate your platform against each target Texas market\'s expectations.' },
         { step: '02', title: 'Multi-Market Architecture', desc: 'We design scalable platforms that serve Dallas, Houston, and Austin simultaneously.' },
-        { step: '03', title: 'Development', desc: 'Our team builds performant, SEO-optimised platforms for Texas\'s competitive markets.' },
+        { step: '03', title: 'Development', desc: 'Our team builds performant, SEO-optimized platforms for Texas\'s competitive markets.' },
         { step: '04', title: 'Launch & Statewide Monitoring', desc: 'Post-launch tracking across all Texas markets for ongoing competitive visibility.' },
       ],
     },
@@ -470,7 +470,7 @@ const CONTENT = {
       ],
       stats: [['230K+', 'Fremont Population'], ['Bay Area', 'Tech-Adjacent Market'], ['Diverse Economy', 'Tech + Local Commerce'], ['High Intent', 'Educated Consumer Base']],
       results: [['285%', 'Local Visibility', 'Average increase in Fremont search results.'], ['Top 5', 'Tri-City Rankings', 'Achieved for key Fremont and Tri-City keywords.'], ['4.9x', 'AI Citations', 'Improvement in Fremont-specific LLM recommendations.'], ['44 Days', 'To Results', 'From Fremont audit to measurable search gains.']],
-      market: ['Fremont Bay Area tech-adjacent buyer behaviour', 'Tri-City local search intent patterns', 'Diverse community multilingual search signals', 'Local service discovery on AI platforms', 'Newark and Union City competitive search landscape'],
+      market: ['Fremont Bay Area tech-adjacent buyer behavior', 'Tri-City local search intent patterns', 'Diverse community multilingual search signals', 'Local service discovery on AI platforms', 'Newark and Union City competitive search landscape'],
       industries: ['Technology Services', 'Local Professional Services', 'Healthcare & Wellness', 'Real Estate', 'Education', 'Home Services'],
       resources: [
         { title: 'Fremont Search Strategy', desc: 'Navigating visibility in a diverse, tech-adjacent market.', href: '/blog' },
@@ -497,7 +497,7 @@ const CONTENT = {
       ],
       stats: [['4.9%', 'Local Conversion Rate'], ['-32%', 'Reduction in CPL'], ['91%', 'Lead Quality Match'], ['Tri-City', 'Area Coverage']],
       results: [['220%', 'Fremont Lead Growth', 'Qualified local leads in 90 days.'], ['-34%', 'Cost Per Lead', 'Reduction through Tri-City geo-targeting.'], ['3.6x', 'Opportunities', 'Generated through local Fremont campaigns.'], ['24 Days', 'To Launch', 'From brief to live local campaigns.']],
-      market: ['Fremont local service demand patterns', 'Tri-City area buyer demographics', 'Bay Area local ad auction density', 'Community-specific service needs', 'Local mobile search behaviour in Fremont'],
+      market: ['Fremont local service demand patterns', 'Tri-City area buyer demographics', 'Bay Area local ad auction density', 'Community-specific service needs', 'Local mobile search behavior in Fremont'],
       industries: ['Healthcare & Wellness', 'Home Services', 'Real Estate', 'Education & Tutoring', 'Local Professional Services', 'Technology Services'],
       resources: [
         { title: 'Fremont Local Lead Gen Guide', desc: 'Acquisition strategies for Fremont\'s diverse local market.', href: '/blog' },
@@ -542,10 +542,10 @@ const CONTENT = {
       tagline: 'Professional Web Platforms for Fremont\'s Growing Business Community.',
       sub: "Custom websites and digital platforms for Fremont businesses — combining professional design, local SEO, and performance optimization that converts local visitors into customers.",
       why: "In the Bay Area's competitive local market, a professional web presence is a baseline expectation. Fremont's tech-adjacent consumer base is web-savvy — they evaluate websites critically and choose businesses that present themselves with clarity and confidence. A template site simply won't stand out.",
-      about: "Our Fremont web practice builds professional, conversion-focused platforms for local service businesses and growing companies. We implement clean, fast Next.js builds with integrated local SEO architecture, Google Business Profile alignment, and call-tracking systems that connect your website directly to local revenue.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is optimised for Tri-City local search visibility, ensuring your Fremont business ranks competitively across relevant local searches.",
+      about: "Our Fremont web practice builds professional, conversion-focused platforms for local service businesses and growing companies. We implement clean, fast Next.js builds with integrated local SEO architecture, Google Business Profile alignment, and call-tracking systems that connect your website directly to local revenue.\n\nEvery platform we deliver achieves 90+ Google PageSpeed scores and is optimized for Tri-City local search visibility, ensuring your Fremont business ranks competitively across relevant local searches.",
       services: [
         ['Fremont Business Websites', 'Professional local platforms designed to convert Fremont visitors into customers.', 'web-dev'],
-        ['Local SEO Web Architecture', 'Technical structure optimised for Fremont and Tri-City local search visibility.', 'web-dev'],
+        ['Local SEO Web Architecture', 'Technical structure optimized for Fremont and Tri-City local search visibility.', 'web-dev'],
         ['Service Business Platforms', 'Conversion-focused websites for Fremont\'s home services, healthcare, and professional sectors.', 'web-dev'],
         ['Google Business Integration', 'Website-to-GBP alignment that strengthens local search authority in Fremont.', 'web-dev'],
       ],
@@ -561,7 +561,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Fremont Audit', desc: 'We evaluate your current platform against local market expectations and conversion performance.' },
         { step: '02', title: 'Local-First Design', desc: 'We design platforms that reflect your Fremont brand and serve your local audience.' },
-        { step: '03', title: 'Development', desc: 'Our team builds fast, locally-optimised platforms for Fremont\'s competitive market.' },
+        { step: '03', title: 'Development', desc: 'Our team builds fast, locally-optimized platforms for Fremont\'s competitive market.' },
         { step: '04', title: 'Launch & Local Monitoring', desc: 'Post-launch Tri-City SEO tracking and performance reporting.' },
       ],
     },
@@ -581,7 +581,7 @@ const CONTENT = {
       ],
       stats: [['80K+', 'Pleasanton Population'], ['Top 5', 'US Best Places to Live'], ['96%', 'Internet Penetration'], ['High Income', 'Affluent Tri-Valley Market']],
       results: [['310%', 'Premium Traffic', 'Average increase in Pleasanton high-intent searches.'], ['Top 3', 'Local Rankings', 'Achieved for premium Tri-Valley service keywords.'], ['4.5x', 'AI Mentions', 'Improvement in Pleasanton-specific LLM recommendations.'], ['40 Days', 'To Results', 'From Pleasanton audit to measurable search gains.']],
-      market: ['Pleasanton affluent buyer research patterns', 'Tri-Valley premium service search intent', 'Dublin and Livermore local SEO dynamics', 'High-income household purchasing behaviour', 'AI search patterns for premium local services'],
+      market: ['Pleasanton affluent buyer research patterns', 'Tri-Valley premium service search intent', 'Dublin and Livermore local SEO dynamics', 'High-income household purchasing behavior', 'AI search patterns for premium local services'],
       industries: ['Healthcare & Wellness', 'Financial Services', 'Real Estate', 'Home Services', 'Education & Private Tutoring', 'Legal Services'],
       resources: [
         { title: 'Marketing to Affluent Buyers', desc: 'Strategies for capturing premium search intent in the Tri-Valley.', href: '/blog' },
@@ -608,7 +608,7 @@ const CONTENT = {
       ],
       stats: [['5.5%', 'Premium Conversion Rate'], ['-28%', 'Reduction in CPL'], ['95%', 'Lead Quality Match'], ['Tri-Valley', 'Area Coverage']],
       results: [['250%', 'Pleasanton Lead Growth', 'Premium qualified leads in 90 days.'], ['-32%', 'Cost Per Lead', 'Reduction through affluent demographic targeting.'], ['3.8x', 'Opportunities', 'Generated through Tri-Valley precision campaigns.'], ['25 Days', 'To Launch', 'From brief to live premium campaigns.']],
-      market: ['Pleasanton affluent household demographics', 'Tri-Valley premium service purchasing patterns', 'Dublin and Livermore buyer comparison behaviour', 'High-income local ad targeting parameters', 'Premium service category competitive density'],
+      market: ['Pleasanton affluent household demographics', 'Tri-Valley premium service purchasing patterns', 'Dublin and Livermore buyer comparison behavior', 'High-income local ad targeting parameters', 'Premium service category competitive density'],
       industries: ['Healthcare & Wellness', 'Financial Services', 'Real Estate', 'Home Services', 'Education & Private Tutoring', 'Legal Services'],
       resources: [
         { title: 'Pleasanton Premium Lead Gen Guide', desc: 'Attracting high-value clients in the Tri-Valley\'s affluent market.', href: '/blog' },
@@ -618,7 +618,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Premium Market Audit', desc: 'We review acquisition gaps and opportunities specific to Pleasanton\'s affluent buyer profile.' },
         { step: '02', title: 'Precision Campaign Design', desc: 'We build campaigns calibrated to the Tri-Valley\'s premium service expectations.' },
-        { step: '03', title: 'Launch & Quality Optimise', desc: 'Our team deploys campaigns optimising for lead quality, not just volume.' },
+        { step: '03', title: 'Launch & Quality Optimise', desc: 'Our team deploys campaigns optimizing for lead quality, not just volume.' },
         { step: '04', title: 'Premium Pipeline Reporting', desc: 'Monthly reports track qualified leads, booking rates, and revenue generated.' },
       ],
     },
@@ -635,7 +635,7 @@ const CONTENT = {
       ],
       stats: [['1.2M+', 'Tri-Valley Reach'], ['30%', 'Engagement Rate Boost'], ['2.2x', 'Premium Referrals'], ['85%', 'Community Retention']],
       results: [['4x', 'Local Premium Reach', 'Growth across Pleasanton social channels.'], ['110%', 'Inbound Inquiries', 'Increase from Tri-Valley social presence.'], ['Top Local', 'Community Authority', 'Recognised as a premium local business voice.'], ['28 Days', 'To Live Content', 'From strategy to published premium content.']],
-      market: ['Pleasanton affluent community content preferences', 'Tri-Valley social media usage patterns', 'Premium service brand trust signals', 'Dublin and Livermore community engagement dynamics', 'High-income audience referral behaviour'],
+      market: ['Pleasanton affluent community content preferences', 'Tri-Valley social media usage patterns', 'Premium service brand trust signals', 'Dublin and Livermore community engagement dynamics', 'High-income audience referral behavior'],
       industries: ['Healthcare & Wellness', 'Financial Services', 'Real Estate', 'Home Services', 'Education', 'Legal Services'],
       resources: [
         { title: 'Pleasanton Premium Social Guide', desc: 'Building community authority for the Tri-Valley\'s affluent market.', href: '/blog' },
@@ -653,11 +653,11 @@ const CONTENT = {
       tagline: 'Premium Digital Platforms for Pleasanton\'s Affluent Market.',
       sub: "Custom websites for Pleasanton service businesses — combining premium design aesthetics, conversion architecture, and local SEO that matches the Tri-Valley's high market expectations.",
       why: "Pleasanton's affluent buyers evaluate everything, including your website. A slow, generic, or visually underwhelming platform signals that your service quality may be equally mediocre. We build platforms that reflect the premium standard your market demands and convert discerning visitors into high-value consultations.",
-      about: "Our Pleasanton web practice builds premium, conversion-focused platforms for the Tri-Valley's service businesses. We implement clean Next.js architectures with high-quality UI design, integrated local SEO structure, and call-tracking systems that connect your website directly to booked appointments and consultations.\n\nEvery platform achieves 90+ Google PageSpeed scores and is optimised for Tri-Valley local search visibility — ensuring your Pleasanton business ranks competitively for the premium service queries your ideal clients are searching.",
+      about: "Our Pleasanton web practice builds premium, conversion-focused platforms for the Tri-Valley's service businesses. We implement clean Next.js architectures with high-quality UI design, integrated local SEO structure, and call-tracking systems that connect your website directly to booked appointments and consultations.\n\nEvery platform achieves 90+ Google PageSpeed scores and is optimized for Tri-Valley local search visibility — ensuring your Pleasanton business ranks competitively for the premium service queries your ideal clients are searching.",
       services: [
         ['Pleasanton Premium Websites', 'High-quality platforms reflecting the standard Tri-Valley\'s affluent buyers expect.', 'web-dev'],
         ['Conversion-Optimised Design', 'Premium UX architecture that guides Pleasanton visitors to consultation bookings.', 'web-dev'],
-        ['Local SEO Architecture', 'Technical web structure optimised for Tri-Valley local search visibility.', 'web-dev'],
+        ['Local SEO Architecture', 'Technical web structure optimized for Tri-Valley local search visibility.', 'web-dev'],
         ['Premium Service Platforms', 'Conversion-focused websites for Pleasanton\'s healthcare, financial, and professional sectors.', 'web-dev'],
       ],
       stats: [['96+', 'PageSpeed Score'], ['< 0.7s', 'Load Time'], ['2.2x', 'Consultation Conversion'], ['100%', 'Mobile Responsive']],
@@ -672,7 +672,7 @@ const CONTENT = {
       process: [
         { step: '01', title: 'Pleasanton Audit', desc: 'We evaluate your platform against the premium expectations of Tri-Valley buyers.' },
         { step: '02', title: 'Premium Design', desc: 'We design platforms reflecting the quality standard Pleasanton\'s market demands.' },
-        { step: '03', title: 'Development', desc: 'Our team builds fast, locally-optimised platforms for Tri-Valley\'s competitive market.' },
+        { step: '03', title: 'Development', desc: 'Our team builds fast, locally-optimized platforms for Tri-Valley\'s competitive market.' },
         { step: '04', title: 'Launch & Tri-Valley Monitoring', desc: 'Post-launch local SEO tracking and performance reporting across Pleasanton and surrounds.' },
       ],
     },

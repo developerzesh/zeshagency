@@ -272,7 +272,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                                                 We implement these exact strategies for our partners. Book a free audit.
                                             </p>
                                         </div>
-                                        <MagneticButton strength={0.3}>
+                                        <MagneticButton strength={0.15}>
                                             <button
                                                 onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                                                 className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500 flex-shrink-0"
@@ -295,7 +295,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                                     <p className="font-lato text-[12px] text-text-muted leading-relaxed mb-5">
                                         We implement these exact strategies for our partners. Book a free audit.
                                     </p>
-                                    <MagneticButton strength={0.3}>
+                                    <MagneticButton strength={0.15}>
                                         <button
                                             onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                                             className="w-full inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-lg font-lato text-[11px] font-medium hover:bg-signal transition-colors duration-500"

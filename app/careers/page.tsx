@@ -2,7 +2,7 @@ import Careers from "@/views/Careers";
 import { getAllJobs } from "@/lib/queries";
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Careers at Zesh Agency | Join Our Growth & SEO Team',

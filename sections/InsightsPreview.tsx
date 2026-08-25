@@ -22,7 +22,7 @@ export default function InsightsPreview() {
                   <div className="flex items-center gap-4 mb-2">
                     <span className="font-lato text-[10px] tracking-[0.15em] uppercase text-signal">{article.category}</span>
                     <span className="w-1 h-1 rounded-full bg-text-muted/20" />
-                    <span className="font-lato text-[10px] text-text-muted">{article.date} Â· {article.readTime}</span>
+                    <span className="font-lato text-[10px] text-text-muted">{article.date} · {article.readTime}</span>
                   </div>
                   <h3 className="font-syne text-lg md:text-2xl font-800 group-hover:text-signal transition-colors duration-700">{article.title}</h3>
                 </m.div>

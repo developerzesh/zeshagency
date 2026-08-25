@@ -46,7 +46,7 @@ export default function Journal() {
           {filteredArticles.map((article, i) => (
             <RevealText key={article.id} delay={i * 0.06}>
               <m.article whileHover={{ x: 8 }} transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }} className="group py-10 border-b border-border">
-                <div className="flex items-center gap-4 mb-3"><span className="font-lato text-[11px] tracking-[0.12em] uppercase text-signal">{article.category}</span><span className="w-1 h-1 rounded-full bg-text-muted/20" /><span className="font-lato text-[11px] text-text-muted">{article.date}</span><span className="font-lato text-[11px] text-text-muted">Â· {article.readTime}</span></div>
+                <div className="flex items-center gap-4 mb-3"><span className="font-lato text-[11px] tracking-[0.12em] uppercase text-signal">{article.category}</span><span className="w-1 h-1 rounded-full bg-text-muted/20" /><span className="font-lato text-[11px] text-text-muted">{article.date}</span><span className="font-lato text-[11px] text-text-muted">· {article.readTime}</span></div>
                 <ImagePreview image={article.image} size="md" caption={article.category}>
                   <h3 className="font-syne text-xl md:text-3xl font-800 tracking-tight leading-tight group-hover:text-signal transition-colors duration-700 mb-3">{article.title}</h3>
                 </ImagePreview>

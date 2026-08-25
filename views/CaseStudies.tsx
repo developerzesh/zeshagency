@@ -84,7 +84,7 @@ function HeroSection() {
               label="Start a Project"
               onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
             />
-            <MagneticButton strength={0.3}>
+            <MagneticButton strength={0.15}>
               <a href="/services" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Services</a>
             </MagneticButton>
           </m.div>
@@ -105,7 +105,7 @@ function HeroSection() {
               transition={{ duration: 1.2, delay: 2.0 + i * 0.1, ease: slowEase }}
               className="pr-8 md:border-r border-border/40 last:border-r-0 mb-6 md:mb-0"
             >
-              <span className="font-syne text-2xl md:text-3xl font-800 text-signal block mb-1">{stat.value}</span>
+              <span className="font-lato text-2xl md:text-3xl font-700 text-signal block mb-1">{stat.value}</span>
               <p className="font-lato text-xs text-text-muted tracking-wide">{stat.label}</p>
             </m.div>
           ))}
@@ -346,7 +346,7 @@ export default function CaseStudies({ caseStudies }: { caseStudies: CaseStudy[] 
                     label="Book a Strategy Call"
                     onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                   />
-                  <MagneticButton strength={0.3}>
+                  <MagneticButton strength={0.15}>
                     <a href="/industries" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       Explore Our Industries
                     </a>

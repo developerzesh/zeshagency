@@ -30,7 +30,7 @@ export default function GlobalCTA() {
           </p>
         </RevealText>
         <RevealText delay={0.3}>
-          <MagneticButton strength={0.25}>
+          <MagneticButton strength={0.12}>
             <a href="/contact" className="font-lato text-[12px] tracking-[0.1em] uppercase bg-ink text-paper px-10 py-4 rounded-full hover:bg-signal transition-colors duration-700 inline-block">
               Book Discovery Call
             </a>

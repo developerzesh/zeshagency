@@ -73,7 +73,7 @@ export default function Lab() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Have an idea<span className="text-signal">?</span></h2></RevealText>
           <RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">We love collaborating on experimental projects. Let's build something that's never been done before.</p></RevealText>
-          <MagneticButton strength={0.3}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Shahana@zeshagency.com →</a></MagneticButton>
+          <MagneticButton strength={0.15}><a href="mailto:Shahana@zeshagency.com" className="font-lato text-sm font-medium text-signal sig-hover">Shahana@zeshagency.com →</a></MagneticButton>
         </div>
       </section>
     </PageTransition>

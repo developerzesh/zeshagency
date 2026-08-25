@@ -1,7 +1,7 @@
 ﻿import { useState, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { m, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import MagneticButton from './MagneticButton';
 import { solutions, industries } from '../lib/data';
 import { citiesNav } from '../lib/siteConfig';
@@ -48,6 +48,8 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const pathname = usePathname();
+  const { scrollY } = useScroll();
+  const homepageNavTop = useTransform(scrollY, [0, 36], [20, 0]);
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const cityTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
@@ -88,14 +90,15 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: slowEase }}
-        className="fixed top-0 left-0 right-0 z-50"
+        style={pathname === '/' ? { top: homepageNavTop } : { top: 0 }}
+        className="fixed left-0 right-0 z-50"
       >
         {/* ── Bar ────────────────────────────────────────── */}
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
           <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
             {/* Logo */}
-            <MagneticButton strength={0.1}>
+            <MagneticButton strength={0.05}>
               <a href="/" onClick={handleNavClick} className="block">
                 <img src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"} alt="ZESH." className="h-4 md:h-5 w-auto" width="600" height="64" />
               </a>

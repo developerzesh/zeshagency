@@ -14,7 +14,7 @@ const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-// ─── Â§ 1 — Hero / Title ───────────────────────────────────────────────────────
+// ─── § 1 — Hero / Title ───────────────────────────────────────────────────────
 function HeroSection({ cs }: { cs: CaseStudy }) {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -106,7 +106,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 2 — Results ────────────────────────────────────────────────────────────
+// ─── § 2 — Results ────────────────────────────────────────────────────────────
 function ResultsSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-16 md:py-48 border-t border-border/60">
@@ -126,7 +126,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
                   transition={{ duration: 0.8, ease: slowEase }}
                   className="md:px-10 first:pl-0"
                 >
-                  <span className="font-syne text-3xl md:text-4xl lg:text-5xl font-800 tracking-tight text-signal block mb-3 leading-none">
+                  <span className="font-lato text-3xl md:text-4xl lg:text-5xl font-700 tracking-tight text-signal block mb-3 leading-none">
                     {metric}
                   </span>
                   <p className="font-lato text-sm text-text-muted leading-[1.6]">{label}</p>
@@ -140,7 +140,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 3 — Hero Image ─────────────────────────────────────────────────────────
+// ─── § 3 — Hero Image ─────────────────────────────────────────────────────────
 function ImageSection({ cs }: { cs: CaseStudy }) {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-6 md:py-10">
@@ -160,7 +160,7 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 4 — Challenge ─────────────────────────────────────────────────────────
+// ─── § 4 — Challenge ─────────────────────────────────────────────────────────
 function ChallengeSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -187,7 +187,7 @@ function ChallengeSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 5 — Solution ───────────────────────────────────────────────────────────
+// ─── § 5 — Solution ───────────────────────────────────────────────────────────
 function SolutionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -214,7 +214,7 @@ function SolutionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 6 — Strategy ───────────────────────────────────────────────────────────
+// ─── § 6 — Strategy ───────────────────────────────────────────────────────────
 function StrategySection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
@@ -248,7 +248,7 @@ function StrategySection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 7 — Execution ─────────────────────────────────────────────────────────
+// ─── § 7 — Execution ─────────────────────────────────────────────────────────
 function ExecutionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -294,7 +294,7 @@ function ExecutionSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 8 — Outcomes ───────────────────────────────────────────────────────────
+// ─── § 8 — Outcomes ───────────────────────────────────────────────────────────
 function OutcomesSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60 bg-surface/10">
@@ -327,7 +327,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
                       transition={{ duration: 0.8, ease: slowEase }}
                       className="group flex items-baseline gap-4 py-5 border-b border-border/50"
                     >
-                      <span className="font-syne text-2xl font-800 text-signal group-hover:scale-105 transition-transform duration-500 origin-left flex-shrink-0">
+                      <span className="font-lato text-2xl font-700 text-signal group-hover:scale-105 transition-transform duration-500 origin-left flex-shrink-0">
                         {parts[0]}
                       </span>
                       <p className="font-lato text-sm text-text-muted leading-snug">{parts.slice(1).join(' ')}</p>
@@ -343,7 +343,7 @@ function OutcomesSection({ cs }: { cs: CaseStudy }) {
   );
 }
 
-// ─── Â§ 9 — Conclusion ────────────────────────────────────────────────────────
+// ─── § 9 — Conclusion ────────────────────────────────────────────────────────
 function ConclusionSection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-14 md:py-36 border-t border-border/60">
@@ -430,7 +430,7 @@ function RelatedSection({ related }: { related: CaseStudy[] }) {
   );
 }
 
-// ─── Â§ 11 — CTA ──────────────────────────────────────────────────────────────
+// ─── § 11 — CTA ──────────────────────────────────────────────────────────────
 function CTASection({ cs }: { cs: CaseStudy }) {
   return (
     <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
@@ -461,7 +461,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
                   label="Book a Strategy Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                     View All Case Studies
                   </a>

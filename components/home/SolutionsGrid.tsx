@@ -89,7 +89,7 @@ export default function SolutionsGrid() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 1.2, duration: 0.8 }}
-                      className="font-syne text-5xl font-800 text-ink leading-none"
+                      className="font-lato text-5xl font-700 text-ink leading-none"
                     >
                       9<span className="text-signal">+</span>
                     </m.span>

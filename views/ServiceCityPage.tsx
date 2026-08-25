@@ -59,7 +59,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
                 label={`Get ${data.cityName} Strategy Audit`}
                 onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
               />
-              <MagneticButton strength={0.3}>
+              <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
                   View Case Studies
                 </Link>
@@ -172,7 +172,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             <div className="md:col-span-6">
               <RevealText delay={0.2}>
                 <p className="font-lato text-base text-text-secondary leading-[1.85]">
-                  Every figure here reflects real performance metrics achieved across our campaigns. We value transparent metrics over vanity vanity scores.
+                  Every figure here reflects real performance metrics achieved across our campaigns. We value transparent metrics over vanity scores.
                 </p>
               </RevealText>
             </div>
@@ -183,7 +183,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             {(data.stats as [string, string][]).map(([num, label], i) => (
               <RevealText key={label} delay={i * 0.08} duration={1.2}>
                 <div className="bg-paper dark:bg-surface/5 px-6 py-8 md:py-10 flex flex-col justify-center">
-                  <div className="font-syne font-800 text-3xl md:text-4xl text-ink leading-none mb-2">{num}</div>
+                  <div className="font-lato font-700 text-3xl md:text-4xl text-ink leading-none mb-2">{num}</div>
                   <p className="font-lato text-[11px] tracking-wider text-text-muted uppercase font-semibold">{label}</p>
                 </div>
               </RevealText>
@@ -195,7 +195,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             {(data.results as [string, string, string][]).map(([metric, label, context], i) => (
               <RevealText key={label} delay={i * 0.1} duration={1.4}>
                 <div className="bg-surface/30 border border-border/40 rounded-2xl p-6 md:p-8 hover:bg-signal/5 transition-colors duration-500">
-                  <div className="font-syne font-800 text-4xl md:text-5xl text-signal leading-none mb-3">{metric}</div>
+                  <div className="font-lato font-700 text-4xl md:text-5xl text-signal leading-none mb-3">{metric}</div>
                   <p className="font-syne font-700 text-base text-ink mb-2">{label}</p>
                   <p className="font-lato text-xs text-text-muted leading-relaxed">{context}</p>
                 </div>
@@ -375,7 +375,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
                 </h2>
               </RevealText>
               <RevealText delay={0.2}>
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <Link href="/contact" className="group inline-flex items-center gap-3 font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover">
                     Speak to a strategist <span className="text-xs">→</span>
                   </Link>
@@ -412,7 +412,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
                   label="Book Free Strategy Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
                     Explore All Services
                   </Link>

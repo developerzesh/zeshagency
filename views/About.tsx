@@ -116,7 +116,7 @@ export default function About() {
             ))}
           </div>
           <div className="mt-20 flex justify-center">
-            <MagneticButton strength={0.3}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
+            <MagneticButton strength={0.15}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
           </div>
         </div>
       </section>

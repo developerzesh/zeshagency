@@ -17,7 +17,7 @@ export default function Footer() {
 
           {/* Brand block */}
           <div className="col-span-1 md:col-span-3">
-            <MagneticButton strength={0.08}>
+            <MagneticButton strength={0.04}>
               <a href="/" className="block">
                 <img
                   src={isDark ? "/images/dark_logo_zesh.png" : "/images/light_logo_zesh.png"}

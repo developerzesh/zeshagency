@@ -33,7 +33,7 @@ export default function CircleArrowButton({ label, onClick, href, size = 'md', c
   );
 
   return (
-    <MagneticButton strength={0.2}>
+    <MagneticButton strength={0.1}>
       {href ? (
         <a href={href}>{content}</a>
       ) : (

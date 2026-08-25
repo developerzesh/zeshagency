@@ -24,8 +24,8 @@ export default function CTA() {
           <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary max-w-md leading-[1.85]">Have a project in mind? We'd love to hear about it. Drop us a line and let's explore what we can build together.</p></RevealText>
           <RevealText delay={0.3}>
             <div className="flex flex-col items-start gap-5">
-              <MagneticButton strength={0.2}><a href="mailto:Shahana@zeshagency.com" className="font-syne text-2xl md:text-3xl font-800 text-ink hover:text-signal transition-colors duration-[1200ms] sig-hover">Shahana@zeshagency.com</a></MagneticButton>
-              <div className="flex items-center gap-6">{['Twitter', 'Dribbble', 'LinkedIn', 'Instagram'].map((s) => (<MagneticButton key={s} strength={0.15}><a href="#" className="font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-ink transition-colors duration-700">{s}</a></MagneticButton>))}</div>
+              <MagneticButton strength={0.1}><a href="mailto:Shahana@zeshagency.com" className="font-syne text-2xl md:text-3xl font-800 text-ink hover:text-signal transition-colors duration-[1200ms] sig-hover">Shahana@zeshagency.com</a></MagneticButton>
+              <div className="flex items-center gap-6">{['Twitter', 'Dribbble', 'LinkedIn', 'Instagram'].map((s) => (<MagneticButton key={s} strength={0.08}><a href="#" className="font-lato text-[11px] tracking-[0.12em] uppercase text-text-muted hover:text-ink transition-colors duration-700">{s}</a></MagneticButton>))}</div>
             </div>
           </RevealText>
         </div>

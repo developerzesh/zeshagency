@@ -435,7 +435,7 @@ const supplementary: Record<string, {
       lines: [
         { role: 'USER SEARCH ', content: '"physiotherapist near me" — Google Maps, Mobile, 2.4km radius' },
         { role: 'BEFORE      ', content: 'Map Pack shows: PhysioPlus (4.1★ 38 reviews, no description), BodyCare Clinic (3.8★ 14 reviews), ActiveHealth (4.0★ 29 reviews, no Q&A). Your clinic: position #9 — not visible.' },
-        { role: 'AFTER       ', content: 'Map Pack Position #1: [Your Clinic Name] Â· ⭐ 4.9 Â· 214 reviews Â· "Sports injury & rehabilitation specialists — same-day appointments available" Â· Attributes: ✓ Wheelchair accessible Â· ✓ Online booking Â· ✓ Women-led Â· Categories: Physiotherapist, Sports Injury Clinic Â· 3 active Q&As answered', highlight: true },
+        { role: 'AFTER       ', content: 'Map Pack Position #1: [Your Clinic Name] · ⭐ 4.9 · 214 reviews · "Sports injury & rehabilitation specialists — same-day appointments available" · Attributes: ✓ Wheelchair accessible · ✓ Online booking · ✓ Women-led · Categories: Physiotherapist, Sports Injury Clinic · 3 active Q&As answered', highlight: true },
         { role: 'MECHANISM   ', content: 'Achieved via: 80-directory NAP standardization → GBP category primary/secondary optimization → 214-review acquisition funnel (SMS post-appointment) → programmatic local page at /locations/[suburb] → regionalized schema with GeoCoordinates → active Q&A seeding for top 5 patient queries.' },
       ],
     },
@@ -552,7 +552,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                   label="Book a Consultation Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
                 </MagneticButton>
               </div>
@@ -644,16 +644,16 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               query: extra.visualExample.lines.find(l => l.role.toUpperCase().includes('USER'))?.content?.replace(/^"|"$/g, '') ?? 'physiotherapist near me',
               serpMeta: 'Map Pack — Google Maps, Mobile, 2.4km radius',
               serpResults: [
-                { domain: '#1 — PHYSIOPLUS', title: '4.1 ★ Â· 38 reviews', desc: 'No business description. No Q&A. No booking link. Missing key attributes.' },
-                { domain: '#2 — BODYCARE CLINIC', title: '3.8 ★ Â· 14 reviews', desc: 'Incomplete profile. Missing hours, services, and response to reviews.' },
-                { domain: '#3 — ACTIVEHEALTH', title: '4.0 ★ Â· 29 reviews', desc: 'No Q&A section. Outdated photos. No booking integration.' },
+                { domain: '#1 — PHYSIOPLUS', title: '4.1 ★ · 38 reviews', desc: 'No business description. No Q&A. No booking link. Missing key attributes.' },
+                { domain: '#2 — BODYCARE CLINIC', title: '3.8 ★ · 14 reviews', desc: 'Incomplete profile. Missing hours, services, and response to reviews.' },
+                { domain: '#3 — ACTIVEHEALTH', title: '4.0 ★ · 29 reviews', desc: 'No Q&A section. Outdated photos. No booking integration.' },
                 { domain: '#9 — YOUR CLINIC', title: 'Not visible in Map Pack', desc: 'Your clinic exists but is buried below the local pack — invisible to mobile intent buyers.' },
               ],
               aiAnswer: [
-                [{ bold: true, text: 'Map Pack Position #1:' }, { text: ' Your Clinic Name Â· ⭐ 4.9 Â· 214 reviews' }],
+                [{ bold: true, text: 'Map Pack Position #1:' }, { text: ' Your Clinic Name · ⭐ 4.9 · 214 reviews' }],
                 [{ bold: true, text: '"Sports injury & rehabilitation specialists' }, { text: ' — same-day appointments available"' }],
                 [{ text: '✓ Wheelchair accessible  ✓ Online booking  ✓ Women-led' }],
-                [{ text: 'Categories: Physiotherapist, Sports Injury Clinic Â· 3 active Q&As answered Â· Direct call button visible.' }],
+                [{ text: 'Categories: Physiotherapist, Sports Injury Clinic · 3 active Q&As answered · Direct call button visible.' }],
               ],
             },
           };
@@ -793,7 +793,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                                     <path d="M11 8.5h1.5a.5.5 0 00.5-.5v-4a.5.5 0 00-.5-.5H11" strokeLinejoin="round" />
                                   </svg>
                                 </button>
-                                <button className="text-text-muted hover:text-ink transition-colors duration-300 font-bold tracking-wider text-[10px]" title="More">Â·Â·Â·</button>
+                                <button className="text-text-muted hover:text-ink transition-colors duration-300 font-bold tracking-wider text-[10px]" title="More">···</button>
                               </div>
                             </div>
                           </div>
@@ -881,8 +881,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'A full read of how crawler bots see, interpret, and index your website. Find technical issues, indexation blocks, and keyword gap opportunities.',
                 type: 'audit',
                 mock: {
-                  headerLeft: 'CITEBOUND Â· SEO HEALTH SCORE',
-                  headerRight: 'BASELINE Â· JUL 2026',
+                  headerLeft: 'CITEBOUND · SEO HEALTH SCORE',
+                  headerRight: 'BASELINE · JUL 2026',
                   score: 42,
                   scoreLabel: 'Below Target',
                   scorePeer: 'avg. peer score: 65',
@@ -901,7 +901,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We track your organic rankings keyword by keyword, query by query — mapping search intent coverage against industry competitors.',
                 type: 'voice',
                 mock: {
-                  headerLeft: 'SHARE OF SEARCH Â· CATEGORY',
+                  headerLeft: 'SHARE OF SEARCH · CATEGORY',
                   headerRight: '↑ 6 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 26 },
@@ -918,9 +918,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 type: 'strategy',
                 mock: {
                   query: 'competitor alternative tools for scale',
-                  statusLabel: 'TARGET Â· SNIPPET MATCH',
+                  statusLabel: 'TARGET · SNIPPET MATCH',
                   extract: '“With direct internal pricing, SOC-2 readiness and sub-second loading, [Your Brand] ranks as the tier-one alternative...”',
-                  footerLeft: 'CITED BY Â· GOOGLE Â· BING',
+                  footerLeft: 'CITED BY · GOOGLE · BING',
                   footerRight: '18 HITS'
                 }
               },
@@ -930,7 +930,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We implement absolute optimizations on your core page loading, URL hierarchy, sitemap routing, and structured schemas.',
                 type: 'authority',
                 mock: {
-                  headerLeft: 'TECHNICAL GRAPH Â· DOMAIN',
+                  headerLeft: 'TECHNICAL GRAPH · DOMAIN',
                   headerRight: 'OPTIMIZED',
                   brandName: 'Citebound.',
                   brandType: 'SEO SYSTEM LAYER',
@@ -947,7 +947,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We build authoritative backlink authority from high-trust web publishers and journals to pass absolute PageRank to your site.',
                 type: 'citation',
                 mock: {
-                  headerLeft: 'DOMAINS ROUTED Â· LAST 90 D',
+                  headerLeft: 'DOMAINS ROUTED · LAST 90 D',
                   headerRight: '14 / 30 EARNED',
                   badges: [
                     { domain: 'techcrunch.com', dots: 3 },
@@ -965,7 +965,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We audit competitors daily to pinpoint ranking drops, key directory changes, and quick-win keyword clusters you can intercept.',
                 type: 'monitoring',
                 mock: {
-                  headerLeft: 'SEARCH LEADERBOARD Â· JUL 2026',
+                  headerLeft: 'SEARCH LEADERBOARD · JUL 2026',
                   headerRight: '350 KEYWORDS',
                   rows: [
                     { rank: '01', label: 'Competitor A', score: '38%', change: '↓ 2' },
@@ -986,8 +986,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'A full read of how every major model describes, mentions, cites, and recommends your brand today. See what each model knows, what it gets wrong, and where competitors are eating your share.',
                 type: 'audit',
                 mock: {
-                  headerLeft: 'CITEBOUND Â· AI VISIBILITY SCORE',
-                  headerRight: 'BASELINE Â· JUL 2026',
+                  headerLeft: 'CITEBOUND · AI VISIBILITY SCORE',
+                  headerRight: 'BASELINE · JUL 2026',
                   score: 38,
                   scoreLabel: 'Below Category',
                   scorePeer: 'avg. peer: 61',
@@ -1006,7 +1006,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We track your presence model by model, prompt by prompt — and show where you are gaining ground or being replaced.',
                 type: 'voice',
                 mock: {
-                  headerLeft: 'SHARE OF ANSWER Â· CATEGORY',
+                  headerLeft: 'SHARE OF ANSWER · CATEGORY',
                   headerRight: '↑ 3 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 23 },
@@ -1023,9 +1023,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 type: 'strategy',
                 mock: {
                   query: 'best fintech compliance tool for series B',
-                  statusLabel: 'ANSWER-READY EXTRACT Â· YOUR PAGE',
+                  statusLabel: 'ANSWER-READY EXTRACT · YOUR PAGE',
                   extract: '“For Series B fintechs juggling SOC 2 and FedRAMP, the leanest compliance stack pairs Vanta with...”',
-                  footerLeft: 'CITED BY Â· CHATGPT Â· PERPLEXITY',
+                  footerLeft: 'CITED BY · CHATGPT · PERPLEXITY',
                   footerRight: '+ 14 PROMPTS'
                 }
               },
@@ -1035,7 +1035,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We tighten the signals that tell AI who you are, what you do, who you serve, and why you should be trusted. Schema, sources, citations, and a roadmap to own your category.',
                 type: 'authority',
                 mock: {
-                  headerLeft: 'ENTITY GRAPH Â· YOUR BRAND',
+                  headerLeft: 'ENTITY GRAPH · YOUR BRAND',
                   headerRight: 'VERIFIED',
                   brandName: 'Citebound.',
                   brandType: 'AI SEARCH VISIBILITY AGENCY',
@@ -1052,7 +1052,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We earn the third-party mentions, press placements, and review consensus models use to decide who is credible.',
                 type: 'citation',
                 mock: {
-                  headerLeft: 'SOURCES MODELS PULL Â· LAST 90 D',
+                  headerLeft: 'SOURCES MODELS PULL · LAST 90 D',
                   headerRight: '12 / 28 EARNED',
                   badges: [
                     { domain: 'techcrunch.com', dots: 3 },
@@ -1070,7 +1070,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We track every competitor in your category — where they win the answer, where they slip, and where you can move in.',
                 type: 'monitoring',
                 mock: {
-                  headerLeft: 'CATEGORY LEADERBOARD Â· JUL 2026',
+                  headerLeft: 'CATEGORY LEADERBOARD · JUL 2026',
                   headerRight: '128 PROMPTS',
                   rows: [
                     { rank: '01', label: 'Vanta', score: '41%', change: '↑ 2' },
@@ -1091,8 +1091,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We analyze how Retrieval-Augmented Generation engines process, index, and query your website. Identify indexing bugs and model attribution opportunities.',
                 type: 'audit',
                 mock: {
-                  headerLeft: 'CITEBOUND Â· RAG SCORE',
-                  headerRight: 'BASELINE Â· JUL 2026',
+                  headerLeft: 'CITEBOUND · RAG SCORE',
+                  headerRight: 'BASELINE · JUL 2026',
                   score: 34,
                   scoreLabel: 'Action Required',
                   scorePeer: 'avg. peer score: 58',
@@ -1111,7 +1111,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We trace citation counts inside Perplexity, Google Gemini, and OpenAI Search prompts, mapping recommendation share across cohorts.',
                 type: 'voice',
                 mock: {
-                  headerLeft: 'GENERATIVE SHARE Â· CATEGORY',
+                  headerLeft: 'GENERATIVE SHARE · CATEGORY',
                   headerRight: '↑ 5 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 21 },
@@ -1128,9 +1128,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 type: 'strategy',
                 mock: {
                   query: 'best security analytics platform for AWS',
-                  statusLabel: 'SOURCED FROM Â· DOCUMENTATION HUB',
+                  statusLabel: 'SOURCED FROM · DOCUMENTATION HUB',
                   extract: '“For AWS environments undergoing compliance checks, [Your Brand] provides autonomous security logs cited by multiple third-party audits...”',
-                  footerLeft: 'CITED BY Â· PERPLEXITY Â· GEMINI',
+                  footerLeft: 'CITED BY · PERPLEXITY · GEMINI',
                   footerRight: '22 SOURCE FILES'
                 }
               },
@@ -1140,7 +1140,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We declare organization entity schemas to link your site nodes directly to global semantic databases like Wikidata or Google Knowledge Graph.',
                 type: 'authority',
                 mock: {
-                  headerLeft: 'KNOWLEDGE GRAPH Â· ENTITY',
+                  headerLeft: 'KNOWLEDGE GRAPH · ENTITY',
                   headerRight: 'VERIFIED',
                   brandName: 'Citebound.',
                   brandType: 'RAG DATABASE INDEX',
@@ -1157,7 +1157,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We acquire placement and backlinks on LLMs primary data sources, review directories, and technical documentation hubs.',
                 type: 'citation',
                 mock: {
-                  headerLeft: 'SOURCE CITES Â· LLM SOURCES',
+                  headerLeft: 'SOURCE CITES · LLM SOURCES',
                   headerRight: '8 / 18 TRUSTED',
                   badges: [
                     { domain: 'github.com', dots: 3 },
@@ -1175,7 +1175,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We parse the specific sources and websites cited by search agents to target directories your competitors own, then out-rank them.',
                 type: 'monitoring',
                 mock: {
-                  headerLeft: 'GEO LEADERBOARD Â· JUL 2026',
+                  headerLeft: 'GEO LEADERBOARD · JUL 2026',
                   headerRight: '64 LLM PROMPTS',
                   rows: [
                     { rank: '01', label: 'Competitor A', score: '45%', change: '↓ 4' },
@@ -1196,8 +1196,8 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'A full read of your location-specific citation density, GBP profile health, review velocity, and regional directory completeness.',
                 type: 'audit',
                 mock: {
-                  headerLeft: 'CITEBOUND Â· PROFILE HEALTH',
-                  headerRight: 'BASELINE Â· JUL 2026',
+                  headerLeft: 'CITEBOUND · PROFILE HEALTH',
+                  headerRight: 'BASELINE · JUL 2026',
                   score: 48,
                   scoreLabel: 'Action Required',
                   scorePeer: 'avg. peer score: 71',
@@ -1216,7 +1216,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We track your business profile locations across multiple ZIP codes, prompt queries, and regional borders to map listing share.',
                 type: 'voice',
                 mock: {
-                  headerLeft: 'MAP PACK SHARE Â· 5KM RADIUS',
+                  headerLeft: 'MAP PACK SHARE · 5KM RADIUS',
                   headerRight: '↑ 8 PTS / MoM',
                   distribution: [
                     { label: 'YOUR BRAND', value: 30 },
@@ -1233,9 +1233,9 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 type: 'strategy',
                 mock: {
                   query: 'sports therapist open near me',
-                  statusLabel: 'LOCAL PROFILE Â· MAP SYNCED',
+                  statusLabel: 'LOCAL PROFILE · MAP SYNCED',
                   extract: '“With 210+ verified sports therapy listings, active booking, and same-day recovery sprints, [Your Brand] ranks #1 at...”',
-                  footerLeft: 'CITED BY Â· GOOGLE MAPS Â· APPLE MAPS',
+                  footerLeft: 'CITED BY · GOOGLE MAPS · APPLE MAPS',
                   footerRight: '4 LOCATIONS'
                 }
               },
@@ -1262,7 +1262,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We sync and lock Name, Address, and Phone details across 80+ global listing aggregators (Yelp, TripAdvisor, Foursquare).',
                 type: 'citation',
                 mock: {
-                  headerLeft: 'DIRECTORY SYNCED Â· LIVE DATA',
+                  headerLeft: 'DIRECTORY SYNCED · LIVE DATA',
                   headerRight: '72 / 80 LOCKED',
                   badges: [
                     { domain: 'yelp.com', dots: 3 },
@@ -1280,7 +1280,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 desc: 'We track map rankings of competitors in your radius to target gaps in reviews, photo volume, and local attributes.',
                 type: 'monitoring',
                 mock: {
-                  headerLeft: 'LOCAL LEADERBOARD Â· JUL 2026',
+                  headerLeft: 'LOCAL LEADERBOARD · JUL 2026',
                   headerRight: 'ZIP 10001 radius',
                   rows: [
                     { rank: '01', label: 'Competitor A', score: '35%', change: '↓ 3' },
@@ -2301,7 +2301,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                     label="Book a Free Discovery Call"
                     onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                   />
-                  <MagneticButton strength={0.3}>
+                  <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
                   </MagneticButton>
                 </div>

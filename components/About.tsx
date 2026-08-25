@@ -45,7 +45,7 @@ export default function About() {
             <RevealText delay={0.1}><h2 className="font-syne text-5xl md:text-7xl font-800 tracking-[-0.03em] mb-8">About<span className="text-signal">.</span></h2></RevealText>
             <RevealText delay={0.2}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-6">We are a digital marketing agency that engineers growth through SEO, SMO, AEO, GEO, and web development. Since 2019, we've partnered with ambitious brands to turn digital visibility into measurable revenue.</p></RevealText>
             <RevealText delay={0.3}><p className="font-lato text-base md:text-[17px] text-text-secondary leading-[1.85] mb-10">Our approach unifies every marketing channel into a single growth engine — where each discipline compounds the others and results accelerate over time.</p></RevealText>
-            <MagneticButton strength={0.15}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
+            <MagneticButton strength={0.08}><a href="#contact" className="font-lato text-sm font-medium text-signal sig-hover">Let's Talk →</a></MagneticButton>
           </div>
           <div className="md:col-span-5 md:col-start-8">
             {values.map((v, i) => (

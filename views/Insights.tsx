@@ -84,7 +84,7 @@ export default function Insights() {
                 label="Book a Strategy Call"
                 onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
               />
-              <MagneticButton strength={0.3}>
+              <MagneticButton strength={0.15}>
                 <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
               </MagneticButton>
             </m.div>
@@ -132,7 +132,7 @@ export default function Insights() {
                       <span className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal/50 group-hover:text-signal transition-colors duration-[900ms]">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="font-lato text-[11px] text-text-muted mt-2">{article.date} Â· {article.readTime}</span>
+                      <span className="font-lato text-[11px] text-text-muted mt-2">{article.date} · {article.readTime}</span>
                     </div>
 
                     {/* Main Title & Excerpt */}
@@ -191,7 +191,7 @@ export default function Insights() {
                     label="Book a Strategy Call"
                     onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                   />
-                  <MagneticButton strength={0.3}>
+                  <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                       View Client Case Studies
                     </a>

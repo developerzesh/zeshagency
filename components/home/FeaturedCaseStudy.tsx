@@ -60,7 +60,7 @@ export default function FeaturedCaseStudy({ caseStudies }: FeaturedCaseStudyProp
                 <div>
                   {/* Big Metric + Arrow row */}
                   <div className="flex items-center justify-between pointer-events-none mb-8">
-                    <span className="text-5xl md:text-6xl font-extrabold font-inter tracking-tight text-signal leading-none">
+                    <span className="text-5xl md:text-6xl font-extrabold font-lato tracking-tight text-signal leading-none">
                       {card.mainMetric}
                     </span>
                     <svg
@@ -82,7 +82,7 @@ export default function FeaturedCaseStudy({ caseStudies }: FeaturedCaseStudyProp
                   <div className="grid grid-cols-3 gap-2">
                     {card.stats.map((stat, statIdx) => (
                       <div key={statIdx} className="flex flex-col text-left">
-                        <span className="font-inter text-[15px] font-bold text-white leading-none mb-1.5">
+                        <span className="font-lato text-[15px] font-bold text-white leading-none mb-1.5">
                           {stat.value}
                         </span>
                         <span className="font-lato text-[9px] uppercase tracking-wider text-[#71717A]">

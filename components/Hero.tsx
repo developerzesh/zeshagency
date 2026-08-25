@@ -61,7 +61,7 @@ export default function Hero() {
           transition={{ duration: 1.4, delay: 0.3, ease: slowEase }}
           className="font-lato text-[11px] tracking-[0.3em] uppercase text-text-muted mb-14 md:mb-32"
         >
-          Digital Marketing Agency<span className="text-signal mx-3">—</span>New York Â· London Â· Tokyo Â· Dubai
+          Digital Marketing Agency<span className="text-signal mx-3">—</span>New York · London · Tokyo · Dubai
         </m.p>
 
         {/* Headline */}
@@ -89,7 +89,7 @@ export default function Hero() {
             className="flex items-center gap-10"
           >
             <CircleArrowButton label="Selected Work" href="#work" />
-            <MagneticButton strength={0.15}>
+            <MagneticButton strength={0.08}>
               <a href="#contact" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Get in Touch</a>
             </MagneticButton>
           </m.div>

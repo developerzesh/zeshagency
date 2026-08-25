@@ -2,7 +2,7 @@
 import { getAllCaseStudies } from "@/lib/queries";
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Zesh Agency Case Studies | Proven Growth Results',

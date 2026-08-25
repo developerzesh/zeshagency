@@ -153,7 +153,7 @@ export const solutions: Solution[] = [
   {
     slug: 'web-dev', title: 'Website Development', shortTitle: 'Web Dev',
     tagline: 'Zero-bloat static engines built for speed and conversions.',
-    description: 'Most websites are weighed down by heavy WordPress plugins and unoptimized code structures. We build on modern static stacks using lightweight vanilla HTML, CSS, and clean Javascript — designed for crawler indexing and user experience.',
+    description: 'Most websites are weighed down by heavy WordPress plugins and unoptimized code structures. We build on modern static stacks using lightweight vanilla HTML, CSS, and clean JavaScript — designed for crawler indexing and user experience.',
     features: ['Headless Static Development', 'Frictionless Intake Funnels', 'Core Web Vitals Engineering', 'Conversion Pipeline Engineering', 'API CRM Integration', 'PageSpeed Optimization'],
     outcomes: ['Average load speeds under 0.5s', 'Conversion rate increases up to 40%', 'Zero code dependency on heavy third-party plugins'],
     roadmap: [
@@ -302,11 +302,11 @@ export const industries: Industry[] = [
     results: ['+280% organic clinic bookings', 'Top-3 map pack dominance', '8/10 procedural terms rank #1'],
   },
   {
-    slug: 'architecture-design', title: 'Architecture & Design Studios', shortTitle: 'Architecture',
+    slug: 'architecture-design', title: 'Architecture & Design Studios', shortTitle: 'architecture',
     tagline: 'Target high-budget spatial and residential design queries.',
     description: 'Showcase spatial vision to high-intent clients. We optimize image portfolios and coordinate keyword themes to capture developers and high-net-worth buyers doing visual research.',
     challenges: ['Standard SEO ignoring visual retrieval surfaces like Google Lens', 'Portfolio frameworks blocking organic search crawlers from indexation', 'Attracting hobbyist traffic instead of high-value commissioning clients'],
-    opportunities: ['Implement metadata tagging on portfolio image blocks', 'Structure case studies around construction types and spatial coordinates', 'Rank for geographical pent-up institutional design intents'],
+    opportunities: ['Implement metadata tagging on portfolio image blocks', 'Structure case studies around construction types and spatial coordinates',       'Rank for high-intent geographical searches from institutional design buyers'],
     roadmap: [
       { phase: '01', title: 'Asset Diagnostics', description: 'Portfolio indexing audits and search engine crawl budget optimization.' },
       { phase: '02', title: 'Image Tagging', description: 'Deploying high-speed AVIF imagery and programmatic image schema.' },
@@ -367,20 +367,20 @@ export const industries: Industry[] = [
     results: ['+190% visual search conversions', '4.5x Return on search spend', '-30% ad spend dependencies'],
   },
   {
-    slug: 'b2b-services', title: 'B2B Services', shortTitle: 'B2B Services',
+    slug: 'b2b-services', title: 'B2B services', shortTitle: 'B2B services',
     tagline: 'Establish premium regional and national consulting authority.',
     description: 'Convert corporate clients researching complex business solutions. We build authoritative growth assets, research archives, and detailed guides that qualify firm capability prior to sales outreach.',
     challenges: ['Referral-dependent pipelines creating unpredictable growth cycles', 'Lengthy decision journeys requiring high-authority touchpoints', 'Saturated low-trust content frameworks diluting original research'],
-    opportunities: ['Own searches for industry regulation changes and commercial advisories', 'Design case study templates detailing client hurdles and hard solutions', 'Position leadership teams as core authorities on specific sector targets'],
+    opportunities: ['Own search demand for industry regulation changes and commercial advisories', 'Design case study templates detailing client hurdles and hard solutions', 'Position leadership teams as core authorities on specific sector targets'],
     roadmap: [
       { phase: '01', title: 'Expertise Auditing', description: 'Mapping firm capabilities against transactional search pathways.' },
       { phase: '02', title: 'Content Systems', description: 'Publishing depth-first guides and optimized case archives.' },
       { phase: '03', title: 'Funnel Optimization', description: 'Setting up qualified intake forms for enterprise B2B users.' },
     ],
-    results: ['+180% Inbound discovery calls', '35% reduction in sales timeline', '#1 rankings for consulting queries'],
+    results: ['+180% Inbound discovery calls', '35% reduction in sales cycle length', '#1 rankings for consulting queries'],
   },
   {
-    slug: 'b2c-brands', title: 'B2C Brands', shortTitle: 'B2C Brands',
+    slug: 'b2c-brands', title: 'B2C Brands', shortTitle: 'B2C brands',
     tagline: 'Convert high-volume consumer intent without reliance on paid media.',
     description: 'Unlocking organic discovery channels for consumer products. We align purchase intent and lifestyle values with speed-optimized landing page funnels that convert visitors automatically.',
     challenges: ['High CPA across paid social networks reducing digital profitability', 'Unoptimized shopping feeds causing poor product list visibility', 'Crawl budget issues on large catalogs deindexing main landing pages'],
@@ -470,8 +470,8 @@ export const caseStudies: CaseStudy[] = [
     industry: 'Architecture & Design', industrySlug: 'architecture-design',
     services: ['SEO', 'Web Development', 'Image Engine Optimization'],
     summary: 'Rebuilt a JavaScript-ghost portfolio as a server-rendered, image-optimized platform.',
-    overview: 'How we turned an invisible architecture portfolio into the studio\'s primary source of project briefings.',
-    challenge: 'The studio\'s portfolio was built as a single-page JavaScript application that Googlebot could not render.',
+    overview: 'How we turned an invisible architecture portfolio into the studio\u2019s primary source of project briefings.',
+    challenge: 'The studio\u2019s portfolio was built as a single-page JavaScript application that Googlebot could not render.',
     solution: 'Rebuilt the portfolio as server-side rendered HTML with individual project pages.',
     strategy: 'Architecture studios face a dual SEO challenge: technical crawlability and visual search discoverability.',
     execution: [
@@ -484,7 +484,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcomes: 'Organic visibility appeared within 3 weeks of migration. High-budget project briefings increased 180%.',
     conclusion: 'Architecture portfolio SEO requires solving technical crawlability and visual search discoverability simultaneously.',
-    results: ['+180% high-budget project briefings', '#1 for 12 target regional design queries', '+320% visual search impressions', 'Unqualified enquiries eliminated'],
+    results: ['+180% high-budget project briefings', '#1 for 12 target regional design queries', '+320% visual search impressions', 'Unqualified inquiries eliminated'],
     image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&h=800&fit=crop',
   },
   {

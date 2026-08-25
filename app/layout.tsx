@@ -3,8 +3,8 @@ import { Syne, Inter, Lato } from "next/font/google";
 import "./globals.css";
 import PageLayout from "@/components/PageLayout";
 import { getAllCaseStudies } from "@/lib/queries";
-
-export const revalidate = 3600;
+import ContentProtection from "@/components/ContentProtection";
+export const revalidate = false;
 
 const syne = Syne({
   subsets: ["latin"],
@@ -85,6 +85,7 @@ export default async function RootLayout({
         </noscript>
       </head>
       <body className="min-h-full">
+        <ContentProtection />
         <PageLayout caseStudies={caseStudies}>{children}</PageLayout>
       </body>
     </html>

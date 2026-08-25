@@ -153,12 +153,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -299,12 +299,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -445,12 +445,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -469,7 +469,7 @@ export const CITY_DATA = {
     "country": "United Kingdom",
     "flag": "🇬🇧",
     "tagline": "Europe's Premier Business Hub.",
-    "sub": "London-based and UK-wide brands trust us for sophisticated digital strategies that align with British buyer behaviour, Google UK rankings, and the competitive European landscape.",
+    "sub": "London-based and UK-wide brands trust us for sophisticated digital strategies that align with British buyer behavior, Google UK rankings, and the competitive European landscape.",
     "badge": "UK",
     "stats": [
       [
@@ -591,12 +591,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -615,7 +615,7 @@ export const CITY_DATA = {
     "country": "Australia",
     "flag": "🇦🇺",
     "tagline": "Australia's Digital Growth Capital.",
-    "sub": "Sydney brands competing in Australia's growing digital economy need SEO and paid media that understands local search behaviour, Google.com.au, and the unique Australian consumer mindset.",
+    "sub": "Sydney brands competing in Australia's growing digital economy need SEO and paid media that understands local search behavior, Google.com.au, and the unique Australian consumer mindset.",
     "badge": "AUS",
     "stats": [
       [
@@ -661,7 +661,7 @@ export const CITY_DATA = {
     "market": [
       "Google.com.au algorithm preferences",
       "Australian consumer privacy expectations",
-      "Mobile-first browsing behaviour (AU)",
+      "Mobile-first browsing behavior (AU)",
       "Sydney suburb-level local SEO",
       "ACCC digital marketing compliance"
     ],
@@ -715,7 +715,7 @@ export const CITY_DATA = {
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
-    "about": "Sydney is Australia's digital marketing epicentre and home to the country's most competitive SEO market. With a population of over 5 million digitally active consumers and an economy spanning real estate, healthcare, financial services, and technology, Sydney presents extraordinary opportunities for businesses that build strong search authority.\n\nRanking on Google.com.au requires a specific understanding of Australian consumer behaviour, ACCC compliance requirements, and the local search signals that influence rankings in a market where mobile usage is exceptionally high. Suburb-level local SEO is particularly important in Sydney, where searchers consistently include suburb and neighbourhood qualifiers in their search queries.\n\nOur Sydney SEO practice combines suburb-level local optimisation, Google.com.au technical expertise, and Australian content strategy to build brands that dominate their categories across Greater Sydney and the wider Australian market.",
+    "about": "Sydney is Australia's digital marketing epicenter and home to the country's most competitive SEO market. With a population of over 5 million digitally active consumers and an economy spanning real estate, healthcare, financial services, and technology, Sydney presents extraordinary opportunities for businesses that build strong search authority.\n\nRanking on Google.com.au requires a specific understanding of Australian consumer behavior, ACCC compliance requirements, and the local search signals that influence rankings in a market where mobile usage is exceptionally high. Suburb-level local SEO is particularly important in Sydney, where searchers consistently include suburb and neighborhood qualifiers in their search queries.\n\nOur Sydney SEO practice combines suburb-level local optimization, Google.com.au technical expertise, and Australian content strategy to build brands that dominate their categories across Greater Sydney and the wider Australian market.",
     "resources": [
       {
         "title": "Sydney SEO Guide 2025",
@@ -737,12 +737,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -806,7 +806,7 @@ export const CITY_DATA = {
     "why": "Mumbai is where Indian business happens — and where the competition is fiercest. With over 900 million internet users in India and a rapidly maturing digital ad market, you need hyper-local strategies that speak to India's diverse buyer segments. We know this market intimately.",
     "market": [
       "Hindi & regional language SEO",
-      "India's mobile-first user behaviour",
+      "India's mobile-first user behavior",
       "Indian UPI & payment ecosystem",
       "TRAI digital marketing compliance",
       "Tier-1 vs Tier-2 city targeting differences"
@@ -861,7 +861,7 @@ export const CITY_DATA = {
         "quote": "Extremely professional and always goal-oriented. Zesh understands that marketing must justify itself on the balance sheet — and they deliver exactly that."
       }
     ],
-    "about": "Mumbai's digital marketing landscape is defined by scale, complexity, and opportunity. As India's financial capital and home to the country's largest concentration of enterprise businesses, Mumbai's search market is growing faster than almost any other major city globally — with Google searches increasing over 20% year on year across key commercial categories.\n\nSEO in Mumbai operates across multiple languages — English, Hindi, and regional languages — and requires a deep understanding of India's mobile-first internet users, who consume content primarily on smartphones and are increasingly conducting transactional searches directly on Google.\n\nOur Mumbai SEO practice combines bilingual content strategy, mobile-first technical optimisation, and India-specific backlink acquisition to build brands that rank across the full spectrum of Mumbai's commercial search landscape.",
+    "about": "Mumbai's digital marketing landscape is defined by scale, complexity, and opportunity. As India's financial capital and home to the country's largest concentration of enterprise businesses, Mumbai's search market is growing faster than almost any other major city globally — with Google searches increasing over 20% year on year across key commercial categories.\n\nSEO in Mumbai operates across multiple languages — English, Hindi, and regional languages — and requires a deep understanding of India's mobile-first internet users, who consume content primarily on smartphones and are increasingly conducting transactional searches directly on Google.\n\nOur Mumbai SEO practice combines bilingual content strategy, mobile-first technical optimization, and India-specific backlink acquisition to build brands that rank across the full spectrum of Mumbai's commercial search landscape.",
     "resources": [
       {
         "title": "Mumbai SEO Guide 2025",
@@ -883,12 +883,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1029,12 +1029,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1086,7 +1086,7 @@ export const CITY_DATA = {
       ],
       [
         "Google Ads South Africa",
-        "Rand-optimised PPC campaigns for South African buyers.",
+        "Rand-optimized PPC campaigns for South African buyers.",
         "sol-ads"
       ],
       [
@@ -1175,12 +1175,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1321,12 +1321,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1467,12 +1467,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1613,12 +1613,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",
@@ -1759,12 +1759,12 @@ export const CITY_DATA = {
       {
         "step": "01",
         "title": "Discovery & Audit",
-        "desc": "We analyse your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
+        "desc": "We analyze your current digital presence, competitor landscape, and market opportunity. Every engagement starts with data, not assumptions."
       },
       {
         "step": "02",
         "title": "Strategy & Roadmap",
-        "desc": "We build a custom 90-day growth roadmap with prioritised actions, keyword targets, and measurable milestones your team can track in real time."
+        "desc": "We build a custom 90-day growth roadmap with prioritized actions, keyword targets, and measurable milestones your team can track in real time."
       },
       {
         "step": "03",

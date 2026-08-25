@@ -123,7 +123,7 @@ export default function Metrics() {
                       )}
                     </div>
 
-                    <h3 className="font-syne text-5xl md:text-6xl font-800 tracking-tight text-ink mb-6 relative z-10">{stat.value}</h3>
+                    <h3 className="font-lato text-5xl md:text-6xl font-700 tracking-tight text-ink mb-6 relative z-10">{stat.value}</h3>
                     <div className="w-8 h-[2px] bg-signal mb-6 relative z-10" />
                     <p className="font-lato text-[11px] tracking-[0.2em] uppercase text-text-muted leading-relaxed relative z-10 pr-4">
                       {stat.label}

@@ -1,9 +1,9 @@
-// app/blog/page.tsx
+﻿// app/blog/page.tsx
 import Blog from "@/views/Blog";
 import { getAllPosts } from "@/lib/queries";
 import type { Metadata } from "next";
 
-export const revalidate = 3600;
+export const revalidate = false;
 
 export const metadata: Metadata = {
   title: 'Zesh Agency Blog | SEO, AEO & Search Growth Insights',

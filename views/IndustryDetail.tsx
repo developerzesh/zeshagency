@@ -85,7 +85,7 @@ function HeroSection({ industry }: { industry: Industry }) {
               label="Book a Consultation Call"
               onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
             />
-            <MagneticButton strength={0.3}>
+            <MagneticButton strength={0.15}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a>
             </MagneticButton>
           </m.div>
@@ -113,7 +113,7 @@ function ChallengesSection({ industry }: { industry: Industry }) {
             </RevealText>
             <RevealText delay={0.2}>
               <p className="font-lato text-sm text-text-muted leading-[1.85] mt-6 max-w-sm">
-                Every {industry.shortTitle} company faces structural barriers to organic growth. These are the friction points we eliminate.
+                Every {industry.shortTitle} firm faces structural barriers to organic growth. These are the friction points we eliminate.
               </p>
             </RevealText>
           </div>
@@ -282,7 +282,7 @@ function OutcomesSection({ industry }: { industry: Industry }) {
                       transition={{ duration: 0.8, ease: slowEase }}
                       className="group py-8 pr-8 border-b border-border/60 border-r-0 sm:odd:border-r sm:odd:border-border/60"
                     >
-                      <span className="font-syne text-3xl md:text-4xl font-800 tracking-tight text-signal block mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
+                      <span className="font-lato text-3xl md:text-4xl font-700 tracking-tight text-signal block mb-2 group-hover:scale-105 transition-transform duration-500 origin-left">
                         {metric}
                       </span>
                       <p className="font-lato text-sm text-text-muted leading-[1.6]">{label}</p>
@@ -484,7 +484,7 @@ function CTASection({ industry }: { industry: Industry }) {
                   label="Book a Strategy Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
                     View Case Studies
                   </a>

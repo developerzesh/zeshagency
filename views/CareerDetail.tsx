@@ -66,7 +66,7 @@ export default function CareerDetail({ job }: { job: Job }) {
 
           <RevealText delay={0.4} duration={1.4}>
             <div className="pt-8 border-t border-border">
-              <MagneticButton strength={0.4}>
+              <MagneticButton strength={0.2}>
                 <a
                   href={job.applyLink || 'mailto:Shahana@zeshagency.com'}
                   target={job.applyLink ? '_blank' : undefined}

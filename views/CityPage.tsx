@@ -51,7 +51,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             <p className="font-lato text-base text-text-muted mb-8 leading-[1.85]">
               We are expanding our city coverage. Get in touch for your region.
             </p>
-            <MagneticButton strength={0.3}>
+            <MagneticButton strength={0.15}>
               <Link href="/contact" className="inline-flex items-center gap-4 font-lato text-sm font-medium text-paper bg-ink px-6 py-3.5 rounded-xl hover:bg-signal hover:text-ink transition-all duration-[800ms]">
                 Contact Us →
               </Link>
@@ -92,7 +92,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 label={`Get ${data.name} Strategy Audit`}
                 onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
               />
-              <MagneticButton strength={0.3}>
+              <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
                   View Case Studies
                 </Link>
@@ -117,7 +117,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             </RevealText>
             <RevealText delay={0.2}>
               <p className="font-lato text-base text-text-secondary max-w-2xl leading-[1.85] mt-6">
-                Every service we offer is calibrated to {data.name}'s specific search landscape, buyer behaviour, and competitive dynamics.
+                Every service we offer is calibrated to {data.name}'s specific search landscape, buyer behavior, and competitive dynamics.
               </p>
             </RevealText>
           </div>
@@ -216,7 +216,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             {(data.stats as [string, string][]).map(([num, label], i) => (
               <RevealText key={label} delay={i * 0.08} duration={1.2}>
                 <div className="bg-paper dark:bg-surface/5 px-6 py-8 md:py-10 flex flex-col justify-center">
-                  <div className="font-syne font-800 text-3xl md:text-4xl text-ink leading-none mb-2">{num}</div>
+                  <div className="font-lato font-700 text-3xl md:text-4xl text-ink leading-none mb-2">{num}</div>
                   <p className="font-lato text-[11px] tracking-wider text-text-muted uppercase font-semibold">{label}</p>
                 </div>
               </RevealText>
@@ -228,7 +228,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             {(data.results as [string, string, string][]).map(([metric, label, context], i) => (
               <RevealText key={label} delay={i * 0.1} duration={1.4}>
                 <div className="bg-surface/30 border border-border/40 rounded-2xl p-6 md:p-8 hover:bg-signal/5 transition-colors duration-500">
-                  <div className="font-syne font-800 text-4xl md:text-5xl text-signal leading-none mb-3">{metric}</div>
+                  <div className="font-lato font-700 text-4xl md:text-5xl text-signal leading-none mb-3">{metric}</div>
                   <p className="font-syne font-700 text-base text-ink mb-2">{label}</p>
                   <p className="font-lato text-xs text-text-muted leading-relaxed">{context}</p>
                 </div>
@@ -272,7 +272,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 label="Start with a Free Audit"
                 onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
               />
-              <MagneticButton strength={0.3}>
+              <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
                   See Client Results
                 </Link>
@@ -336,7 +336,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               </RevealText>
               <RevealText delay={0.2}>
                 <p className="font-lato text-base text-text-secondary leading-[1.85]">
-                  Our strategies are calibrated to the specific search behaviour, competitive dynamics, and buyer psychology of {data.name}. We don't apply generic templates — we apply {data.name}-specific intelligence.
+                  Our strategies are calibrated to the specific search behavior, competitive dynamics, and buyer psychology of {data.name}. We don't apply generic templates — we apply {data.name}-specific intelligence.
                 </p>
               </RevealText>
             </div>
@@ -385,7 +385,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                 </h2>
               </RevealText>
               <RevealText delay={0.2}>
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <Link href="/contact" className="group inline-flex items-center gap-3 font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover">
                     Speak to a strategist <span className="text-xs">→</span>
                   </Link>
@@ -422,7 +422,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
                   label="Book Free Strategy Call"
                   onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
                 />
-                <MagneticButton strength={0.3}>
+                <MagneticButton strength={0.15}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
                     Explore All Services
                   </Link>
