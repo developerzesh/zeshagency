@@ -49,7 +49,7 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
   const pathname = usePathname();
   const { scrollY } = useScroll();
-  const homepageNavTop = useTransform(scrollY, [0, 36], [20, 0]);
+  const homepageNavTop = useTransform(scrollY, [0, 36], [36, 0]);
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const cityTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();

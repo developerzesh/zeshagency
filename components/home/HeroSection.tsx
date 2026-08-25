@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import ParticleField from '../../components/ParticleField';
+import AnnouncementBar from '../../components/AnnouncementBar';
 import CircleArrowButton from '../../components/CircleArrowButton';
 import MagneticButton from '../../components/MagneticButton';
 import LineGrid from '../../components/LineGrid';
@@ -43,31 +44,23 @@ export default function HeroSection() {
   const line2 = headlineWords.slice(mid).join(' ');
 
   return (
-   <section id="hero" ref={containerRef} className="relative min-h-[60vh] md:min-h-[90vh] flex items-center overflow-hidden">
-
+    <>
       <m.div
         style={{ opacity: announcementOpacity, y: announcementY }}
         aria-label="Announcement"
-        className="absolute top-0 left-0 right-0 z-20 flex min-h-9 items-center justify-center gap-3 px-4 py-2 text-center font-lato text-[10px] font-bold tracking-[0.12em] text-ink uppercase will-change-transform md:text-[11px]"
+        className="relative z-20 will-change-transform"
       >
-        <div className="absolute inset-0 bg-signal" />
-        <span className="relative z-10 flex items-center gap-2">
-          <svg className="w-3 h-3 md:w-3.5 md:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-          </svg>
-          Awarded 30 Under 30 For Innovative Marketing
-          <svg className="w-3 h-3 md:w-3.5 md:h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" /><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" /><path d="M4 22h16" /><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" /><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" /><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
-          </svg>
-        </span>
+        <AnnouncementBar />
       </m.div>
+   <section id="hero" ref={containerRef} className="relative min-h-[50vh] md:min-h-[90vh] flex items-center overflow-hidden">
+
       <ParticleField />
       <LineGrid className="hidden md:block" />
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/3 -right-20 w-[600px] h-[600px] rounded-full bg-signal/[0.015] blur-[250px] will-change-transform" />
         <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.008] blur-[180px] will-change-transform" />
       </div>
-     <m.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-24 md:pt-32 pb-10 md:pb-10 will-change-transform">
+     <m.div style={{ y, opacity }} className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-16 w-full pt-20 md:pt-32 pb-10 md:pb-10 will-change-transform">
         <m.div
           initial={{ opacity: 0, filter: 'blur(20px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
@@ -128,5 +121,6 @@ export default function HeroSection() {
 
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
+    </>
   );
 }
