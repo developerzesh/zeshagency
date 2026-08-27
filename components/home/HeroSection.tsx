@@ -48,7 +48,7 @@ export default function HeroSection() {
       <m.div
         style={{ opacity: announcementOpacity, y: announcementY }}
         aria-label="Announcement"
-        className="relative z-20 will-change-transform"
+        className="relative z-20 will-change-transform md:mt-[5px]"
       >
         <div className="max-w-[1400px] mx-auto px-0 md:px-16">
           <AnnouncementBar />
