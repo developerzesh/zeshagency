@@ -1,9 +1,19 @@
 // lib/queries.ts
 import { fetchSanity } from './sanity'
+import { MOCK_POSTS, MOCK_JOBS, MOCK_CASE_STUDIES } from './mockData'
  
 import { generateExcerpt } from './excert'
 
+const isLocalDev = process.env.NEXT_PUBLIC_SKIP_SANITY === 'true';
+
 export async function getAllPosts() {
+  if (isLocalDev) {
+    return MOCK_POSTS.map((post) => ({
+      ...post,
+      excerpt: generateExcerpt(post.content),
+    }));
+  }
+
   const posts = await fetchSanity(`*[_type == "blogPost"] | order(date desc){
     title,
     "slug": slug.current,
@@ -30,6 +40,10 @@ function formatDate(iso: string) {
 }
 
 export async function getPostBySlug(slug: string) {
+  if (isLocalDev) {
+    return MOCK_POSTS.find((p) => p.slug === slug) || null;
+  }
+
   return fetchSanity(
     `*[_type == "blogPost" && slug.current == $slug][0]{
       title,
@@ -50,6 +64,10 @@ export async function getPostBySlug(slug: string) {
 // ── Jobs ──────────────────────────────────────────────────────────────────────
 
 export async function getAllJobs() {
+  if (isLocalDev) {
+    return MOCK_JOBS;
+  }
+
   return fetchSanity(
     `*[_type == "jobOpening" && isActive == true] | order(postedAt desc){
       title,
@@ -83,6 +101,10 @@ function getIndustrySlug(industry: string) {
 }
 
 export async function getAllCaseStudies() {
+  if (isLocalDev) {
+    return MOCK_CASE_STUDIES;
+  }
+
   const studies = await fetchSanity(
     `*[_type == "caseStudy"] | order(date asc){
       title,
@@ -109,6 +131,10 @@ export async function getAllCaseStudies() {
 }
 
 export async function getCaseStudyBySlug(slug: string) {
+  if (isLocalDev) {
+    return MOCK_CASE_STUDIES.find((cs) => cs.slug === slug) || null;
+  }
+
   const cs = await fetchSanity(
     `*[_type == "caseStudy" && slug.current == $slug][0]{
       title,

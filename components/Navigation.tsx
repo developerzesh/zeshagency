@@ -95,7 +95,7 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
       >
         {/* ── Bar ────────────────────────────────────────── */}
         <div className="max-w-[1400px] mx-auto px-4 md:px-16">
-          <div className="mt-5 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
+          <div className="mt-8 bg-paper/85 backdrop-blur-2xl border border-border/40 rounded-2xl px-6 md:px-10 py-3.5 flex items-center justify-between">
 
             {/* Logo */}
             <MagneticButton strength={0.05}>

@@ -1,0 +1,152 @@
+// lib/mockData.ts
+// Sample data for local development — avoids Sanity API calls during `next dev`
+
+export const MOCK_POSTS = [
+  {
+    title: 'How SEO Drives Revenue for B2B SaaS',
+    slug: 'seo-drives-revenue-b2b-saas',
+    category: 'SEO',
+    date: 'Jan 2026',
+    readTime: '6 min read',
+    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    content: [
+      { _type: 'block', children: [{ _type: 'span', text: 'Search engine optimization remains the highest-ROI channel for B2B SaaS companies. In this article, we break down the exact frameworks we use to engineer compound organic growth for our clients.' }] }
+    ],
+    author: 'Shahana',
+    authorRole: 'Founder & CEO',
+    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    excerpt: 'Search engine optimization remains the highest-ROI channel for B2B SaaS companies.',
+  },
+  {
+    title: 'AEO: Optimizing for AI-Powered Search',
+    slug: 'aeo-optimizing-ai-powered-search',
+    category: 'AEO',
+    date: 'Feb 2026',
+    readTime: '8 min read',
+    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    content: [
+      { _type: 'block', children: [{ _type: 'span', text: 'Answer Engine Optimization is the next frontier. As ChatGPT, Perplexity, and Gemini become primary search surfaces, brands need a new playbook for visibility.' }] }
+    ],
+    author: 'Shahana',
+    authorRole: 'Founder & CEO',
+    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    excerpt: 'Answer Engine Optimization is the next frontier for brand visibility.',
+  },
+  {
+    title: 'Local SEO: Dominate Your Metro Market',
+    slug: 'local-seo-dominate-metro-market',
+    category: 'Local SEO',
+    date: 'Mar 2026',
+    readTime: '5 min read',
+    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    content: [
+      { _type: 'block', children: [{ _type: 'span', text: 'Local search is where intent converts. We share our framework for building location-specific authority that drives foot traffic and qualified leads.' }] }
+    ],
+    author: 'Shahana',
+    authorRole: 'Founder & CEO',
+    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    excerpt: 'Local search is where intent converts. Our framework for metro dominance.',
+  },
+];
+
+export const MOCK_JOBS = [
+  {
+    title: 'Senior SEO Strategist',
+    slug: 'senior-seo-strategist',
+    department: 'Strategy',
+    location: 'Remote',
+    jobType: 'Full-time',
+    description: 'We are looking for a senior SEO strategist to lead organic growth campaigns for our enterprise clients.',
+    applyLink: 'https://calendar.app.google/Mp8HrgYK67yjuYA29',
+    postedAt: '2026-03-01',
+  },
+  {
+    title: 'Full-Stack Developer',
+    slug: 'full-stack-developer',
+    department: 'Engineering',
+    location: 'Remote',
+    jobType: 'Full-time',
+    description: 'Build high-performance web applications using Next.js, React, and modern headless CMS platforms.',
+    applyLink: 'https://calendar.app.google/Mp8HrgYK67yjuYA29',
+    postedAt: '2026-02-15',
+  },
+  {
+    title: 'Content Strategist',
+    slug: 'content-strategist',
+    department: 'Content',
+    location: 'Remote',
+    jobType: 'Full-time',
+    description: 'Develop and execute content strategies that drive organic visibility and thought leadership for our clients.',
+    applyLink: 'https://calendar.app.google/Mp8HrgYK67yjuYA29',
+    postedAt: '2026-01-20',
+  },
+];
+
+export const MOCK_CASE_STUDIES = [
+  {
+    title: 'Scaling B2B SaaS Pipeline by 312%',
+    slug: 'b2b-saas-pipeline-expansion',
+    client: 'Series B SaaS Platform',
+    industry: 'SaaS',
+    industrySlug: 'saas',
+    services: ['SEO', 'Web Development'],
+    summary: 'Rebuilt organic search architecture and deployed programmatic content hubs that tripled qualified pipeline.',
+    overview: 'A Series B SaaS company struggling with organic visibility needed a complete search strategy overhaul.',
+    challenge: 'The client had thin content, poor technical SEO, and no programmatic landing page strategy.',
+    solution: 'We rebuilt the site architecture, launched 50+ programmatic pages, and created a content engine.',
+    strategy: 'Focus on high-intent comparison and alternative keywords with dedicated landing pages.',
+    execution: [
+      'Technical SEO audit and core web vitals optimization',
+      'Programmatic comparison page deployment',
+      'Thought leadership content program',
+    ],
+    outcomes: ['312% increase in organic pipeline', '180% increase in demo requests', '#1 rankings for 42 target keywords'],
+    conclusion: 'The organic channel became the primary pipeline driver within 6 months.',
+    results: ['+312% Organic pipeline growth', '+180% Demo requests', '42 Target keyword rankings'],
+    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+  },
+  {
+    title: 'Map Pack Dominance for Healthcare Network',
+    slug: 'multi-location-healthcare',
+    client: 'Regional Healthcare Network',
+    industry: 'Healthcare & Medical',
+    industrySlug: 'healthcare-medical',
+    services: ['Local SEO', 'SEO'],
+    summary: 'Optimized 24 clinic locations to dominate Google Maps pack across the entire metro area.',
+    overview: 'A healthcare network with 24 locations needed consistent local search visibility.',
+    challenge: 'Inconsistent NAP data, no review strategy, and poor location page architecture.',
+    solution: 'Unified local SEO infrastructure with automated review generation and location-specific content.',
+    strategy: 'Build location authority through consistent citations, reviews, and localized content.',
+    execution: [
+      'NAP audit and cleanup across 200+ directories',
+      'Google Business Profile optimization for all 24 locations',
+      'Automated review request system',
+    ],
+    outcomes: ['Map pack visibility for 92% of target keywords', '4.8 average review rating', '3x increase in direction requests'],
+    conclusion: 'The network now dominates local search across all service areas.',
+    results: ['92% Map pack visibility', '4.8 Avg review rating', '3x Direction requests'],
+    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+  },
+  {
+    title: 'Architecture Portfolio SEO Rebuild',
+    slug: 'architecture-portfolio-rebuild',
+    client: 'International Architecture Studio',
+    industry: 'Architecture & Design',
+    industrySlug: 'architecture-design',
+    services: ['SEO', 'Web Development', 'Image Engine Optimization'],
+    summary: 'Rebuilt a JavaScript-ghost portfolio as a server-rendered, image-optimized platform.',
+    overview: 'An architecture studio with a beautiful portfolio that Google could not index.',
+    challenge: 'Single-page JavaScript application with no server-side rendering and unoptimized images.',
+    solution: 'Migrated to Next.js with SSR, individual project pages, and AVIF image optimization.',
+    strategy: 'Make every project page indexable and optimized for visual search.',
+    execution: [
+      'SPA to SSR migration with Next.js',
+      '40+ individual project pages created',
+      'AVIF image pipeline deployment',
+    ],
+    outcomes: ['6x increase in organic impressions', '280% increase in project inquiries', '90+ PageSpeed score'],
+    conclusion: 'The portfolio became a lead generation machine.',
+    results: ['6x Organic impressions', '+280% Project inquiries', '90+ PageSpeed score'],
+    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+  },
+];
