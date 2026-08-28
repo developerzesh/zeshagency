@@ -85,7 +85,7 @@ export default async function RootLayout({
         </noscript>
       </head>
       <body className="min-h-full">
-        <ContentProtection />
+        {/* <ContentProtection /> */}
         <PageLayout caseStudies={caseStudies}>{children}</PageLayout>
       </body>
     </html>

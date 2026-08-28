@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { m, AnimatePresence, useScroll, useTransform } from 'framer-motion';
@@ -47,12 +47,42 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const [hoveredCity, setHoveredCity] = useState<string | null>(null);
+  const [hidden, setHidden] = useState(false);
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const homepageNavTop = useTransform(scrollY, [0, 36], [36, 0]);
   const submenuTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const cityTimeout = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   const { isDark, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    let lastY = window.scrollY;
+    let scrollUpDistance = 0;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const diff = currentY - lastY;
+
+      if (diff > 0) {
+        scrollUpDistance = 0;
+        if (currentY > viewportHeight * 0.5) {
+          setHidden(true);
+        }
+      } else {
+        scrollUpDistance += Math.abs(diff);
+        if (scrollUpDistance > viewportHeight * 0.1) {
+          setHidden(false);
+          scrollUpDistance = 0;
+        }
+      }
+
+      lastY = currentY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const primaryNav = getPrimaryNav(caseStudies);
   const navItems: NavItem[] = [...primaryNav, ...secondaryNav, { label: 'Contact', path: '/contact' }];
@@ -88,8 +118,8 @@ export default function Navigation({ caseStudies }: { caseStudies: CaseStudy[] }
     <>
       <m.nav
         initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: slowEase }}
+        animate={{ y: hidden ? -100 : 0, opacity: hidden ? 0 : 1 }}
+        transition={{ duration: 0.6, ease: [0.33, 1, 0.68, 1] }}
         style={pathname === '/' ? { top: homepageNavTop } : { top: 0 }}
         className="fixed left-0 right-0 z-50"
       >
