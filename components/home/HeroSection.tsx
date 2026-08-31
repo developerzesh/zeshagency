@@ -78,7 +78,7 @@ export default function HeroSection() {
               <Image src="/shark_tank_logo.png" alt="Shark Tank" width={140} height={48} onClick={() => setSharkActive(!sharkActive)} className={`h-7 md:h-12 w-auto object-contain opacity-60 transition-all duration-500 logo-shark-390 grayscale hover:opacity-100 hover:grayscale-0 ${sharkActive ? '!opacity-100 !grayscale-0' : ''}`} />
             </div>
             {/* Client marquee — visible on medium/large mobile only */}
-            <div className="min-[375px]:block hidden md:hidden mt-4 overflow-hidden">
+            {/* <div className="min-[375px]:block hidden md:hidden mt-4 overflow-hidden">
               <div className="flex gap-8 animate-[scroll_20s_linear_infinite] whitespace-nowrap opacity-40">
                 <span>Meta</span>
                 <span>Shark Tank</span>
@@ -93,7 +93,7 @@ export default function HeroSection() {
                 <span>SaaS</span>
                 <span>Healthcare</span>
               </div>
-            </div>
+            </div> */}
           </m.div>
           <h1 className="font-syne text-[clamp(2.2rem,5.5vw,5.5rem)] font-800 leading-[0.9] tracking-[-0.03em] mb-4 md:mb-6 max-w-5xl">
             <m.span
