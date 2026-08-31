@@ -4,6 +4,7 @@ import "./globals.css";
 import PageLayout from "@/components/PageLayout";
 import { getAllCaseStudies } from "@/lib/queries";
 import ContentProtection from "@/components/ContentProtection";
+import TawkTo from "@/components/TawkTo";
 export const revalidate = false;
 
 const syne = Syne({
@@ -87,6 +88,7 @@ export default async function RootLayout({
       <body className="min-h-full">
         {/* <ContentProtection /> */}
         <PageLayout caseStudies={caseStudies}>{children}</PageLayout>
+        <TawkTo />
       </body>
     </html>
   );
