@@ -44,10 +44,10 @@ export default function TrustBar() {
             className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(-90deg, var(--color-paper) 0%, transparent 100%)' }}
           />
-          <div className="flex gap-16 md:gap-24 items-center w-max marquee-track">
+          <div className="flex gap-10 md:gap-16 items-center w-max marquee-track">
             {logos.map((logo, i) => {
               const isMeetstream = logo.alt === 'Meetstream';
-              const isWhiteLogo = logo.alt === 'Saarthee' || logo.alt === 'Goldmine';
+              const isWhiteLogo = logo.alt === 'Saarthee';
               const isHafsaOrSDB = logo.alt === 'Hafsa' || logo.alt === 'SDB';
               const logoSrc = isMeetstream
                 ? (isDark ? '/client-logos/Meetstreamblack.png' : '/client-logos/Meetstream.png')
@@ -60,14 +60,14 @@ export default function TrustBar() {
                     ? 'invert dark:invert-0 hover:opacity-100'
                     : 'grayscale dark:invert hover:opacity-100 hover:grayscale-0 hover:dark:invert-0';
               return (
-                <div key={`${logo.alt}-${i}`} className="flex items-center justify-center flex-shrink-0 w-32 h-12 md:w-44 md:h-16">
+                <div key={`${logo.alt}-${i}`} className="flex items-center justify-center flex-shrink-0 h-10 md:h-14 w-auto px-2">
                   <TappableLogo
                     src={logoSrc}
                     alt={logo.alt}
                     width={176}
-                    height={38}
-                    sizes="(max-width: 768px) 128px, 176px"
-                    className={`max-h-full max-w-full w-auto h-auto object-contain opacity-50 transition-all duration-500 ${baseClass}`}
+                    height={56}
+                    sizes="(max-width: 768px) 40px, 56px"
+                    className={`h-full w-auto object-contain opacity-50 transition-all duration-500 ${baseClass}`}
                   />
                 </div>
               );
