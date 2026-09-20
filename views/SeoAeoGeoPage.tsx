@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -22,6 +23,7 @@ const TARGET_CITIES = [
 
 export default function SeoAeoGeoPage() {
   const [activeTab, setActiveTab] = useState<'seo' | 'aeo' | 'geo'>('seo');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const tabs = {
     seo: {
@@ -88,7 +90,7 @@ export default function SeoAeoGeoPage() {
             <div className="flex flex-wrap items-center gap-6">
               <CircleArrowButton
                 label="Get A Future-Proof Search Audit"
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
                 animated={false}
               />
             </div>
@@ -223,13 +225,14 @@ export default function SeoAeoGeoPage() {
             <div className="flex flex-col gap-4 flex-shrink-0">
               <CircleArrowButton
                 label="Request System Audit"
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
                 animated={false}
               />
             </div>
           </div>
         </div>
       </section>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

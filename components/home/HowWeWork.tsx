@@ -1,12 +1,17 @@
 "use client";
 
+import { useState } from 'react';
 import { m } from 'framer-motion';
 import RevealText from '../../components/RevealText';
 import { values } from '../../lib/data';
 import { slowEase } from '../../lib/animationEasing';
+import BookingModal from '../../components/BookingModal';
 
 export default function HowWeWork() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
+    <>
     <section className="py-16 md:py-48 border-t border-border">
       <div className="max-w-[1400px] mx-auto px-4 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-20">
@@ -21,7 +26,7 @@ export default function HowWeWork() {
             <RevealText delay={0.3}>
               <div className="flex flex-col gap-4">
                 <button
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                   className="inline-flex items-center gap-2 md:gap-3 bg-ink text-paper px-4 py-2 md:px-6 md:py-3 rounded-lg font-lato text-xs md:text-sm font-medium hover:bg-signal transition-colors duration-500 w-fit"
                 >
                   <span>Schedule Discovery Call</span>
@@ -49,5 +54,7 @@ export default function HowWeWork() {
         </div>
       </div>
     </section>
+    <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+    </>
   );
 }

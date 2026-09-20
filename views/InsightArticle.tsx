@@ -1,18 +1,20 @@
 ﻿"use client";
 
-import { useRef, lazy, Suspense } from 'react';
+import { useRef, lazy, Suspense, useState } from 'react';
 import { m } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
 import type { InsightArticle as InsightArticleType } from '../lib/data';
 import { insights } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 export default function InsightArticle({ article }: { article: InsightArticleType }) {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   // Filter out the current article to find related articles
   const relatedArticles = insights
     .filter((a) => a.slug !== article.slug)
@@ -128,7 +130,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
                   <p className="font-lato text-xs text-text-muted">Chat directly withLuca or the search engineering team.</p>
                 </div>
                 <MagneticButton strength={0.15}>
-                  <button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
+                  <button onClick={() => setIsBookingOpen(true)} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">
                     Start a Conversation →
                   </button>
                 </MagneticButton>
@@ -186,6 +188,7 @@ export default function InsightArticle({ article }: { article: InsightArticleTyp
           </section>
         )}
       </article>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Syne, Inter, Lato } from "next/font/google";
 import "./globals.css";
 import PageLayout from "@/components/PageLayout";
@@ -61,18 +62,6 @@ export default async function RootLayout({
       <head>
         <link rel="icon" href="/Group 3.svg" media="(prefers-color-scheme: light)" />
         <link rel="icon" href="/Group 2.svg" media="(prefers-color-scheme: dark)" />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKTD0DFMW5"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-DKTD0DFMW5');`,
-          }}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('zesh-theme');if(t==='dark'||t===null){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
-          }}
-        />
         <noscript>
           <style>{`
             * {
@@ -89,6 +78,24 @@ export default async function RootLayout({
         {/* <ContentProtection /> */}
         <PageLayout caseStudies={caseStudies}>{children}</PageLayout>
         <TawkTo />
+        <Script
+          id="theme-init"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('zesh-theme');if(t==='dark'||t===null){document.documentElement.classList.add('dark');}else{document.documentElement.classList.remove('dark');}}catch(e){document.documentElement.classList.add('dark');}})();`,
+          }}
+        />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-DKTD0DFMW5"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-DKTD0DFMW5');`,
+          }}
+        />
       </body>
     </html>
   );

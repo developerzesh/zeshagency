@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -8,12 +8,14 @@ import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 import { values, aboutStats } from '../lib/data';
 import Testimonials from '../components/Testimonials';
+import BookingModal from '../components/BookingModal';
 
 export default function About() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <PageTransition>
@@ -65,7 +67,7 @@ export default function About() {
               <RevealText delay={0.3}>
                 <div className="flex flex-col gap-4">
                   <button
-                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                    onClick={() => setIsBookingOpen(true)}
                     className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500"
                   >
                     <span>Schedule Discovery Call</span>
@@ -116,11 +118,12 @@ export default function About() {
             ))}
           </div>
           <div className="mt-20 flex justify-center">
-            <MagneticButton strength={0.15}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
+            <MagneticButton strength={0.15}><button onClick={() => setIsBookingOpen(true)} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Let's Talk →</button></MagneticButton>
           </div>
         </div>
       </section>
       <Testimonials />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

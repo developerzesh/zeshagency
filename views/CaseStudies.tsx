@@ -10,6 +10,7 @@ import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import { urlFor } from '../lib/sanity';
 import type { CaseStudy } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -31,6 +32,7 @@ function HeroSection() {
   const mouseY = useMotionValue(0);
   const glowX = useSpring(useTransform(mouseX, [-500, 500], [-8, 8]), { damping: 50, stiffness: 30, mass: 2 });
   const glowY = useSpring(useTransform(mouseY, [-500, 500], [-8, 8]), { damping: 50, stiffness: 30, mass: 2 });
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <section
@@ -82,7 +84,7 @@ function HeroSection() {
           >
             <CircleArrowButton
               label="Start a Project"
-              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              onClick={() => setIsBookingOpen(true)}
             />
             <MagneticButton strength={0.15}>
               <a href="/services" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Explore Our Services</a>
@@ -111,6 +113,7 @@ function HeroSection() {
           ))}
         </m.div>
       </m.div>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }
@@ -250,6 +253,7 @@ function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
 export default function CaseStudies({ caseStudies }: { caseStudies: CaseStudy[] }) {
   const [activeIndustry, setActiveIndustry] = useState('All');
   const [activeService, setActiveService] = useState('All');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   // Derive filters from data
   const ALL_INDUSTRIES = useMemo(() => ['All', ...Array.from(new Set(caseStudies.map(cs => cs.industry)))], [caseStudies]);
@@ -344,7 +348,7 @@ export default function CaseStudies({ caseStudies }: { caseStudies: CaseStudy[] 
                 <div className="flex flex-col items-start gap-5">
                   <CircleArrowButton
                     label="Book a Strategy Call"
-                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                    onClick={() => setIsBookingOpen(true)}
                   />
                   <MagneticButton strength={0.15}>
                     <a href="/industries" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
@@ -357,6 +361,7 @@ export default function CaseStudies({ caseStudies }: { caseStudies: CaseStudy[] 
           </div>
         </div>
       </section>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

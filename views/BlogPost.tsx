@@ -9,6 +9,7 @@ import { PortableText } from '@portabletext/react';
 import { ptComponents } from '../components/PortableTextComponents';
 import { extractToc } from '../lib/toc';
 import { urlFor } from '../lib/sanity';
+import BookingModal from '../components/BookingModal';
 
 interface BlogPostData {
     slug: string;
@@ -51,6 +52,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
     const [readProgress, setReadProgress] = useState(0);
     const [tocOpen, setTocOpen] = useState(false);
     const [authorOpen, setAuthorOpen] = useState(false);
+    const [isBookingOpen, setIsBookingOpen] = useState(false);
 
     const { scrollYProgress } = useScroll({ target: articleRef, offset: ['start start', 'end end'] });
     const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
@@ -297,7 +299,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                                     </p>
                                     <MagneticButton strength={0.15}>
                                         <button
-                                            onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                                            onClick={() => setIsBookingOpen(true)}
                                             className="w-full inline-flex items-center justify-center gap-2 bg-ink text-paper px-5 py-2.5 rounded-lg font-lato text-[11px] font-medium hover:bg-signal transition-colors duration-500"
                                         >
                                             <span>Book Free Audit</span>
@@ -400,6 +402,7 @@ export default function BlogPostPage({ post, related = [] }: { post: BlogPostDat
                     </m.div>
                 );
             })()}
+        <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
         </PageTransition>
     );
 }

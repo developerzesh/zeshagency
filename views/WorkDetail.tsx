@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from '../components/RevealText';
@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton';
 import CinematicImage from '../components/CinematicImage';
 import PageTransition from '../components/PageTransition';
 import ImageModal from '../components/ImageModal';
+import BookingModal from '../components/BookingModal';
 
 const projectsData: Record<string, { title: string; category: string; year: string; client: string; overview: string; challenge: string; solution: string; results: string[]; images: string[]; tags: string[] }> = {
   '1': { title: 'Meridian', category: 'Brand Identity', year: '2024', client: 'Meridian Hospitality Group', overview: 'A complete brand overhaul for a luxury hospitality group spanning 12 properties worldwide.', challenge: 'Meridian had grown through acquisitions, resulting in 12 distinct brand identities that confused guests and diluted their luxury positioning.', solution: 'We developed a flexible brand system with a core identity that adapts to each property\'s locale. Clean lines, generous whitespace, and a restrained palette.', results: ['Brand recognition +280%', 'Booking conversion +45%', 'Guest satisfaction +32%', '3 industry design awards'], images: ['/images/project-meridian.jpg', '/images/service-brand.jpg', '/images/about-office.jpg'], tags: ['Brand Strategy', 'Visual Identity', 'Digital Design', 'Art Direction'] },
@@ -17,6 +18,7 @@ const projectsData: Record<string, { title: string; category: string; year: stri
 };
 
 export default function WorkDetail() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const searchParams = useSearchParams();
   const id = searchParams?.get('id') || '1';
   const project = projectsData[id] || projectsData['1'];
@@ -84,7 +86,8 @@ export default function WorkDetail() {
 
       <section className="py-16 md:py-48 border-t border-border"><div className="max-w-[1400px] mx-auto px-4 md:px-16"><RevealText><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-4">Impact</p></RevealText><RevealText delay={0.1}><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-20 md:mb-32">Results<span className="text-signal">.</span></h2></RevealText><div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-14">{project.results.map((result, i) => (<RevealText key={result} delay={i * 0.1}><m.div whileHover={{ y: -4 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}><span className="font-lato text-2xl md:text-4xl font-700 tracking-tight text-ink">{result.split(' ')[0]}</span><p className="font-lato text-sm text-text-secondary mt-2">{result.split(' ').slice(1).join(' ')}</p></m.div></RevealText>))}</div></div></section>
 
-      <section className="py-16 md:py-48 border-t border-border"><div className="max-w-[1400px] mx-auto px-4 md:px-16"><RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Like what you see<span className="text-signal">?</span></h2></RevealText><RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">Every project starts with a conversation.</p></RevealText><MagneticButton strength={0.15}><button onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Start a Project →</button></MagneticButton></div></section>
+      <section className="py-16 md:py-48 border-t border-border"><div className="max-w-[1400px] mx-auto px-4 md:px-16"><RevealText><h2 className="font-syne text-4xl md:text-6xl font-800 tracking-[-0.03em] mb-6">Like what you see<span className="text-signal">?</span></h2></RevealText><RevealText delay={0.1}><p className="font-lato text-base text-text-secondary max-w-md mb-8 leading-[1.85]">Every project starts with a conversation.</p></RevealText><MagneticButton strength={0.15}><button onClick={() => setIsBookingOpen(true)} className="inline-flex items-center gap-3 bg-ink text-paper px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal transition-colors duration-500">Start a Project →</button></MagneticButton></div></section>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

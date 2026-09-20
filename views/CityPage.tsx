@@ -9,6 +9,7 @@ import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 import { CITY_DATA, CITIES, SOL_MAP } from '../lib/cityData';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -37,6 +38,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const data = CITY_DATA[cityKey as keyof typeof CITY_DATA] as any;
 
@@ -58,7 +60,8 @@ export default function CityPage({ cityKey }: CityPageProps) {
             </MagneticButton>
           </div>
         </div>
-      </PageTransition>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+    </PageTransition>
     );
   }
 
@@ -90,7 +93,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
               <CircleArrowButton
                 label={`Get ${data.name} Strategy Audit`}
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
               />
               <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
@@ -157,7 +160,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               <RevealText delay={0.3}>
                 <CircleArrowButton
                   label="Start Your Audit"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                   size="sm"
                   animated={false}
                 />
@@ -270,7 +273,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
             <div className="mt-12 flex flex-wrap items-center gap-6 md:gap-10">
               <CircleArrowButton
                 label="Start with a Free Audit"
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
               />
               <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
@@ -420,7 +423,7 @@ export default function CityPage({ cityKey }: CityPageProps) {
               <div className="flex flex-col gap-4 flex-shrink-0">
                 <CircleArrowButton
                   label="Book Free Strategy Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">

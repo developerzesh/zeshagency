@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { m, useScroll, useTransform } from 'framer-motion';
 import RevealText from '../components/RevealText';
@@ -10,6 +10,7 @@ import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
 import { getServiceCityData, SOLUTIONS_CITIES, ServiceKey, CityKey } from '../lib/serviceCityData';
 import { industries } from '../lib/siteConfig';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -23,6 +24,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const data = getServiceCityData(serviceKey, cityKey);
 
@@ -57,7 +59,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
             <div className="flex flex-wrap items-center gap-6 md:gap-10">
               <CircleArrowButton
                 label={`Get ${data.cityName} Strategy Audit`}
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
               />
               <MagneticButton strength={0.15}>
                 <Link href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-2">
@@ -124,7 +126,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               <RevealText delay={0.3}>
                 <CircleArrowButton
                   label="Start Your Audit"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                   size="sm"
                   animated={false}
                 />
@@ -410,7 +412,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
               <div className="flex flex-col gap-4 flex-shrink-0">
                 <CircleArrowButton
                   label="Book Free Strategy Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <Link href="/solutions" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-500 sig-hover py-1 text-center">
@@ -476,6 +478,7 @@ export default function ServiceCityPage({ serviceKey, cityKey }: ServiceCityPage
         </div>
       </section>
 
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

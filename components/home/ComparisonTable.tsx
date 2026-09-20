@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from 'react';
 import { m } from 'framer-motion';
 import RevealText from '../../components/RevealText';
 import { slowEase } from '../../lib/animationEasing';
+import BookingModal from '../../components/BookingModal';
 
 type CellType = 'yes' | 'no' | 'neutral' | 'highlight';
 
@@ -45,7 +47,10 @@ function ComparisonCell({ text, type, zeshCol = false }: { text: string; type: C
 }
 
 export default function ComparisonTable() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
+    <>
     <section className="relative py-16 md:py-48 border-t border-border overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-signal/[0.04] blur-[180px] rounded-full pointer-events-none" />
@@ -142,7 +147,7 @@ export default function ComparisonTable() {
         <RevealText delay={0.4}>
           <div className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
             <button
-              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              onClick={() => setIsBookingOpen(true)}
               className="inline-flex items-center gap-3 bg-signal text-ink px-6 py-3 rounded-lg font-lato text-sm font-medium hover:bg-signal/80 transition-colors duration-500"
             >
               <span>Book a Free Consultation</span>
@@ -155,5 +160,7 @@ export default function ComparisonTable() {
         </RevealText>
       </div>
     </section>
+    <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+    </>
   );
 }

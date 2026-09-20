@@ -5,9 +5,10 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import PageTransition from '../components/PageTransition';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { m, useScroll, useTransform } from 'framer-motion';
 import { solutions } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -16,6 +17,7 @@ export default function Solutions() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <PageTransition>
@@ -46,7 +48,7 @@ export default function Solutions() {
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <CircleArrowButton
                   label="Book a Consultation Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
@@ -154,7 +156,7 @@ export default function Solutions() {
                 <div className="flex flex-col items-start gap-4">
                   <CircleArrowButton
                     label="Book a Free Discovery Call"
-                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                    onClick={() => setIsBookingOpen(true)}
                   />
                   <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
@@ -187,6 +189,7 @@ export default function Solutions() {
         </div>
       </section>
 
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }

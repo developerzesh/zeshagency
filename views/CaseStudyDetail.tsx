@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useRef, lazy, Suspense } from 'react';
+import { useRef, lazy, Suspense, useState } from 'react';
 import { m, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
@@ -9,6 +9,7 @@ import PageTransition from '../components/PageTransition';
 import ParticleField from '../components/ParticleField';
 import { urlFor } from '../lib/sanity';
 import type { CaseStudy } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const CinematicImage = lazy(() => import('../components/CinematicImage'));
 
@@ -24,6 +25,7 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
   const mouseY = useMotionValue(0);
   const glowX = useSpring(useTransform(mouseX, [-600, 600], [-8, 8]), { damping: 50, stiffness: 30, mass: 2 });
   const glowY = useSpring(useTransform(mouseY, [-600, 600], [-8, 8]), { damping: 50, stiffness: 30, mass: 2 });
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <section
@@ -97,11 +99,12 @@ function HeroSection({ cs }: { cs: CaseStudy }) {
           >
             <CircleArrowButton
               label="Get a Similar Result"
-              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              onClick={() => setIsBookingOpen(true)}
             />
           </m.div>
         </div>
       </m.div>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }
@@ -432,6 +435,7 @@ function RelatedSection({ related }: { related: CaseStudy[] }) {
 
 // ─── § 11 — CTA ──────────────────────────────────────────────────────────────
 function CTASection({ cs }: { cs: CaseStudy }) {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   return (
     <section className="py-16 md:py-48 border-t border-border/60 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -459,7 +463,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
               <div className="flex flex-col items-start gap-5">
                 <CircleArrowButton
                   label="Book a Strategy Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
@@ -471,6 +475,7 @@ function CTASection({ cs }: { cs: CaseStudy }) {
           </div>
         </div>
       </div>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }

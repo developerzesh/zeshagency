@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import { m, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
@@ -10,6 +10,7 @@ import ParticleField from '../components/ParticleField';
 import type { Industry } from '../lib/data';
 import { caseStudies, solutions } from '../lib/data';
 import { citiesNav } from '../lib/siteConfig';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -19,6 +20,7 @@ function HeroSection({ industry }: { industry: Industry }) {
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 180]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   return (
     <section ref={containerRef} className="relative min-h-[70vh] md:min-h-screen flex items-center overflow-hidden">
@@ -83,7 +85,7 @@ function HeroSection({ industry }: { industry: Industry }) {
           >
             <CircleArrowButton
               label="Book a Consultation Call"
-              onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+              onClick={() => setIsBookingOpen(true)}
             />
             <MagneticButton strength={0.15}>
               <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">View Case Studies</a>
@@ -91,6 +93,7 @@ function HeroSection({ industry }: { industry: Industry }) {
           </m.div>
         </div>
       </m.div>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }
@@ -453,6 +456,7 @@ function LocationsSection() {
 
 // ─── Section: Final CTA ───────────────────────────────────────────────────────
 function CTASection({ industry }: { industry: Industry }) {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   return (
     <section className="py-16 md:py-48 border-t border-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
@@ -482,7 +486,7 @@ function CTASection({ industry }: { industry: Industry }) {
               <div className="flex flex-col items-start gap-5">
                 <CircleArrowButton
                   label="Book a Strategy Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
@@ -494,6 +498,7 @@ function CTASection({ industry }: { industry: Industry }) {
           </div>
         </div>
       </div>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </section>
   );
 }

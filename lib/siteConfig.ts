@@ -70,14 +70,15 @@ export const trustLogos = [
   { src: '/client-logos/Pawparazzi.png', alt: 'Pawparazzi' },
   { src: '/client-logos/Pincha.png', alt: 'Pincha' },
   { src: '/client-logos/bajaj.png', alt: 'Bajaj' },
-  { src: '/client-logos/nyxw.png', alt: 'NYX' },
+  { src: '/client-logos/nyxnew.png', alt: 'NYX' },
   { src: '/client-logos/saarthee.png', alt: 'Saarthee' },
   { src: '/client-logos/uleadspace.png', alt: 'UleadSpace' },
   { src: '/client-logos/sdb.png', alt: 'SDB' },
   { src: '/client-logos/shri_ram_school.png', alt: 'Shri Ram School' },
   { src: '/client-logos/tata.png', alt: 'Tata' },
-  { src: '/client-logos/xarwin.svg', alt: 'Xarwin' },
+  { src: '/client-logos/xarwinnew.png', alt: 'Xarwin' },
   { src: '/client-logos/hafsa logo.png', alt: 'Hafsa' },
+  { src: '/client-logos/sattvam.png', alt: 'Sattvam' },
 ] as const;
 
 // ── Stats ─────────────────────────────────────────────────

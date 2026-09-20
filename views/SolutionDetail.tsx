@@ -10,6 +10,7 @@ import { useRef, useState, useEffect } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
 import type { Solution } from '../lib/data';
 import { caseStudies } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -507,6 +508,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const extra = supplementary[solution.slug] ?? {
     whatWeDeliver: solution.description,
@@ -550,7 +552,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               <div className="flex flex-wrap items-center gap-6 md:gap-10">
                 <CircleArrowButton
                   label="Book a Consultation Call"
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                 />
                 <MagneticButton strength={0.15}>
                   <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover py-2">Read Case Studies</a>
@@ -1554,7 +1556,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
               {/* Red/Orange full-width CTA Box */}
               <RevealText delay={0.15} duration={1.4}>
                 <button
-                  onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                  onClick={() => setIsBookingOpen(true)}
                   className="mt-16 flex items-center justify-between bg-signal text-ink hover:bg-ink hover:text-paper px-8 py-5 md:py-6 rounded-xl font-syne text-sm md:text-base font-800 tracking-tight transition-all duration-500 ease-out group"
                 >
                   <span>Book an AI Visibility Audit</span>
@@ -2299,7 +2301,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
                 <div className="flex flex-col items-start gap-4">
                   <CircleArrowButton
                     label="Book a Free Discovery Call"
-                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                    onClick={() => setIsBookingOpen(true)}
                   />
                   <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Read Case Studies</a>
@@ -2311,6 +2313,7 @@ export default function SolutionDetail({ solution }: { solution: Solution }) {
         </div>
       </section>
 
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition >
   );
 }

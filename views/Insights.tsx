@@ -8,6 +8,7 @@ import MagneticButton from '../components/MagneticButton';
 import CircleArrowButton from '../components/CircleArrowButton';
 import ParticleField from '../components/ParticleField';
 import { insights, insightCategories } from '../lib/data';
+import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -17,6 +18,7 @@ export default function Insights() {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
   const filtered = activeCategory === 'All' ? insights : insights.filter(a => a.category === activeCategory);
 
   const mouseX = useMotionValue(0);
@@ -82,7 +84,7 @@ export default function Insights() {
             >
               <CircleArrowButton
                 label="Book a Strategy Call"
-                onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                onClick={() => setIsBookingOpen(true)}
               />
               <MagneticButton strength={0.15}>
                 <a href="#articles" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">Browse Articles ↓</a>
@@ -189,7 +191,7 @@ export default function Insights() {
                 <div className="flex flex-col items-start gap-5">
                   <CircleArrowButton
                     label="Book a Strategy Call"
-                    onClick={() => window.open('https://calendar.app.google/Mp8HrgYK67yjuYA29', '_blank', 'noopener,noreferrer')}
+                    onClick={() => setIsBookingOpen(true)}
                   />
                   <MagneticButton strength={0.15}>
                     <a href="/case-studies" className="font-lato text-sm text-text-muted hover:text-ink transition-colors duration-700 sig-hover">
@@ -202,6 +204,7 @@ export default function Insights() {
           </div>
         </div>
       </section>
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </PageTransition>
   );
 }
