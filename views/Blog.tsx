@@ -8,10 +8,6 @@ import CircleArrowButton from '../components/CircleArrowButton';
 import MagneticButton from '../components/MagneticButton';
 import ParticleField from '../components/ParticleField';
 import { urlFor } from '../lib/sanity';
-
-function isValidImageRef(image: any): boolean {
-  return !!image?._ref && /^image-[a-zA-Z0-9]+-\d+x\d+-[a-z]+$/.test(image._ref);
-}
 import BookingModal from '../components/BookingModal';
 
 const slowEase = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -178,7 +174,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                                             {/* Image */}
                                             <div className="lg:col-span-7 overflow-hidden rounded-xl aspect-[16/9] relative">
                                                 <m.img
-                                                    src={featured.image && isValidImageRef(featured.image) ? urlFor(featured.image).width(1400).height(900).url() : '/images/hero-main.jpg'}
+                                                    src={featured.image ? urlFor(featured.image).width(1400).height(900).url() : '/images/hero-main.jpg'}
                                                     alt={featured.title}
                                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms] scale-100 group-hover:scale-105"
                                                     style={{ transition: 'transform 1.4s ease, filter 1.4s ease' }}
@@ -205,7 +201,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                                                     </p>
                                                 </div>
                                                 <div className="flex items-center gap-3 pt-6 border-t border-border/40">
-                                                    <img src={featured.authorAvatar && isValidImageRef(featured.authorAvatar) ? urlFor(featured.authorAvatar).width(80).height(80).url() : ''} alt={featured.author} className="w-9 h-9 rounded-full object-cover grayscale border border-border/60" />
+                                                    <img src={featured.authorAvatar ? urlFor(featured.authorAvatar).width(80).height(80).url() : ''} alt={featured.author} className="w-9 h-9 rounded-full object-cover grayscale border border-border/60" />
                                                     <div>
                                                         <p className="font-syne text-sm font-800 text-ink leading-tight">{featured.author}</p>
                                                         <p className="font-lato text-[10px] text-text-muted uppercase tracking-wider">{featured.authorRole}</p>
@@ -232,7 +228,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                                                     {/* Card Image */}
                                                     <div className="overflow-hidden aspect-[16/9] relative flex-shrink-0">
                                                         <img
-                                                            src={post.image && isValidImageRef(post.image) ? urlFor(post.image).width(800).height(450).url() : '/images/hero-main.jpg'}
+                                                            src={post.image ? urlFor(post.image).width(800).height(450).url() : '/images/hero-main.jpg'}
                                                             alt={post.title}
                                                             loading="lazy"
                                                             className="w-full h-full object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1200ms]"
@@ -255,7 +251,7 @@ export default function Blog({ posts }: { posts: BlogPost[] }) {
                                                             {post.excerpt}
                                                         </p>
                                                         <div className="mt-auto flex items-center gap-3 pt-5 border-t border-border/40">
-                                                            <img src={post.authorAvatar && isValidImageRef(post.authorAvatar) ? urlFor(post.authorAvatar).width(56).height(56).url() : ''} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
+                                                            <img src={post.authorAvatar ? urlFor(post.authorAvatar).width(56).height(56).url() : ''} alt={post.author} className="w-7 h-7 rounded-full object-cover grayscale border border-border/40" />
                                                             <span className="font-lato text-[11px] text-text-muted">{post.author}</span>
                                                             <span className="ml-auto text-signal/30 group-hover:text-signal transition-colors duration-500 font-bold">→</span>
                                                         </div>

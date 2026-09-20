@@ -18,3 +18,7 @@ export function fetchSanity<T = any>(query: string, params?: Record<string, unkn
 export function urlFor(source: any) {
   return createImageUrlBuilder(getClient()).image(source);
 }
+
+export function isValidImageRef(image: any): boolean {
+  return !!image?._ref && image._ref.startsWith('image-') && image._ref.length > 6;
+}
