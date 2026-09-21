@@ -6,18 +6,14 @@ import RevealText from '../../components/RevealText';
 import { trustLogos } from '../../lib/data';
 import { useTheme } from '../../components/ThemeContext';
 
-function TappableLogo({ src, alt, width, height, sizes, className }: {
-  src: string; alt: string; width: number; height: number; sizes?: string; className?: string;
+function TappableLogo({ src, alt, className }: {
+  src: string; alt: string; className?: string;
 }) {
   const [active, setActive] = useState(false);
   return (
-    <Image
+    <img
       src={src}
       alt={alt}
-      width={width}
-      height={height}
-      sizes={sizes}
-      quality={80}
       onClick={() => setActive(!active)}
       className={`${className} ${active ? '!opacity-100 !grayscale-0 !invert-0 !dark:invert-0' : ''}`}
     />
@@ -64,9 +60,6 @@ export default function TrustBar() {
                   <TappableLogo
                     src={logoSrc}
                     alt={logo.alt}
-                    width={176}
-                    height={56}
-                    sizes="(max-width: 768px) 40px, 56px"
                     className={`h-full w-auto object-contain opacity-50 transition-all duration-500 ${baseClass}`}
                   />
                 </div>
