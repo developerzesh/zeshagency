@@ -1,6 +1,7 @@
 ﻿import { notFound } from 'next/navigation';
 import CaseStudyDetail from '@/views/CaseStudyDetail';
 import { getAllCaseStudies, getCaseStudyBySlug } from '@/lib/queries';
+import { pickRelated, caseStudyRelevance } from '@/lib/related';
 import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -63,7 +64,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   const allCaseStudies = await getAllCaseStudies();
-  const related = allCaseStudies.filter((cs: any) => cs.slug !== slug).slice(0, 2);
+  const related = pickRelated(allCaseStudies, caseStudy, (cs) => caseStudyRelevance(cs, caseStudy), 2);
 
   return <CaseStudyDetail caseStudy={caseStudy} related={related} />;
 }

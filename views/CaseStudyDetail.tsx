@@ -406,25 +406,23 @@ function RelatedSection({ related }: { related: CaseStudy[] }) {
             <RevealText key={rel.slug} delay={i * 0.1}>
               <a href={`/case-studies/${rel.slug}`} className="group block">
                 <m.div
-                  whileHover={{ x: 6 }}
+                  whileHover={{ y: -6 }}
                   transition={{ duration: 0.8, ease: slowEase }}
-                  className="grid grid-cols-3 gap-6 py-8 border-b border-border/60 first:border-t-0 md:pr-12 md:even:pl-12 md:even:pr-0 md:even:border-l md:even:border-t-0 md:border-b border-border/60"
+                  className="py-8 border-b border-border/60 first:border-t-0 md:pr-12 md:even:pl-12 md:even:pr-0 md:even:border-l md:even:border-t-0"
                 >
-                  <div className="col-span-1 overflow-hidden">
+                  <div className="overflow-hidden mb-5">
                     <img
                       src={typeof rel.image === 'string' ? rel.image : rel.image ? urlFor(rel.image).width(940).url() : ''}
                       alt={rel.title}
                       width={typeof rel.image === 'string' ? 940 : undefined}
                       height={typeof rel.image === 'string' ? 627 : undefined}
-                      className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
+                      className="w-full h-auto grayscale group-hover:grayscale-0 group-hover:scale-[1.03] transition-all duration-[1400ms]"
                       loading="lazy"
                     />
                   </div>
-                  <div className="col-span-2">
-                    <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal mb-2 block">{rel.industry}</span>
-                    <h3 className="font-syne text-base md:text-lg font-800 tracking-tight mb-2 group-hover:text-signal transition-colors duration-[900ms]">{rel.title}</h3>
-                    <p className="font-lato text-xs text-text-muted leading-relaxed line-clamp-2">{rel.summary}</p>
-                  </div>
+                  <span className="font-lato text-[9px] tracking-[0.2em] uppercase text-signal mb-2 block">{rel.industry}</span>
+                  <h3 className="font-syne text-base md:text-lg font-800 tracking-tight mb-2 group-hover:text-signal transition-colors duration-[900ms]">{rel.title}</h3>
+                  <p className="font-lato text-xs text-text-muted leading-relaxed line-clamp-2">{rel.summary}</p>
                 </m.div>
               </a>
             </RevealText>

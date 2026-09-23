@@ -1,6 +1,7 @@
 ﻿import { notFound } from 'next/navigation';
 import BlogPostPage from '@/views/BlogPost';
 import { getAllPosts, getPostBySlug } from '@/lib/queries';
+import { pickRelated, blogRelevance } from '@/lib/related';
 import { seoTitle, seoDesc } from '@/lib/seo';
 import type { Metadata } from 'next';
 
@@ -40,7 +41,7 @@ export default async function Page({ params }: PageProps) {
   if (!post) notFound();
 
   const allPosts = await getAllPosts();
-  const related = allPosts.filter((p: any) => p.slug !== slug).slice(0, 3);
+  const related = pickRelated(allPosts, post, (p) => blogRelevance(p, post), 3);
 
   return <BlogPostPage post={post} related={related} />;
 }

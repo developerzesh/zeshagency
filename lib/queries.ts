@@ -22,6 +22,7 @@ export async function getAllPosts() {
     readTime,
     image,
     content,
+    tags,
     "author": author->name,
     "authorRole": author->role,
     "authorAvatar": author->avatar
