@@ -10,6 +10,9 @@ type Props = {
   alt?: string;
   className?: string;
   aspect?: '4/3' | '16/9' | '21/9' | '1/1' | '3/2';
+  natural?: boolean;
+  width?: number;
+  height?: number;
   parallaxStrength?: number;
   revealDuration?: number;
   revealDelay?: number;
@@ -23,6 +26,9 @@ export default function CinematicImage({
   alt = '',
   className = '',
   aspect = '4/3',
+  natural = false,
+  width,
+  height,
   parallaxStrength = 0.08,
   revealDuration = 1.8,
   revealDelay = 0,
@@ -50,6 +56,47 @@ export default function CinematicImage({
     '3/2': 'aspect-[3/2]',
   }[aspect];
 
+  // Natural mode: full uncropped image at its own aspect ratio (no parallax — it needs crop)
+  if (natural) {
+    return (
+      <m.div
+        ref={containerRef}
+        className={`relative overflow-hidden bg-surface ${rounded} ${className}`}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ duration: revealDuration * 0.5, delay: revealDelay, ease: slowEase }}
+      >
+        <m.img
+          src={src}
+          alt={alt}
+          width={width}
+          height={height}
+          className="block w-full h-auto"
+          draggable={false}
+          initial={{ scale: 1.12, filter: 'blur(24px)', opacity: 0.6 }}
+          whileInView={{ scale: 1, filter: 'blur(0px)', opacity: 1 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{
+            scale: { duration: revealDuration, delay: revealDelay + 0.2, ease: slowEase },
+            filter: { duration: revealDuration * 0.8, delay: revealDelay + 0.1, ease: slowEase },
+            opacity: { duration: revealDuration * 0.6, delay: revealDelay, ease: slowEase },
+          }}
+        />
+        <m.div
+          style={{ opacity: overlayOpacity }}
+          className="absolute inset-0 bg-paper pointer-events-none"
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at center, transparent 55%, rgba(10,10,10,0.03) 100%)',
+          }}
+        />
+      </m.div>
+    );
+  }
+
   return (
     <m.div
       ref={containerRef}
@@ -67,6 +114,8 @@ export default function CinematicImage({
         <m.img
           src={src}
           alt={alt}
+          width={width}
+          height={height}
           className="w-full h-full object-cover"
           draggable={false}
           initial={{ scale: 1.18, filter: 'blur(24px)', opacity: 0.6 }}

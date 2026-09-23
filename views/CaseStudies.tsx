@@ -206,7 +206,7 @@ function CaseStudyCard({ cs, index }: { cs: CaseStudy; index: number }) {
             className="w-full aspect-video overflow-hidden bg-surface/20"
           >
             <img
-              src={cs.image ? urlFor(cs.image).width(800).height(450).url() : ''}
+              src={typeof cs.image === 'string' ? cs.image : cs.image ? urlFor(cs.image).width(800).height(450).url() : ''}
               alt={cs.title}
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
               loading="lazy"

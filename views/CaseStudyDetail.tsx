@@ -117,7 +117,7 @@ function ResultsSection({ cs }: { cs: CaseStudy }) {
         <RevealText>
           <p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-20 md:mb-32">Key Results</p>
         </RevealText>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-border/40">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0  ">
           {cs.results.map((result, i) => {
             const parts = result.split(' ');
             const metric = parts[0];
@@ -148,14 +148,14 @@ function ImageSection({ cs }: { cs: CaseStudy }) {
   return (
     <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-6 md:py-10">
       <RevealText duration={2}>
-        <Suspense fallback={<div className="aspect-video bg-surface animate-pulse" />}>
+        <Suspense fallback={<div className="min-h-[240px] md:min-h-[420px] bg-surface animate-pulse" />}>
           <CinematicImage
-            src={cs.image ? urlFor(cs.image).width(1200).height(800).url() : ''}
+            src={typeof cs.image === 'string' ? cs.image : cs.image ? urlFor(cs.image).width(1200).url() : ''}
             alt={cs.title}
-            aspect="16/9"
-            parallaxStrength={0.07}
+            natural
+            width={typeof cs.image === 'string' ? 940 : undefined}
+            height={typeof cs.image === 'string' ? 627 : undefined}
             revealDuration={2.2}
-            hoverZoom={1.02}
           />
         </Suspense>
       </RevealText>
@@ -412,9 +412,11 @@ function RelatedSection({ related }: { related: CaseStudy[] }) {
                 >
                   <div className="col-span-1 overflow-hidden">
                     <img
-                      src={rel.image ? urlFor(rel.image).width(600).height(400).url() : ''}
+                      src={typeof rel.image === 'string' ? rel.image : rel.image ? urlFor(rel.image).width(940).url() : ''}
                       alt={rel.title}
-                      className="w-full aspect-square object-cover grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
+                      width={typeof rel.image === 'string' ? 940 : undefined}
+                      height={typeof rel.image === 'string' ? 627 : undefined}
+                      className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-[1400ms]"
                       loading="lazy"
                     />
                   </div>

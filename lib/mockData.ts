@@ -8,13 +8,13 @@ export const MOCK_POSTS = [
     category: 'SEO',
     date: 'Jan 2026',
     readTime: '6 min read',
-    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    image: '/images/journal-article.jpg',
     content: [
       { _type: 'block', children: [{ _type: 'span', text: 'Search engine optimization remains the highest-ROI channel for B2B SaaS companies. In this article, we break down the exact frameworks we use to engineer compound organic growth for our clients.' }] }
     ],
     author: 'Shahana',
     authorRole: 'Founder & CEO',
-    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    authorAvatar: '/images/avatar-2.jpg',
     excerpt: 'Search engine optimization remains the highest-ROI channel for B2B SaaS companies.',
   },
   {
@@ -23,13 +23,13 @@ export const MOCK_POSTS = [
     category: 'AEO',
     date: 'Feb 2026',
     readTime: '8 min read',
-    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    image: '/images/journal-tech.jpg',
     content: [
       { _type: 'block', children: [{ _type: 'span', text: 'Answer Engine Optimization is the next frontier. As ChatGPT, Perplexity, and Gemini become primary search surfaces, brands need a new playbook for visibility.' }] }
     ],
     author: 'Shahana',
     authorRole: 'Founder & CEO',
-    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    authorAvatar: '/images/avatar-2.jpg',
     excerpt: 'Answer Engine Optimization is the next frontier for brand visibility.',
   },
   {
@@ -38,13 +38,13 @@ export const MOCK_POSTS = [
     category: 'Local SEO',
     date: 'Mar 2026',
     readTime: '5 min read',
-    image: { asset: { url: '/images/blog-placeholder.jpg' } },
+    image: '/images/journal-design.jpg',
     content: [
       { _type: 'block', children: [{ _type: 'span', text: 'Local search is where intent converts. We share our framework for building location-specific authority that drives foot traffic and qualified leads.' }] }
     ],
     author: 'Shahana',
     authorRole: 'Founder & CEO',
-    authorAvatar: { asset: { url: '/images/avatar.jpg' } },
+    authorAvatar: '/images/avatar-2.jpg',
     excerpt: 'Local search is where intent converts. Our framework for metro dominance.',
   },
 ];
@@ -103,7 +103,7 @@ export const MOCK_CASE_STUDIES = [
     outcomes: ['312% increase in organic pipeline', '180% increase in demo requests', '#1 rankings for 42 target keywords'],
     conclusion: 'The organic channel became the primary pipeline driver within 6 months.',
     results: ['+312% Organic pipeline growth', '+180% Demo requests', '42 Target keyword rankings'],
-    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+    image: '/images/image-case.png',
   },
   {
     title: 'Map Pack Dominance for Healthcare Network',
@@ -125,7 +125,7 @@ export const MOCK_CASE_STUDIES = [
     outcomes: ['Map pack visibility for 92% of target keywords', '4.8 average review rating', '3x increase in direction requests'],
     conclusion: 'The network now dominates local search across all service areas.',
     results: ['92% Map pack visibility', '4.8 Avg review rating', '3x Direction requests'],
-    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+    image: '/images/image-case.png',
   },
   {
     title: 'Architecture Portfolio SEO Rebuild',
@@ -147,6 +147,6 @@ export const MOCK_CASE_STUDIES = [
     outcomes: ['6x increase in organic impressions', '280% increase in project inquiries', '90+ PageSpeed score'],
     conclusion: 'The portfolio became a lead generation machine.',
     results: ['6x Organic impressions', '+280% Project inquiries', '90+ PageSpeed score'],
-    image: { asset: { url: '/images/case-study-placeholder.jpg' } },
+    image: '/images/image-case.png',
   },
 ];
