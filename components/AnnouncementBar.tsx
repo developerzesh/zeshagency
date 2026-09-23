@@ -135,11 +135,10 @@ export default function AnnouncementBar({ className = "" }: AnnouncementBarProps
                   "whitespace-nowrap sm:whitespace-normal animate-marquee sm:animate-none",
                 ].join(" ")}
               >
-                Proud to be recognized in the{" "}
+                Awarded for Innovative Marketing,{" "}
                 <span className={isDark ? "text-[#f2a92b] font-semibold" : "text-[#d98218] font-semibold"}>
                   30 Under 30
-                </span>{" "}
-                for Innovative Marketing
+                </span>
               </p>
             ))}
           </div>
