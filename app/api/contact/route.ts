@@ -75,12 +75,26 @@ export async function POST(request: Request) {
   const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+  const privateKey = process.env.EMAILJS_PRIVATE_KEY;
 
-  if (!serviceId || !templateId || !publicKey || serviceId.includes('here') || templateId.includes('here') || publicKey.includes('here')) {
+  const missingEmailJsConfig = [
+    (!serviceId || serviceId.includes('here')) && 'NEXT_PUBLIC_EMAILJS_SERVICE_ID',
+    (!templateId || templateId.includes('here')) && 'NEXT_PUBLIC_EMAILJS_TEMPLATE_ID',
+    (!publicKey || publicKey.includes('here')) && 'NEXT_PUBLIC_EMAILJS_PUBLIC_KEY',
+    !privateKey && 'EMAILJS_PRIVATE_KEY',
+  ].filter((name): name is string => Boolean(name));
+
+  if (missingEmailJsConfig.length > 0) {
     if (process.env.NODE_ENV === 'development') {
+      console.warn('[contact] EmailJS is not configured; returning preview success.', {
+        missingVariables: missingEmailJsConfig,
+      });
       return Response.json({ success: true, preview: true });
     }
 
+    console.error('[contact] EmailJS configuration is incomplete.', {
+      missingVariables: missingEmailJsConfig,
+    });
     return jsonError('Contact form delivery is temporarily unavailable.', 503);
   }
 
@@ -92,6 +106,7 @@ export async function POST(request: Request) {
         service_id: serviceId,
         template_id: templateId,
         user_id: publicKey,
+        accessToken: privateKey,
         template_params: {
           from_name: fullName,
           reply_to: email,
@@ -103,9 +118,16 @@ export async function POST(request: Request) {
     });
 
     if (!emailResponse.ok) {
+      const providerError = await emailResponse.text().catch(() => '[could not read EmailJS response body]');
+      console.error('[contact] EmailJS rejected the contact email.', {
+        status: emailResponse.status,
+        statusText: emailResponse.statusText,
+        response: providerError,
+      });
       return jsonError('Your request could not be sent. Please try again.', 502);
     }
-  } catch {
+  } catch (error) {
+    console.error('[contact] EmailJS request failed before a successful response.', error);
     return jsonError('Your request could not be sent. Please try again.', 502);
   }
 
