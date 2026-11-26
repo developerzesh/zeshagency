@@ -8,6 +8,7 @@ import { slowEase } from '../../lib/animationEasing';
 export default function SolutionsGrid() {
   const topSolutions = solutions;
   const diagnoses = [
+    'Launch, manage and grow on 7 quick commerce platforms.',
     'Your site has technical barriers preventing crawlers from indexing your highest-value pages.',
     'Slow, plugin-heavy architecture is killing your conversion rates and wasting your crawl budget.',
     'You\'re wasting ad spend on broad keywords while high-intent buyers research competitors — and convert elsewhere.',
@@ -91,7 +92,7 @@ export default function SolutionsGrid() {
                       transition={{ delay: 1.2, duration: 0.8 }}
                       className="font-lato text-5xl font-700 text-ink leading-none"
                     >
-                      9<span className="text-signal">+</span>
+                      {solutions.length}<span className="text-signal">+</span>
                     </m.span>
                   </div>
                 </div>
@@ -119,8 +120,8 @@ export default function SolutionsGrid() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10">
                   <div className="md:col-span-5">
-                    <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal mb-3">Diagnosis</p>
-                    <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.8]">&ldquo;{diagnoses[i]}&rdquo;</p>
+                    <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-signal mb-3">{s.slug.startsWith('quick-commerce') ? 'Service' : 'Diagnosis'}</p>
+                    <p className="font-lato text-sm md:text-base text-text-secondary leading-[1.8]">&ldquo;{diagnoses[i] ?? s.description}&rdquo;</p>
                   </div>
                   <div className="md:col-span-6 md:col-start-7">
                     <span className="font-lato text-[10px] tracking-[0.15em] uppercase text-signal mb-1 block">{s.shortTitle}</span>
@@ -131,10 +132,12 @@ export default function SolutionsGrid() {
                         <span key={f} className="font-lato text-[11px] text-text-muted">{f}</span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-3 pt-2 border-t border-border/30">
-                      <span className="font-lato text-[11px] font-medium text-signal">Evidence</span>
-                      <span className="font-lato text-[11px] text-text-muted italic">{s.outcomes[0]}</span>
-                    </div>
+                    {s.outcomes[0] && (
+                      <div className="flex items-center gap-3 pt-2 border-t border-border/30">
+                        <span className="font-lato text-[11px] font-medium text-signal">Evidence</span>
+                        <span className="font-lato text-[11px] text-text-muted italic">{s.outcomes[0]}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </m.a>
@@ -143,7 +146,7 @@ export default function SolutionsGrid() {
         </div>
         <RevealText delay={0.5}>
           <div className="mt-10 flex justify-start">
-            <a href="/solutions" className="font-lato text-sm font-medium text-signal sig-hover">View All 9 Capabilities →</a>
+            <a href="/solutions" className="font-lato text-sm font-medium text-signal sig-hover">View All {solutions.length} Services →</a>
           </div>
         </RevealText>
       </div>

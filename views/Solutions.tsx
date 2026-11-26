@@ -168,7 +168,7 @@ export default function Solutions() {
             {/* Right trust stats */}
             <div className="md:col-span-4 md:col-start-9 flex flex-col justify-center gap-10">
               {[
-                { value: '9', label: 'Specialized Capabilities' },
+                { value: String(solutions.length), label: 'Specialized Capabilities' },
                 { value: '$45M+', label: 'Client Revenue Impact' },
                 { value: '98%', label: 'Client Retention Rate' },
               ].map((stat, i) => (

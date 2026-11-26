@@ -139,6 +139,14 @@ export interface Solution {
 
 export const solutions: Solution[] = [
   {
+    slug: 'quick-commerce', title: 'Quick Commerce Services', shortTitle: 'Quick Commerce',
+    tagline: 'Sell Faster on Quick Commerce.',
+    description: 'Launch, manage and grow on 7 quick commerce platforms.',
+    features: ['Onboarding', 'Management', 'Ads'],
+    outcomes: [],
+    roadmap: [],
+  },
+  {
     slug: 'seo', title: 'Search Engine Optimization', shortTitle: 'SEO',
     tagline: 'Technical structures that outrank competitors.',
     description: 'Modern SEO is a technical battle. Search engines favor lightning-fast page loading speeds, semantic content depth, and strict structural hierarchy. We build programmatic frameworks that make indexing effortless for crawlers.',

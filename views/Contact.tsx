@@ -1,11 +1,33 @@
 ﻿"use client";
 
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
+import Script from 'next/script';
 import { m, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import RevealText from '../components/RevealText';
 import MagneticButton from '../components/MagneticButton';
 import PageTransition from '../components/PageTransition';
 import Testimonials from '../components/Testimonials';
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (callback: () => void) => void;
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          size: 'normal';
+          theme: 'dark' | 'light';
+          callback: (token: string) => void;
+          'expired-callback': () => void;
+          'error-callback': () => void;
+        },
+      ) => number;
+      getResponse: (widgetId: number) => string;
+      reset: (widgetId: number) => void;
+    };
+  }
+}
 
 const offices = [
   { city: 'India', type: 'HQ', email: 'Pune' },
@@ -23,6 +45,35 @@ export default function Contact() {
   const [email, setEmail] = useState('');
   const [websiteUrl, setWebsiteUrl] = useState('');
   const [message, setMessage] = useState('');
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const [recaptchaReady, setRecaptchaReady] = useState(false);
+  const [recaptchaLoadError, setRecaptchaLoadError] = useState(false);
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? '';
+  const recaptchaContainerRef = useRef<HTMLDivElement>(null);
+  const recaptchaWidgetIdRef = useRef<number | null>(null);
+
+  const initializeRecaptcha = useCallback(() => {
+    const recaptcha = window.grecaptcha;
+    const container = recaptchaContainerRef.current;
+    if (!recaptcha || !container || !recaptchaSiteKey || recaptchaWidgetIdRef.current !== null) return;
+
+    recaptcha.ready(() => {
+      if (!container.isConnected || recaptchaWidgetIdRef.current !== null) return;
+      try {
+        recaptchaWidgetIdRef.current = recaptcha.render(container, {
+          sitekey: recaptchaSiteKey,
+          size: 'normal',
+          theme: 'dark',
+          callback: setRecaptchaToken,
+          'expired-callback': () => setRecaptchaToken(''),
+          'error-callback': () => setRecaptchaLoadError(true),
+        });
+        setRecaptchaReady(true);
+      } catch {
+        setRecaptchaLoadError(true);
+      }
+    });
+  }, [recaptchaSiteKey]);
 
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMsg, setStatusMsg] = useState('');
@@ -35,68 +86,87 @@ export default function Contact() {
       return;
     }
 
-    setStatus('sending');
-    setStatusMsg('Encrypting pipeline telemetry...');
-
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey || serviceId.includes('here') || templateId.includes('here') || publicKey.includes('here')) {
-      // Local fallback simulation if credentials are not configured yet
-      setTimeout(() => {
-        setStatus('success');
-        setStatusMsg('Strategy audit requested. (Placeholder Mode: configured successfully!)');
-        setFullName('');
-        setEmail('');
-        setWebsiteUrl('');
-        setMessage('');
-      }, 1500);
+    if (!recaptchaSiteKey || !recaptchaReady || recaptchaLoadError) {
+      setStatus('error');
+      setStatusMsg(
+        !recaptchaSiteKey
+          ? 'reCAPTCHA is not configured. Please contact us directly.'
+          : recaptchaLoadError
+            ? 'reCAPTCHA could not load. Please refresh the page and try again.'
+            : 'reCAPTCHA is still loading. Please try again in a moment.',
+      );
       return;
     }
 
+    const recaptcha = window.grecaptcha;
+    const widgetId = recaptchaWidgetIdRef.current;
+    const verifiedToken = recaptcha && widgetId !== null && recaptchaToken ? recaptcha.getResponse(widgetId) : '';
+    if (!verifiedToken) {
+      setStatus('error');
+      setStatusMsg('Please confirm you are not a robot before submitting.');
+      return;
+    }
+
+    setStatus('sending');
+    setStatusMsg('Verifying your response and sending your request...');
+
     try {
-      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          service_id: serviceId,
-          template_id: templateId,
-          user_id: publicKey,
-          template_params: {
-            from_name: fullName,
-            reply_to: email,
-            website_url: websiteUrl,
-            message: message,
-          },
+          fullName,
+          email,
+          websiteUrl,
+          message,
+          recaptchaToken: verifiedToken,
         }),
       });
 
-      if (response.ok) {
-        setStatus('success');
-        setStatusMsg('Your discovery call request has been received. Our lead strategist will review your site and contact you within 12 hours.');
-        setFullName('');
-        setEmail('');
-        setWebsiteUrl('');
-        setMessage('');
-      } else {
-        const errorText = await response.text();
-        throw new Error(errorText || 'Failed to submit form.');
+      const result = await response.json().catch(() => ({})) as { error?: string; preview?: boolean };
+      if (!response.ok) {
+        throw new Error(result.error || 'Your request could not be submitted. Please try again.');
       }
-    } catch (err: any) {
+
+      setStatus('success');
+      setStatusMsg(result.preview
+        ? 'reCAPTCHA verified. Email delivery is not configured in this development environment.'
+        : 'Your discovery call request has been received. Our lead strategist will review your site and contact you within 12 hours.');
+      setFullName('');
+      setEmail('');
+      setWebsiteUrl('');
+      setMessage('');
+      setRecaptchaToken('');
+    } catch (err) {
       setStatus('error');
-      setStatusMsg(err.message || 'Submission failed. Please check credentials or try again later.');
+      setStatusMsg(err instanceof Error ? err.message : 'Submission failed. Please try again later.');
+    } finally {
+      if (widgetId !== null) {
+        window.grecaptcha?.reset(widgetId);
+        setRecaptchaToken('');
+      }
     }
   };
 
   return (
     <PageTransition>
+      {/* Explicit rendering keeps the v2 checkbox inside the form. */}
+      {recaptchaSiteKey && (
+        <Script
+          id="recaptcha-v2"
+          src="https://www.google.com/recaptcha/api.js?render=explicit"
+          strategy="afterInteractive"
+          onReady={initializeRecaptcha}
+          onError={() => setRecaptchaLoadError(true)}
+        />
+      )}
+
       <section className="relative pt-24 md:pt-40 pb-20 md:pb-36 overflow-hidden" onMouseMove={(e) => { mouseX.set(e.clientX - window.innerWidth / 2); mouseY.set(e.clientY - window.innerHeight / 2); }}>
         <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute top-1/4 -right-20 w-[500px] h-[500px] rounded-full bg-signal/[0.015] blur-[200px] pointer-events-none" />
         <m.div style={{ x: parallaxX, y: parallaxY }} className="absolute bottom-0 left-1/4 w-[400px] h-[400px] rounded-full bg-ink/[0.006] blur-[180px] pointer-events-none" />
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 relative z-10">
           <RevealText duration={1.4}><p className="font-lato text-[11px] tracking-[0.3em] uppercase text-signal mb-6">Discovery</p></RevealText>
-          <RevealText duration={2}><h1 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.04em] leading-[0.9] mb-10">Let's build a predictable revenue engine<span className="text-signal">.</span></h1></RevealText>
+          <RevealText duration={2}><h1 className="font-syne text-4xl md:text-6xl lg:text-7xl font-800 tracking-[-0.04em] leading-[0.9] mb-10">Let&apos;s build a predictable revenue engine<span className="text-signal">.</span></h1></RevealText>
           <RevealText delay={0.2} duration={1.6}><p className="font-lato text-lg md:text-xl text-text-secondary max-w-2xl leading-[1.85]">We respect your time. No generic sales pitches or follow-up call sequences. You will speak directly with our founders to analyze your organic search pipeline and conversion roadblocks.</p></RevealText>
         </div>
       </section>
@@ -161,6 +231,23 @@ export default function Contact() {
                     <p className="font-lato text-[10px] text-text-muted mt-2 italic">Be as thorough as you like — our founders read every submission.</p>
                   </div>
                 </RevealText>
+
+                <div
+                  ref={recaptchaContainerRef}
+                  className="min-h-[78px] w-full"
+                  aria-label="reCAPTCHA checkbox"
+                />
+
+                {!recaptchaSiteKey && (
+                  <p className="font-lato text-sm text-red-600" role="alert">
+                    reCAPTCHA checkbox is not configured for this site.
+                  </p>
+                )}
+                {recaptchaLoadError && (
+                  <p className="font-lato text-sm text-red-600" role="alert">
+                    reCAPTCHA could not load. Please refresh the page and try again.
+                  </p>
+                )}
 
                 <AnimatePresence mode="wait">
                   {status !== 'idle' && (

@@ -90,6 +90,18 @@ body {
   }
 }
 
+@keyframes quick-commerce-platform-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (max-width: 639px) {
+  .quick-commerce-marquee-track {
+    animation: quick-commerce-platform-marquee 22s linear infinite !important;
+    will-change: transform;
+  }
+}
+
 .sig-hover {
   position: relative;
 }
